@@ -3,6 +3,10 @@
 	<version date="20130706" code="1.221">
 		<tasks>
 			<task type="function">
+				<element name="git.php">Git</element>
+				<comment>Prise en charge de Git pour les mises à jour.</comment>
+			</task>
+			<task type="function">
 				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
 				<comment>Corrigé un bug dans les feuilles de personnage en JPG qui n'affichait pas correctement les avantages et désavantages.</comment>
 			</task>
