@@ -9,6 +9,7 @@ $types_ok = array(
 	'exectime' => 'Temps d\'exécution',
 	'error_tracking' => 'Traçage des erreurs',
 	'referer' => 'Différents referer',
+	'git' => 'Messages Git',
 );
 
 $arr = array();
