@@ -4,5 +4,5 @@ if (Users::$id !== 0) {
 }
 
 echo '<pre>';
-system('git status');
+system('git --git-dir ".git" status');
 echo '</pre>';
