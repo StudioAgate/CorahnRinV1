@@ -110,6 +110,9 @@ define('P_DEBUG',	(Users::$id == 1 ? true : false));
 ## On va créer la requête dans la variable $_PAGE
 require ROOT.DS.'request.php';
 
+## On charge le module Git au cas où une mise à jour est prévue.
+require ROOT.DS.'git.php';
+
 ##On définit le layout par défaut
 $_PAGE['layout'] = 'default';
 
