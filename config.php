@@ -27,6 +27,15 @@ define('P_LANG', Session::check('lang') ? Session::read('lang') : 'fr');
 define('P_FPDF_FONTPATH', ROOT.DS.'files'.DS.'fpdf'.DS.'fonts');
 define('P_FPDF_SYSTEM_TTF_FONTS', ROOT.DS.'files'.DS.'fpdf'.DS.'fonts');
 
+##Constantes liées à PHP Mailer
+define('P_MAIL_SMTP_HOST', 'auth.smtp.1and1.fr');
+define('P_MAIL_SMTP_USER', 'no-reply@pierstoval.com');
+define('P_MAIL_SMTP_PASSWORD', '');
+define('P_MAIL_SMTP_SECURE', 'TLS');
+define('P_MAIL_SMTP_PORT', 587);
+define('P_MAIL_DEFAULT_FROM_MAIL', P_MAIL_SMTP_USER);
+define('P_MAIL_DEFAULT_FROM_NAME', 'Corahn Rin');
+
 ## Couleur des différents types de variables pour les fonctions p_dump et p_dumpTxt
 define('P_DUMP_INTCOLOR', 'blue');
 define('P_DUMP_FLOATCOLOR', 'darkblue');
