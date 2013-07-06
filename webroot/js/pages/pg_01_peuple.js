@@ -1,0 +1,1 @@
+$(document).ready(function(){var values={},xhr;$('div[class*=span]').click(function(){$('div[class*=span]').removeClass('checked');$(this).addClass('checked');values.etape=1;values['01_peuple']=$(this).attr('id');sendMaj(values,'http://127.0.0.1:8080/esteren/create_char/02_metier.html')})});

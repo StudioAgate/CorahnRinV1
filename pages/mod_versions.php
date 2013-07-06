@@ -1,0 +1,183 @@
+<?php
+
+$versions_xml = file_get_contents(ROOT.DS.'versions.xml');
+
+$versions = new SimpleXMLElement($versions_xml);
+unset($versions_xml);
+
+$pagelist = array();
+foreach($_PAGE['list'] as $v) {
+	$pagelist[$v['page_getmod']] = $v['page_id'];
+}
+
+$updates = array();
+$total_maj = 0;
+
+
+$t = $db->req('SELECT %gen_step,%gen_mod,%gen_anchor FROM %%steps ORDER BY %gen_step ASC');//On génère la liste des étapes
+$steps = array();
+foreach ($t as $v) {//On formate la liste des étapes
+	$steps[$v['gen_mod']] = 'Générateur : Étape '.$v['gen_step'].' - '.$v['gen_anchor'];
+}
+
+foreach ($versions->version as $v) {
+	$day	= preg_replace('#^([0-9]{4})([0-9]{2})([0-9]{2})$#isU', '$3', (string)$v['date']);
+	$month	= preg_replace('#^([0-9]{4})([0-9]{2})([0-9]{2})$#isU', '$2', (string)$v['date']);
+	$year	= preg_replace('#^([0-9]{4})([0-9]{2})([0-9]{2})$#isU', '$1', (string)$v['date']);
+	$date = $day.'/'.$month.'/'.$year;
+	$code = (string) $v['code'];
+	$updates[$code] = array(
+		'tasks' => array(),
+		'date' => $date,
+	);
+	$i = 0;
+	foreach ($v->tasks->task as $task) {
+		$element = array(
+			'name' => (string)$task->element['name'],
+			'id' => (int)$task->element['id'],
+			'module' => (string) $task->element['module'],
+			'title' => (string)$task->element,
+			'comments' => array()
+		);
+		foreach ($task->comment as $comment) {
+			$element['comments'][] = (string) $comment;
+			$i++;
+			$total_maj++;
+		}
+		$updates[$code]['tasks'][(string)$task['type']][] = $element;
+	}
+	$updates[$code]['modifications'] = $i;
+}
+unset($v, $comment, $task, $day, $month, $year, $date, $code, $element, $versions);
+
+?>
+<div class="container">
+	<h2><?php tr('Dernières mises à jour'); ?></h2>
+	<p><?php echo tr('Nombre total de versions : ', true), ' ', count($updates); ?></p>
+	<p><?php echo tr('Nombre total de mises à jour : ', true), ' ', $total_maj; ?></p>
+	<ul id="versions">
+		<?php
+		unset($total_maj);
+			foreach ($updates as $code => $update) { ?>
+		<li class="version clearfix">
+			<h4 class="version_name">
+				<span class="icon-plus"></span>
+				<?php echo tr('Version', true), ' ', $code, ' &ndash; ', $update['date'];
+				if ($update['date'] === date('d/m/Y')) { echo ' <small style="color:#881111;">', tr('Aujourd\'hui !', true), '</small>'; }?>
+				<small>(<?php echo $update['modifications'];?> <?php tr('modification'); echo $update['modifications'] > 1 ? 's' : ''; ?>)</small>
+			</h4>
+			<div class="taskslist">
+			<?php
+			foreach($update['tasks'] as $type => $taskslist) {
+				?><div class="row-fluid">
+					<div class="span2">
+						<h5 class=""><?php
+							if		($type == 'page')	{ tr('Pages'); }
+							elseif	($type == 'function'){tr('Fonctionnalités'); }
+							elseif	($type == 'css')	{ tr('Design'); }
+							elseif	($type == 'db')		{ tr('Base de données'); }
+							elseif	($type == 'js')		{ tr('Javascript/jQuery'); }
+							else						{ tr('Autres'); }
+						?></h5>
+					</div>
+					<div class="span9"><?php
+					foreach ($taskslist as $task) {
+						$element = '';
+						if ($task['id'] && $_PAGE['list'][$task['id']]['page_anchor']) {
+							if($task['id'] == 62 && $task['module']) {
+								$mod = preg_replace('#^.*/([a-z0-9_]+)\.php$#isUu', '$1', $task['module']);
+								if (isset($steps[$mod])) { $element = mkurl(array('val'=>62, 'type'=>'tag', 'attr'=>array('class'=>'btn btn-link btn-block btn_all_links'), 'anchor'=>$steps[$mod], 'params'=>$mod)); }
+								//$element = mkurl(array());
+								unset($mod);
+							} else {
+								$element = mkurl(array('val'=>$task['id'], 'type'=>'tag', 'attr' => array('class'=>'btn btn-link btn-block btn_all_links')));
+							}
+						} elseif ($task['name']) {
+							foreach($pagelist as $get => $id) {
+								if (strpos($task['name'], $get) !== false) {
+									if ($_PAGE['list'][$id]['page_anchor']) {
+										$element = $_PAGE['list'][$id]['page_anchor'];
+									}
+								}
+							}
+							if (!$element) { $element = $task['title']; }
+						} else { $element = $task['title']; }
+						?>
+							<div class="row-fluid elements_list">
+								<div class="span4"><h6><?php tr($element);?></h6></div>
+								<div class="span8"><p><?php foreach ($task['comments'] as $com) { tr($com);echo '<br />'; }?></p></div>
+							</div>
+						<?php
+					}
+					?>
+					</div>
+				</div><?php
+			}
+			?>
+			<div><!--/.taskslist-->
+		</li><?php
+			}
+		unset($pagelist,$updates, $update, $code, $taskslist, $task, $element, $get, $id, $com, $type);
+		?>
+	</ul><!-- /ul#versions -->
+</div>
+	<?php
+	buffWrite('css', '
+	.btn_all_links { padding: 0; text-align: left; font-size: 1em; }
+	#versions, #versions ul, #versions li, #versions ul p, #versions ul h5 { margin-top: 0; }
+	#versions, #versions ul { list-style-type: none; }
+	#corps .container ul#versions li { font-size: 0.75em; }
+	li.version { margin-top: 20px; }
+	li.version h4:hover { cursor: pointer; }
+	.taskslist { display: none; }
+	.elements_list {
+		-webkit-border-radius: 15px;
+		   -moz-border-radius: 15px;
+		        border-radius: 15px;
+		margin: 0;
+		padding: 0 14px;
+	}
+	.taskslist {
+		margin-bottom: 7px;
+	}
+	.elements_list:hover {
+		-webkit-box-shadow: 0 0 10px #ddd;
+		-moz-box-shadow: 0 0 10px #ddd;
+		box-shadow: 0 0 10px #ddd;
+	}
+	li.version:after{
+		display: block;
+		content: "";
+		width: 92%;
+		height: 2px;
+		-webkit-box-shadow: 0 0 10px #bbb;
+		-moz-box-shadow: 0 0 10px #bbb;
+		box-shadow: 0 0 10px #bbb;
+		margin-bottom: 20px;
+	}
+	li.version:hover:after {
+		-webkit-box-shadow: 0 0 10px #d69999;
+		-moz-box-shadow: 0 0 10px #d69999;
+		box-shadow: 0 0 10px #d69999;
+	}
+	h5,h6,p { margin-top: 3px; margin-bottom: 3px; }
+	');
+
+	buffWrite('js', <<<JSFILE
+	$(document).ready(function(){
+		$('li.version h4').hover(function(){
+			$(this).find('span[class*=icon-]').addClass('icon-red');
+		}, function(){
+			$(this).find('span[class*=icon-]').removeClass('icon-red');
+		});
+		$('li.version h4').click(function(e){
+			if (!$(e.target).is('a')) {
+				$(this).parents('li.version').find('span[class*=icon-]').attr('class', function(){return $(this).is('.icon-plus') ? 'icon-minus' : 'icon-plus';});
+				$(this).parents('li.version').find('.taskslist').stop().slideToggle(400);
+			}
+		});
+	});
+JSFILE
+);
+
+

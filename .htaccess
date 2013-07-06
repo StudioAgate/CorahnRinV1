@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	#RewriteBase /esteren/
+	#RewriteRule ^$ /esteren/webroot/  [L]
+	RewriteRule ^(.*)$ /esteren/webroot/$1 [L]
+	#RewriteCond %{REQUEST_FILENAME} !-d
+	#RewriteCond %{REQUEST_FILENAME} !-f
+	#RewriteCond webroot/%{REQUEST_FILENAME} !-f [NC]
+	#RewriteCond webroot/%{REQUEST_FILENAME} !-d [NC]
+	RewriteRule ^(.*)$ index.php?request=$1 [L]
+</IfModule>
+ErrorDocument 404 404.html

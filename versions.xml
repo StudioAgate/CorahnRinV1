@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<versions>
+	<version date="20130706" code="1.221">
+		<tasks>
+			<task type="function">
+				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<comment>Corrigé un bug dans les feuilles de personnage en JPG qui n'affichait pas correctement les avantages et désavantages.</comment>
+			</task>
+		</tasks>
+	</version>
+	<version date="20130628" code="1.22">
+		<tasks>
+			<task type="db">
+				<element name="">Performances</element>
+				<comment>Modifié les structures de la majorité des tables pour économiser de l'espace et améliorer les performances de recherche.</comment>
+			</task>
+			<task type="db">
+				<element name="">Tables</element>
+				<comment>Ajouté une table pour stocker les modifications du personnage.</comment>
+				<comment>Corrigé les erreurs survenues lors de l'amélioration des performances.</comment>
+			</task>
+			<task type="function">
+				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<comment>Ajouté une fonctionnalité permettant de stocker les modifications du personnage dans la BDD.</comment>
+			</task>
+			<task type="page">
+				<element name="pages/mod_sitemap.php" id="67"></element>
+				<comment>Ajouté un générateur automatique de sitemap.</comment>
+			</task>
+		</tasks>
+	</version>
+	<version date="20130623" code="1.211">
+		<tasks>
+			<task type="page">
+				<element name="pages/mod_campaigns.php" id="60"></element>
+				<comment>Corrigé un bug mineur d'affichage au cas où le joueur n'a aucune partie en tant que maître de jeu.</comment>
+			</task>
+			<task type="function">
+				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<comment>Corrigé un bug mineur dans la gestion des tableaux une fois que le personnage était créé avec le générateur.</comment>
+			</task>
+			<task type="page">
+				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/16_disciplines.php"></element>
+				<comment>Corrigé un bug mineur dans la gestion des tableaux lors de la récupération des disciplines.</comment>
+			</task>
+		</tasks>
+	</version>
+	<version date="20130623" code="1.210">
+		<tasks>
+			<task type="page">
+				<element name="pages/mod_index.php" id="1"></element>
+				<comment>Ajout d'une information concernant le wiki de Corahn-Rin dans la page d'accueil.</comment>
+			</task>
+			<task type="page">
+				<element name="pages/mod_campaigns.php" id="60"></element>
+				<comment>Corrigé tous les bugs concernant les invitations et les envois de mails.</comment>
+				<comment>Chaque Maître de Jeu peut désormais inviter des personnages en cours de campagne.</comment>
+				<comment>Le Maître de Jeu peut désormais inviter plusieurs personnages appartenant au même utilisateur.</comment>
+			</task>
+			<task type="page">
+				<element name="pages/mod_create_campaign.php" id="61"></element>
+				<comment>Le Maître de Jeu peut désormais inviter plusieurs personnages appartenant au même utilisateur.</comment>
+			</task>
+			<task type="function">
+				<element name="functions/func_mkurl.php">Générateur d'urls</element>
+				<comment>Ajouté une gestion des urls externes.</comment>
+			</task>
+			<task type="db">
+				<element name="est_jobs">Métiers</element>
+				<comment>Ajouté un métier non officiel "Dàmàthair".</comment>
+			</task>
+		</tasks>
+	</version>
+	<version date="20130620" code="1.202">
+		<tasks>
+			<task type="function">
+				<element name="">Bugs mineurs</element>
+				<comment>Correction de bugs mineurs concernant les disciplines et leur mise à jour, ainsi que la librairie Hash de CakePHP.</comment>
+			</task>
+			<task type="function">
+				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<comment>Dans la 3e page du fichier PDF original, les daols de braise, d'azur et d'argent sont désormais correctement positionnés.</comment>
+			</task>
+			<task type="page">
+				<element name="pages/mod_index.php" id="1"></element>
+				<comment>Légère modification du texte d'accueil.</comment>
+			</task>
+			<task type="page">
+				<element name="pages/mod_register.php" id="56"></element>
+				<comment>Corrigé les bugs concernant l'inscription.</comment>
+			</task>
+			<task type="page">
+				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/20_finalisation.php"></element>
+				<comment>Remanié la façon d'associer le personnage. Désormais l'utilisateur pourra directement accéder aux pages d'inscription ou de connexion pour associer son personnage à son compte.</comment>
+			</task>
+		</tasks>
+	</version>
+	<version date="20130619" code="1.201">
+		<tasks>
+			<task type="page">
+				<element name="pages/mod_spend_exp.php" id="63"></element>
+				<comment>Corrigé un bug calculant de façon incorrecte l'XP dépensée pour les disciplines ainsi que pour la rapidité et la défense.</comment>
+			</task>
+		</tasks>
+	</version>
+	<version date="20130618" code="1.2">
+		<tasks>
+			<task type="page">
+				<element name="pages/mod_admin_errors.php" id="59"></element>
+				<comment>Ajouté un puissant système d'examen des erreurs, dont les erreurs 404, celles liées à la base de données, l'indexation des différents "referer", tracking des erreurs</comment>
+			</task>
+			<task type="page">
+				<element name="pages/mod_admin_my_chars.php" id="58"></element>
+				<comment>Ajouté la possibilité de dépenser de l'expérience pour le personnage.</comment>
+			</task>
+			<task type="page">
+				<element name="pages/mod_register.php" id="56"></element>
+				<comment>Ajouté l'envoi d'un mail de confirmation pour l'inscription.</comment>
+			</task>
+			<task type="page">
+				<element name="pages/mod_create_char.php" id="62"></element>
+				<comment>Conversion de toutes les pages du générateur en un module unique "Générateur de personnage".</comment>
+				<comment>Modifié le design du générateur pour ajouter la liste des étapes au-dessus de l'étape elle-même pour voir tous les liens.</comment>
+			</task>
+			<task type="page">
+				<element name="pages/mod_ajax.php" id="51"></element>
+				<comment>Conversion de tous les modules AJAX pour s'adapter à la nouvelle architecture de développement.</comment>
+			</task>
+			<task type="page">
+				<element name="pages/mod_index.php" id="1"></element>
+				<comment>Modifié la page d'accueil, le site se nomme désormais "Corahn Rin".</comment>
+				<comment>Ajouté quelques liens sous forme de "focus" pour le référencement.</comment>
+			</task>
+			<task type="function">
+				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<comment>Ajouté la feuille de personnage au format PDF.</comment>
+				<comment>Lorsque le personnage est modifié, les fichiers en cache sont automatiquement supprimés pour être générés à nouveau.</comment>
+			</task>
+			<task type="function">
+				<element name="functions/class_mailer*.php">Gestionnaire d'envois de mail</element>
+				<comment>La librairie "PhpMailer" a été ajoutée pour pouvoir gérer les envois de mails.</comment>
+			</task>
+			<task type="page">
+				<element name="pages/mod_campaigns.php" id="60"></element>
+				<comment>Ajouté un gestionnaire de campagnes.</comment>
+				<comment>Ajouté un lien pour donner des récompenses au personnage, notamment de l'expérience.</comment>
+			</task>
+			<task type="page">
+				<element name="pages/mod_create_campaign.php" id="61"></element>
+				<comment>Ajouté un formulaire pour créer une partie.</comment>
+				<comment>Ajouté la gestion des invitations par envoi de mail.</comment>
+			</task>
+			<task type="page">
+				<element name="pages/mod_versions.php" id="42"></element>
+				<comment>Changé le design de la page.</comment>
+			</task>
+			<task type="page">
+				<element name="pages/mod_see_character" id="47"></element>
+				<comment>Ajouté la possibilité de télécharger les feuilles de personnage aux formats ZIP et PDF.</comment>
+				<comment>Le format ZIP contient toutes les feuilles de personnage générées.</comment>
+			</task>
+			<task type="page">
+				<element name="pages/mod_sheet.php" id="49"></element>
+				<comment>Changé le type MIME en fonction du contenu téléchargé.</comment>
+				<comment>L'url contient désormais l'extension dépendant du fichier téléchargé</comment>
+			</task>
+			<task type="function">
+				<element name="functions/func_mkurl.php">Générateur d'urls</element>
+				<comment>Refonte de son fonctionnement et de son comportement.</comment>
+				<comment>Meilleure gestion des paramètres d'url et des attributs HTML.</comment>
+				<comment>Modification de tous les fichiers du site pour correspondre au nouveau fonctionnement.</comment>
+				<comment>Ajouté la gestion de l'extension de fichier dans l'url.</comment>
+			</task>
+			<task type="function">
+				<element name="">Cache</element>
+				<comment>Mise en cache de plusieurs éléments, dont les requêtes SQL et les feuilles de personnages.</comment>
+			</task>
+			<task type="function">
+				<element name="">Gestionnaire de modules</element>
+				<comment>Pour gagner de la mémoire, tous les modules sont chargés par une unique fonction.</comment>
+			</task>
+			<task type="function">
+				<element name="">Gestionnaire de requêtes</element>
+				<comment>Le gestionnaire de requêtes génère désormais correctement les données GET et POST en fonction de la requête passée dans l'url.</comment>
+			</task>
+			<task type="css">
+				<element name="">La plupart des fichiers css</element>
+				<comment>Les fichiers css sont désormais minimisés en taille.</comment>
+			</task>
+			<task type="js">
+				<element name="">La plupart des fichiers js</element>
+				<comment>Les fichiers js sont désormais minimisés en taille.</comment>
+			</task>
+			<task type="db">
+				<element name="">Performances</element>
+				<comment>Modification de certaines requêtes à la base de données pour qu'elles soient exécutées de façon optimale.</comment>
+			</task>
+			<task type="db">
+				<element name="">Organisation des tables</element>
+				<comment>Modifié la structure de plusieurs tables, enlevé certaines tables d'associations pour maximiser la rapidité des requêtes</comment>
+			</task>
+		</tasks>
+	</version>
+	<version date="20130526" code="1.12">
+		<tasks>
+			<task type="page">
+				<element name="pages/mod_admin.php" id="34"></element>
+				<comment>Ajouté un gestionnaire de visualisation des erreurs (pour les utilisateurs disposant des droits).</comment>
+			</task>
+			<task type="function">
+				<element name="config.php">Configuration du site</element>
+				<comment>Corrigé un bug dans la variable qui gère l'url du site.</comment>
+			</task>
+		</tasks>
+	</version>
+	<version date="20130523" code="1.11">
+		<tasks>
+			<task type="css">
+				<element name="css/main.css">CSS Général</element>
+				<comment>Embelli les boîtes d'alertes (fond, bordure et couleur du texte).</comment>
+			</task>
+			<task type="page">
+				<element name="pages/admin_my_chars.php" id="58"></element>
+				<comment>Ajouté une page permettant aux joueurs connectés de modifier leur personnage.</comment>
+				<comment>Les caractéristiques des personnages seront organisées en onglets.</comment>
+				<comment>Ajouté les onglets "Description et histoire", "Inventaire" et "Arts anciens"</comment>
+			</task>
+			<task type="page">
+				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/02_metier.php"></element>
+				<comment>Supprimé le métier "Religieux du temple", remplacé par six nouveaux métiers en fonction des ordres du Temple (Moines,Prêtres,Clercs,Vecteurs,Sigires et Lames).</comment>
+				<comment>Ajouté un tri en fonction du type de métier, s'il est officiel ou non.</comment>
+			</task>
+			<task type="page">
+				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/20_finalisation.php"></element>
+				<comment>Corrigé un bug qui déconnectait l'utilisateur après avoir associé un personnage à son compte.</comment>
+			</task>
+			<task type="function">
+				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<comment>Ajouté dans les feuilles de personnage les valeurs des champs "Artefacts","Arts de Combat","Ogham","Miracles".</comment>
+				<comment>Corrigé l'affichage des armures dans l'inventaire, pour permettre d'afficher 4 éléments au lieu d'un seul.</comment>
+			</task>
+		</tasks>
+	</version>
+	<version date="20130521" code="1.10">
+		<tasks>
+			<task type="function">
+				<element name="functions_func_isCorrectEmail.php">Validateur d'adresse mail</element>
+				<comment>Corrigé un bug qui ne vérifiait pas correctement l'adresse mail et empêchait de s'inscrire.</comment>
+			</task>
+			<task type="function">
+				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<comment>Suppression des fichiers de stockage des personnages. Désormais, tous les personnages sont stockés dans la base de données.</comment>
+			</task>
+		</tasks>
+	</version>
+	<version date="20130518" code="1.09">
+		<tasks>
+			<task type="function">
+				<element name="functions_func_isCorrectEmail.php">Validateur d'adresse mail</element>
+				<comment>Créé une fonction pour valider les adresses mail des utilisateurs.</comment>
+			</task>
+			<task type="function">
+				<element name="class/class_users.php">Gestionnaire d'utilisateurs</element>
+				<comment>Ajouté une vérification pour empêcher les adresses mail intempestives.</comment>
+			</task>
+		</tasks>
+	</version>
+	<version date="20130517" code="1.08">
+		<tasks>
+			<task type="function">
+				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<comment>Désormais, le champ "faits marquants" est correctement affiché.</comment>
+				<comment>Désormais, l'avantage "Lettré" n'apporte plus un niveau supplémentaire dans un domaine, mais un bonus classique.</comment>
+				<comment>Ajouté une méthode pour enregistrer le personnage dans la base de données.</comment>
+				<comment>Ajouté une méthode pour associer un utilisateur à un personnage.</comment>
+				<comment>Ajouté des messages d'erreur en cas de problème lors de la récupération ou de la création d'un personnage.</comment>
+				<comment>Rectifié les erreurs d'affichage pour les noms de personnage ou de joueurs trop longs, ainsi que l'affichage de la liste des équipements.</comment>
+			</task>
+			<task type="function">
+				<element name="functions/func_goto404.php">Gestionnaire d'erreurs 404</element>
+				<comment>Ajouté un système de renvoi vers la page 404 en cas de fichier non trouvé.</comment>
+				<comment>Traçage des erreurs 404 dans un fichier log.</comment>
+			</task>
+			<task type="function">
+				<element name="class/class_users.php">Gestionnaire d'utilisateurs</element>
+				<comment>Ajouté une classe objet pour gérer les utilisateurs.</comment>
+			</task>
+			<task type="page">
+				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/19_description_histoire.php"></element>
+				<comment>Ajouté le champ "Faits marquants", et remplacé la zone de texte pour "Description" par un champ simple.</comment>
+			</task>
+			<task type="page">
+				<element name="pages/mod_see_character.php" id="47"></element>
+				<comment>Ajouté des détails sur chaque personnage, comme le métier, la contrée d'origine et le peuple.</comment>
+				<comment>Ajouté des filtres par nom, métier, peuple ou origine pour trier les personnages.</comment>
+			</task>
+			<task type="page">
+				<element page="pages/mod_404.php" id="53"></element>
+				<comment>Ajouté une page d'erreur 404.</comment>
+			</task>
+			<task type="page">
+				<element name="pages/mod_admin.php" id="34"></element>
+				<comment>Ajouté un panneau d'administration pour les utilisateurs connectés.</comment>
+			</task>
+			<task type="page">
+				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/03_naissance.php"></element>
+				<comment>Corrigé l'erreur qui empêchait de voir la carte de Gwidre.</comment>
+			</task>
+			<task type="page">
+				<element name="">Amélioration des domaines, Bonus divers ajoutés aux domaines</element>
+				<comment>Ajouté un indicateur numérique sur les barres de progression des domaines, afin de voir quel est le niveau du domaine.</comment>
+			</task>
+			<task type="page">
+				<element name="mod_14_domaines_amelio.php"></element>
+				<comment>Ajouté une indication sur les coûts généraux en XP, afin de prévenir l'utilisateur.</comment>
+			</task>
+			<task type="css">
+				<element name="css/main.css">CSS Général</element>
+				<comment>Ajout d'icônes d'indication pour les boîtes de notification (info, erreur, alerte...).</comment>
+			</task>
+		</tasks>
+	</version>
+	<version date="20130511" code="1.07">
+		<tasks>
+			<task type="page">
+				<element name="pages/mod_login.php" id="48"></element>
+				<comment>Ajouté un système de connexion et de comptes d'utilisateurs pour avoir accès à la liste de ses propres personnages.</comment>
+			</task>
+			<task type="function">
+				<element name="functions/func_mkurl.php">Générateur d'urls</element>
+				<comment>Mise en place de la réécriture d'urls.</comment>
+				<comment>Les paramètres de l'url sont désormais traités par un gestionnaire de requêtes, et non plus uniquement par les requêtes GET.</comment>
+			</task>
+			<task type="function">
+				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<comment>Désormais, le générateur de feuille de personnage peut créer une feuille printer friendly.</comment>
+			</task>
+			<task type="page">
+				<element name="pages/mod_sheet.php" id="49"></element>
+				<comment>Ajouté une page pour pouvoir visualiser les feuilles de personnage générées.</comment>
+			</task>
+		</tasks>
+	</version>
+	<version date="20130504" code="1.06">
+		<tasks>
+			<task type="function">
+				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<comment>Désormais, les scores de Vigueur et Traumatismes tiendront bien compte des revers.</comment>
+				<comment>Correction de l'affichage de la description et de l'histoire qui prenait beaucoup de temps dans le cas d'un texte très important.</comment>
+			</task>
+		</tasks>
+	</version>
+	<version date="20130502" code="1.05">
+		<tasks>
+			<task type="function">
+				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<comment>Le Rindath et l'Exaltation augmentent bel et bien de 5 lorsque les disciplines correspondantes "Sigil Rann" ou "Miracles" sont choisies.</comment>
+				<comment>Correction des bonus aux domaines appliqués à l'étape 15. Ceux-ci sont désormais bien pris en compte.</comment>
+				<comment>Correction de l'affichage des points de traumatisme et d'endurcissement sur la feuille de personnage. Les "points" sont désormais bien positionnés par rapport aux cercles de la feuille de personnage.</comment>
+				<comment>Baissé la qualité des images générées pour les feuilles de personnage. Chaque feuille pèsera désormais entre 300 et 800 Ko en moyenne, contre plus d'1Mo auparavant</comment>
+			</task>
+			<task type="css">
+				<element name="css/main.css">Menu</element>
+				<comment>Amélioré l'affichage du menu au cas où deux lignes de liens s'affichent.</comment>
+			</task>
+			<task type="page">
+				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/02_metier.php"></element>
+				<comment>Correction du fait que le métier "Religieux du Temple" n'affichait pas le domaine secondaire "Combat au Contact" qui peut normalement être choisi.</comment>
+				<comment>Mise à jour du système par rapport aux nouvelles informations dans la base de données.</comment>
+			</task>
+			<task type="page">
+				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/18_equipements.php"></element>
+				<comment>Supprimé le bouton "Valider les modifications". Celles-ci se valident désormais au clic sur une arme ou armure, et lors de la perte du focus sur les champs de texte.</comment>
+			</task>
+			<task type="page">
+				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/19_description_histoire.php"></element>
+				<comment>Supprimé le bouton "Valider les modifications". Celles-ci se valident désormais au clic sur "Homme" ou "Femme", et lors de la perte du focus sur les champs de texte.</comment>
+			</task>
+			<task type="page">
+				<element name="pages/mod_see_character.php" id="47"></element>
+				<comment>Ajouté une page pour pouvoir visualiser les personnages créés.</comment>
+			</task>
+			<task type="page">
+				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/13_domaines_primsec.php"></element>
+				<comment>Suppression de l'opacité sur les boutons servant à déselectionner un domaine.</comment>
+				<comment>Ajout d'une explication sur la façon de déselectionner un domaine choisi.</comment>
+			</task>
+			<task type="function">
+				<element name="functions/func_createZip.php">Création de fichiers ZIP</element>
+				<comment>Ajout d'une fonction en vue de transférer les feuilles de personnage par des fichiers ZIP plutôt qu'en brut.</comment>
+			</task>
+		</tasks>
+	</version>
+	<version date="20130429" code="1.04">
+		<tasks>
+			<task type="function">
+				<element name="functions/class_translate.php">Fonction de traduction</element>
+				<comment>Correction des erreurs d'encodage lors de l'exécution des expressions rationnelles.</comment>
+			</task>
+			<task type="page">
+				<element name="">Toutes les pages</element>
+				<comment>Ajout de la fonction de traduction pour l'affichage de tous les textes du site.</comment>
+			</task>
+			<task type="function">
+				<element name="includes/inc_nav.php">Menu</element>
+				<comment>Correction de l'affichage de la liste des liens du menu, traduction de ces liens.</comment>
+			</task>
+			<task type="function">
+				<element name="functions/func_mkurl.php">Générateur d'urls</element>
+				<comment>Traduction de toutes les ancres des liens générés à l'aide de cette fonction.</comment>
+			</task>
+		</tasks>
+	</version>
+	<version date="20130428" code="1.03">
+		<tasks>
+			<task type="function">
+				<element name="functions/class_translate.php">Fonction de traduction</element>
+				<comment>Transformation de la fonction de traduction en une classe objet.</comment>
+				<comment>Ajout d'un système de gestion de l'écriture/lecture/mise à jour des textes traduits (visible par le webmaster).</comment>
+				<comment>Ajout d'un menu déroulant pour changer la langue.</comment>
+			</task>
+		</tasks>
+	</version>
+	<version date="20130427" code="1.02">
+		<tasks>
+			<task type="page">
+				<element name="pages/mod_traduction.php" id="43"></element>
+				<comment>Ajout d'une page relative à la traduction.</comment>
+				<comment>Ajout des formulaires pour permettre aux utilisateurs de traduire un texte et de le proposer.</comment>
+				<comment>Modification de toutes les pages pour récupérer un maximum de texte à traduire.</comment>
+			</task>
+			<task type="page">
+				<element name="pages/mod_index.php" id="1"></element>
+				<comment>Légère modification du texte d'accueil.</comment>
+			</task>
+			<task type="page">
+				<element name="pages/mod_versions.php" id="42"></element>
+				<comment>Amélioration de l'affichage de la page.</comment>
+			</task>
+			<task type="page">
+				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/11_des_avtg.php"></element>
+				<comment>Ajout d'un commentaire concernant le nombre de points d'XP maximum donné par les désavantages comme étant fixé à 80.</comment>
+			</task>
+			<task type="function">
+				<element name="includes/inc_nav.php">Menu</element>
+				<comment>Gestion des pages affichées par défaut dans le menu.</comment>
+			</task>
+			<task type="function">
+				<element name="functions/class_translate.php">Fonction de traduction</element>
+				<comment>Lorsque la fonction est exécutée, elle enregistre la liste des expressions à traduire.</comment>
+			</task>
+			<task type="js">
+				<element name="js/mod_versions.js"></element>
+				<comment>Ajout de l'accordéon.</comment>
+			</task>
+			<task type="css">
+				<element name="css/mod_versions.css"></element>
+				<comment>Amélioration du design.</comment>
+			</task>
+			<task type="db">
+				<element name="est_pages">Pages</element>
+				<comment>La page d'accueil n'est plus affichée dans le menu par défaut.</comment>
+			</task>
+		</tasks>
+	</version>
+	<version date="20130426" code="1.01">
+		<tasks>
+			<task type="page">
+				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/11_des_avtg.php"></element>
+				<comment>Ajout d'un tri par nom pour l'affichage.</comment>
+			</task>
+			<task type="page">
+				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/18_equipements.php"></element>
+				<comment>Suppression de la restriction des armes et armures, on peut désormais voir toutes les armes et armures.</comment>
+				<comment>Les armures ne donnant aucun point de protection ne sont plus affichées (les casques en l'occurrence).</comment>
+			</task>
+			<task type="function">
+				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<comment>Correction d'un bug sur l'affichage des points de traumatismes. Il en affichait 1 par défaut.</comment>
+				<comment>Changement de la sauvegarde du nom du personnage : le dossier créé contient désormais un simple hash md5 du nom du personnage. Cela permettra à terme d'éviter les problèmes d'encodage d'url, notamment pour les caractères spéciaux (apostrophes, guillemets...)</comment>
+			</task>
+			<task type="function">
+				<element name="functions/class_translate.php">Fonction de traduction</element>
+				<comment>Ajout d'une fonction pour préparer les futures traductions.</comment>
+			</task>
+			<task type="css">
+				<element name="css/main.css">CSS Général</element>
+				<comment>Suppression de l'ombrage rouge foncé sur les titres.</comment>
+			</task>
+			<task type="db">
+				<element name="est_avdesv">Avantages et désavantages</element>
+				<comment>Modification de la description du désavantage "Maladif" : enlève définitivement 1 pt de Vigueur.</comment>
+			</task>
+			<task type="db">
+				<element name="est_pages">Pages</element>
+				<comment>Ajout d'une page "Versions" permettant d'afficher les mises à jour effectuées sur le site.</comment>
+				<comment>Ajout d'un champ permettant de définir si la page s'affiche dans le menu ou pas (mise en pratique ultérieure).</comment>
+			</task>
+		</tasks>
+	</version>
+	
+</versions>
