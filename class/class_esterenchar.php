@@ -3,10 +3,10 @@
 
 class EsterenChar {
 
-	private $base_char = array();
-	private $char = array();
-	private $id = 0;
-	private $user_id = 0;
+	private $base_char = array();//Le personnage récupéré dans la BDD ou dans la session (utilisé pour voir les différences et stocker les modifications)
+	private $char = array();//Le personnage en cours d'édition ou de modification
+	private $id = 0;//L'id du personnage
+	private $user_id = 0;//L'id de l'utilisateur associé au personnage
 
 	/**
 	 * L'objet de la classe bdd
@@ -14,9 +14,23 @@ class EsterenChar {
 	 */
 	private $db;
 
+	/**
+	 * Récupère l'id. Si en paramètre on a l'id de la session en cours, c'est qu'on enregistre temporairement un personnage
+	 * @param string $param L'id de la session, sinon rien
+	 * @return number L'id du personnage
+	 */
+	public function id($param = false) { if ($param === session_id()) { $this->id = $param; } return $this->id; }
 
-	public function id($param = false) { if ($param === session_id()) { $this->id = $param; } else { return $this->id; } }
+	/**
+	 * Récupère le nom du personnage
+	 * @return string Le nom du personnage
+	 */
 	public function name() { return $this->get('details_personnage.name'); }
+
+	/**
+	 * Récupère l'utilisateur associé au personnage
+	 * @return number L'id de l'utilisateur associé
+	 */
 	public function user_id() { return $this->user_id; }
 
 	/**
@@ -229,6 +243,25 @@ class EsterenChar {
 	 */
 	public function update_to_db() {
 		global $_PAGE;
+
+		$compare_after = p_array_diff_recursive($this->char, $this->base_char, true);
+		$compare_before = p_array_diff_recursive($this->base_char, $this->char, true);
+		$sql2 = '';
+// 		if (!empty($compare_after) && !empty($compare_before)) {
+			$compare_before = $this->_encrypt($compare_before);
+			$compare_after = $this->_encrypt($compare_after);
+			$datas_compare = array(
+				'charmod_content_before' => $compare_before,
+				'charmod_content_after' => $compare_after,
+				'charmod_date' => time(),
+				'charmod_page_module' => $_PAGE['get'],
+				'charmod_page_request' => $this->_encrypt($_PAGE['request']),
+				'char_id' => $this->id,
+				'user_id' => Users::$id,
+			);
+			$sql2 = 'INSERT INTO %%charmod SET %%%fields';
+// 		}
+
 		$datas = array(
 			'char_name' => $this->get('details_personnage.name'),
 			'char_job' => $this->get('metier.id') ? $this->get('metier.id') : $this->get('metier.name'),
@@ -247,26 +280,39 @@ class EsterenChar {
 				%char_people = :char_people,
 				%char_date_update = :char_date_update
 			WHERE %char_id = :char_id ';
-
-		$compare_after = p_array_diff_recursive($this->char, $this->base_char, true);
-		$compare_before = p_array_diff_recursive($this->base_char, $this->char, true);
-		$sql2 = '';
-		if (!empty($compare_after) && !empty($compare_before)) {
-			$compare_before = $this->_encrypt($compare_before);
-			$compare_after = $this->_encrypt($compare_after);
-			$datas_compare = array(
-				'charmod_content_before' => $compare_before,
-				'charmod_content_after' => $compare_after,
-				'charmod_date' => time(),
-				'charmod_page_module' => $_PAGE['get'],
-				'charmod_page_request' => $this->_encrypt($_PAGE['request']),
-				'char_id' => $this->id,
-				'user_id' => Users::$id,
-			);
-			$sql2 = 'INSERT INTO %%charmod SET %%%fields';
-		}
 		return $this->db->noRes($sql, $datas) &&
 			((!empty($sql2) && isset($datas_compare)) ? $this->db->noRes($sql2, $datas_compare) : true);
+	}
+
+	/**
+	 * Détruit le personnage dans la base de données
+	 */
+	public function delete_char() {
+		if (!$this->id) {
+			return false;
+		}
+
+		$req = $this->db->row('SELECT %char_id, %char_name FROM %%characters WHERE %char_id = ?', array($this->id));
+
+		if ($req === false) {
+			Session::setFlash('Le personnage n\'a pas été trouvé dans la base de données, il a peut-être déjà été supprimé.', 'warning');
+			return false;
+		} elseif ($req && isset($req['char_id']) && isset($req['char_name'])) {
+			$this->char = array();
+			if ($this->update_to_db()) {
+				$ret = $this->db->noRes('DELETE FROM %%characters WHERE %char_id = ?', array($req['char_id']));
+				if (!$ret) {
+					Session::setFlash('Une erreur est survenue lors de la suppression du personnage. #001', 'error');
+				}
+				return $ret;
+			} else {
+				Session::setFlash('Erreur lors de la mise à jour du personnage', 'error');
+				return false;
+			}
+		} else {
+			Session::setFlash('Une erreur inconnue est survenue lors de la suppression du personnage. #002', 'error');
+			return false;
+		}
 	}
 
 	/**

@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+	<version date="20130707" code="1.23">
+		<tasks>
+			<task type="function">
+				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<comment>Désormais, un joueur peut supprimer son personnage.</comment>
+				<comment>La suppression est désormais indiquée dans la table des modifications des personnages.</comment>
+			</task>
+			<task type="page">
+				<element page="pages/mod_spend_exp.php" id="63" module="modules_spend_exp/mod__post.php"></element>
+				<comment>Corrigé un bug mineur provocant un mauvais calcul d'XP lors de la dépense d'XP.</comment>
+			</task>
+		</tasks>
+	</version>
 	<version date="20130706" code="1.221">
 		<tasks>
 			<task type="function">

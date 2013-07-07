@@ -41,7 +41,7 @@ $modules_exp = array(
 		<fieldset>
 			<h3><?php tr($_PAGE['anchor']); ?></h3>
 			<h4><?php echo tr('Personnage', true), ' : ', $char->name(); ?></h4>
-			<h3 class="well well-small"><?php echo tr('Expérience ', true), ' : <span id="exp">', $char->get('experience.reste'), '</span>'; ?></h3>
+			<h3 class="well well-small"><?php echo tr('Expérience ', true), ' : <span id="exp">', (int) $char->get('experience.reste'), '</span>'; ?></h3>
 			<p><button id="send_datas" class="btn btn-inverse"><?php tr('Envoyer'); ?></button></p>
 			<ul class="nav nav-tabs">
 				<?php
@@ -206,8 +206,8 @@ $(document).ready(function(){
 		$(this).find('.modal-body').text('');
 	});
 	$(document).data({
-		exp: parseInt($('#exp').text(), 10),
-		base_exp: parseInt($('#exp').text(), 10),
+		exp: (isNaN(parseInt($('#exp').text(), 10)) ? 0 : parseInt($('#exp').text(), 10)),
+		base_exp: (isNaN(parseInt($('#exp').text(), 10)) ? 0 : parseInt($('#exp').text(), 10)),
 		'base_rapidite.amelioration' : parseInt($('input[name="rapidite.amelioration"]').val(), 10),
 		'base_defense.amelioration' : parseInt($('input[name="defense.amelioration"]').val(), 10)
 	});

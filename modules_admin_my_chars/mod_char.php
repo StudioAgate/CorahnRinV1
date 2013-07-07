@@ -8,6 +8,31 @@ if ($character->user_id() !== Users::$id) {
 
 $_POST = get_post_datas();
 
+## On va traiter la suppression au cas où l'on demande à supprimer un personnage
+$del = isset($_PAGE['request'][1]) ? $_PAGE['request'][1] : '';
+if ($del === 'delete') {
+	if (!empty($_POST)) {
+		if (isset($_POST['delete']) && $_POST['delete'] === 'yes') {
+			if ($character->delete_char()) {
+				redirect(array('val'=>58), 'Le personnage a été correctement supprimé !', 'success');
+			} else {
+				redirect(array('params'=>$_PAGE['request']), 'Personnage non supprimé. #003', 'error');
+			}
+		}
+	}
+	?>
+	<form method="post" action="<?php echo mkurl(array('params'=>$_PAGE['request'])); ?>">
+		<fieldset>
+			<h3><?php echo $character->get('details_personnage.name'); ?></h3>
+			<p class="error"><?php tr('Voulez-vous vraiment supprimer ce personnage ?'); ?></p>
+			<?php echo mkurl(array('type'=>'tag','anchor'=>'&larr; Retour à la page précédente', 'attr'=>array('class'=>'btn btn-success', 'style'=>'color:#fff'))); ?>
+			&nbsp; <button type="submit" class="btn btn-mini btn-danger" name="delete" value="yes" id="delete"><?php tr('Valider la suppression'); ?></button>
+		</fieldset>
+	</form>
+	<?php
+	return;
+}
+
 ##ON VA TRAITER LES DONNÉES POST POUR SAUVEGARDER LE PERSONNAGE
 if (!empty($_POST)) {
 	$fields_to_explode = array(
@@ -40,11 +65,10 @@ if (!empty($_POST)) {
 		}
 	}
 	if ($character->update_to_db()) {
-		Session::setFlash('Le personnage <u>'.$character->get('details_personnage.name').'</u> a été correctement modifié !', 'success');
-		header('Location:'.mkurl(array('val'=>58)));
-		exit;
+		redirect(array('val'=>58), 'Le personnage a été correctement modifié !', 'success');
 	}
 }
+
 
 $modules_list = array(
 	'description' => 'Description et histoire',
@@ -52,27 +76,27 @@ $modules_list = array(
 	'ancient_arts' => 'Arts anciens',
 );
 ?>
-		<form id="modify_char" method="post" action="<?php echo mkurl(array('params' => $char_id)); ?>">
-			<fieldset>
-				<h3><?php echo $character->get('details_personnage.name'); ?></h3>
-				<div><button type="submit" class="btn btn-success" id="modify"><?php tr('Valider toutes les modifications'); ?></button></div>
-				<hr />
-					<ul class="nav nav-tabs" id="modify_tabs">
-						<?php $i = 0; foreach($modules_list as $file => $title) {
-							$file_to_load = ROOT.DS.'modules_'.$_PAGE['get'].DS.'mod_'.$file.'.php';
-							if (FileAndDir::fexists($file_to_load)) { ?>
-							<li<?php echo $i === 0 ? ' class="active"' : ''; ?>><a data-toggle="tab" href="#<?php echo $file; ?>"><?php tr($title); ?></a></li>
-							<?php $i++; }
-						} ?>
-					</ul>
-					<div class="tab-content" id="myTabContent">
-						<?php $i = 0; foreach($modules_list as $file => $title) {
-							$file_to_load = ROOT.DS.'modules_'.$_PAGE['get'].DS.'mod_'.$file.'.php';
-							if (FileAndDir::fexists($file_to_load)) {?>
-							<div id="<?php echo $file; ?>" class="tab-pane fade<?php echo $i === 0 ? ' in active' : ''; ?>"><?php require $file_to_load; ?></div>
-							<?php $i++; }
-						} ?>
-					</div>
+	<form id="modify_char" method="post" action="<?php echo mkurl(array('params' => $char_id)); ?>">
+		<fieldset>
+			<h3><?php echo $character->get('details_personnage.name'); ?></h3>
+			<div><button type="submit" class="btn btn-success" id="modify"><?php tr('Valider toutes les modifications'); ?></button></div>
+			<hr />
+				<ul class="nav nav-tabs" id="modify_tabs">
+					<?php $i = 0; foreach($modules_list as $file => $title) {
+						$file_to_load = ROOT.DS.'modules_'.$_PAGE['get'].DS.'mod_'.$file.'.php';
+						if (FileAndDir::fexists($file_to_load)) { ?>
+						<li<?php echo $i === 0 ? ' class="active"' : ''; ?>><a data-toggle="tab" href="#<?php echo $file; ?>"><?php tr($title); ?></a></li>
+						<?php $i++; }
+					} ?>
+				</ul>
+				<div class="tab-content" id="myTabContent">
+					<?php $i = 0; foreach($modules_list as $file => $title) {
+						$file_to_load = ROOT.DS.'modules_'.$_PAGE['get'].DS.'mod_'.$file.'.php';
+						if (FileAndDir::fexists($file_to_load)) {?>
+						<div id="<?php echo $file; ?>" class="tab-pane fade<?php echo $i === 0 ? ' in active' : ''; ?>"><?php require $file_to_load; ?></div>
+						<?php $i++; }
+					} ?>
+				</div>
 
-			</fieldset>
-		</form>
+		</fieldset>
+	</form>

@@ -16,12 +16,6 @@ $discs_list = $db->req('SELECT %%disciplines.%disc_name, %%discdoms.%disc_id, %%
 		INNER JOIN %%disciplines ON %%disciplines.%disc_id = %%discdoms.%disc_id
 		WHERE %%disciplines.%disc_rang = "Professionnel"');
 
-// $discs_list = $db->req('SELECT %%disciplines.%disc_name, %%discdoms.%disc_id, %%discdoms.%domain_id
-// 		FROM %%discdoms
-// 		INNER JOIN %%disciplines ON %%disciplines.%disc_id = %%discdoms.%disc_id
-// 		WHERE %%disciplines.%disc_rang = "Professionnel"
-// 		AND %%discdoms.%domain_id IN (%%%in)', $dom_ids);
-
 ?>
 <div class="info"><?php tr('Les disciplines peuvent être choisies lorsque le domaine associé a un score de 5. Elles commencent avec un score de 6.'); ?></div>
 <div class="warning"><?php tr('Les disciplines liées à la magience et aux artefacts ne peuvent être prises que si le score de magience est à 1 au moins.'); ?></div>

@@ -7,6 +7,23 @@ foreach ($t as $v) {
 }
 $_POST = get_post_datas();
 
+$send = true;
+
+$required_post_datas = array(//Champs de formulaires obligatoires
+	'rapidite.amelioration',
+	'defense.amelioration',
+	'exp',
+);
+foreach ($_required_post_datas as $v) {
+	if (!isset($_POST[$v])) {
+		$send = false;
+	}
+}
+
+if ($send === false) {
+	redirect(array('val'=>50), 'Le formulaire envoyé comporte des erreurs', 'error');
+}
+
 foreach ($_POST as $k => $v) {
 	if ($v && strpos($k, 'exp') === false) {
 		if (preg_match('#^domaines\.[0-9]+$#isUu', $k)) {
