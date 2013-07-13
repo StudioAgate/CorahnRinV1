@@ -149,6 +149,10 @@ unset($content_for_layout);
 
 Translate::translate_writewords();//On enregistre les mots à traduire
 
+if (PHP_SAPI === 'cli' && ($_PAGE['layout'] === 'default' || $_PAGE['layout'] === 'ajax')) {
+	$_PAGE['layout'] = 'cli';
+}
+
 $time = (microtime(true) - $time)*1000;
 $_LAYOUT = str_replace('{PAGE_TIME}', number_format($time, 4, ',', ' '), $_LAYOUT);## On affiche le message de temps d'exécution
 $f = fopen(ROOT.DS.'logs'.DS.'exectime'.DS.date('Y.m.d').'.log', 'a');##On stocke le temps d'exécution dans le fichier log
