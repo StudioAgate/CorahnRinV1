@@ -31,6 +31,11 @@ if (isset($_PAGE['more_css'])) {
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width">
 		<meta name="generator" content="<?php echo str_replace('{version}', $_PAGE['version']['code'], P_META_GENERATOR); ?>" />
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo BASE_URL; ?>/img/favicon-144.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo BASE_URL; ?>/img/favicon-114.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo BASE_URL; ?>/img/favicon-72.png">
+		<link rel="apple-touch-icon-precomposed" href="<?php echo BASE_URL; ?>/img/favicon-57.png">
+		<link rel="shortcut icon" href="<?php echo BASE_URL; ?>/img/favicon.png">
 
 		<title><?php echo tr('Corahn Rin', true), ' - ', tr($_PAGE['anchor'], true); ?></title>
 

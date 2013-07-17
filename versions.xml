@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+	<version date="20130717" code="1.232">
+		<tasks>
+			<task type="css">
+				<element name="">Design général</element>
+				<comment>Ajouté un "Favicon".</comment>
+			</task>
+		</tasks>
+	</version>
 	<version date="20130713" code="1.231">
 		<tasks>
 			<task type="db">
