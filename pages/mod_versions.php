@@ -9,6 +9,7 @@ $pagelist = array();
 foreach($_PAGE['list'] as $v) {
 	$pagelist[$v['page_getmod']] = $v['page_id'];
 }
+unset($v);
 
 $updates = array();
 $total_maj = 0;
@@ -86,6 +87,7 @@ unset($v, $comment, $task, $day, $month, $year, $date, $code, $element, $version
 						if ($task['id'] && $_PAGE['list'][$task['id']]['page_anchor']) {
 							if($task['id'] == 62 && $task['module']) {
 								$mod = preg_replace('#^.*/([a-z0-9_]+)\.php$#isUu', '$1', $task['module']);
+								$steps[$mod] = tr($steps[$mod], true);
 								if (isset($steps[$mod])) { $element = mkurl(array('val'=>62, 'type'=>'tag', 'attr'=>array('class'=>'btn btn-link btn-block btn_all_links'), 'anchor'=>$steps[$mod], 'params'=>$mod)); }
 								//$element = mkurl(array());
 								unset($mod);
@@ -97,6 +99,7 @@ unset($v, $comment, $task, $day, $month, $year, $date, $code, $element, $version
 								if (strpos($task['name'], $get) !== false) {
 									if ($_PAGE['list'][$id]['page_anchor']) {
 										$element = $_PAGE['list'][$id]['page_anchor'];
+										$element = tr($element, true);
 									}
 								}
 							}
@@ -104,7 +107,7 @@ unset($v, $comment, $task, $day, $month, $year, $date, $code, $element, $version
 						} else { $element = $task['title']; }
 						?>
 							<div class="row-fluid elements_list">
-								<div class="span4"><h6><?php tr($element);?></h6></div>
+								<div class="span4"><h6><?php echo $element;?></h6></div>
 								<div class="span8"><p><?php foreach ($task['comments'] as $com) { tr($com);echo '<br />'; }?></p></div>
 							</div>
 						<?php

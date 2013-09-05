@@ -5,82 +5,50 @@
  * Effectue le chargement des modules du site en fonction de l'url
  */
 
-define('ROOT', dirname(__FILE__)); //Chemin vers le dossier racine
-define('DS', DIRECTORY_SEPARATOR); //Définition du séparateur dans le cas ou l'on est sur windows ou linux
+## Charge tous les paramètres de base du site
+require 'config.php';
 
-define('WEBROOT',		ROOT.DS.'webroot');
-define('P_FONTS',		WEBROOT.DS.'css'.DS.'fonts');
-define('P_CSS',			WEBROOT.DS.'css');
-define('P_JS',			WEBROOT.DS.'js');
-define('CHAR_EXPORT',	WEBROOT.DS.'files'.DS.'characters_export');
-
-## Chargement des classes
-$class_inc = array(
-	'bddPDO',
-	'encoding',
-	'esterenchar',
-	'minifier',
-	'translate',
-	'users',
-	'fpdf',
-	//'fpdfMakefont',
-	//'fpdfTTFparser',
-	'tfpdf',
-	'tfpdfTTFonts',
-	'mailerEasyPeasyICS',
-	'mailerHtml2text',
-	'mailerNtlm_sasl_client',
-	'mailerPhpmailer',
-	'mailerPop3',
-	'mailerSmtp',
-	'cakePhpFileAndDir',
-	'cakePhpInflector',
-	'cakePhpHash',
-	'cakePhpSession',
-	'cakePhpSet',
-	'cakePhpString',
-);
-foreach ($class_inc as $val) {
-	$filename = ROOT.DS.'class'.DS.'class_'.$val.'.php';
-	if (file_exists($filename)) {
-		require $filename;
-	} else {
-		echo 'Erreur dans le chargement de la classe '.$val;
-		exit;
-	}
-}
-unset($class_inc);
+## Chargement des classes en ajoutant le dossier "class" à l'include_path
+// define('CLASS_DIR', ROOT.DS.'class');//Dossier des classes
+// set_include_path(get_include_path().PATH_SEPARATOR.CLASS_DIR);//On l'ajoute à l'include_path
+// spl_autoload_extensions('.class.php');//On ajoute l'extension ".class.php" pour les fichiers
+// spl_autoload_register();//On charge l'autoload classique
 
 ## Chargement des fonctions
 $function_inc = array(
-	'arrayDiffRecursive',
-	'buffwrite',
-	'createZip',
-	'getPostDatas',
+	'__autoload',
+	'_aliases_for_classes_methods',
+	'buffWrite',
+	'create_zip',
+	'error_logging',
 	'getXPFromAvtg',
 	'getXPFromDiscs',
 	'getXPFromDoms',
-	'errorLogging',
-	'goto404',
-	'isBlacklisted',
+	'get_post_datas',
+	'git_update',
+	'goto_404',
+// 	'is_blacklisted',
+// 	'imagick_text',
+	'is_correct_email',
+	'load_module',
 	'minify',
-	'isCorrectEmail',
 	'mkurl',
-	'mailerHtmlfilter',
-	'pDump',
-	'printrToArray',
-	'loadModule',
-	'removeAccents',
-	'sendMail',
-	'urlExists',
-	'redirect',
+	'p_array_diff_recursive',
+	'p_dump',
+	'phpMailer_filters',
+// 	'print_r_to_array',
+// 	'redirect',
+	'remove_accents',
+	'send_mail',
+	'url_exists',
 );
+$func_time = microtime(true);
 foreach ($function_inc as $val) {
-	$filename = ROOT.DS.'functions'.DS.'func_'.$val .'.php';
+	$filename = ROOT.DS.'functions'.DS.$val.'.func.php';
 	if (file_exists($filename)) {
 		require $filename;
 	} else {
-		echo 'Erreur dans le chargement de la fonction '.$val;
+		tr('Erreur dans le chargement de la fonction '.$val);
 		exit;
 	}
 }
@@ -89,41 +57,57 @@ unset($function_inc,$val,$filename);
 ## On démarre la session
 Session::init();
 
-## On récupère le Host original en cas d'url du type 127.0.0.1:8080, pour conserver le port
-define('P_BASE_HOST', $_SERVER['HTTP_HOST']);
+## Initialisation de la classe de traduction
+Translate::init();
 
-## Redéfinition de HTTP_HOST pour éviter les problèmes de compatibilité sur les serveurs locaux, ou les changements de ports avec EasyPHP ou WAMP par exemple
-if (preg_match('#127\.0\.0\.1|localhost#isUu', $_SERVER['HTTP_HOST'])) {
-	$_SERVER['HTTP_HOST'] = '127.0.0.1';//On définit le serveur local
-}
 ## Configuration de la base de données
 require ROOT.DS.'db.php';
 
-## On charge tous les paramètres de base du site (variable $_PAGE, session, etc)
-require ROOT.DS.'config.php';
-
 ## Initialisation de l'utilisateur
 Users::init((int) Session::read('user'));
-define('P_LOGGED',	(Users::$id > 0 ? true : false));
-define('P_DEBUG',	(Users::$id == 1 ? true : false));
+define('P_LOGGED',	(Users::id() > 0 ? true : false));
+define('P_DEBUG',	(Users::id() == 1 ? true : false));
 
 ## On va créer la requête dans la variable $_PAGE
-require ROOT.DS.'request.php';
+// require ROOT.DS.'request.php';
 
 ## On charge le module Git au cas où une mise à jour est prévue.
-require ROOT.DS.'git.php';
+// require ROOT.DS.'git.php';
 
-##On définit le layout par défaut
-$_PAGE['layout'] = 'default';
-
-## Récupération du module dans $module
 ob_start();
-	if (file_exists(ROOT.DS.'pages'.DS.'mod_' . $_PAGE['get'] . '.php')) {//S'il existe on le charge
-		load_module($_PAGE['get'], 'page');
-	} else {
-		goto_404();
-	}
-$_PAGE['content_for_layout'] = ob_get_clean();
+new FrontController();
+$layout = ob_get_clean();
+
+Translate::translate_writewords();//On enregistre les mots à traduire
+
+$global_time = (microtime(true) - $global_time)*1000;## On arrête le calcul de temps d'exécution du script pour pouvoir l'enregistrer
+// $f = fopen(P_EXECTIME_LOGFILE, 'a');##On stocke le temps d'exécution dans le fichier log
+$final = "*|*|*Date=>".json_encode(date(DATE_RFC822))
+.'||Ip=>'.json_encode($_SERVER['REMOTE_ADDR'])
+// 	.'||Referer=>'.json_encode(@$_SERVER['HTTP_REFERER'])
+// .'||Page.get=>'.json_encode($_PAGE['get'])
+// .'||Page.request=>'.json_encode((array)@$_PAGE['request'])
+// .'||GET=>'.json_encode((array)$_GET)
+.'||User.id=>'.json_encode(Users::id())
+.'||Exectime=>'.json_encode($global_time);
+$final = preg_replace('#\n|\r|\t#isU', '', $final);
+$final = preg_replace('#\s\s+#isUu', ' ', $final);
+
+$layout = str_replace('{PAGE_TIME}', number_format($global_time, 4, ',', ' '), $layout);## On affiche le message de temps d'exécution
+FileAndDir::put(P_EXECTIME_LOGFILE, $final, FILE_APPEND);
+unset($final);
+echo $layout;
+exit;
+
+/*
+## Récupération du module dans $module
+// ob_start();
+// 	if (file_exists(ROOT.DS.'pages'.DS.'mod_' . $_PAGE['get'] . '.php')) {//S'il existe on le charge
+// 		load_module($_PAGE['get'], 'page');
+// 	} else {
+// 		goto_404();
+// 	}
+// $_PAGE['content_for_layout'] = ob_get_clean();
 ## Fin de récupération du module
 
 ## Création de la variable contenant la navigation
@@ -149,13 +133,13 @@ unset($content_for_layout);
 
 Translate::translate_writewords();//On enregistre les mots à traduire
 
-if (PHP_SAPI === 'cli' && ($_PAGE['layout'] === 'default' || $_PAGE['layout'] === 'ajax')) {
+if (PHP_SAPI === 'cli') {
 	$_PAGE['layout'] = 'cli';
 }
 
-$time = (microtime(true) - $time)*1000;
-$_LAYOUT = str_replace('{PAGE_TIME}', number_format($time, 4, ',', ' '), $_LAYOUT);## On affiche le message de temps d'exécution
-$f = fopen(ROOT.DS.'logs'.DS.'exectime'.DS.date('Y.m.d').'.log', 'a');##On stocke le temps d'exécution dans le fichier log
+
+$global_time = (microtime(true) - $global_time)*1000;## On arrête le calcul de temps d'exécution du script pour pouvoir l'enregistrer
+// $f = fopen(P_EXECTIME_LOGFILE, 'a');##On stocke le temps d'exécution dans le fichier log
 $final = "*|*|*Date=>".json_encode(date(DATE_RFC822))
 	.'||Ip=>'.json_encode($_SERVER['REMOTE_ADDR'])
 // 	.'||Referer=>'.json_encode(@$_SERVER['HTTP_REFERER'])
@@ -163,11 +147,17 @@ $final = "*|*|*Date=>".json_encode(date(DATE_RFC822))
 	.'||Page.request=>'.json_encode((array)@$_PAGE['request'])
 	.'||GET=>'.json_encode((array)$_GET)
 	.'||User.id=>'.json_encode(Users::$id)
-	.'||Exectime=>'.json_encode($time);
+	.'||Exectime=>'.json_encode($global_time);
 $final = preg_replace('#\n|\r|\t#isU', '', $final);
 $final = preg_replace('#\s\s+#isUu', ' ', $final);
-fwrite($f, $final);
-fclose($f);
-unset($f, $final);
 
+$_LAYOUT = str_replace('{PAGE_TIME}', number_format($global_time, 4, ',', ' '), $_LAYOUT);## On affiche le message de temps d'exécution
+file_put_contents(P_EXECTIME_LOGFILE, $final, FILE_APPEND);
+unset($final);
+
+if (array_key_exists('only_exectime', $_GET)) {
+	echo $global_time;
+	exit;
+}
 if (is_string($_LAYOUT) && !empty($_LAYOUT)) { echo $_LAYOUT; }##On affiche finalement la page
+//*/

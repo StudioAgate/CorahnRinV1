@@ -1,0 +1,37 @@
+{
+	"Générateur de personnage" :{
+		"url" : "characters/create.html"
+	},
+	"Dernières mises à jour" :{
+		"url" : "versions.html"
+	},
+	"Voir un personnage" : {
+		"url" : "characters.html"
+	},
+	"Changer la langue" : {
+		"_dropdown" : {
+			"Français" : {		
+				"url" : "lang/fr"
+			},
+			"Anglais": {
+				"url" : "lang/en"
+			}
+		}
+	},
+	"Connexion" : {
+		"login" : false,
+		"route" : "core_login"
+	},
+	"S'inscrire": {
+		"login" : false,
+		"route" : "core_register"
+	},
+	"Administration": {
+		"login" : true,
+		"route" : "core_admin"
+	},
+	"Déconnexion": {
+		"login" : true,
+		"route" : "core_logout"
+	}
+}

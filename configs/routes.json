@@ -1,0 +1,7 @@
+{
+	"core_home": {
+		"uri": "/",
+		"route": "/(home|index|accueil)(\\.html)?",
+		"redirect" : "/pages/index"
+	}
+}

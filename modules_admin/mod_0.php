@@ -5,7 +5,11 @@ if (!empty($_POST)) {
 	$_POST = get_post_datas();
 	$id = array_keys($_POST);
 	$name = array_values($_POST);
-	$name = $name[0];
+	$name = isset($name[0]) ? $name[0] : null;
+	if ($name === null) {
+// 		echo 'Erreur';
+		return;
+	}
 	$id = $id[0];
 	$id = (int) str_replace('user.', '', $id);
 	if ($id) {

@@ -6,84 +6,76 @@
  * Créées par Alexandre Ancelet - Pierstoval
  * 2012-2013
  */
-setlocale(LC_TIME, array('fr_FR', 'fr_FR.UTF-8'));
+
+## Définition de la locale
+date_default_timezone_set('Europe/Paris');
+setlocale(LC_ALL, array('fr_FR', 'fr_FR.UTF-8', 'French_France', 'french'));
+
+define('ROOT', dirname(__FILE__)); //Chemin vers le dossier racine
+define('DS', DIRECTORY_SEPARATOR); //Définition du séparateur dans le cas ou l'on est sur windows ou linux
+
+define('P_CLASS',		ROOT.DS.'class');
+define('P_CORE',		ROOT.DS.'core');
+define('P_LIBS',		ROOT.DS.'core'.DS.'libs');
+define('P_MODULES',		ROOT.DS.'modules');
+define('P_TRANSLATION',	ROOT.DS.'translation');
+define('WEBROOT',		ROOT.DS.'webroot');
+define('P_FONTS',		WEBROOT.DS.'css'.DS.'fonts');
+define('P_CSS',			WEBROOT.DS.'css');
+define('P_JS',			WEBROOT.DS.'js');
+define('CHAR_EXPORT',	WEBROOT.DS.'files'.DS.'characters_export');
+
+## Constantes liées à tFPDF pour les fichiers externes
+define('P_FPDF_FONTPATH',			ROOT.DS.'configs'.DS.'fpdf'.DS.'fonts');
+define('P_FPDF_SYSTEM_TTF_FONTS',	ROOT.DS.'configs'.DS.'fpdf'.DS.'fonts');
+define('P_FPDF_VERSION','1.24');
+
+
+## On bascule systématiquement localhost vers 127.0.0.1 pour éviter les problèmes de compatibilité sur les dernières versions de Windows
+$_SERVER['HTTP_HOST'] = str_replace('localhost', '127.0.0.1', $_SERVER['HTTP_HOST']);
+
+## On récupère le Host original pour conserver le port s'il est mentionné. Il sera ajouté à BASE_URL
+## Utilisé surtout pour des serveurs locaux en 127.0.0.1:8888 ou 127.0.0.1:8080
+define('P_BASE_HOST', $_SERVER['HTTP_HOST']);
+
+## Redéfinition de HTTP_HOST pour éviter les problèmes de compatibilité sur les serveurs locaux, ou les changements de ports avec EasyPHP ou WAMP par exemple
+if (strpos($_SERVER['HTTP_HOST'], '127.0.0.1') !== false) {
+	$_SERVER['HTTP_HOST'] = '127.0.0.1';//On définit le serveur local
+}
+
+## Définition de la constante BASE_URL pour les liens internes. Source : http://www.koezion-cms.com/
+$baseUrl = '';
+$scriptPath = preg_split("#[\\\\/]#", dirname(__FILE__), -1, PREG_SPLIT_NO_EMPTY);
+$urlPath = preg_split("#[\\\\/]#", $_SERVER['REQUEST_URI'], -1, PREG_SPLIT_NO_EMPTY);
+foreach($urlPath as $k => $v) {
+	$key = array_search($v, $scriptPath);
+	if($key !== false) {
+		$baseUrl .= "/".$v;
+	} else {
+		break;
+	}
+}
+define('BASE_URL', 'http://'.P_BASE_HOST.$baseUrl);//url absolue du site
+unset($baseUrl, $scriptPath, $urlPath, $k, $v, $key);
 
 ## Réécriture d'url active ou non, permet de créer des liens cohérents);
 //define('P_REWRITE_URLS', true);
 
-## Regex vérifiant les adresses mail
-define('P_MAIL_REGEX', '#^[a-z0-9!\#$%&\'*+/=?^_`{|}~-]+((\.[a-z0-9!\#$%&\'*+/=?^_`{|}~-]+)?)+@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[a-z0-9][a-z0-9\-]*[a-z0-9])?$#isU');
-
-## Champs disponibles pour la fonction mkurl. Dépend de la base de données
-define('P_MKURL_FIELDS', 'page_id,page_getmod,page_anchor');
+## Expression rationnelle vérifiant les adresses mail
+define('P_MAIL_REGEX', '#^[a-z0-9!\#$%&\'*+/=?^_`{|}~-]+((\.[a-z0-9!\#$%&\'*+/=?^_`{|}~-]+)?)+@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[a-z0-9][a-z0-9\-]*[a-z0-9])?$#isUu');
 
 ## Contenu de la balise meta generator
 define('P_META_GENERATOR', 'Corahn Rin {version} - Automatic character creation by Pierstoval');
 
 ## Définition de la langue en fonction de la session
-define('P_LANG', Session::check('lang') ? Session::read('lang') : 'fr');
+define('P_LANG', isset($_SESSION['lang']) ? $_SESSION['lang'] : 'fr');
 
-## Constantes liées à FPDF pour les fichiers externes
-define('P_FPDF_FONTPATH', ROOT.DS.'files'.DS.'fpdf'.DS.'fonts');
-define('P_FPDF_SYSTEM_TTF_FONTS', ROOT.DS.'files'.DS.'fpdf'.DS.'fonts');
+## Constante de stockage du fichier de temps d'exécutions
+define('P_EXECTIME_LOGFILE', ROOT.DS.'logs'.DS.'exectime'.DS.date('Y.m.d').'.log');
 
-##Constantes liées à PHP Mailer
-define('P_MAIL_SMTP_HOST', 'auth.smtp.1and1.fr');
-define('P_MAIL_SMTP_USER', 'no-reply@pierstoval.com');
-define('P_MAIL_SMTP_PASSWORD', '');
-define('P_MAIL_SMTP_SECURE', 'TLS');
-define('P_MAIL_SMTP_PORT', 587);
-define('P_MAIL_DEFAULT_FROM_MAIL', P_MAIL_SMTP_USER);
-define('P_MAIL_DEFAULT_FROM_NAME', 'Corahn Rin');
-
-## Couleur des différents types de variables pour les fonctions p_dump et p_dumpTxt
-define('P_DUMP_INTCOLOR', 'blue');
-define('P_DUMP_FLOATCOLOR', 'darkblue');
-define('P_DUMP_NUMSTRINGCOLOR', '#c0c');
-define('P_DUMP_STRINGCOLOR', 'darkgreen');
-define('P_DUMP_RESSCOLOR', '#aa0');
-define('P_DUMP_NULLCOLOR', '#aaa');
-define('P_DUMP_BOOLTRUECOLOR', '#0c0');
-define('P_DUMP_BOOLFALSECOLOR', 'red');
-define('P_DUMP_OBJECTCOLOR', 'pink');
-define('P_DUMP_PADDINGLEFT', '25px');
-define('P_DUMP_WIDTH', '');
-
-## Générer les fichiers css et js des pages à chaque chargement via la fonction buffWrite(). Permet de réinitialiser une partie cache en local ou lorsque le superadmin est connecté
-define('P_GEN_FILES_ONLOAD', ($_SERVER['HTTP_HOST'] === '127.0.0.1' ? true : false));
-
-
-## Extensions de fichiers qu'il est possible de créer à chaque chargement via la fonction buffWrite(). Par défaut CSS et JS
-// define('P_GEN_FILES_TYPES', 'css,js');
-
-## Template de base des modules
-define('P_TPL_BASEMOD', <<<'TPLBASEMOD'
-<?php
-
-?>
-
-<div class="container">
-
-
-</div><!-- /container -->
-
-<?php
-buffWrite('css', <<<CSSFILE
-
-CSSFILE
-);
-buffWrite('js', <<<JSFILE
-
-JSFILE
-);
-TPLBASEMOD
-);
-
-## Création de la variable $_SESSION['etape'] qui correspond à l'avancement du personnage
-if (!Session::read('etape')) { Session::write('etape', 1); }
-
-## Initialisation de la classe de traduction
-Translate::init();
+## Définit des paramètres de base pour la fonction json_encode() afin de ne pas les resaisir
+## PHP 5.4 ou plus récent exigé
+define('P_JSON_ENCODE', JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT | JSON_NUMERIC_CHECK);
 
 ## Si debug, pas de cache
 // if (P_DEBUG === true) {
@@ -93,20 +85,14 @@ Translate::init();
 // }
 
 ## Variable de la version issue du fichier XML
-$versions_xml = FileAndDir::get(ROOT.DS.'versions.xml');
-if (!$versions_xml) {
-	echo 'Une erreur est survenue dans la récupération du fichier de versions';
-	exit;
-}
+$versions_xml = file_get_contents(ROOT.DS.'versions.xml');
 $versions = new SimpleXMLElement($versions_xml);
+if (!$versions) { tr('Une erreur est survenue dans la récupération du fichier de versions');exit; }
 unset($versions_xml);
-$day	= preg_replace('#^([0-9]{4})([0-9]{2})([0-9]{2})$#isU', '$3', (string)$versions->version[0]['date']);
-$month	= preg_replace('#^([0-9]{4})([0-9]{2})([0-9]{2})$#isU', '$2', (string)$versions->version[0]['date']);
-$year	= preg_replace('#^([0-9]{4})([0-9]{2})([0-9]{2})$#isU', '$1', (string)$versions->version[0]['date']);
+preg_match('#^([0-9]{4})([0-9]{2})([0-9]{2})$#isU', (string)$versions->version[0]['date'] , $matches);
+array_shift($matches);//On supprime $matches[0] pour n'avoir que les sous-ensembles qui matchent l'expression rationnelle
+$date = implode('/', array_reverse($matches));//On récupère d/m/y
+define('P_VERSION_CODE', (string)$versions->version[0]['code']);
+define('P_VERSION_DATE', $date);
 
-$date = $day.'/'.$month.'/'.$year;
-$_PAGE['version'] = array(
-	'code' => (string)$versions->version[0]['code'],
-	'date' => $date
-);
-unset($day,$month,$year,$versions,$date);
+unset($versions,$date, $matches);

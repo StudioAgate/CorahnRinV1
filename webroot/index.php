@@ -5,9 +5,8 @@
  * Le fichier racine index.php se charge de charger le site.
  */
 
-## Variable qui contiendra le temps d'exécution du script
+## Variables qui contiendront le temps d'exécution du script
+$global_time = microtime(true);
 $time = microtime(true);
-
-date_default_timezone_set('Europe/Paris');
 
 require '../index.php';

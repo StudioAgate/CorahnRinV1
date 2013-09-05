@@ -1,4 +1,4 @@
-base_url = corahn_rin;
+const base_url = corahn_rin;
 /**
  * Efface la sélection actuelle sur la page
  * 
@@ -64,57 +64,16 @@ $(document).ready(function(){
 	$('button.showhidden').click(function(){
 		$(this).next('.hid').slideToggle(400);
 	});
+	
+	$('#versions li.version h4').hover(function(){
+		$(this).find('span[class*=icon-]').addClass('icon-red');
+	}, function(){
+		$(this).find('span[class*=icon-]').removeClass('icon-red');
+	});
+	$('#versions li.version h4').click(function(e){
+		if (!$(e.target).is('a')) {
+			$(this).parents('li.version').find('span[class*=icon-]').attr('class', function(){return $(this).is('.icon-plus') ? 'icon-minus' : 'icon-plus';});
+			$(this).parents('li.version').find('.taskslist').stop().slideToggle(400);
+		}
+	});
 });
-
-
-//Alias de création de plugin rapide
-//;(function ( $, window, document, undefined ) {
-//
-//  var pluginName = "piersAffix",
-//      defaults = {
-//			baseOffset : 0
-//		};
-//
-//  function PiersAffix( element, options ) {
-//      this.element = element;
-//      this.options = $.extend( { }, defaults, options );
-//      this._defaults = defaults;
-//      this._name = pluginName;
-//      this.init();
-//  }
-//
-//  PiersAffix.prototype = {
-//      init: function() {
-			/*La fonction à exécuter*/
-//      	var _this = $(this.element),
-//      		_el = this;
-//      	this.options.baseOffset = $(this.element).position().top
-//			$(window).scroll(function(){
-//				var thispos = parseInt(_this.position().top, 10),
-//					winpos = $(this).scrollTop(),
-//					topOffset = $(window).width() > 480 ? 40 : 0;
-//				if (winpos+40 > _el.options.baseOffset) {
-//					_this.css({
-//						'position': 'fixed',
-//						'top': topOffset + 1
-//					});
-//				} else {
-//					_this.css({
-//						'position': 'static',
-//						'top': 0
-//					});
-//				}
-//			});
-//      },
-//
-//  };
-//
-//  $.fn[pluginName] = function ( options ) {
-//      return this.each(function () {
-//          if (!$.data(this, "plugin_" + pluginName)) {
-//              $.data(this, "plugin_" + pluginName, new PiersAffix( this, options ));
-//          }
-//      });
-//  };
-//
-//})( jQuery, window, document );

@@ -58,6 +58,8 @@ a.btn.btn-inverse:link, a.btn.btn-inverse:visited, a.btn.btn-inverse:active { co
 	margin-right: auto;
 }
 
+.text-white { color: white !important; }
+
 #navigation {
 	font-size: 12px;
 }
@@ -158,6 +160,12 @@ div.row-fluid div[class*="span"] {
 	cursor: pointer;
 	border: solid 1px #888;
 }
+
+#register_form { width: 500px; }
+#register_form label { width: 200px; }
+#register_form label:hover { cursor: pointer; }
+#register_form .form_row.submit { text-align: center; }
+#register_form .first { margin-top: 15px; }
 
 .w100 { width: 100px; }
 .w220 { width: 220px; }

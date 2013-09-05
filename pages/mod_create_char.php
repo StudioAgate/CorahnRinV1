@@ -103,7 +103,7 @@
 		<?php
 	}
 	?>
-<script type="text/javascript">var nextsteptranslate = '<?php tr("Étape suivante &rarr;"); ?>';</script>
+<script type="text/javascript">var nextsteptranslate = '<?php tr("Étape suivante"); ?> &rarr;';</script>
 </div>
 <!-- /container -->
 <?php

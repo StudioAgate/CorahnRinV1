@@ -1,0 +1,27 @@
+{
+	"core_login": {
+		"uri": "login.html",
+		"route": "login(\\.html)?",
+		"redirect": "connect/login"
+	},
+	"core_register": {
+		"uri": "register.html",
+		"route": "register(\\.html)?",
+		"redirect": "connect/register"
+	},
+	"core_logout": {
+		"uri": "logout.html",
+		"route": "logout(\\.html)?",
+		"redirect": "connect/logout"
+	},
+	"core_admin": {
+		"uri": "admin.html",
+		"route": "admin(\\.html)?",
+		"redirect": "admin/index"
+	},
+	"core_confirm_register": {
+		"uri": "confirm_register.html",
+		"route": "confirm_register(\\.html)?",
+		"redirect": "connect/confirm_register"
+	}
+}
