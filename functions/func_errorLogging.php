@@ -55,6 +55,7 @@ function error_logging($errno, $errstr, $errfile, $errline) {
 	}
 	if (isset($humanType[$errno])) {
 		$error_file = ROOT.DS.'logs'.DS.'error_tracking'.DS.date('Y.m.d').'.log';
+		$errfile = str_replace(ROOT, '', $errfile);
 		$final = "*|*|*Date=>".json_encode(date(DATE_RFC822))
 			.'||Ip=>'.json_encode($_SERVER['REMOTE_ADDR'])
 // 			.'||Referer=>'.json_encode(@$_SERVER['HTTP_REFERER'])

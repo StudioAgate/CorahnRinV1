@@ -14,7 +14,7 @@ $required_post_datas = array(//Champs de formulaires obligatoires
 	'defense.amelioration',
 	'exp',
 );
-foreach ($_required_post_datas as $v) {
+foreach ($required_post_datas as $v) {
 	if (!isset($_POST[$v])) {
 		$send = false;
 	}
