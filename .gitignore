@@ -1,0 +1,15 @@
+.settings/
+.settings/*
+.buildpath
+.project
+logs/404/*
+logs/cache_sql/*
+logs/error_tracking/*
+logs/exectime/*
+logs/referer/*
+logs/sql/*
+db.php
+git.php
+webroot/css/pages/
+webroot/js/pages/
+translation/*
