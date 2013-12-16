@@ -1019,7 +1019,6 @@ class EsterenChar {
 		$general_height = 1263;
 		$pdf = new tFPDF('P', 'pt');
 		$pdf->SetCompression(false);
-
 		$p = array(
 			'lettrine' => array(
 				'file' => P_FONTS.DS.'LettrinEsteren-Regular.ttf',
@@ -1327,7 +1326,9 @@ class EsterenChar {
 		$pdf->textline($this->get('voies.4.val'), 1050, 1110, $p['carbold'], 28);
 		$pdf->textline($this->get('voies.5.val'), 1050, 1180, $p['carbold'], 28);
 
-		$pdf->multiple_lines($this->get('details_personnage.histoire'), 90, 173, $p['times'], 14, 1015, 6, 43);
+		$story = $this->get('details_personnage.histoire');
+		$story = substr($story, 0, 1200);
+		$pdf->multiple_lines($story, 90, 173, $p['times'], 14, 1015, 6, 43);
 
 		$str = $this->get('region_naissance.royaume').' - '.$this->get('region_naissance.name').' - Milieu '.$this->get('residence_geographique');
 		$pdf->textline($str, 557, 86, $p['caro'], 14);
