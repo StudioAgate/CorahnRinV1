@@ -166,6 +166,8 @@ if ($err_type && $err_file) {
 								}
 							}
 							unset($kk,$vv);
+						} elseif ($item === 'Referer') {
+							echo '<a href="'.$value.'" target="_blank">'.$value.'</a>';
 						} else {
 							echo $value;
 						}

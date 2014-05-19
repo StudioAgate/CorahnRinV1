@@ -57,7 +57,7 @@
 // 	$dom_ids = array_keys($totaldoms);
 	$dom_ids = array();
 	foreach ($primsec as $k => $v) {
-		if ($v == 5 || $v == 3) {
+		if ($v == 5) {
 			$dom_ids[] = (int) $k;
 		}
 	}

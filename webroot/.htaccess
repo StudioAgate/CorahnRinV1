@@ -1,8 +1,8 @@
 <IfModule mod_rewrite.c>
 	RewriteEngine on
-	RewriteBase /esteren/
-	#RewriteCond %{REQUEST_FILENAME} !-d
+	#RewriteBase /esteren/
+	RewriteCond %{REQUEST_FILENAME} !-d
 	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{QUERY_STRING} ^(.*)$
+	#RewriteCond %{QUERY_STRING} ^(.*)$
 	RewriteRule ^(.*)$ index.php?request=$1
 </IfModule>
