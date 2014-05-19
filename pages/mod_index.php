@@ -4,12 +4,12 @@
 	<p class="info">
 		<?php tr('Faites vos propositions !'); ?>
 		<br />
-		<?php tr('Si vous souhaitez contribuer à Corahn-Rin, n\'hésitez pas et postez vos propositions sur la page wiki du générateur :'); ?>
+		<?php tr('Si vous souhaitez contribuer à Corahn-Rin, n\'hésitez pas et postez vos rapports de bug ou vos propositions d\'amélioration sur la page "Redmine" du générateur :'); ?>
 		<br />
 		<?php echo mkurl(array(
-			'val'=>'http://tests.pierstoval.com/esteren_wiki/wiki/G%C3%A9n%C3%A9rateur',
+			'val'=>'http://tests.pierstoval.com/redmine/projects/corahn-rin-v1',
 			'custom'=>true,
-			'anchor'=>'Page wiki de Corahn-Rin',
+			'anchor'=>'Gestion du projet Corahn-Rin',
 			'type'=>'tag',
 			'attr'=>array('class'=>'btn btn-link newwindow'),
 		)); ?>
