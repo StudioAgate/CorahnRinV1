@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+	<version date="20140519" code="1.24">
+		<tasks>
+			<task type="general">
+				<element name="">Mise à jour Githu</element>
+				<comment>Mise à jour de la repository sur Github via un merge général</comment>
+				<comment>Correction des fichiers d'assets erronés</comment>
+				<comment>Intégration des corrections effectuées les mois précédents</comment>
+			</task>
+		</tasks>
+	</version>
 	<version date="20130717" code="1.232">
 		<tasks>
 			<task type="css">
