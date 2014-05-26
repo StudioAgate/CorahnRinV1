@@ -6,8 +6,9 @@
  * Cette fonction permet d'écrire le contenu des fichiers CSS et JS compris dans chaque module.
  * Le contenu n'est écrit que dans le cas où le fichier n'existe pas déjà, où que l'on est sur le serveur local
  *
- * @param type Correspond à l'extension de fichier voulu (par défaut css ou js) défini dans la constante P_GEN_FILES_TYPES
- * @param content Contenu à écrire dans le fichier du type correspondant
+ * @param string $type Correspond à l'extension de fichier voulu (par défaut css ou js) défini dans la constante P_GEN_FILES_TYPES
+ * @param string $content Contenu à écrire dans le fichier du type correspondant
+ * @param string $dest Le fichier de destination
  * @author Pierstoval 26/12/2012
  */
 function buffWrite($type, $content, $dest = '') {

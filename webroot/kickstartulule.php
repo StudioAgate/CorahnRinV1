@@ -1,4 +1,8 @@
 <?php
+
+header('Location: ./');
+exit;
+/*
 $ulule = $kickstarter = $ulule_dollar = $cours = 0;
 
 $user_agent = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36';
@@ -56,7 +60,7 @@ if ($kickstarter && $ulule) {
 	$darkgrey = imagecolorallocate($nimg, 0x14, 0x14, 0x14);
 	$white = imagecolorallocate($nimg, 255, 255, 255);
 
-	//Polices de caractère
+	//Polices de caractï¿½re
 	$unzialish			= 'css/fonts/UnZialish.ttf';
 	$arial				= 'css/fonts/arial.ttf';
 	$arial				= 'css/fonts/arial.ttf';
@@ -94,3 +98,4 @@ if ($kickstarter && $ulule) {
 	imagedestroy($nimg);
 	imagedestroy($new_img);
 }
+*/

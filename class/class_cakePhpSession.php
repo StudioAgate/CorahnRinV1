@@ -119,8 +119,8 @@ class Session {
 /**
  * Permet d'initialiser un message dans la variable de session
  *
- * @param varchar $message Message à afficher
- * @param varchar $type Type du message
+ * @param string $message Message à afficher
+ * @param string $type Type du message
  * @version 0.1 - 30/12/2011
  */
 	static function setFlash($message, $type = 'notif') {
@@ -135,7 +135,7 @@ class Session {
 /**
  * EN ATTENTE DE COMM
  *
- * @return unknown
+ * @return boolean
  */
 
 	static function isLogged() {

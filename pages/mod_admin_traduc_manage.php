@@ -1,95 +1,54 @@
 <?php
 
-$lang = isset($_POST['lang']) ? $_POST['lang'] : false;
-$file = isset($_POST['value']) ? $_POST['value'] : false;
+if (!empty($_POST)) {
+    $sources = $_POST['source'];
+    $trans = $_POST['trans'];
 
-if ($lang && $file) {
-	$manage = true;
-	$lang_ok = array('en'=>1,'fr'=>1);
-	$file_ok = array('words_en'=>1,'words_fr'=>1,'propositions_en'=>1);
-	if (isset($lang_ok[$lang]) && isset($file_ok[$file])) {
-		$method = 'get_'.$file;
-		if (method_exists(new Translate(), $method)) {
-			$contents = Translate::$method();
-		}
-	} else {
-		tr('Erreur');
-	}
-} else {
-	$manage = false;
+    if (count($sources) == count($trans)) {
+
+        $nbTranslated = 0;
+        foreach ($sources as $id => $source) {
+            $nbTranslated += (int) Translate::write_words_en($source, $trans[$id]);
+        }
+        Session::setFlash($nbTranslated.' traductions effectuées !', 'success');
+    } else {
+        redirect(array('val'=>$_PAGE['id']), 'Erreur dans les données POST', 'error');
+    }
 }
 
-pr($_POST);
+foreach (Translate::$words_fr as $word) {
+    if (!Translate::check($word['source'], Translate::$words_en)) {
+        Translate::write_words_en($word['source'], $word['trans']);
+    }
+}
+
 
 ?>
 
 <div class="container">
 
-	<form id="managetrad" method="post" action="<?php echo BASE_URL.'/'.mkurl(array('val'=>$_PAGE['id'])); ?>">
-		<div class="row-fluid">
-			<div class="span4">
-				<fieldset id="fr">
-					<legend><?php tr('Français'); ?></legend>
+	<form id="managetrad" method="post" action="<?php echo mkurl(array('val'=>$_PAGE['id'])); ?>">
 
-					<input type="button" id="words_fr" class="btn btn-large" value="Words" />
-				</fieldset>
-			</div>
-			<div class="span4">
-				<fieldset id="en">
-					<legend><?php tr('Anglais'); ?></legend>
-					<input type="button" id="propositions_en" class="btn btn-large" value="Propositions" />
-					<input type="button" id="words_en" class="btn btn-large" value="Words" />
-				</fieldset>
-			</div>
-			<div class="span4">
-					<?php if (isset($contents) && is_array($contents)) {?>
-				<fieldset>
-					<legend><?php tr('Valider les modifications'); ?></legend>
-					<button class="btn btn-block btn-large btn-inverse" id="send_management"><?php tr('Envoyer'); ?></button>
-				</fieldset>
-					<?php } ?>
-			</div>
-		</div>
+        <div class="w220 bl mid">
+            <button class="btn btn-success" type="submit"><?php tr('Valider les traductions'); ?></button>
+        </div>
+        <div class="row-fluid">
+            <div class="span6"><h4><?php tr('Source'); ?></h4></div>
+            <div class="span6"><?php tr('Traduction'); ?></div>
+        </div>
+        <?php foreach (Translate::$words_en as $word) { ?>
+            <div class="row-fluid">
+                <div class="span6">
+                    <?php echo $word['source']; ?>
+                </div>
+                <div class="span6">
+                    <textarea class="hidden" name="source[]"><?php echo $word['source']; ?></textarea>
+                    <textarea name="trans[]"><?php echo $word['trans']; ?></textarea>
+                </div>
+            </div>
+            <hr />
+        <?php } ?>
 	</form>
-
-	<?php
-		if (isset($contents) && is_array($contents)) {
-			$i = 0;
-			?>
-			<?php
-			foreach($contents as $k => $word) {
-				if (is_numeric($k)) {
-				$i = $k; ?>
-				<div class="row-fluid word_manage">
-					<div class="span9"><textarea rows="2" cols="50" name="words[<?php echo $i; ?>]" id="Word<?php echo $i; ?>"><?php echo $word;?></textarea></div>
-					<div class="span3">
-						<div class="btn-group manage_buttons">
-							<button class="btn" data-modif="update"><?php tr('Modifier'); ?></button>
-							<button class="btn" data-modif="delete"><?php tr('Supprimer'); ?></button>
-						</div>
-					</div>
-				</div>
-				<?php
-				} elseif (is_string($k)) {
-					$trad = $word;
-					$word = $k;
-				?>
-				<div class="row-fluid word_manage">
-					<div class="span5"><textarea rows="2" cols="50" class="word"><?php echo $word;?></textarea></div>
-					<div class="span5"><textarea rows="2" cols="50" class="trad"><?php echo $trad;?></textarea></div>
-					<div class="span1">
-						<div class="btn-group manage_buttons">
-							<button class="btn" data-modif="update"><?php tr('Modifier'); ?></button>
-							<button class="btn" data-modif="delete"><?php tr('Supprimer'); ?></button>
-						</div>
-					</div>
-				</div>
-				<?php
-					$i++;
-				}
-			}
-		}
-	?>
 
 </div><!-- /container -->
 

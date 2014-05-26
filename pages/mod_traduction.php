@@ -1,5 +1,7 @@
 <?php
 
+redirect(array('val'=>1), 'Module indisponible', 'error');
+
 $propositions_en = Translate::get_propositions_en();
 $words_fr = Translate::get_words_fr();
 $words_en = Translate::get_words_en();
