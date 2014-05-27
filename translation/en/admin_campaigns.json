@@ -1,0 +1,22 @@
+[
+    {
+        "source": "parties",
+        "trans": "games"
+    },
+    {
+        "source": "Joueurs",
+        "trans": "Players"
+    },
+    {
+        "source": "Aucun joueur",
+        "trans": "No player"
+    },
+    {
+        "source": "Corahn Rin",
+        "trans": "Corahn-Rin"
+    },
+    {
+        "source": "Gestion des campagnes",
+        "trans": "Campaign manager"
+    }
+]

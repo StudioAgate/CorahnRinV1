@@ -97,6 +97,10 @@ if (preg_match('#127\.0\.0\.1|localhost#isUu', $_SERVER['HTTP_HOST'])) {
 	$_SERVER['HTTP_HOST'] = '127.0.0.1';//On définit le serveur local
 }
 ## Configuration de la base de données
+if (!FileAndDir::fexists(ROOT.DS.'db.php')) {
+    echo "Database not configured.";
+    exit;
+}
 require ROOT.DS.'db.php';
 
 ## On charge tous les paramètres de base du site (variable $_PAGE, session, etc)
@@ -109,6 +113,7 @@ define('P_DEBUG',	(Users::$id == 1 ? true : false));
 
 ## On va créer la requête dans la variable $_PAGE
 require ROOT.DS.'request.php';
+Translate::$_PAGE = $_PAGE;
 
 ## On charge le module Git au cas où une mise à jour est prévue.
 //require ROOT.DS.'git.php';
@@ -155,7 +160,12 @@ if (PHP_SAPI === 'cli' && ($_PAGE['layout'] === 'default' || $_PAGE['layout'] ==
 
 $time = (microtime(true) - $time)*1000;
 $_LAYOUT = str_replace('{PAGE_TIME}', number_format($time, 4, ',', ' '), $_LAYOUT);## On affiche le message de temps d'exécution
-$f = fopen(ROOT.DS.'logs'.DS.'exectime'.DS.date('Y.m.d').'.log', 'a');##On stocke le temps d'exécution dans le fichier log
+$logfile = ROOT.DS.'logs'.DS.'exectime'.DS.date('Y.m.d').'.log';
+if (!is_dir(dirname($logfile))) {
+    FileAndDir::createPath(dirname($logfile));
+    touch($logfile);
+}
+$f = fopen($logfile, 'a');##On stocke le temps d'exécution dans le fichier log
 $final = "*|*|*Date=>".json_encode(date(DATE_RFC822))
 	.'||Ip=>'.json_encode($_SERVER['REMOTE_ADDR'])
 // 	.'||Referer=>'.json_encode(@$_SERVER['HTTP_REFERER'])

@@ -1,0 +1,62 @@
+[
+    {
+        "source": "Menu du site",
+        "trans": "Menu du site"
+    },
+    {
+        "source": "Accueil",
+        "trans": "Accueil"
+    },
+    {
+        "source": "Créer un personnage",
+        "trans": "Créer un personnage"
+    },
+    {
+        "source": "Mises à jour",
+        "trans": "Mises à jour"
+    },
+    {
+        "source": "Visualiser un personnage",
+        "trans": "Visualiser un personnage"
+    },
+    {
+        "source": "Changer la langue",
+        "trans": "Changer la langue"
+    },
+    {
+        "source": "Gérer la traduction",
+        "trans": "Gérer la traduction"
+    },
+    {
+        "source": "Gestion des campagnes",
+        "trans": "Gestion des campagnes"
+    },
+    {
+        "source": "Gestion des erreurs",
+        "trans": "Gestion des erreurs"
+    },
+    {
+        "source": "Gestion des utilisateurs",
+        "trans": "Gestion des utilisateurs"
+    },
+    {
+        "source": "Mes campagnes",
+        "trans": "Mes campagnes"
+    },
+    {
+        "source": "Mes personnages",
+        "trans": "Mes personnages"
+    },
+    {
+        "source": "Mise à jour de la traduction",
+        "trans": "Mise à jour de la traduction"
+    },
+    {
+        "source": "Supprimer le cache",
+        "trans": "Supprimer le cache"
+    },
+    {
+        "source": "Déconnexion",
+        "trans": "Déconnexion"
+    }
+]

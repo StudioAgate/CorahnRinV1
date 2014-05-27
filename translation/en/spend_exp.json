@@ -1,0 +1,578 @@
+[
+    {
+        "source": "Fermer",
+        "trans": "Fermer"
+    },
+    {
+        "source": "Dépenser de l'expérience",
+        "trans": "Dépenser de l'expérience"
+    },
+    {
+        "source": "Personnage",
+        "trans": "Personnage"
+    },
+    {
+        "source": "Expérience",
+        "trans": "Expérience"
+    },
+    {
+        "source": "Envoyer",
+        "trans": "Envoyer"
+    },
+    {
+        "source": "Combat",
+        "trans": "Combat"
+    },
+    {
+        "source": "Domaines",
+        "trans": "Domaines"
+    },
+    {
+        "source": "Disciplines",
+        "trans": "Disciplines"
+    },
+    {
+        "source": "Le coût en XP pour augmenter la rapidité ou la défense est le suivant :",
+        "trans": "Le coût en XP pour augmenter la rapidité ou la défense est le suivant :"
+    },
+    {
+        "source": "Pour augmenter 1 point, le coût est équivalent au niveau suivant multiplié par 5, puis ajouté de 5.",
+        "trans": "Pour augmenter 1 point, le coût est équivalent au niveau suivant multiplié par 5, puis ajouté de 5."
+    },
+    {
+        "source": "Rapidité",
+        "trans": "Rapidité"
+    },
+    {
+        "source": "Score de base de rapidité",
+        "trans": "Score de base de rapidité"
+    },
+    {
+        "source": "Défense",
+        "trans": "Défense"
+    },
+    {
+        "source": "Score de base de Défense",
+        "trans": "Score de base de Défense"
+    },
+    {
+        "source": "Artisanat",
+        "trans": "Artisanat"
+    },
+    {
+        "source": "Combat au Contact",
+        "trans": "Combat au Contact"
+    },
+    {
+        "source": "Discrétion",
+        "trans": "Discrétion"
+    },
+    {
+        "source": "Magience",
+        "trans": "Magience"
+    },
+    {
+        "source": "Milieu Naturel",
+        "trans": "Milieu Naturel"
+    },
+    {
+        "source": "Mystères Demorthèn",
+        "trans": "Mystères Demorthèn"
+    },
+    {
+        "source": "Occultisme",
+        "trans": "Occultisme"
+    },
+    {
+        "source": "Perception",
+        "trans": "Perception"
+    },
+    {
+        "source": "Prière",
+        "trans": "Prière"
+    },
+    {
+        "source": "Prouesses",
+        "trans": "Prouesses"
+    },
+    {
+        "source": "Relation",
+        "trans": "Relation"
+    },
+    {
+        "source": "Représentation",
+        "trans": "Représentation"
+    },
+    {
+        "source": "Science",
+        "trans": "Science"
+    },
+    {
+        "source": "Tir et Lancer",
+        "trans": "Tir et Lancer"
+    },
+    {
+        "source": "Voyage",
+        "trans": "Voyage"
+    },
+    {
+        "source": "Érudition",
+        "trans": "Érudition"
+    },
+    {
+        "source": "Les disciplines peuvent être choisies lorsque le domaine associé a un score de 5. Elles commencent avec un score de 6.",
+        "trans": "Les disciplines peuvent être choisies lorsque le domaine associé a un score de 5. Elles commencent avec un score de 6."
+    },
+    {
+        "source": "Les disciplines liées à la magience et aux artefacts ne peuvent être prises que si le score de magience est à 1 au moins.",
+        "trans": "Les disciplines liées à la magience et aux artefacts ne peuvent être prises que si le score de magience est à 1 au moins."
+    },
+    {
+        "source": "Bijouterie",
+        "trans": "Bijouterie"
+    },
+    {
+        "source": "Confection",
+        "trans": "Confection"
+    },
+    {
+        "source": "Cuisine",
+        "trans": "Cuisine"
+    },
+    {
+        "source": "Distillation",
+        "trans": "Distillation"
+    },
+    {
+        "source": "Extraction minière",
+        "trans": "Extraction minière"
+    },
+    {
+        "source": "Forge",
+        "trans": "Forge"
+    },
+    {
+        "source": "Machinerie magientiste",
+        "trans": "Machinerie magientiste"
+    },
+    {
+        "source": "Maroquinerie",
+        "trans": "Maroquinerie"
+    },
+    {
+        "source": "Menuiserie",
+        "trans": "Menuiserie"
+    },
+    {
+        "source": "Outil magientiste",
+        "trans": "Outil magientiste"
+    },
+    {
+        "source": "Peinture",
+        "trans": "Peinture"
+    },
+    {
+        "source": "Poterie",
+        "trans": "Poterie"
+    },
+    {
+        "source": "Sculpture",
+        "trans": "Sculpture"
+    },
+    {
+        "source": "Serrurerie",
+        "trans": "Serrurerie"
+    },
+    {
+        "source": "Armes contondantes",
+        "trans": "Armes contondantes"
+    },
+    {
+        "source": "Artefact de combat",
+        "trans": "Artefact de combat"
+    },
+    {
+        "source": "Bâtons",
+        "trans": "Bâtons"
+    },
+    {
+        "source": "Combat à mains nues",
+        "trans": "Combat à mains nues"
+    },
+    {
+        "source": "Combat aveugle",
+        "trans": "Combat aveugle"
+    },
+    {
+        "source": "Épées",
+        "trans": "Épées"
+    },
+    {
+        "source": "Haches",
+        "trans": "Haches"
+    },
+    {
+        "source": "Lames courtes",
+        "trans": "Lames courtes"
+    },
+    {
+        "source": "Armes d'hast",
+        "trans": "Armes d'hast"
+    },
+    {
+        "source": "Camouflage",
+        "trans": "Camouflage"
+    },
+    {
+        "source": "Furtivité",
+        "trans": "Furtivité"
+    },
+    {
+        "source": "Mimétisme",
+        "trans": "Mimétisme"
+    },
+    {
+        "source": "Vol à la tire",
+        "trans": "Vol à la tire"
+    },
+    {
+        "source": "Conn. des Flux",
+        "trans": "Conn. des Flux"
+    },
+    {
+        "source": "Extraction de Flux",
+        "trans": "Extraction de Flux"
+    },
+    {
+        "source": "Médecine",
+        "trans": "Médecine"
+    },
+    {
+        "source": "Raffinage de Flux",
+        "trans": "Raffinage de Flux"
+    },
+    {
+        "source": "Réparation d'artefacts",
+        "trans": "Réparation d'artefacts"
+    },
+    {
+        "source": "Utilisation d'artefacts",
+        "trans": "Utilisation d'artefacts"
+    },
+    {
+        "source": "Agriculture",
+        "trans": "Agriculture"
+    },
+    {
+        "source": "Dressage d'animaux",
+        "trans": "Dressage d'animaux"
+    },
+    {
+        "source": "Faune et flore",
+        "trans": "Faune et flore"
+    },
+    {
+        "source": "Orientation",
+        "trans": "Orientation"
+    },
+    {
+        "source": "Pistage",
+        "trans": "Pistage"
+    },
+    {
+        "source": "Premiers soins",
+        "trans": "Premiers soins"
+    },
+    {
+        "source": "Survie",
+        "trans": "Survie"
+    },
+    {
+        "source": "Concentration",
+        "trans": "Concentration"
+    },
+    {
+        "source": "Herboristerie",
+        "trans": "Herboristerie"
+    },
+    {
+        "source": "Langue ancienne",
+        "trans": "Langue ancienne"
+    },
+    {
+        "source": "Médecine traditionnelle",
+        "trans": "Médecine traditionnelle"
+    },
+    {
+        "source": "Méditation",
+        "trans": "Méditation"
+    },
+    {
+        "source": "Savoirs demorthèn",
+        "trans": "Savoirs demorthèn"
+    },
+    {
+        "source": "Sigil Rann",
+        "trans": "Sigil Rann"
+    },
+    {
+        "source": "Spiritualité",
+        "trans": "Spiritualité"
+    },
+    {
+        "source": "Ésotérisme",
+        "trans": "Ésotérisme"
+    },
+    {
+        "source": "Hypnose",
+        "trans": "Hypnose"
+    },
+    {
+        "source": "Interprétation des rêves",
+        "trans": "Interprétation des rêves"
+    },
+    {
+        "source": "Phénomènes mentaux",
+        "trans": "Phénomènes mentaux"
+    },
+    {
+        "source": "Évaluation",
+        "trans": "Évaluation"
+    },
+    {
+        "source": "Lecture sur les lèvres",
+        "trans": "Lecture sur les lèvres"
+    },
+    {
+        "source": "Observation",
+        "trans": "Observation"
+    },
+    {
+        "source": "Sens aiguisés",
+        "trans": "Sens aiguisés"
+    },
+    {
+        "source": "Vigilance",
+        "trans": "Vigilance"
+    },
+    {
+        "source": "Conn. du Temple",
+        "trans": "Conn. du Temple"
+    },
+    {
+        "source": "Miracles",
+        "trans": "Miracles"
+    },
+    {
+        "source": "Recueillement",
+        "trans": "Recueillement"
+    },
+    {
+        "source": "Acrobaties",
+        "trans": "Acrobaties"
+    },
+    {
+        "source": "Course",
+        "trans": "Course"
+    },
+    {
+        "source": "Endurance",
+        "trans": "Endurance"
+    },
+    {
+        "source": "Escalade",
+        "trans": "Escalade"
+    },
+    {
+        "source": "Évasion",
+        "trans": "Évasion"
+    },
+    {
+        "source": "Natation",
+        "trans": "Natation"
+    },
+    {
+        "source": "Travail de force",
+        "trans": "Travail de force"
+    },
+    {
+        "source": "Baratin",
+        "trans": "Baratin"
+    },
+    {
+        "source": "Charme",
+        "trans": "Charme"
+    },
+    {
+        "source": "Commandement",
+        "trans": "Commandement"
+    },
+    {
+        "source": "Conn. d'une faction",
+        "trans": "Conn. d'une faction"
+    },
+    {
+        "source": "Diplomatie",
+        "trans": "Diplomatie"
+    },
+    {
+        "source": "Étiquette d'un milieu social",
+        "trans": "Étiquette d'un milieu social"
+    },
+    {
+        "source": "Intimidation",
+        "trans": "Intimidation"
+    },
+    {
+        "source": "Persuasion",
+        "trans": "Persuasion"
+    },
+    {
+        "source": "Chant",
+        "trans": "Chant"
+    },
+    {
+        "source": "Comédie",
+        "trans": "Comédie"
+    },
+    {
+        "source": "Danse",
+        "trans": "Danse"
+    },
+    {
+        "source": "Instrument de musique",
+        "trans": "Instrument de musique"
+    },
+    {
+        "source": "Jeux",
+        "trans": "Jeux"
+    },
+    {
+        "source": "Jonglage",
+        "trans": "Jonglage"
+    },
+    {
+        "source": "Ventriloquie",
+        "trans": "Ventriloquie"
+    },
+    {
+        "source": "Architecture",
+        "trans": "Architecture"
+    },
+    {
+        "source": "Botanique",
+        "trans": "Botanique"
+    },
+    {
+        "source": "Conn. troubles mentaux",
+        "trans": "Conn. troubles mentaux"
+    },
+    {
+        "source": "Géologie",
+        "trans": "Géologie"
+    },
+    {
+        "source": "Ingénierie",
+        "trans": "Ingénierie"
+    },
+    {
+        "source": "Mécanique",
+        "trans": "Mécanique"
+    },
+    {
+        "source": "Zoologie",
+        "trans": "Zoologie"
+    },
+    {
+        "source": "Traitement de l'esprit",
+        "trans": "Traitement de l'esprit"
+    },
+    {
+        "source": "Arbalètes",
+        "trans": "Arbalètes"
+    },
+    {
+        "source": "Arcs",
+        "trans": "Arcs"
+    },
+    {
+        "source": "Armes de jet",
+        "trans": "Armes de jet"
+    },
+    {
+        "source": "Attelage",
+        "trans": "Attelage"
+    },
+    {
+        "source": "Cartographie",
+        "trans": "Cartographie"
+    },
+    {
+        "source": "Chemins de traverse (Varigal)",
+        "trans": "Chemins de traverse (Varigal)"
+    },
+    {
+        "source": "Équitation",
+        "trans": "Équitation"
+    },
+    {
+        "source": "Navigation",
+        "trans": "Navigation"
+    },
+    {
+        "source": "Signes (Varigal)",
+        "trans": "Signes (Varigal)"
+    },
+    {
+        "source": "Doctrine du Temple",
+        "trans": "Doctrine du Temple"
+    },
+    {
+        "source": "Géographie",
+        "trans": "Géographie"
+    },
+    {
+        "source": "Héraldique",
+        "trans": "Héraldique"
+    },
+    {
+        "source": "Histoire",
+        "trans": "Histoire"
+    },
+    {
+        "source": "Langues",
+        "trans": "Langues"
+    },
+    {
+        "source": "Politique",
+        "trans": "Politique"
+    },
+    {
+        "source": "Principes magientistes",
+        "trans": "Principes magientistes"
+    },
+    {
+        "source": "Traditions demorthèn",
+        "trans": "Traditions demorthèn"
+    },
+    {
+        "source": "Astronomie",
+        "trans": "Astronomie"
+    },
+    {
+        "source": "Légendes",
+        "trans": "Légendes"
+    },
+    {
+        "source": "Nouvelles disciplines !",
+        "trans": "Nouvelles disciplines !"
+    },
+    {
+        "source": "Vous pouvez accéder à de nouvelles disciplines pour le domaine suivant :",
+        "trans": "Vous pouvez accéder à de nouvelles disciplines pour le domaine suivant :"
+    },
+    {
+        "source": "Corahn Rin",
+        "trans": "Corahn Rin"
+    }
+]

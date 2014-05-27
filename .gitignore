@@ -1,7 +1,8 @@
 #################
-## Eclipse
+## IDE
 #################
 *.pydevproject
+.idea
 .project
 .metadata
 bin/
@@ -24,10 +25,10 @@ local.properties
 db.php
 Maquettage/
 Maquettage/*
-webroot/css/*.min.css
+webroot/css/main.min.css
 webroot/css/pages/*.css
 webroot/js/pages/*.js
-webroot/js/*min.js
+webroot/js/main.min.js
 webroot/files/characters_export/*
 logs/cache_sql/*.php
 logs/404/*.log

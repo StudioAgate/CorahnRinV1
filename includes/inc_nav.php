@@ -15,6 +15,8 @@
 		</li>';
 	}
 
+    Translate::$domain = 'menu';
+
 	//$_PAGE['list'] = Hash::sort($_PAGE['list'], 'page_step', 'asc');
 ?>
 
@@ -22,7 +24,7 @@
 				<div class="navbar-inner">
 					<div class="container">
 						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><?php echo tr('Menu du site'); ?></a>
-						<?php echo mkurl(array('val'=>1, 'type'=>'tag','attr'=>'class="brand'.($_PAGE['id'] == 1 ? ' active' : '').'"')); ?>
+						<?php echo mkurl(array('val'=>1,'trans'=>true, 'type'=>'tag','attr'=>'class="brand'.($_PAGE['id'] == 1 ? ' active' : '').'"')); ?>
 						<div class="nav-collapse collapse">
 							<ul class="nav">
 								<li<?php echo Session::read('etape') != 0 ? ' class="active"' : ''; ?>><?php
@@ -41,7 +43,7 @@
 								foreach($_PAGE['list'] as $id => $page) {
 									if ($page['page_show_in_menu'] == '1') {
 										$active = $_PAGE['get'] == $page['page_getmod'] ? ' class="active"' : '';
-										echo '<li'.$active.'>'.mkurl(array('val'=>$id, 'type'=> 'TAG')).'</li>';
+										echo '<li'.$active.'>'.mkurl(array('val'=>$id, 'type'=> 'TAG','trans'=>true)).'</li>';
 									}
 								}
 								unset($id,$page,$active);
@@ -57,7 +59,7 @@
 									?><li><?php echo mkurl(array('val'=>48, 'type' => 'tag')); ?></li><?php
 									?><li><?php echo mkurl(array('val'=>56, 'type' => 'tag')); ?></li><?php
 								} else {
-									?><li><?php echo mkurl(array('val'=>48, 'type' => 'tag', 'anchor' => 'Déconnexion', 'params' => array('logout'))); ?></li><?php
+									?><li><?php echo mkurl(array('val'=>48, 'type' => 'tag', 'anchor' => 'Déconnexion', 'trans'=>true, 'params' => array('logout'))); ?></li><?php
 								} ?>
 							</ul>
 						</div><!--/.nav-collapse -->
@@ -66,3 +68,5 @@
 			</div><!--/.navbar-->
 
 <?php if (P_LOGGED === true) { require ROOT.DS.'includes'.DS.'inc_nav_admin.php'; }
+
+Translate::$domain = null;

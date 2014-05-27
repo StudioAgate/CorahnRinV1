@@ -133,7 +133,12 @@ if (isset($_SERVER['HTTP_REFERER']) && !isset($_PAGE['referer'])) {
 			'full_url' => $_SERVER['HTTP_REFERER'],
 		);
 		//Si le referer n'existe pas sur ce site, alors on enregistre l'url dans les log pour des raisons statistiques
-		$f = fopen(ROOT.DS.'logs'.DS.'referer'.DS.date('Y.m.d').'.log', 'a');##On stocke le temps d'exécution dans le fichier log
+        $logfile = ROOT.DS.'logs'.DS.'referer'.DS.date('Y.m.d').'.log';
+        if (!is_dir(dirname($logfile))) {
+            FileAndDir::createPath(dirname($logfile));
+            FileAndDir::put($logfile, '');
+        }
+		$f = fopen($logfile, 'a');##On stocke le temps d'exécution dans le fichier log
 		$final = "*|*|*Date=>".json_encode(date(DATE_RFC822))
 		.'||Ip=>'.json_encode($_SERVER['REMOTE_ADDR'])
 		.'||Referer=>'.json_encode($_SERVER['HTTP_REFERER'] ? $_SERVER['HTTP_REFERER'] : 'Accès direct au site')

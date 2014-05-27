@@ -38,6 +38,7 @@ function mkurl($base_params = array()) {
 		'beforetag'	=> '',
 		'post'		=> $_POST,
 		'custom'	=> false,
+        'trans'     => false,
 	);
 
 	$params = array_merge($params_default, $params);//On récupère les paramètres de l'utilisateur
@@ -55,6 +56,7 @@ function mkurl($base_params = array()) {
 		'beforetag'	=> (string) $params['beforetag'],
 		'post'		=> (array) $params['post'],
 		'custom'	=> (bool) $params['custom'],
+        'trans'     => (bool) $params['trans'],
 	);
 	if (defined('P_MKURL_FIELDS')) {
 		$fields_ok = explode(',', P_MKURL_FIELDS);//On récupère les champs paramétrés par l'utilisateur
@@ -151,7 +153,9 @@ function mkurl($base_params = array()) {
 		} elseif (!$params['anchor'] && $params['custom'] === true) {
 			$params['anchor'] = $href;// Si $params['anchor'] est vide et qu'on crée une url personnaliée, alors on affiche l'url elle-même par défaut
 		}
-		$params['anchor'] = tr($params['anchor'], true);
+        if ($params['trans']) {
+		    $params['anchor'] = tr($params['anchor'], true);
+        }
 
 		$final = $params['beforetag'].'<a href="'.$href.'"'.$attr.'>'.$params['anchor'].'</a>'.$params['aftertag'];
 	}

@@ -98,6 +98,7 @@ if (isset($_PAGE['more_css'])) {
 			<?php echo $_PAGE['content_for_layout']; ## MODULE ## ?>
 		</div>
 
+        <?php Translate::$domain = 'footer'; ?>
 		<div class="container" id="footer">
 			<hr />
 			<footer>
@@ -106,7 +107,7 @@ if (isset($_PAGE['more_css'])) {
 				?> &ndash; <?php
 					echo tr('Dernière mise à jour', true).' : '.$_PAGE['version']['date'];
 				?></p>
-				<p><?php tr("Tous droits réservés &ndash; Pierstoval"); ?> 2012-2013</p>
+				<p><?php tr("Tous droits réservés - Pierstoval"); ?> 2012-2013</p>
 				<p><?php tr("Tous les contenus sont générés par l'auteur du site, mais proviennent des livres des Ombres d'Esteren,<br />et appartiennent au collectif Forgesonges, et édité par Agate Editions."); ?></p>
 				<p><?php tr('Page générée en'); ?> {PAGE_TIME} <?php tr('millisecondes'); ?></p>
 			</footer>
@@ -147,5 +148,7 @@ if (isset($_PAGE['more_css'])) {
 <script type="text/javascript" src="<?php echo $v; ?>"></script>
 		<?php } } unset($css,$js,$v); ?>
 <!--Analytics--><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-43812649-1', 'pierstoval.com');ga('send', 'pageview');</script>
+
+        <?php Translate::$domain = null; ?>
 	</body>
 </html>

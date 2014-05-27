@@ -8,6 +8,10 @@ function goto_404 () {
 	global $_PAGE;
 
 	$error_file = ROOT.DS.'logs'.DS.'404'.DS.date('Y.m.d').'.log';
+    if (!is_dir(dirname($error_file))) {
+        FileAndDir::createPath(dirname($error_file));
+        file_put_contents($error_file, '');
+    }
 	$final = "*|*|*Date=>".json_encode(date(DATE_RFC822))
 		.'||Ip=>'.json_encode($_SERVER['REMOTE_ADDR'])
 		.'||Referer=>'.json_encode(isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '')

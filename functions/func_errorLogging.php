@@ -72,6 +72,10 @@ function error_logging($errno, $errstr, $errfile, $errline) {
 			.'||User.id=>'.json_encode(Users::$id);
 		$final = preg_replace('#\n|\r|\t#isUu', '', $final);
 		$final = preg_replace('#\s\s+#isUu', ' ', $final);
+        if (!is_dir(dirname($error_file))) {
+            FileAndDir::createPath(dirname($error_file));
+            FileAndDir::put($error_file, '');
+        }
 		$f = fopen($error_file, 'a');
 		fwrite($f, $final);
 		fclose($f);

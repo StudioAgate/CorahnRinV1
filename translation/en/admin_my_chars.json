@@ -1,0 +1,126 @@
+[
+    {
+        "source": "Voici la liste de vos personnages",
+        "trans": "List of your characters"
+    },
+    {
+        "source": "Corahn Rin",
+        "trans": "Corahn Rin"
+    },
+    {
+        "source": "Mes personnages",
+        "trans": "My characters"
+    },
+    {
+        "source": "Corahn Rin",
+        "trans": "Corahn Rin"
+    },
+    {
+        "source": "Valider toutes les modifications",
+        "trans": "Valider toutes les modifications"
+    },
+    {
+        "source": "Description et histoire",
+        "trans": "Description et histoire"
+    },
+    {
+        "source": "Inventaire",
+        "trans": "Inventaire"
+    },
+    {
+        "source": "Arts anciens",
+        "trans": "Arts anciens"
+    },
+    {
+        "source": "Description",
+        "trans": "Description"
+    },
+    {
+        "source": "Insérez ici une description de votre personnage",
+        "trans": "Insérez ici une description de votre personnage"
+    },
+    {
+        "source": "Histoire",
+        "trans": "Histoire"
+    },
+    {
+        "source": "Écrivez ici l'histoire de votre personnage",
+        "trans": "Écrivez ici l'histoire de votre personnage"
+    },
+    {
+        "source": "Faits marquants",
+        "trans": "Faits marquants"
+    },
+    {
+        "source": "Écrivez ici les faits marquants dans l'histoire de votre personnage",
+        "trans": "Écrivez ici les faits marquants dans l'histoire de votre personnage"
+    },
+    {
+        "source": "Possessions",
+        "trans": "Possessions"
+    },
+    {
+        "source": "Une par ligne",
+        "trans": "Une par ligne"
+    },
+    {
+        "source": "Ajoutez ici les possessions de votre personnage",
+        "trans": "Ajoutez ici les possessions de votre personnage"
+    },
+    {
+        "source": "Objets précieux",
+        "trans": "Objets précieux"
+    },
+    {
+        "source": "Ajoutez ici les objets précieux de votre personnage",
+        "trans": "Ajoutez ici les objets précieux de votre personnage"
+    },
+    {
+        "source": "Arts Demorthèn",
+        "trans": "Arts Demorthèn"
+    },
+    {
+        "source": "Ogham",
+        "trans": "Ogham"
+    },
+    {
+        "source": "Un par ligne",
+        "trans": "Un par ligne"
+    },
+    {
+        "source": "Ajoutez ici les ogham que possède votre personnage",
+        "trans": "Ajoutez ici les ogham que possède votre personnage"
+    },
+    {
+        "source": "Magience",
+        "trans": "Magience"
+    },
+    {
+        "source": "Artefacts",
+        "trans": "Artefacts"
+    },
+    {
+        "source": "Ajoutez ici les artefacts que possède votre personnage",
+        "trans": "Ajoutez ici les artefacts que possède votre personnage"
+    },
+    {
+        "source": "Culte du Temple",
+        "trans": "Culte du Temple"
+    },
+    {
+        "source": "Miracles mineurs",
+        "trans": "Miracles mineurs"
+    },
+    {
+        "source": "Ajoutez ici les miracles mineurs que possède votre personnage",
+        "trans": "Ajoutez ici les miracles mineurs que possède votre personnage"
+    },
+    {
+        "source": "Miracles majeurs",
+        "trans": "Miracles majeurs"
+    },
+    {
+        "source": "Ajoutez ici les miracles majeurs que possède votre personnage",
+        "trans": "Ajoutez ici les miracles majeurs que possède votre personnage"
+    }
+]

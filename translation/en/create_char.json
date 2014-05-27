@@ -1,0 +1,1794 @@
+[
+    {
+        "source": "Peuple",
+        "trans": "Peuple"
+    },
+    {
+        "source": "Étape suivante",
+        "trans": "Étape suivante"
+    },
+    {
+        "source": "Peuple de Tri-Kazel",
+        "trans": "Peuple de Tri-Kazel"
+    },
+    {
+        "source": "Les Tri-Kazeliens constituent la très grande majorité de la population de la péninsule. La plupart d'entre eux conservent une stature assez robuste héritée des Osags mais peuvent aussi avoir des traits d'autres peuples. Les Tri-Kazeliens sont issus de siècles de mélanges entre toutes les cultures ayant un jour ou l'autre foulé le sol de la péninsule.<br /><br />De par cette origine, le PJ connaît un dialecte local ; il faut donc préciser de quel pays et région il est originaire.",
+        "trans": "Les Tri-Kazeliens constituent la très grande majorité de la population de la péninsule. La plupart d'entre eux conservent une stature assez robuste héritée des Osags mais peuvent aussi avoir des traits d'autres peuples. Les Tri-Kazeliens sont issus de siècles de mélanges entre toutes les cultures ayant un jour ou l'autre foulé le sol de la péninsule.<br /><br />De par cette origine, le PJ connaît un dialecte local ; il faut donc préciser de quel pays et région il est originaire."
+    },
+    {
+        "source": "Peuple Tarish",
+        "trans": "Peuple Tarish"
+    },
+    {
+        "source": "D'origine inconnue, le peuple Tarish forme une minorité nomade qui parcourt depuis des décennies les terres de la péninsule. Il est aussi appelé \"peuple de l'ouest\" car la légende veut qu'il soit arrivé par l'Océan Furieux. Les Tarishs se distinguent des Tri-Kazeliens par des pommettes hautes, le nez plutôt aquilin et les yeux souvent clairs. Beaucoup d'entre eux deviennent des saltimbanques, des mystiques ou des artisans.<br />La culture Tarish, même si elle est diluée aujourd'hui, conserve encore une base importante : c'est un peuple nomade habitué aux longs périples et leur langue n'a pas disparu, bien qu'aucun étranger ne l'ait jamais apprise.",
+        "trans": "D'origine inconnue, le peuple Tarish forme une minorité nomade qui parcourt depuis des décennies les terres de la péninsule. Il est aussi appelé \"peuple de l'ouest\" car la légende veut qu'il soit arrivé par l'Océan Furieux. Les Tarishs se distinguent des Tri-Kazeliens par des pommettes hautes, le nez plutôt aquilin et les yeux souvent clairs. Beaucoup d'entre eux deviennent des saltimbanques, des mystiques ou des artisans.<br />La culture Tarish, même si elle est diluée aujourd'hui, conserve encore une base importante : c'est un peuple nomade habitué aux longs périples et leur langue n'a pas disparu, bien qu'aucun étranger ne l'ait jamais apprise."
+    },
+    {
+        "source": "Peuple Osag",
+        "trans": "Peuple Osag"
+    },
+    {
+        "source": "Habitués à ne compter que sur eux-mêmes, les Osags forment un peuple rude. Généralement dotés d'une carrure imposante, ils sont les descendants directs des clans traditionnels de la péninsule. La civilisation péninsulaire a beaucoup évolué depuis l'avènement des Trois Royaumes, mais certains clans sont restés fidèles aux traditions ancestrales et n'ont pas pris part à ces changements. Repliés sur leur mode de vie clanique, les Osags ne se sont pas métissés avec les autres peuples et ont gardé de nombreuses caractéristiques de leurs ancêtres. Les Osags font de grands guerriers et comptent parmi eux les plus célèbres Demorthèn.<br /><br />Leur langue a elle aussi survécu au passage des siècles. Les mots \"feondas\", \"C'maogh\", \"Dàmàthair\" - pour ne citer qu'eux - viennent tous de ce que les Tri-Kazeliens nomment la langue ancienne, mais qui est toujours utilisée par les Osags.",
+        "trans": "Habitués à ne compter que sur eux-mêmes, les Osags forment un peuple rude. Généralement dotés d'une carrure imposante, ils sont les descendants directs des clans traditionnels de la péninsule. La civilisation péninsulaire a beaucoup évolué depuis l'avènement des Trois Royaumes, mais certains clans sont restés fidèles aux traditions ancestrales et n'ont pas pris part à ces changements. Repliés sur leur mode de vie clanique, les Osags ne se sont pas métissés avec les autres peuples et ont gardé de nombreuses caractéristiques de leurs ancêtres. Les Osags font de grands guerriers et comptent parmi eux les plus célèbres Demorthèn.<br /><br />Leur langue a elle aussi survécu au passage des siècles. Les mots \"feondas\", \"C'maogh\", \"Dàmàthair\" - pour ne citer qu'eux - viennent tous de ce que les Tri-Kazeliens nomment la langue ancienne, mais qui est toujours utilisée par les Osags."
+    },
+    {
+        "source": "Peuple du Continent",
+        "trans": "Peuple du Continent"
+    },
+    {
+        "source": "Les hommes et les femmes du Continent sont souvent plus minces et plus élancés que les natifs de Tri-Kazel. Leur visage aura tendance à être plus fin mais avec des traits parfois taillés à la serpe. Un PJ choisissant ce peuple ne sera pas natif du Continent, mais plutôt le descendant direct d'au moins un parent Continental. Si les origines Continentales du PJ sont davantage diluées, on estime qu'il fait partie du peuple de Tri-Kazel.<br /><br />En fonction du passé de la famille du PJ et de son niveau d'intégration dans la société tri-kazelienne, il pourrait avoir appris leur langue d'origine Continentale ou bien un patois de la péninsule, au choix du PJ.",
+        "trans": "Les hommes et les femmes du Continent sont souvent plus minces et plus élancés que les natifs de Tri-Kazel. Leur visage aura tendance à être plus fin mais avec des traits parfois taillés à la serpe. Un PJ choisissant ce peuple ne sera pas natif du Continent, mais plutôt le descendant direct d'au moins un parent Continental. Si les origines Continentales du PJ sont davantage diluées, on estime qu'il fait partie du peuple de Tri-Kazel.<br /><br />En fonction du passé de la famille du PJ et de son niveau d'intégration dans la société tri-kazelienne, il pourrait avoir appris leur langue d'origine Continentale ou bien un patois de la péninsule, au choix du PJ."
+    },
+    {
+        "source": "Étape suivante &rarr;",
+        "trans": "Étape suivante &rarr;"
+    },
+    {
+        "source": "Corahn Rin",
+        "trans": "Corahn Rin"
+    },
+    {
+        "source": "Créer un personnage",
+        "trans": "Créer un personnage"
+    },
+    {
+        "source": "Métier",
+        "trans": "Métier"
+    },
+    {
+        "source": "Étape précédente",
+        "trans": "Étape précédente"
+    },
+    {
+        "source": "Métiers du Livre 1 - Univers",
+        "trans": "Métiers du Livre 1 - Univers"
+    },
+    {
+        "source": "Artisan",
+        "trans": "Artisan"
+    },
+    {
+        "source": "Description",
+        "trans": "Description"
+    },
+    {
+        "source": "Quel que soit son domaine, l'artisan est un manuel qualifié.<br /> Forgeron, cuisinier, architecte, cordonnier, bûcheron, sculpteur, joailler ; les artisans couvrent un grand nombre de spécialités.<br /> Dans les cités où est implantée la magience, on trouve aussi des réparateurs d'artefacts et des ouvriers spécialisés travaillant dans les usines.",
+        "trans": "Quel que soit son domaine, l'artisan est un manuel qualifié.<br /> Forgeron, cuisinier, architecte, cordonnier, bûcheron, sculpteur, joailler ; les artisans couvrent un grand nombre de spécialités.<br /> Dans les cités où est implantée la magience, on trouve aussi des réparateurs d'artefacts et des ouvriers spécialisés travaillant dans les usines."
+    },
+    {
+        "source": "Domaine primaire",
+        "trans": "Domaine primaire"
+    },
+    {
+        "source": "Artisanat",
+        "trans": "Artisanat"
+    },
+    {
+        "source": "Domaine(s) secondaire(s)",
+        "trans": "Domaine(s) secondaire(s)"
+    },
+    {
+        "source": "Relation",
+        "trans": "Relation"
+    },
+    {
+        "source": "Science",
+        "trans": "Science"
+    },
+    {
+        "source": "Choisir ce métier",
+        "trans": "Choisir ce métier"
+    },
+    {
+        "source": "Fermer",
+        "trans": "Fermer"
+    },
+    {
+        "source": "Barde",
+        "trans": "Barde"
+    },
+    {
+        "source": "Le statut de barde est hautement honorifique et les plus puissants monarques s'entourent de ces artistes qui ont de véritables rôles d'éminence grise.<br /> Artiste, acrobate, musicien, bouffon, le barde peut revêtir différents rôles.<br /> Il peut également être connu sous d'autres noms, comme les poètes aveugles filidh ou les étranges céilli de l'archipel des Tri-Sweszörs.",
+        "trans": "Le statut de barde est hautement honorifique et les plus puissants monarques s'entourent de ces artistes qui ont de véritables rôles d'éminence grise.<br /> Artiste, acrobate, musicien, bouffon, le barde peut revêtir différents rôles.<br /> Il peut également être connu sous d'autres noms, comme les poètes aveugles filidh ou les étranges céilli de l'archipel des Tri-Sweszörs."
+    },
+    {
+        "source": "Représentation",
+        "trans": "Représentation"
+    },
+    {
+        "source": "Voyage",
+        "trans": "Voyage"
+    },
+    {
+        "source": "Chasseur",
+        "trans": "Chasseur"
+    },
+    {
+        "source": "Il nourrit la communauté du produit de ses longues expéditions, qui durent parfois plusieurs jours.<br /> L'expansion des villes a vu l'apparition de chasseurs d'un genre nouveau comme les ratiers.<br /> D'autres, comme les Enfants de Neven, dédient leur existence à la traque des feondas.",
+        "trans": "Il nourrit la communauté du produit de ses longues expéditions, qui durent parfois plusieurs jours.<br /> L'expansion des villes a vu l'apparition de chasseurs d'un genre nouveau comme les ratiers.<br /> D'autres, comme les Enfants de Neven, dédient leur existence à la traque des feondas."
+    },
+    {
+        "source": "Milieu Naturel",
+        "trans": "Milieu Naturel"
+    },
+    {
+        "source": "Combat au Contact",
+        "trans": "Combat au Contact"
+    },
+    {
+        "source": "Tir et Lancer",
+        "trans": "Tir et Lancer"
+    },
+    {
+        "source": "Chevalier",
+        "trans": "Chevalier"
+    },
+    {
+        "source": "Ces hommes et ces femmes font partie de la noblesse et appartiennent le plus souvent à un ordre de chevalerie comme les Hilderins ou les Ronces.<br /> Certains sont des chevaliers errants, derniers héritiers d'une famille noble ; d'autres, les vassaux d'un puissant seigneur.",
+        "trans": "Ces hommes et ces femmes font partie de la noblesse et appartiennent le plus souvent à un ordre de chevalerie comme les Hilderins ou les Ronces.<br /> Certains sont des chevaliers errants, derniers héritiers d'une famille noble ; d'autres, les vassaux d'un puissant seigneur."
+    },
+    {
+        "source": "Combattant",
+        "trans": "Combattant"
+    },
+    {
+        "source": "Il peut être soldat ou mercenaire, champion de justice, bagarreur de taverne ou détrousseur des rues sombres, etc.<br /> Il se spécialise dans les armes de contact.",
+        "trans": "Il peut être soldat ou mercenaire, champion de justice, bagarreur de taverne ou détrousseur des rues sombres, etc.<br /> Il se spécialise dans les armes de contact."
+    },
+    {
+        "source": "Prouesses",
+        "trans": "Prouesses"
+    },
+    {
+        "source": "Commerçant",
+        "trans": "Commerçant"
+    },
+    {
+        "source": "Marchand ambulant ou tenancier d'une échoppe bien achalandée, le commerçant peut négocier bien des marchandises.",
+        "trans": "Marchand ambulant ou tenancier d'une échoppe bien achalandée, le commerçant peut négocier bien des marchandises."
+    },
+    {
+        "source": "Érudition",
+        "trans": "Érudition"
+    },
+    {
+        "source": "Demorthèn",
+        "trans": "Demorthèn"
+    },
+    {
+        "source": "Représentant de la nature, il peut entrer en contact avec les esprits et leur demander d'accomplir des tâches particulières.<br /> Il est le gardien des anciennes traditions péninsulaires et il est souvent considéré avec respect.<br /> Les apprentis Demorthèn sont appelés Ionnthèn.",
+        "trans": "Représentant de la nature, il peut entrer en contact avec les esprits et leur demander d'accomplir des tâches particulières.<br /> Il est le gardien des anciennes traditions péninsulaires et il est souvent considéré avec respect.<br /> Les apprentis Demorthèn sont appelés Ionnthèn."
+    },
+    {
+        "source": "Mystères Demorthèn",
+        "trans": "Mystères Demorthèn"
+    },
+    {
+        "source": "Érudit",
+        "trans": "Érudit"
+    },
+    {
+        "source": "Passionnés par le savoir, les recherches, les érudits sont souvent employés comme scribes, professeurs ou bibliothécaires.<br /> Généralement, un érudit possède un domaine de connaissance de prédilection, comme la théologie, magience, science, etc.",
+        "trans": "Passionnés par le savoir, les recherches, les érudits sont souvent employés comme scribes, professeurs ou bibliothécaires.<br /> Généralement, un érudit possède un domaine de connaissance de prédilection, comme la théologie, magience, science, etc."
+    },
+    {
+        "source": "Occultisme",
+        "trans": "Occultisme"
+    },
+    {
+        "source": "Espion",
+        "trans": "Espion"
+    },
+    {
+        "source": "N'importe qui, qu'il soit un conseiller haut placé ou un simple mendiant, peut jouer un double rôle, amassant des informations pour le compte d'un commanditaire.<br /> Le domaine secondaire peut être choisi librement pour coller à la fausse identité de l'espion.",
+        "trans": "N'importe qui, qu'il soit un conseiller haut placé ou un simple mendiant, peut jouer un double rôle, amassant des informations pour le compte d'un commanditaire.<br /> Le domaine secondaire peut être choisi librement pour coller à la fausse identité de l'espion."
+    },
+    {
+        "source": "Perception",
+        "trans": "Perception"
+    },
+    {
+        "source": "Au choix",
+        "trans": "Au choix"
+    },
+    {
+        "source": "Explorateur",
+        "trans": "Explorateur"
+    },
+    {
+        "source": "Aventurier et casse-cou, l'explorateur est passionné par le voyage, fuyant souvent la pauvreté ou la monotonie de son lieu de naissance.",
+        "trans": "Aventurier et casse-cou, l'explorateur est passionné par le voyage, fuyant souvent la pauvreté ou la monotonie de son lieu de naissance."
+    },
+    {
+        "source": "Investigateur",
+        "trans": "Investigateur"
+    },
+    {
+        "source": "Habitant généralement dans les grandes villes, les investigateurs proposent leurs services pour mener l'enquête.<br /> Chaque investigateur a son style : certains sont versés dans l'occultisme, d'autres dans la science, la magience ou encore la médecine.<br /> De ce fait, le choix du domaine secondaire est libre.",
+        "trans": "Habitant généralement dans les grandes villes, les investigateurs proposent leurs services pour mener l'enquête.<br /> Chaque investigateur a son style : certains sont versés dans l'occultisme, d'autres dans la science, la magience ou encore la médecine.<br /> De ce fait, le choix du domaine secondaire est libre."
+    },
+    {
+        "source": "Magientiste",
+        "trans": "Magientiste"
+    },
+    {
+        "source": "En Tri-Kazel, on les nomme souvent par le terme dédaigneux de \"Daedemorthys\".<br /> Malgré cette mauvaise réputation, leur science a pour but général l'amélioration des conditions de vie de l'humanité.<br /> Un magientiste diplômé est un scientör, alors qu'un élève en cours de formation est un inceptus.",
+        "trans": "En Tri-Kazel, on les nomme souvent par le terme dédaigneux de \"Daedemorthys\".<br /> Malgré cette mauvaise réputation, leur science a pour but général l'amélioration des conditions de vie de l'humanité.<br /> Un magientiste diplômé est un scientör, alors qu'un élève en cours de formation est un inceptus."
+    },
+    {
+        "source": "Magience",
+        "trans": "Magience"
+    },
+    {
+        "source": "Malandrin",
+        "trans": "Malandrin"
+    },
+    {
+        "source": "Voleur, cambrioleur, tire-laine ; les moyens illégaux pour gagner sa vie sont assez nombreux pour attirer du monde, et ce malgré les risques.",
+        "trans": "Voleur, cambrioleur, tire-laine ; les moyens illégaux pour gagner sa vie sont assez nombreux pour attirer du monde, et ce malgré les risques."
+    },
+    {
+        "source": "Discrétion",
+        "trans": "Discrétion"
+    },
+    {
+        "source": "Médecin",
+        "trans": "Médecin"
+    },
+    {
+        "source": "Il est des endroits où le demorthèn local n'est pas le meilleur guérisseur.<br /> De nouvelles techniques tout-à-fait efficaces proviennent désormais des universités des grandes villes.<br /> Certains médecins, les aliénistes, s'attachent à soigner les troubles psychiques en se référant aux travaux du professeur continental Ernst Zigger.<br /> D'autres, comme les apothicaires, sont spécialisés dans l'herboristerie.",
+        "trans": "Il est des endroits où le demorthèn local n'est pas le meilleur guérisseur.<br /> De nouvelles techniques tout-à-fait efficaces proviennent désormais des universités des grandes villes.<br /> Certains médecins, les aliénistes, s'attachent à soigner les troubles psychiques en se référant aux travaux du professeur continental Ernst Zigger.<br /> D'autres, comme les apothicaires, sont spécialisés dans l'herboristerie."
+    },
+    {
+        "source": "Occultiste",
+        "trans": "Occultiste"
+    },
+    {
+        "source": "Passionnés d'ésotérisme, les occultistes sont souvent des universitaires ayant un grand intérêt pour ce domaine dénigré par les autres branches de la science.",
+        "trans": "Passionnés d'ésotérisme, les occultistes sont souvent des universitaires ayant un grand intérêt pour ce domaine dénigré par les autres branches de la science."
+    },
+    {
+        "source": "Paysan",
+        "trans": "Paysan"
+    },
+    {
+        "source": "Qu'il cultive la terre ou élève des animaux, il participe à la vie de la communauté en la nourrissant.",
+        "trans": "Qu'il cultive la terre ou élève des animaux, il participe à la vie de la communauté en la nourrissant."
+    },
+    {
+        "source": "Varigal",
+        "trans": "Varigal"
+    },
+    {
+        "source": "Voyageur, messager, porteur de nouvelles mais aussi de colis, le varigal est un lien entre les communautés éparses de Tri-Kazel.<br /> Passant l'essentiel de sa vie sur les chemins, il est généralement bien accueilli quand il arrive dans un village.<br /> Proches de la nature, les varigaux sont souvent les alliés des demorthèn.",
+        "trans": "Voyageur, messager, porteur de nouvelles mais aussi de colis, le varigal est un lien entre les communautés éparses de Tri-Kazel.<br /> Passant l'essentiel de sa vie sur les chemins, il est généralement bien accueilli quand il arrive dans un village.<br /> Proches de la nature, les varigaux sont souvent les alliés des demorthèn."
+    },
+    {
+        "source": "Moine du Temple",
+        "trans": "Moine du Temple"
+    },
+    {
+        "source": "Prière",
+        "trans": "Prière"
+    },
+    {
+        "source": "Clerc du Temple",
+        "trans": "Clerc du Temple"
+    },
+    {
+        "source": "Prêtre du Temple",
+        "trans": "Prêtre du Temple"
+    },
+    {
+        "source": "Vecteur du Temple",
+        "trans": "Vecteur du Temple"
+    },
+    {
+        "source": "Sigire du Temple",
+        "trans": "Sigire du Temple"
+    },
+    {
+        "source": "Chevalier lame du Temple",
+        "trans": "Chevalier lame du Temple"
+    },
+    {
+        "source": "Combattant à distance",
+        "trans": "Combattant à distance"
+    },
+    {
+        "source": "Il peut être soldat ou mercenaire, champion de justice, bagarreur de taverne ou détrousseur des rues sombres, etc.<br /> Il se spécialise dans les armes à distance",
+        "trans": "Il peut être soldat ou mercenaire, champion de justice, bagarreur de taverne ou détrousseur des rues sombres, etc.<br /> Il se spécialise dans les armes à distance"
+    },
+    {
+        "source": "Métiers non officiels",
+        "trans": "Métiers non officiels"
+    },
+    {
+        "source": "Joueur professionnel",
+        "trans": "Joueur professionnel"
+    },
+    {
+        "source": "Au-delà des jeux de stratégie pratiqués dans les cours et les seigneuries, il existe dans les villes une population de joueurs d'élite qui ont appris et développé des stratégies.<br /> Même quand les règles d'un jeu paraissent simples et le résultat dépendre de la chance ou de l'intuition, le joueur initié sait qu'il n'en est rien.<br /> Lui connaît les probabilités et les mathématiques, de sorte qu'il sache précisément ce qu'il risque, ou comment tromper habilement un naïf, au point de pouvoir devenir joueur professionnel et ainsi gagner des sommes considérables au jeu.<br /> Il ne s'agit pas simplement de piécettes, mais bien d'obtenir de plus puissants qu'ils soient prêts à parier leur maison ou la main de leur fille, ou n'importe quel \"bien\" de valeur d'ailleurs.<br /> L'astuce remplace la force du guerrier pour monter dans la société et se faire une place au soleil.",
+        "trans": "Au-delà des jeux de stratégie pratiqués dans les cours et les seigneuries, il existe dans les villes une population de joueurs d'élite qui ont appris et développé des stratégies.<br /> Même quand les règles d'un jeu paraissent simples et le résultat dépendre de la chance ou de l'intuition, le joueur initié sait qu'il n'en est rien.<br /> Lui connaît les probabilités et les mathématiques, de sorte qu'il sache précisément ce qu'il risque, ou comment tromper habilement un naïf, au point de pouvoir devenir joueur professionnel et ainsi gagner des sommes considérables au jeu.<br /> Il ne s'agit pas simplement de piécettes, mais bien d'obtenir de plus puissants qu'ils soient prêts à parier leur maison ou la main de leur fille, ou n'importe quel \"bien\" de valeur d'ailleurs.<br /> L'astuce remplace la force du guerrier pour monter dans la société et se faire une place au soleil."
+    },
+    {
+        "source": "Dàmàthair",
+        "trans": "Dàmàthair"
+    },
+    {
+        "source": "Les Dàmàthair sont exclusivement des femmes.<br /><br /> Elles éduquent et protègent les plus jeunes. Elles assistent aux accouchements, enseignent aux enfants suivant leur âge et les protègent en cas de danger.<br /><br /> Le rôle de la Dàmàthair est de créer les liens de la communauté passée, actuelle et future. Les enfants sont élevés ensemble comme une seule et même famille, quelle que soit leur différence de sang afin de plus tard ne former qu'un seul rempart contre ce qui peut se trouver à l'extérieur.<br /><br /> Si les habitants de Tri-Kazel ont une capacité d'entraide si importante (surtout dans les montagnes) c'est parce qu'on leur enseigne qu'ils ne sont qu'une seule entité qui ne peut survivre qu'en vivant ensemble.<br /><br /><br /> La damathair principale d'une communauté est très attachée à celle-ci et ne la quittera que pour cas de force majeure. Mais il arrive qu'elle ait une ou plusieurs jeunes assistantes qui n'ont pas encore fixé leur vocation définitive et peuvent se tourner vers un autre métier. Inversement, il arrive qu'une varigale, une vectrice (en Gwidre) ou même une militaire choisisse de s'établir comme damathair. Ces changements de trajectoire sont à discuter entre le joueur et le MJ, du moment qu'ils respectent la cohérence du personnage.",
+        "trans": "Les Dàmàthair sont exclusivement des femmes.<br /><br /> Elles éduquent et protègent les plus jeunes. Elles assistent aux accouchements, enseignent aux enfants suivant leur âge et les protègent en cas de danger.<br /><br /> Le rôle de la Dàmàthair est de créer les liens de la communauté passée, actuelle et future. Les enfants sont élevés ensemble comme une seule et même famille, quelle que soit leur différence de sang afin de plus tard ne former qu'un seul rempart contre ce qui peut se trouver à l'extérieur.<br /><br /> Si les habitants de Tri-Kazel ont une capacité d'entraide si importante (surtout dans les montagnes) c'est parce qu'on leur enseigne qu'ils ne sont qu'une seule entité qui ne peut survivre qu'en vivant ensemble.<br /><br /><br /> La damathair principale d'une communauté est très attachée à celle-ci et ne la quittera que pour cas de force majeure. Mais il arrive qu'elle ait une ou plusieurs jeunes assistantes qui n'ont pas encore fixé leur vocation définitive et peuvent se tourner vers un autre métier. Inversement, il arrive qu'une varigale, une vectrice (en Gwidre) ou même une militaire choisisse de s'établir comme damathair. Ces changements de trajectoire sont à discuter entre le joueur et le MJ, du moment qu'ils respectent la cohérence du personnage."
+    },
+    {
+        "source": "Créer un autre métier",
+        "trans": "Créer un autre métier"
+    },
+    {
+        "source": "Lieu de naissance",
+        "trans": "Lieu de naissance"
+    },
+    {
+        "source": "Duché de Seòl",
+        "trans": "Duché de Seòl"
+    },
+    {
+        "source": "Duché de Kel Loar",
+        "trans": "Duché de Kel Loar"
+    },
+    {
+        "source": "Duché de Dùlan",
+        "trans": "Duché de Dùlan"
+    },
+    {
+        "source": "Duché d'Osta-Baille",
+        "trans": "Duché d'Osta-Baille"
+    },
+    {
+        "source": "Duché de Gorm",
+        "trans": "Duché de Gorm"
+    },
+    {
+        "source": "Duché de Tulg",
+        "trans": "Duché de Tulg"
+    },
+    {
+        "source": "Duché de Salann Tir",
+        "trans": "Duché de Salann Tir"
+    },
+    {
+        "source": "Duché de Tuaille",
+        "trans": "Duché de Tuaille"
+    },
+    {
+        "source": "Terres de Déas",
+        "trans": "Terres de Déas"
+    },
+    {
+        "source": "Île aux Cairns",
+        "trans": "Île aux Cairns"
+    },
+    {
+        "source": "Les Épavières",
+        "trans": "Les Épavières"
+    },
+    {
+        "source": "Région d'Ard-Amrach",
+        "trans": "Région d'Ard-Amrach"
+    },
+    {
+        "source": "Région d'Aimliù",
+        "trans": "Région d'Aimliù"
+    },
+    {
+        "source": "Région de Gorm Caladh",
+        "trans": "Région de Gorm Caladh"
+    },
+    {
+        "source": "Forêt des Murmures",
+        "trans": "Forêt des Murmures"
+    },
+    {
+        "source": "Région de Gouvran",
+        "trans": "Région de Gouvran"
+    },
+    {
+        "source": "Région de Fionnfuar",
+        "trans": "Région de Fionnfuar"
+    },
+    {
+        "source": "Nord-Ouest des Mòr Roimh",
+        "trans": "Nord-Ouest des Mòr Roimh"
+    },
+    {
+        "source": "Région d'Expiation",
+        "trans": "Région d'Expiation"
+    },
+    {
+        "source": "Calvaire",
+        "trans": "Calvaire"
+    },
+    {
+        "source": "Archipel des Cendres",
+        "trans": "Archipel des Cendres"
+    },
+    {
+        "source": "Région de Bald-Ruoch",
+        "trans": "Région de Bald-Ruoch"
+    },
+    {
+        "source": "Région de Kalvernach",
+        "trans": "Région de Kalvernach"
+    },
+    {
+        "source": "Région du Pont de l'Alliance",
+        "trans": "Région du Pont de l'Alliance"
+    },
+    {
+        "source": "Archipel des Tri-Sweszörs",
+        "trans": "Archipel des Tri-Sweszörs"
+    },
+    {
+        "source": "Région de Crail et Leacach",
+        "trans": "Région de Crail et Leacach"
+    },
+    {
+        "source": "Région de Fairean Ear",
+        "trans": "Région de Fairean Ear"
+    },
+    {
+        "source": "Région de Farl",
+        "trans": "Région de Farl"
+    },
+    {
+        "source": "Région d'Iolarnead",
+        "trans": "Région d'Iolarnead"
+    },
+    {
+        "source": "Extrême-Est de Tri-Kazel",
+        "trans": "Extrême-Est de Tri-Kazel"
+    },
+    {
+        "source": "Région de Boischandelles",
+        "trans": "Région de Boischandelles"
+    },
+    {
+        "source": "Mornegivre",
+        "trans": "Mornegivre"
+    },
+    {
+        "source": "Lieu de résidence géographique",
+        "trans": "Lieu de résidence géographique"
+    },
+    {
+        "source": "Rural",
+        "trans": "Rural"
+    },
+    {
+        "source": "Votre personnage est issu d'une campagne ou d'un lieu relativement isolé.",
+        "trans": "Votre personnage est issu d'une campagne ou d'un lieu relativement isolé."
+    },
+    {
+        "source": "Urbain",
+        "trans": "Urbain"
+    },
+    {
+        "source": "Votre personnage a vécu longtemps dans une ville, suffisamment pour qu'il ait adopté les codes de la ville dans son mode de vie.",
+        "trans": "Votre personnage a vécu longtemps dans une ville, suffisamment pour qu'il ait adopté les codes de la ville dans son mode de vie."
+    },
+    {
+        "source": "Classe sociale",
+        "trans": "Classe sociale"
+    },
+    {
+        "source": "Choisissez ici la classe sociale de laquelle est issu votre personnage",
+        "trans": "Choisissez ici la classe sociale de laquelle est issu votre personnage"
+    },
+    {
+        "source": "Une fois choisie, vous avez la possibilité de choisir <strong>2 domaines</strong> parmi ceux proposés qui bénéficieront d'un bonus de +1 chacun.",
+        "trans": "Une fois choisie, vous avez la possibilité de choisir <strong>2 domaines</strong> parmi ceux proposés qui bénéficieront d'un bonus de +1 chacun."
+    },
+    {
+        "source": "Les roturiers font partie de la majorité de la population. Vous avez vécu dans une famille paysanne, à l'écart des villes et cités, sans pour autant les ignorer. Vous êtes plus proche de la nature.<br />les Demorthèn font également partie de cette classe sociale.",
+        "trans": "Les roturiers font partie de la majorité de la population. Vous avez vécu dans une famille paysanne, à l'écart des villes et cités, sans pour autant les ignorer. Vous êtes plus proche de la nature.<br />les Demorthèn font également partie de cette classe sociale."
+    },
+    {
+        "source": "Les roturiers font partie de la majorité de la population. Votre famille était composée d'un ou plusieurs artisans ou ouvriers, participant à la vie communale et familiale usant de ses talents manuels.",
+        "trans": "Les roturiers font partie de la majorité de la population. Votre famille était composée d'un ou plusieurs artisans ou ouvriers, participant à la vie communale et familiale usant de ses talents manuels."
+    },
+    {
+        "source": "Bourgeois",
+        "trans": "Bourgeois"
+    },
+    {
+        "source": "Votre famille a su faire des affaires dans les villes, ou tient probablement un commerce célèbre dans votre région, ce qui vous permet de vivre confortablement au sein d'une communauté familière.",
+        "trans": "Votre famille a su faire des affaires dans les villes, ou tient probablement un commerce célèbre dans votre région, ce qui vous permet de vivre confortablement au sein d'une communauté familière."
+    },
+    {
+        "source": "Clergé",
+        "trans": "Clergé"
+    },
+    {
+        "source": "Votre famille a toujours respecté l'Unique et ses représentants, et vous êtes issu d'un milieu très pieux. Vous avez probablement la foi, vous aussi.",
+        "trans": "Votre famille a toujours respecté l'Unique et ses représentants, et vous êtes issu d'un milieu très pieux. Vous avez probablement la foi, vous aussi."
+    },
+    {
+        "source": "Prières",
+        "trans": "Prières"
+    },
+    {
+        "source": "Noblesse",
+        "trans": "Noblesse"
+    },
+    {
+        "source": "Vous portez peut-être un grand nom des affaires des grandes cités, ou avez grandi en ville. Néanmoins, votre famille est placée assez haut dans la noblesse pour vous permettre d'avoir eu des enseignements particuliers.",
+        "trans": "Vous portez peut-être un grand nom des affaires des grandes cités, ou avez grandi en ville. Néanmoins, votre famille est placée assez haut dans la noblesse pour vous permettre d'avoir eu des enseignements particuliers."
+    },
+    {
+        "source": "Combat au contact",
+        "trans": "Combat au contact"
+    },
+    {
+        "source": "Âge",
+        "trans": "Âge"
+    },
+    {
+        "source": "Âge <small>(Min 16, max 35)</small>",
+        "trans": "Âge <small>(Min 16, max 35)</small>"
+    },
+    {
+        "source": "Revers",
+        "trans": "Revers"
+    },
+    {
+        "source": "Solitude",
+        "trans": "Solitude"
+    },
+    {
+        "source": "Les proches, amis ou famille du personnage sont morts de façon douteuse",
+        "trans": "Les proches, amis ou famille du personnage sont morts de façon douteuse"
+    },
+    {
+        "source": "Violence",
+        "trans": "Violence"
+    },
+    {
+        "source": "+1 point de Trauma définitif, souvenir violent, gore, horrible...",
+        "trans": "+1 point de Trauma définitif, souvenir violent, gore, horrible..."
+    },
+    {
+        "source": "Aucun revers (moins de 21 ans)",
+        "trans": "Aucun revers (moins de 21 ans)"
+    },
+    {
+        "source": "Maladie",
+        "trans": "Maladie"
+    },
+    {
+        "source": "-1 Vigueur, mais a survécu à une maladie normalement mortelle",
+        "trans": "-1 Vigueur, mais a survécu à une maladie normalement mortelle"
+    },
+    {
+        "source": "Rumeur",
+        "trans": "Rumeur"
+    },
+    {
+        "source": "Une information, vraie ou non, circule à propos du personnage",
+        "trans": "Une information, vraie ou non, circule à propos du personnage"
+    },
+    {
+        "source": "Pauvreté",
+        "trans": "Pauvreté"
+    },
+    {
+        "source": "Le personnage ne possède qu'une mauvaise arme, ou outil, a des dettes d'héritage, de vol... Il n'a plus d'argent, sa famille a été ruinée ou lui-même est ruiné d'une façon ou d'une autre, et aucun évènement ou avantage ne peut y remédier.",
+        "trans": "Le personnage ne possède qu'une mauvaise arme, ou outil, a des dettes d'héritage, de vol... Il n'a plus d'argent, sa famille a été ruinée ou lui-même est ruiné d'une façon ou d'une autre, et aucun évènement ou avantage ne peut y remédier."
+    },
+    {
+        "source": "Séquelle",
+        "trans": "Séquelle"
+    },
+    {
+        "source": "-1 Vigueur, et une séquelle physique (cicatrice...)",
+        "trans": "-1 Vigueur, et une séquelle physique (cicatrice...)"
+    },
+    {
+        "source": "Amour tragique",
+        "trans": "Amour tragique"
+    },
+    {
+        "source": "+1 point de Trauma définitif, mauvais souvenir",
+        "trans": "+1 point de Trauma définitif, mauvais souvenir"
+    },
+    {
+        "source": "Chance",
+        "trans": "Chance"
+    },
+    {
+        "source": "Le personnage est passé à côté de la catastrophe !",
+        "trans": "Le personnage est passé à côté de la catastrophe !"
+    },
+    {
+        "source": "Voies",
+        "trans": "Voies"
+    },
+    {
+        "source": "La somme totale des voies doit être égale à 15, et vous devez avoir au moins une voie avec un score de 1, ou de 5.",
+        "trans": "La somme totale des voies doit être égale à 15, et vous devez avoir au moins une voie avec un score de 1, ou de 5."
+    },
+    {
+        "source": "Somme",
+        "trans": "Somme"
+    },
+    {
+        "source": "Cette Voie traduit la pugnacité, l'énergie qui pousse à agir, la rage de vivre.",
+        "trans": "Cette Voie traduit la pugnacité, l'énergie qui pousse à agir, la rage de vivre."
+    },
+    {
+        "source": "La capacité à imaginer, à donner à sa vie un sens original, l'inventivité, la débrouillardise.",
+        "trans": "La capacité à imaginer, à donner à sa vie un sens original, l'inventivité, la débrouillardise."
+    },
+    {
+        "source": "Le lien qui relie un être humain à son environnement. Par exemple, les Demorthèn se servent de leur Empathie pour communiquer avec la nature. Au niveau relationnel, l'Empathie désigne la faculté de ressentir les émotions d'une autre personne.",
+        "trans": "Le lien qui relie un être humain à son environnement. Par exemple, les Demorthèn se servent de leur Empathie pour communiquer avec la nature. Au niveau relationnel, l'Empathie désigne la faculté de ressentir les émotions d'une autre personne."
+    },
+    {
+        "source": "La rationnalisation, mais aussi la recherche et la réflexion. Elle traduit la capacité d'apprentissage d'un personnage, sa curiosité, etc.",
+        "trans": "La rationnalisation, mais aussi la recherche et la réflexion. Elle traduit la capacité d'apprentissage d'un personnage, sa curiosité, etc."
+    },
+    {
+        "source": "Généralement, un humain se raccroche à un idéal ou des convictions qui guident sa vie. Certains se tournent vers la religion, d'autres vers des préceptes de chevalerie, d'autres encore suivent un code personnel.",
+        "trans": "Généralement, un humain se raccroche à un idéal ou des convictions qui guident sa vie. Certains se tournent vers la religion, d'autres vers des préceptes de chevalerie, d'autres encore suivent un code personnel."
+    },
+    {
+        "source": "Traits de caractère",
+        "trans": "Traits de caractère"
+    },
+    {
+        "source": "Choisissez une qualité et un défaut",
+        "trans": "Choisissez une qualité et un défaut"
+    },
+    {
+        "source": "Qualités",
+        "trans": "Qualités"
+    },
+    {
+        "source": "Combatif",
+        "trans": "Combatif"
+    },
+    {
+        "source": "Courageux",
+        "trans": "Courageux"
+    },
+    {
+        "source": "Débrouillard",
+        "trans": "Débrouillard"
+    },
+    {
+        "source": "Drôle",
+        "trans": "Drôle"
+    },
+    {
+        "source": "Dynamique",
+        "trans": "Dynamique"
+    },
+    {
+        "source": "Indépendant",
+        "trans": "Indépendant"
+    },
+    {
+        "source": "Inventif",
+        "trans": "Inventif"
+    },
+    {
+        "source": "Libre",
+        "trans": "Libre"
+    },
+    {
+        "source": "Optimiste",
+        "trans": "Optimiste"
+    },
+    {
+        "source": "Original",
+        "trans": "Original"
+    },
+    {
+        "source": "Persévérant",
+        "trans": "Persévérant"
+    },
+    {
+        "source": "Peu entravé",
+        "trans": "Peu entravé"
+    },
+    {
+        "source": "Poète",
+        "trans": "Poète"
+    },
+    {
+        "source": "Pugnace",
+        "trans": "Pugnace"
+    },
+    {
+        "source": "Spontané",
+        "trans": "Spontané"
+    },
+    {
+        "source": "Téméraire",
+        "trans": "Téméraire"
+    },
+    {
+        "source": "Défauts",
+        "trans": "Défauts"
+    },
+    {
+        "source": "Anticonformiste",
+        "trans": "Anticonformiste"
+    },
+    {
+        "source": "Buté",
+        "trans": "Buté"
+    },
+    {
+        "source": "Capricieux",
+        "trans": "Capricieux"
+    },
+    {
+        "source": "Distrait",
+        "trans": "Distrait"
+    },
+    {
+        "source": "Doute",
+        "trans": "Doute"
+    },
+    {
+        "source": "Excentrique",
+        "trans": "Excentrique"
+    },
+    {
+        "source": "Fier",
+        "trans": "Fier"
+    },
+    {
+        "source": "Immoral",
+        "trans": "Immoral"
+    },
+    {
+        "source": "Imprudent",
+        "trans": "Imprudent"
+    },
+    {
+        "source": "Impulsif",
+        "trans": "Impulsif"
+    },
+    {
+        "source": "Inconséquent",
+        "trans": "Inconséquent"
+    },
+    {
+        "source": "Inconstant",
+        "trans": "Inconstant"
+    },
+    {
+        "source": "Indiscipliné",
+        "trans": "Indiscipliné"
+    },
+    {
+        "source": "Irréfléchi",
+        "trans": "Irréfléchi"
+    },
+    {
+        "source": "Menteur",
+        "trans": "Menteur"
+    },
+    {
+        "source": "Orgueilleux",
+        "trans": "Orgueilleux"
+    },
+    {
+        "source": "Outrecuidant",
+        "trans": "Outrecuidant"
+    },
+    {
+        "source": "Peu fiable",
+        "trans": "Peu fiable"
+    },
+    {
+        "source": "Rebelle",
+        "trans": "Rebelle"
+    },
+    {
+        "source": "Traître",
+        "trans": "Traître"
+    },
+    {
+        "source": "Vaniteux",
+        "trans": "Vaniteux"
+    },
+    {
+        "source": "Concentré",
+        "trans": "Concentré"
+    },
+    {
+        "source": "Ingénieux",
+        "trans": "Ingénieux"
+    },
+    {
+        "source": "Logique",
+        "trans": "Logique"
+    },
+    {
+        "source": "Prudent",
+        "trans": "Prudent"
+    },
+    {
+        "source": "Réfléchi",
+        "trans": "Réfléchi"
+    },
+    {
+        "source": "Abstraction",
+        "trans": "Abstraction"
+    },
+    {
+        "source": "Austère",
+        "trans": "Austère"
+    },
+    {
+        "source": "Hésitant",
+        "trans": "Hésitant"
+    },
+    {
+        "source": "Précautionneux",
+        "trans": "Précautionneux"
+    },
+    {
+        "source": "Replié sur soi",
+        "trans": "Replié sur soi"
+    },
+    {
+        "source": "Extraverti",
+        "trans": "Extraverti"
+    },
+    {
+        "source": "Intuitif",
+        "trans": "Intuitif"
+    },
+    {
+        "source": "Réceptif",
+        "trans": "Réceptif"
+    },
+    {
+        "source": "Sensible",
+        "trans": "Sensible"
+    },
+    {
+        "source": "Bavard",
+        "trans": "Bavard"
+    },
+    {
+        "source": "Émotif",
+        "trans": "Émotif"
+    },
+    {
+        "source": "Influençable",
+        "trans": "Influençable"
+    },
+    {
+        "source": "Discipliné",
+        "trans": "Discipliné"
+    },
+    {
+        "source": "Procédurier",
+        "trans": "Procédurier"
+    },
+    {
+        "source": "Sérieux",
+        "trans": "Sérieux"
+    },
+    {
+        "source": "Traditionaliste",
+        "trans": "Traditionaliste"
+    },
+    {
+        "source": "Ascétique",
+        "trans": "Ascétique"
+    },
+    {
+        "source": "Empoté",
+        "trans": "Empoté"
+    },
+    {
+        "source": "Esprit étriqué",
+        "trans": "Esprit étriqué"
+    },
+    {
+        "source": "Opportuniste",
+        "trans": "Opportuniste"
+    },
+    {
+        "source": "Rigide",
+        "trans": "Rigide"
+    },
+    {
+        "source": "Contrôle de ses émotions",
+        "trans": "Contrôle de ses émotions"
+    },
+    {
+        "source": "Droit",
+        "trans": "Droit"
+    },
+    {
+        "source": "Généreux",
+        "trans": "Généreux"
+    },
+    {
+        "source": "Incorruptible",
+        "trans": "Incorruptible"
+    },
+    {
+        "source": "Loyal",
+        "trans": "Loyal"
+    },
+    {
+        "source": "Peu influençable",
+        "trans": "Peu influençable"
+    },
+    {
+        "source": "Fanatique",
+        "trans": "Fanatique"
+    },
+    {
+        "source": "Froid",
+        "trans": "Froid"
+    },
+    {
+        "source": "Individualiste",
+        "trans": "Individualiste"
+    },
+    {
+        "source": "Insensible",
+        "trans": "Insensible"
+    },
+    {
+        "source": "Intolérant",
+        "trans": "Intolérant"
+    },
+    {
+        "source": "Renfermé",
+        "trans": "Renfermé"
+    },
+    {
+        "source": "Taciturne",
+        "trans": "Taciturne"
+    },
+    {
+        "source": "Orientation de la personnalité",
+        "trans": "Orientation de la personnalité"
+    },
+    {
+        "source": "Orientation rationnelle",
+        "trans": "Orientation rationnelle"
+    },
+    {
+        "source": "Orientation instinctive",
+        "trans": "Orientation instinctive"
+    },
+    {
+        "source": "Avantages et Désavantages",
+        "trans": "Avantages et Désavantages"
+    },
+    {
+        "source": "Les avantages coûtent des points d'expérience. Ils sont <strong>facultatifs</strong>.",
+        "trans": "Les avantages coûtent des points d'expérience. Ils sont <strong>facultatifs</strong>."
+    },
+    {
+        "source": "Vous ne pouvez posséder qu'un maximum de 4 avantages, et 4 désavantages.",
+        "trans": "Vous ne pouvez posséder qu'un maximum de 4 avantages, et 4 désavantages."
+    },
+    {
+        "source": "N'oubliez pas de <strong>garder de l'expérience</strong> pour améliorer vos autres caractéristiques dans les étapes suivantes !",
+        "trans": "N'oubliez pas de <strong>garder de l'expérience</strong> pour améliorer vos autres caractéristiques dans les étapes suivantes !"
+    },
+    {
+        "source": "Les avantages ou désavantages <span style=\"text-decoration: underline;\">soulignés</span> peuvent être sélectionnés une deuxième fois. Vous ne pouvez sélectionner une 2e fois qu'un seul élément, mais vous pouvez doubler un avantage ET un désavantage.",
+        "trans": "Les avantages ou désavantages <span style=\"text-decoration: underline;\">soulignés</span> peuvent être sélectionnés une deuxième fois. Vous ne pouvez sélectionner une 2e fois qu'un seul élément, mais vous pouvez doubler un avantage ET un désavantage."
+    },
+    {
+        "source": "Le gain d'xp avec des désavantages est limité à 80XP",
+        "trans": "Le gain d'xp avec des désavantages est limité à 80XP"
+    },
+    {
+        "source": "Expérience",
+        "trans": "Expérience"
+    },
+    {
+        "source": "Désavantages",
+        "trans": "Désavantages"
+    },
+    {
+        "source": "Agueusie",
+        "trans": "Agueusie"
+    },
+    {
+        "source": "-1 aux jets de Perception concernant le goût",
+        "trans": "-1 aux jets de Perception concernant le goût"
+    },
+    {
+        "source": "Gain",
+        "trans": "Gain"
+    },
+    {
+        "source": "Anosmie",
+        "trans": "Anosmie"
+    },
+    {
+        "source": "-1 aux jets de Perception concernant l'odorat",
+        "trans": "-1 aux jets de Perception concernant l'odorat"
+    },
+    {
+        "source": "Boiteux",
+        "trans": "Boiteux"
+    },
+    {
+        "source": "-1 en Rapidité et en Défense",
+        "trans": "-1 en Rapidité et en Défense"
+    },
+    {
+        "source": "Dépendance",
+        "trans": "Dépendance"
+    },
+    {
+        "source": "-1 en Vigueur, et une addiction (tabac, alcool, drogue...)",
+        "trans": "-1 en Vigueur, et une addiction (tabac, alcool, drogue...)"
+    },
+    {
+        "source": "Douillet",
+        "trans": "Douillet"
+    },
+    {
+        "source": "-1 au score de Vigueur et aux jets de Prouesses concernant l'endurance",
+        "trans": "-1 au score de Vigueur et aux jets de Prouesses concernant l'endurance"
+    },
+    {
+        "source": "Ennemi",
+        "trans": "Ennemi"
+    },
+    {
+        "source": "Une personne en veut au PJ et fera tout pour lui nuire",
+        "trans": "Une personne en veut au PJ et fera tout pour lui nuire"
+    },
+    {
+        "source": "Esprit faible",
+        "trans": "Esprit faible"
+    },
+    {
+        "source": "-1 au score de Résistance Mentale",
+        "trans": "-1 au score de Résistance Mentale"
+    },
+    {
+        "source": "Faible",
+        "trans": "Faible"
+    },
+    {
+        "source": "-1 aux jets de Prouesses concernant la force, Combat au Contact, Tir & lancer",
+        "trans": "-1 aux jets de Prouesses concernant la force, Combat au Contact, Tir & lancer"
+    },
+    {
+        "source": "Fragile",
+        "trans": "Fragile"
+    },
+    {
+        "source": "-1 point de Survie",
+        "trans": "-1 point de Survie"
+    },
+    {
+        "source": "Laid",
+        "trans": "Laid"
+    },
+    {
+        "source": "-1 aux jets de Relation et Représentation",
+        "trans": "-1 aux jets de Relation et Représentation"
+    },
+    {
+        "source": "Lent",
+        "trans": "Lent"
+    },
+    {
+        "source": "-1 au score de Rapidité",
+        "trans": "-1 au score de Rapidité"
+    },
+    {
+        "source": "Lent d'esprit",
+        "trans": "Lent d'esprit"
+    },
+    {
+        "source": "-1 aux jets de Science, Magience et Occultisme",
+        "trans": "-1 aux jets de Science, Magience et Occultisme"
+    },
+    {
+        "source": "Mal entendant",
+        "trans": "Mal entendant"
+    },
+    {
+        "source": "-1 aux jets de Perception auditive",
+        "trans": "-1 aux jets de Perception auditive"
+    },
+    {
+        "source": "Maladif",
+        "trans": "Maladif"
+    },
+    {
+        "source": "-1 case d'état de santé, -1 point de Vigueur",
+        "trans": "-1 case d'état de santé, -1 point de Vigueur"
+    },
+    {
+        "source": "Maladroit",
+        "trans": "Maladroit"
+    },
+    {
+        "source": "-1 au score de Défense, et aux jets de Discrétion et de Prouesses concernant l'agilité",
+        "trans": "-1 au score de Défense, et aux jets de Discrétion et de Prouesses concernant l'agilité"
+    },
+    {
+        "source": "Malchanceux",
+        "trans": "Malchanceux"
+    },
+    {
+        "source": "-1 aux jets de Chance",
+        "trans": "-1 aux jets de Chance"
+    },
+    {
+        "source": "Myope",
+        "trans": "Myope"
+    },
+    {
+        "source": "-1 aux jets de Perception concernant la vue et Tir et Lancer",
+        "trans": "-1 aux jets de Perception concernant la vue et Tir et Lancer"
+    },
+    {
+        "source": "Obtus",
+        "trans": "Obtus"
+    },
+    {
+        "source": "-1 aux jets de Mystères Demorthèn, Voyage et Relation",
+        "trans": "-1 aux jets de Mystères Demorthèn, Voyage et Relation"
+    },
+    {
+        "source": "Phobie",
+        "trans": "Phobie"
+    },
+    {
+        "source": "+1 point de trauma, et souffre du désordre Phobie en plus de son désordre actuel",
+        "trans": "+1 point de trauma, et souffre du désordre Phobie en plus de son désordre actuel"
+    },
+    {
+        "source": "Timide",
+        "trans": "Timide"
+    },
+    {
+        "source": "Traumatisme",
+        "trans": "Traumatisme"
+    },
+    {
+        "source": "+1 point de trauma",
+        "trans": "+1 point de trauma"
+    },
+    {
+        "source": "Avantages",
+        "trans": "Avantages"
+    },
+    {
+        "source": "Allié influent",
+        "trans": "Allié influent"
+    },
+    {
+        "source": "Un important homme politique, chef de guilde ou de clan, qui a un pouvoir important dans tout le pays",
+        "trans": "Un important homme politique, chef de guilde ou de clan, qui a un pouvoir important dans tout le pays"
+    },
+    {
+        "source": "Coût",
+        "trans": "Coût"
+    },
+    {
+        "source": "Allié isolé",
+        "trans": "Allié isolé"
+    },
+    {
+        "source": "Un allié dans un village, prévôt, marchand, artisan...",
+        "trans": "Un allié dans un village, prévôt, marchand, artisan..."
+    },
+    {
+        "source": "Allié mentor",
+        "trans": "Allié mentor"
+    },
+    {
+        "source": "Un mentor ou un professeur qui vous donne un bonus de +1 dans un Domaine",
+        "trans": "Un mentor ou un professeur qui vous donne un bonus de +1 dans un Domaine"
+    },
+    {
+        "source": "Beau",
+        "trans": "Beau"
+    },
+    {
+        "source": "+1 aux jets de Relation et Représentation",
+        "trans": "+1 aux jets de Relation et Représentation"
+    },
+    {
+        "source": "Bonne santé",
+        "trans": "Bonne santé"
+    },
+    {
+        "source": "+1 case d'état de santé, +1 aux jets de Vigueur face à la maladie et aux poisons",
+        "trans": "+1 case d'état de santé, +1 aux jets de Vigueur face à la maladie et aux poisons"
+    },
+    {
+        "source": "Bonne vue",
+        "trans": "Bonne vue"
+    },
+    {
+        "source": "+1 aux jets de Perception concernant la vue et Tir et Lancer",
+        "trans": "+1 aux jets de Perception concernant la vue et Tir et Lancer"
+    },
+    {
+        "source": "Chanceux",
+        "trans": "Chanceux"
+    },
+    {
+        "source": "+1 aux jets de Chance",
+        "trans": "+1 aux jets de Chance"
+    },
+    {
+        "source": "Charismatique",
+        "trans": "Charismatique"
+    },
+    {
+        "source": "Endurant",
+        "trans": "Endurant"
+    },
+    {
+        "source": "+1 au score de Vigueur et aux jets de Prouesses concernant l'endurance",
+        "trans": "+1 au score de Vigueur et aux jets de Prouesses concernant l'endurance"
+    },
+    {
+        "source": "Esprit solide",
+        "trans": "Esprit solide"
+    },
+    {
+        "source": "+1 au score de Résistance Mentale",
+        "trans": "+1 au score de Résistance Mentale"
+    },
+    {
+        "source": "Fort",
+        "trans": "Fort"
+    },
+    {
+        "source": "+1 aux jets de Prouesses concernant la force, Combat au Contact, Tir & lancer",
+        "trans": "+1 aux jets de Prouesses concernant la force, Combat au Contact, Tir & lancer"
+    },
+    {
+        "source": "Instinct de survie",
+        "trans": "Instinct de survie"
+    },
+    {
+        "source": "+1 point de Survie",
+        "trans": "+1 point de Survie"
+    },
+    {
+        "source": "+1 aux jets de Mystères Demorthèn, Voyage et Relation",
+        "trans": "+1 aux jets de Mystères Demorthèn, Voyage et Relation"
+    },
+    {
+        "source": "Leste",
+        "trans": "Leste"
+    },
+    {
+        "source": "+1 au score de Défense, et aux jets de Discrétion et de Prouesses concernant l'agilité",
+        "trans": "+1 au score de Défense, et aux jets de Discrétion et de Prouesses concernant l'agilité"
+    },
+    {
+        "source": "Lettré",
+        "trans": "Lettré"
+    },
+    {
+        "source": "Le personnage sait lire et écrire, et choisit un bonus de +1 au choix : Erudition, Magience, Science ou Occultisme",
+        "trans": "Le personnage sait lire et écrire, et choisit un bonus de +1 au choix : Erudition, Magience, Science ou Occultisme"
+    },
+    {
+        "source": "Nez fin",
+        "trans": "Nez fin"
+    },
+    {
+        "source": "+1 aux jets de Perception concernant l'odorat",
+        "trans": "+1 aux jets de Perception concernant l'odorat"
+    },
+    {
+        "source": "Ouïe fine",
+        "trans": "Ouïe fine"
+    },
+    {
+        "source": "+1 aux jets de Perception auditive",
+        "trans": "+1 aux jets de Perception auditive"
+    },
+    {
+        "source": "Palais fin",
+        "trans": "Palais fin"
+    },
+    {
+        "source": "+1 aux jets de Perception concernant le goût",
+        "trans": "+1 aux jets de Perception concernant le goût"
+    },
+    {
+        "source": "Rapide",
+        "trans": "Rapide"
+    },
+    {
+        "source": "+1 au score de Rapidité",
+        "trans": "+1 au score de Rapidité"
+    },
+    {
+        "source": "Vif d'esprit",
+        "trans": "Vif d'esprit"
+    },
+    {
+        "source": "+1 aux jets de Science, Magience et Occultisme",
+        "trans": "+1 aux jets de Science, Magience et Occultisme"
+    },
+    {
+        "source": "Santé Mentale",
+        "trans": "Santé Mentale"
+    },
+    {
+        "source": "Vous pouvez choisir un désordre mental, celui-ci déterminera la tendance de votre personnage lorsqu'il est choqué, effrayé ou pris par surprise.",
+        "trans": "Vous pouvez choisir un désordre mental, celui-ci déterminera la tendance de votre personnage lorsqu'il est choqué, effrayé ou pris par surprise."
+    },
+    {
+        "source": "Frénésie",
+        "trans": "Frénésie"
+    },
+    {
+        "source": "Exaltation",
+        "trans": "Exaltation"
+    },
+    {
+        "source": "Mélancolie",
+        "trans": "Mélancolie"
+    },
+    {
+        "source": "Hallucination",
+        "trans": "Hallucination"
+    },
+    {
+        "source": "Confusion mentale",
+        "trans": "Confusion mentale"
+    },
+    {
+        "source": "Domaines primaires et secondaires",
+        "trans": "Domaines primaires et secondaires"
+    },
+    {
+        "source": "Voici vos domaines de compétences, ils déterminent les aptitudes générales de votre personnage",
+        "trans": "Voici vos domaines de compétences, ils déterminent les aptitudes générales de votre personnage"
+    },
+    {
+        "source": "Métier prédéfini",
+        "trans": "Métier prédéfini"
+    },
+    {
+        "source": "Rappel de la description",
+        "trans": "Rappel de la description"
+    },
+    {
+        "source": "Choisissez des domaines primaires et secondaires pour votre personnage",
+        "trans": "Choisissez des domaines primaires et secondaires pour votre personnage"
+    },
+    {
+        "source": "Pour <strong>déselectionner</strong> un élément, cliquez sur ce bouton",
+        "trans": "Pour <strong>déselectionner</strong> un élément, cliquez sur ce bouton"
+    },
+    {
+        "source": "Vous devez sélectionner <u><strong>deux fois <span class=\"progress1\">&#9733;</span> et <span class=\"progress2\">&#9733;&#9733;</span></strong></u>, et <u><strong>une seule fois <span class=\"progress3\">&#9733;&#9733;&#9733;</span> et <span class=\"progress5\">&#9733;&#9733;&#9733;&#9733;&#9733;</span></strong></u>.",
+        "trans": "Vous devez sélectionner <u><strong>deux fois <span class=\"progress1\">&#9733;</span> et <span class=\"progress2\">&#9733;&#9733;</span></strong></u>, et <u><strong>une seule fois <span class=\"progress3\">&#9733;&#9733;&#9733;</span> et <span class=\"progress5\">&#9733;&#9733;&#9733;&#9733;&#9733;</span></strong></u>."
+    },
+    {
+        "source": "Vous avez choisi un métier prédéfini, c'est pourquoi certains domaines ne peuvent pas bénéficier de <span class=\"progress3\">&#9733;&#9733;&#9733;</span> ou <span class=\"progress5\">&#9733;&#9733;&#9733;&#9733;&#9733;</span>.",
+        "trans": "Vous avez choisi un métier prédéfini, c'est pourquoi certains domaines ne peuvent pas bénéficier de <span class=\"progress3\">&#9733;&#9733;&#9733;</span> ou <span class=\"progress5\">&#9733;&#9733;&#9733;&#9733;&#9733;</span>."
+    },
+    {
+        "source": "Vous avez choisi l'avantage \"<strong>Lettré</strong>\". Vous pouvez sélectionner choisir un bonus de +1 parmi 4 domaines différents en cliquant sur le bouton",
+        "trans": "Vous avez choisi l'avantage \"<strong>Lettré</strong>\". Vous pouvez sélectionner choisir un bonus de +1 parmi 4 domaines différents en cliquant sur le bouton"
+    },
+    {
+        "source": "Avez-vous effectué votre service d'Ost (service militaire) ?",
+        "trans": "Avez-vous effectué votre service d'Ost (service militaire) ?"
+    },
+    {
+        "source": "Oui",
+        "trans": "Oui"
+    },
+    {
+        "source": "Non",
+        "trans": "Non"
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton <span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton <span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Amélioration des domaines",
+        "trans": "Amélioration des domaines"
+    },
+    {
+        "source": "Vous pouvez ici dépenser de l'expérience pour ajouter des bonus à vos domaines. 10XP donne un bonus de +1.",
+        "trans": "Vous pouvez ici dépenser de l'expérience pour ajouter des bonus à vos domaines. 10XP donne un bonus de +1."
+    },
+    {
+        "source": "Vous pourrez, dans les étapes suivantes, choisir des <strong>Disciplines, pour 20 à 25XP minimum</strong>, ainsi que des <strong>Arts de combats</strong> (si vous possédez au moins 5 en Combat au Contact), <strong>pour 20XP chacun</strong>",
+        "trans": "Vous pourrez, dans les étapes suivantes, choisir des <strong>Disciplines, pour 20 à 25XP minimum</strong>, ainsi que des <strong>Arts de combats</strong> (si vous possédez au moins 5 en Combat au Contact), <strong>pour 20XP chacun</strong>"
+    },
+    {
+        "source": "Bonus divers ajoutés aux domaines",
+        "trans": "Bonus divers ajoutés aux domaines"
+    },
+    {
+        "source": "Vous disposez de 3 points supplémentaires à répartir dans 3 domaines",
+        "trans": "Vous disposez de 3 points supplémentaires à répartir dans 3 domaines"
+    },
+    {
+        "source": "Sachez que vous pouvez <strong>conserver 2 points</strong> pour <strong>obtenir des disciplines</strong>, à l'étape suivante.",
+        "trans": "Sachez que vous pouvez <strong>conserver 2 points</strong> pour <strong>obtenir des disciplines</strong>, à l'étape suivante."
+    },
+    {
+        "source": "Points supplémentaires",
+        "trans": "Points supplémentaires"
+    },
+    {
+        "source": "Disciplines",
+        "trans": "Disciplines"
+    },
+    {
+        "source": "Vous avez la possibilité de choisir des disciplines en fonction des domaines qui disposent d'un score de 5 et font partie de vos <strong>domaines primaires et secondaires</strong>.",
+        "trans": "Vous avez la possibilité de choisir des disciplines en fonction des domaines qui disposent d'un score de 5 et font partie de vos <strong>domaines primaires et secondaires</strong>."
+    },
+    {
+        "source": "Vous avez droit à <strong>2 disciplines maximum</strong>, chacune coûtant 25XP ou 1 point bonus, à vous de choisir.",
+        "trans": "Vous avez droit à <strong>2 disciplines maximum</strong>, chacune coûtant 25XP ou 1 point bonus, à vous de choisir."
+    },
+    {
+        "source": "Si vous avez choisi l'avantage \"Allié Mentor\", alors choisir une discipline dans votre domaine de prédilection ne vous coûtera que 20XP, mais toujours 1 point bonus.",
+        "trans": "Si vous avez choisi l'avantage \"Allié Mentor\", alors choisir une discipline dans votre domaine de prédilection ne vous coûtera que 20XP, mais toujours 1 point bonus."
+    },
+    {
+        "source": "Attention ! À ce stade, les <strong>points bonus non dépensés</strong> sont <strong>perdus</strong> !",
+        "trans": "Attention ! À ce stade, les <strong>points bonus non dépensés</strong> sont <strong>perdus</strong> !"
+    },
+    {
+        "source": "L'expérience, elle, est conservée",
+        "trans": "L'expérience, elle, est conservée"
+    },
+    {
+        "source": "Points bonus",
+        "trans": "Points bonus"
+    },
+    {
+        "source": "Bijouterie",
+        "trans": "Bijouterie"
+    },
+    {
+        "source": "Confection",
+        "trans": "Confection"
+    },
+    {
+        "source": "Cuisine",
+        "trans": "Cuisine"
+    },
+    {
+        "source": "Distillation",
+        "trans": "Distillation"
+    },
+    {
+        "source": "Extraction minière",
+        "trans": "Extraction minière"
+    },
+    {
+        "source": "Forge",
+        "trans": "Forge"
+    },
+    {
+        "source": "Machinerie magientiste",
+        "trans": "Machinerie magientiste"
+    },
+    {
+        "source": "Maroquinerie",
+        "trans": "Maroquinerie"
+    },
+    {
+        "source": "Menuiserie",
+        "trans": "Menuiserie"
+    },
+    {
+        "source": "Outil magientiste",
+        "trans": "Outil magientiste"
+    },
+    {
+        "source": "Peinture",
+        "trans": "Peinture"
+    },
+    {
+        "source": "Poterie",
+        "trans": "Poterie"
+    },
+    {
+        "source": "Sculpture",
+        "trans": "Sculpture"
+    },
+    {
+        "source": "Serrurerie",
+        "trans": "Serrurerie"
+    },
+    {
+        "source": "Arts de combat",
+        "trans": "Arts de combat"
+    },
+    {
+        "source": "Vous avez la possibilité de choisir des arts de combats, chacun coûtant 20XP",
+        "trans": "Vous avez la possibilité de choisir des arts de combats, chacun coûtant 20XP"
+    },
+    {
+        "source": "Équipements",
+        "trans": "Équipements"
+    },
+    {
+        "source": "Valider les modifications",
+        "trans": "Valider les modifications"
+    },
+    {
+        "source": "Vous avez la possibilité de choisir quelques objets à ajouter à votre inventaire. Ne soyez pas trop gourmand !",
+        "trans": "Vous avez la possibilité de choisir quelques objets à ajouter à votre inventaire. Ne soyez pas trop gourmand !"
+    },
+    {
+        "source": "Dague,poignard,couteau",
+        "trans": "Dague,poignard,couteau"
+    },
+    {
+        "source": "Fronde",
+        "trans": "Fronde"
+    },
+    {
+        "source": "Javelot",
+        "trans": "Javelot"
+    },
+    {
+        "source": "Arc",
+        "trans": "Arc"
+    },
+    {
+        "source": "Arbalète",
+        "trans": "Arbalète"
+    },
+    {
+        "source": "Francisque",
+        "trans": "Francisque"
+    },
+    {
+        "source": "Lance courte, épieu",
+        "trans": "Lance courte, épieu"
+    },
+    {
+        "source": "Gourdin",
+        "trans": "Gourdin"
+    },
+    {
+        "source": "Marteau d'artisan",
+        "trans": "Marteau d'artisan"
+    },
+    {
+        "source": "Masse d'armes",
+        "trans": "Masse d'armes"
+    },
+    {
+        "source": "Carath",
+        "trans": "Carath"
+    },
+    {
+        "source": "Hache de bataille",
+        "trans": "Hache de bataille"
+    },
+    {
+        "source": "Epée longue droite Osag",
+        "trans": "Epée longue droite Osag"
+    },
+    {
+        "source": "Glaive continental",
+        "trans": "Glaive continental"
+    },
+    {
+        "source": "Arme d'hast",
+        "trans": "Arme d'hast"
+    },
+    {
+        "source": "Lance longue",
+        "trans": "Lance longue"
+    },
+    {
+        "source": "Marteau à deux mains",
+        "trans": "Marteau à deux mains"
+    },
+    {
+        "source": "Claymore",
+        "trans": "Claymore"
+    },
+    {
+        "source": "Épée courte",
+        "trans": "Épée courte"
+    },
+    {
+        "source": "Épée longue",
+        "trans": "Épée longue"
+    },
+    {
+        "source": "Arc court",
+        "trans": "Arc court"
+    },
+    {
+        "source": "Bâton",
+        "trans": "Bâton"
+    },
+    {
+        "source": "Bouclier rond",
+        "trans": "Bouclier rond"
+    },
+    {
+        "source": "Bouclier Osag",
+        "trans": "Bouclier Osag"
+    },
+    {
+        "source": "Écu Hilderin",
+        "trans": "Écu Hilderin"
+    },
+    {
+        "source": "Cotte de cuir",
+        "trans": "Cotte de cuir"
+    },
+    {
+        "source": "Cotte de cuir clouté",
+        "trans": "Cotte de cuir clouté"
+    },
+    {
+        "source": "Cotte de mailles",
+        "trans": "Cotte de mailles"
+    },
+    {
+        "source": "Cuirasse en roseau",
+        "trans": "Cuirasse en roseau"
+    },
+    {
+        "source": "Cuirasse continentale",
+        "trans": "Cuirasse continentale"
+    },
+    {
+        "source": "Armure de plaques",
+        "trans": "Armure de plaques"
+    },
+    {
+        "source": "Pavois du temple",
+        "trans": "Pavois du temple"
+    },
+    {
+        "source": "Autres possessions. Indiquez un objet par ligne.",
+        "trans": "Autres possessions. Indiquez un objet par ligne."
+    },
+    {
+        "source": "Description et histoire",
+        "trans": "Description et histoire"
+    },
+    {
+        "source": "Nom de votre personnage",
+        "trans": "Nom de votre personnage"
+    },
+    {
+        "source": "Entrez ici le nom de votre personnage",
+        "trans": "Entrez ici le nom de votre personnage"
+    },
+    {
+        "source": "Homme",
+        "trans": "Homme"
+    },
+    {
+        "source": "Femme",
+        "trans": "Femme"
+    },
+    {
+        "source": "Nom du joueur",
+        "trans": "Nom du joueur"
+    },
+    {
+        "source": "Entrez ici le nom du joueur",
+        "trans": "Entrez ici le nom du joueur"
+    },
+    {
+        "source": "Insérez ici une description de votre personnage",
+        "trans": "Insérez ici une description de votre personnage"
+    },
+    {
+        "source": "Histoire",
+        "trans": "Histoire"
+    },
+    {
+        "source": "Écrivez ici l'histoire de votre personnage",
+        "trans": "Écrivez ici l'histoire de votre personnage"
+    },
+    {
+        "source": "Faits marquants",
+        "trans": "Faits marquants"
+    },
+    {
+        "source": "Écrivez ici les faits marquants dans l'histoire de votre personnage",
+        "trans": "Écrivez ici les faits marquants dans l'histoire de votre personnage"
+    },
+    {
+        "source": "Champs manquants",
+        "trans": "Champs manquants"
+    },
+    {
+        "source": "Le nom et le sexe du personnage doivent être mentionnés",
+        "trans": "Le nom et le sexe du personnage doivent être mentionnés"
+    },
+    {
+        "source": "Finalisation du personnage",
+        "trans": "Finalisation du personnage"
+    },
+    {
+        "source": "Voir la feuille de personnage",
+        "trans": "Voir la feuille de personnage"
+    },
+    {
+        "source": "Voir la page",
+        "trans": "Voir la page"
+    },
+    {
+        "source": "Créer le personnage",
+        "trans": "Créer le personnage"
+    },
+    {
+        "source": "Bonjour",
+        "trans": "Bonjour"
+    },
+    {
+        "source": "voulez-vous associer ce personnage à votre compte ?",
+        "trans": "voulez-vous associer ce personnage à votre compte ?"
+    },
+    {
+        "source": "Vous êtes <strong>déjà connecté(e)</strong>. Si vous souhaitez associer ce personnage à votre compte, passez simplement à l'étape suivante et laisez les champs vides.<br />En revanche, si vous souhaitez <strong>créer un nouveau compte</strong>, remplissez tous les champs avec de nouvelles valeurs.",
+        "trans": "Vous êtes <strong>déjà connecté(e)</strong>. Si vous souhaitez associer ce personnage à votre compte, passez simplement à l'étape suivante et laisez les champs vides.<br />En revanche, si vous souhaitez <strong>créer un nouveau compte</strong>, remplissez tous les champs avec de nouvelles valeurs."
+    },
+    {
+        "source": "Nom d'utilisateur",
+        "trans": "Nom d'utilisateur"
+    },
+    {
+        "source": "Mot de passe",
+        "trans": "Mot de passe"
+    },
+    {
+        "source": "Adresse email",
+        "trans": "Adresse email"
+    }
+]

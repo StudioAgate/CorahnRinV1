@@ -13,7 +13,7 @@ if (P_LOGGED === true) { ?>
 							foreach($_PAGE['list'] as $id => $pg) {
 								if ($pg['page_show_in_debug'] == '1' && $pg['page_acl'] >= Users::$acl) {
 									$active = $_PAGE['get'] == $pg['page_getmod'] ? ' class="active"' : '';
-									echo '<li'.$active.'>'.mkurl(array('val'=>$id, 'type'=>'tag')).'</li>';
+									echo '<li'.$active.'>'.mkurl(array('val'=>$id, 'type'=>'tag','trans'=>true)).'</li>';
 								}
 							}
 							unset($id,$pg,$active,$class);

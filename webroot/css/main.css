@@ -1,7 +1,7 @@
 /* ==========================================================================
  Author's custom styles
  ========================================================================== */
- 
+
 body{
 	padding-bottom: 40px;
 }
@@ -338,18 +338,18 @@ span.notif, span.error, span.info, span.warning, span.success {
         border-radius: 10px;
 }
 
-p.notif,div.notif,span.notif		{ background-color: #eeeeee; color: #666; border: solid 1px #dddddd; }
-p.error,div.error,span.error		{ background-color: #F2DEDE; color: #B94A48; border: solid 1px #EED3D7; }
-p.warning,div.warning,span.warning	{ background-color: #FCF8E3; color: #C09853; border: solid 1px #FBEED5; }
-p.info,div.info,span.info			{ background-color: #D9EDF7; color: #3A87AD; border: solid 1px #BCE8F1; }
-p.success,div.success,span.success	{ background-color: #DFF0D8; color: #468847; border: solid 1px #D6E9C6; }
+p.notif,div:not(.control-group).notif,span.notif		{ background-color: #eeeeee; color: #666; border: solid 1px #dddddd; }
+p.error,div:not(.control-group).error,span.error		{ background-color: #F2DEDE; color: #B94A48; border: solid 1px #EED3D7; }
+p.warning,div:not(.control-group).warning,span.warning	{ background-color: #FCF8E3; color: #C09853; border: solid 1px #FBEED5; }
+p.info,div:not(.control-group).info,span.info			{ background-color: #D9EDF7; color: #3A87AD; border: solid 1px #BCE8F1; }
+p.success,div:not(.control-group).success,span.success	{ background-color: #DFF0D8; color: #468847; border: solid 1px #D6E9C6; }
 
 /* Icônes débutant les infos et success */
-div.notif:not(.noicon):before,		p.notif:not(.noicon):before,	span.notif:not(.noicon):before,
-div.warning:not(.noicon):before,	p.warning:not(.noicon):before,	span.warning:not(.noicon):before,
-div.info:not(.noicon):before,		p.info:not(.noicon):before,		span.info:not(.noicon):before,
-div.error:not(.noicon):before,		p.error:not(.noicon):before,	span.error:not(.noicon):before,
-div.success:not(.noicon):before,	p.success:not(.noicon):before,	span.success:not(.noicon):before {
+div:not(.control-group).notif:not(.noicon):before,		p.notif:not(.noicon):before,	span.notif:not(.noicon):before,
+div:not(.control-group).warning:not(.noicon):before,	p.warning:not(.noicon):before,	span.warning:not(.noicon):before,
+div:not(.control-group).info:not(.noicon):before,		p.info:not(.noicon):before,		span.info:not(.noicon):before,
+div:not(.control-group).error:not(.noicon):before,		p.error:not(.noicon):before,	span.error:not(.noicon):before,
+div:not(.control-group).success:not(.noicon):before,	p.success:not(.noicon):before,	span.success:not(.noicon):before {
 	display: inline-block;
 	content: "";
 	background: url('../../img/glyphicons-halflings-yellow.png') no-repeat top left;
@@ -359,8 +359,8 @@ div.success:not(.noicon):before,	p.success:not(.noicon):before,	span.success:not
 	margin-right: 5px;
 	vertical-align: text-top;
 }
-p.notif:not(.noicon):before,	div.notif:not(.noicon):before,	span.notif:not(.noicon):before	{ background: url('../img/glyphicons-halflings.png') no-repeat -144px -144px; }
-p.success:not(.noicon):before,	div.success:not(.noicon):before,span.success:not(.noicon):before{ background: url('../img/glyphicons-halflings-green.png') no-repeat -288px 0; }
-p.info:not(.noicon):before,		div.info:not(.noicon):before,	span.info:not(.noicon):before	{ background: url('../img/glyphicons-halflings-blue.png') no-repeat -120px -96px; }
-p.warning:not(.noicon):before,	div.warning:not(.noicon):before,span.warning:not(.noicon):before{ background: url('../img/glyphicons-halflings-yellow.png') no-repeat -144px -120px; }
-p.error:not(.noicon):before,	div.error:not(.noicon):before,	span.error:not(.noicon):before	{ background: url('../img/glyphicons-halflings-red.png') no-repeat -216px -96px; }
+p.notif:not(.noicon):before,	div:not(.control-group).notif:not(.noicon):before,	span.notif:not(.noicon):before	{ background: url('../img/glyphicons-halflings.png') no-repeat -144px -144px; }
+p.success:not(.noicon):before,	div:not(.control-group).success:not(.noicon):before,span.success:not(.noicon):before{ background: url('../img/glyphicons-halflings-green.png') no-repeat -288px 0; }
+p.info:not(.noicon):before,		div:not(.control-group).info:not(.noicon):before,	span.info:not(.noicon):before	{ background: url('../img/glyphicons-halflings-blue.png') no-repeat -120px -96px; }
+p.warning:not(.noicon):before,	div:not(.control-group).warning:not(.noicon):before,span.warning:not(.noicon):before{ background: url('../img/glyphicons-halflings-yellow.png') no-repeat -144px -120px; }
+p.error:not(.noicon):before,	div:not(.control-group).error:not(.noicon):before,	span.error:not(.noicon):before	{ background: url('../img/glyphicons-halflings-red.png') no-repeat -216px -96px; }

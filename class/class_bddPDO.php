@@ -23,6 +23,9 @@ class bdd {
 
 	function __construct($host = '127.0.0.1', $user = 'root', $pwd = '', $database = 'mydb', $tb_prefix = '', $db_type = 'mysql') {
 		$this->cache_filename = ROOT.DS.'logs'.DS.'cache_sql'.DS.'cache.php';
+        if (!FileAndDir::dexists(dirname($this->cache_filename))) {
+            FileAndDir::createPath(dirname($this->cache_filename));
+        }
 
 		$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
 		self::$prefix = $tb_prefix;
@@ -96,6 +99,10 @@ class bdd {
 		.'||User.id=>'.json_encode(Session::read('user'));
 
 		$error_file = ROOT.DS.'logs'.DS.'sql'.DS.date('Y.m.d').'.log';
+        if (!is_dir(dirname($error_file))) {
+            FileAndDir::createPath(dirname($error_file));
+            file_put_contents($error_file, '');
+        }
 		$f = fopen($error_file, 'a');
 		fwrite($f, $final);
 		fclose($f);

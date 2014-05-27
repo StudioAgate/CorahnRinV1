@@ -31,6 +31,10 @@ function buffWrite($type, $content, $dest = '') {
 		//if ($type == 'js') { $content = Minifier::minify($content); }
 		//$content = Minifier::minify($content);
 		$content = minify($content, $type);
+        if (!is_dir(dirname($dest))) {
+            FileAndDir::createPath(dirname($dest));
+            touch($dest);
+        }
 		FileAndDir::put($dest, $content);
 	}
 }

@@ -16,9 +16,12 @@ class Translate {
 
     public static $at_least_one_modification = false;
 
-	function __construct() {
-		self::init();
-	}
+    protected static $write_en = false;
+
+    public static $_PAGE;
+    public static $domain = null;
+
+    function __construct(){}
 
 	/**
 	 * Cette fonction initialise la classe et crée les variables disposant du contenu
@@ -58,13 +61,19 @@ class Translate {
 
 		if (!$txt) { return ''; }
 
-		if (!self::check($txt, self::$words_fr)) {
-			self::$words_fr[] = array('source'=>$txt,'trans'=>$txt);
+        $domain = self::$domain ?: (self::$_PAGE['get'] ?: 'general');
+
+        if (!isset(self::$words_fr[$domain])) {
+            self::$words_fr[$domain] = array();
+        }
+
+		if (!self::check($txt, self::$words_fr[$domain])) {
+			self::$words_fr[$domain][] = array('source'=>$txt,'trans'=>$txt);
             self::$at_least_one_modification = true;
 		}
 
-		if (defined('P_LANG') && P_LANG == 'en') {
-            $txt = self::search($txt, self::$words_en);
+		if (defined('P_LANG') && P_LANG == 'en' && isset(self::$words_en[$domain])) {
+            $txt = self::search($txt, self::$words_en[$domain]);
 		}
 
 		if ($return === false) {
@@ -81,6 +90,7 @@ class Translate {
      * @return string
      */
     static function check($txt, $source) {
+        $txt = self::clean_word($txt);
         $found = false;
         $result = array_filter($source, function($element) use ($txt) {
             return $element['source'] == $txt;
@@ -97,8 +107,10 @@ class Translate {
      * @return string
      */
     static function search($txt, $source) {
+        $txt = self::clean_word($txt);
         $result = array_filter($source, function($element) use ($txt) {
-            return $element['source'] == $txt;
+//            return $element['source'] == $txt;
+            return stristr($element['source'], $txt);
         });
         if (count($result)){
             sort($result);
@@ -113,27 +125,29 @@ class Translate {
 	 * @return array Les mots en français
 	 */
 	static function get_words_fr() {
-        $file = ROOT.DS.'translation'.DS.'fr'.DS.'words.txt';
-        if (FileAndDir::fexists($file)) {
-            $w = FileAndDir::get($file);
-            $w = json_decode($w, true) ?: array();
-            self::$words_fr = $w;
-            unset($w);
+        $dir = ROOT.DS.'translation'.DS.'fr'.DS;
+        $files = glob($dir.'*.json');
+        foreach ($files as $file) {
+            if (is_file($file)) {
+                $domain = basename($file, '.json');
+                self::$words_fr[$domain] = json_decode(file_get_contents($file), true);
+            }
         }
 		return self::$words_fr;
 	}
 
 	/**
 	 * Cette fonction récupère les traductions fr=>en
-	 * @return array Clé = mot en français ; Valeur = mot traduit en anglais
+	 * @return array
 	 */
 	static function get_words_en() {
-        $file = ROOT.DS.'translation'.DS.'en'.DS.'words.txt';
-        if (FileAndDir::fexists($file)) {
-            $w = FileAndDir::get($file);
-            $w = json_decode($w, true) ?: array();
-            self::$words_en = $w;
-            unset($w);
+        $dir = ROOT.DS.'translation'.DS.'en'.DS;
+        $files = glob($dir.'*.json');
+        foreach ($files as $file) {
+            if (is_file($file)) {
+                $domain = basename($file, '.json');
+                self::$words_en[$domain] = json_decode(file_get_contents($file), true);
+            }
         }
         return self::$words_en;
 	}
@@ -158,27 +172,35 @@ class Translate {
 	 * @param string $trans La traduction
      * @return boolean
 	 */
-	static function write_words_en($word_source, $trans) {
+	static function write_words_en($word_source, $trans, $domain) {
         $word_source = self::clean_word($word_source);
 		$trans = self::clean_word($trans);
 
         $changed = false;
 
-        foreach  (self::$words_en as $k => $word) {
-            if ($word['source'] == $word_source && self::$words_en[$k]['trans'] != $trans) {
-                self::$words_en[$k]['trans'] = $trans;
+        if (!self::$words_en[$domain]) {
+            self::$words_en[$domain] = array();
+        }
+
+        foreach  (self::$words_en[$domain] as $k => $word) {
+            if ($word['source'] == $word_source) {
+                self::$words_en[$domain][$k]['trans'] = $trans;
                 $changed = true;
             }
         }
 
         if ($changed === false) {
-            self::$words_en[] = array('source' => $word_source, 'trans' => $trans);
+            self::$words_en[$domain][] = array('source' => $word_source, 'trans' => $trans);
             $changed = true;
         }
 
-        $text_to_write = json_encode(self::$words_en, 480);
+        if ($changed) {
+            self::$write_en = true;
+        }
 
-		file_put_contents(ROOT.DS.'translation'.DS.'en'.DS.'words.txt', $text_to_write);
+//        $text_to_write = json_encode(self::$words_en, 480);
+//
+//		file_put_contents(ROOT.DS.'translation'.DS.'en'.DS.'words.txt', $text_to_write);
         return $changed;
 	}
 
@@ -236,9 +258,23 @@ class Translate {
 	 * @return boolean Résultat de l'opération
 	 */
 	static function translate_writewords() {
-		$words_for_translation = json_encode(self::$words_fr, 480);
-//		$words_for_translation = implode("*|*|*", $words_for_translation);
 
-		return file_put_contents(ROOT.DS.'translation'.DS.'fr'.DS.'words.txt', $words_for_translation);
+        $nb = 0;
+
+        if (self::$at_least_one_modification) {
+            foreach (self::$words_fr as $domain => $words) {
+                $words_for_translation = json_encode($words, 480);
+                $nb += (int) file_put_contents(ROOT.DS.'translation'.DS.'fr'.DS.$domain.'.json', $words_for_translation);
+            }
+        }
+
+        if (self::$write_en) {
+            foreach (self::$words_en as $domain => $words) {
+                $words_for_translation = json_encode($words, 480);
+                $nb += (int) file_put_contents(ROOT.DS.'translation'.DS.'en'.DS.$domain.'.json', $words_for_translation);
+            }
+        }
+
+		return $nb;
 	}
 }
