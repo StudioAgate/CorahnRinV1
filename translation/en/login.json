@@ -1,0 +1,22 @@
+[
+    {
+        "source": "Connexion",
+        "trans": "Login"
+    },
+    {
+        "source": "Nom d'utilisateur",
+        "trans": "User name"
+    },
+    {
+        "source": "Mot de passe",
+        "trans": "Password"
+    },
+    {
+        "source": "Vous n'êtes pas inscrit(e) ?",
+        "trans": "Not member ?"
+    },
+    {
+        "source": "Corahn Rin",
+        "trans": "Corahn Rin"
+    }
+]
