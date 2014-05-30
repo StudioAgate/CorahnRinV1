@@ -34,7 +34,7 @@ class Session {
 /**
  * Retourne vrai si la variable passée en paramètre figure dans la variable de session
  *
- * @param varchar $key Variable à tester
+ * @param string $key Variable à tester
  * @return boolean Vrai si la variable est dans la variable de session, faux sinon
  * @version 0.1 - 30/12/2011
  * @see /Koezion/lib/set.php
@@ -49,7 +49,7 @@ class Session {
 /**
  * Permet d'écrire une donnée dans la session
  *
- * @param varchar $key Clée de la donnée
+ * @param string $key Clée de la donnée
  * @param mixed $value Donnée à écrire
  * @return boolean Vrai si la valeur est insérée, faux sinon
  * @version 0.1 - 30/12/2011
@@ -65,7 +65,7 @@ class Session {
 /**
  * Permet de lire une donnée dans la session
  *
- * @param varchar $key Clée de la donnée (Peut être composée de . pour les niveaux)
+ * @param string $key Clée de la donnée (Peut être composée de . pour les niveaux)
  * @return mixed Valeur de la donnée, faux si la donnée n'est pas dans la variable de session
  * @version 0.1 - 30/12/2011
  * @see /Koezion/lib/set.php
@@ -80,7 +80,7 @@ class Session {
 /**
  * Permet de supprimer une donnée dans la session
  *
- * @param varchar $key Clée de la donnée (Peut être composée de . pour les niveaux)
+ * @param string $key Clée de la donnée (Peut être composée de . pour les niveaux)
  * @return boolean Vrai si la valeur est supprimée, faux sinon
  * @version 0.1 - 30/12/2011
  * @see /Koezion/lib/set.php

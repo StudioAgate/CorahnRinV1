@@ -432,6 +432,8 @@ class Inflector {
 				return $_this->_pluralized[$word];
 			}
 		}
+
+        return null;
 	}
 
 /**
@@ -601,7 +603,6 @@ class Inflector {
  * @param string $string the string you want to slug
  * @param string $replacement will replace keys in map
  * @param array $map extra elements to map to the replacement
- * @deprecated $map param will be removed in future versions. Use Inflector::rules() instead
  * @return string
  * @access public
  * @static

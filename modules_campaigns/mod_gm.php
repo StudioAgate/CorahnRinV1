@@ -97,28 +97,54 @@ $chars = $db->req($sql, $game['game_id']);
 						tr('Mort...');
 					}
 				?></td>
-				<td><?php
-				if ($char['char_status'] == 1 || $char['char_status'] == 2) {
-					echo mkurl(array(
-						'type' => 'tag',
-						'anchor' => 'Récompenses',
-						'attr' => array(
-							'title' => tr('Ajouter une récompense', true),
-							'class' => 'btn btn-mini btn-block give_exp',
-						),
-						'params' => array(0=>$game_id,1=>$char['char_id']))
-					);
-					echo mkurl(array(
-						'val' => 47,
-						'type' => 'tag',
-						'anchor' => 'Voir le personnage',
-						'attr' => array(
-							'title' => tr('Voir le personnage', true),
-							'class' => 'btn btn-mini btn-block',
-						),
-						'params' => array($char['char_id']))
-					);
-				}
+				<td style="width: 220px"><?php
+                    if ($char['char_status'] == 0) {
+                        echo mkurl(array(
+                            'type' => 'tag',
+                            'anchor' => 'Renvoyer l\'invitation',
+                            'trans' => true,
+                            'attr' => array(
+                                'title' => tr('Renvoyer l\'invitation', true),
+                                'class' => 'btn btn-mini btn-block give_exp btn-info',
+                                'style' => 'color: white;',
+                            ),
+                            'params' => array(0=>$game_id,1=>$char['char_id'],'sendmail'))
+                        );
+                    } elseif ($char['char_status'] == 1 || $char['char_status'] == 2) {
+                        echo mkurl(array(
+                            'type' => 'tag',
+                            'anchor' => 'Récompenses',
+                                'trans' => true,
+                            'attr' => array(
+                                'title' => tr('Ajouter une récompense', true),
+                                'class' => 'btn btn-mini btn-block give_exp',
+                            ),
+                            'params' => array(0=>$game_id,1=>$char['char_id']))
+                        );
+                        echo mkurl(array(
+                            'val' => 47,
+                            'type' => 'tag',
+                            'anchor' => 'Voir le personnage',
+                                'trans' => true,
+                            'attr' => array(
+                                'title' => tr('Voir le personnage', true),
+                                'class' => 'btn btn-mini btn-block',
+                            ),
+                            'params' => array($char['char_id']))
+                        );
+                        echo mkurl(array(
+                            'type' => 'tag',
+                            'anchor' => 'Retirer de la campagne',
+                            'trans' => true,
+                            'attr' => array(
+                                'title' => tr('Retirer de la campagne', true),
+                                'class' => 'btn btn-mini btn-block give_exp btn-danger',
+                                'style' => 'color: white;',
+                                'onclick' => 'return confirm(\''.tr('Retirer le personnage de la campagne ?', true).'\');',
+                            ),
+                            'params' => array(0=>$game_id,1=>$char['char_id'],'delete'))
+                        );
+                    }
 				?></td>
 			</tr>
 		<?php } ?>

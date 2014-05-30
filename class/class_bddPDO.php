@@ -167,8 +167,8 @@ class bdd {
 	 * Effectue une requête classique
 	 *
 	 * @param string $req_qry Une requête formatée préalablement avec buildReq()
-	 * @param array $values Un tableau de valeurs à envoyer à PDO pour la requête préparée
-	 * @return Un tableau avec une entrée pour chaque élément trouvé dans la BDD, false
+	 * @param mixed $values Un tableau de valeurs à envoyer à PDO pour la requête préparée OU un identifiant
+	 * @return array Un tableau avec une entrée pour chaque élément trouvé dans la BDD, false
 	 */
 	public function req($req_qry, $values = array()) {
 		$values = (array) $values;
@@ -201,8 +201,8 @@ class bdd {
 	 * Effectue une requête mais ne récupère que le premier résultat. Utile pour les sélections uniques par Id
 	 *
 	 * @param string $req_qry Une requête formatée préalablement avec buildReq()
-	 * @param array $values Un tableau de valeurs à envoyer à PDO pour la requête préparée
-	 * @return tableau à 1 entrée, false sinon
+	 * @param mixed $values Un tableau de valeurs à envoyer à PDO pour la requête préparée
+	 * @return array à 1 entrée, false sinon
 	 */
 	public function row($req_qry, $values = array()) {
 		$values = (array) $values;
@@ -236,7 +236,7 @@ class bdd {
 	 * Effectue une requête mais ne récupère pas de résultat autre que la réussite ou l'échec. Utile pour update,insert,set,delete...
 	 *
 	 * @param string $req_qry Une requête formatée préalablement avec buildReq()
-	 * @param array $values Un tableau de valeurs à envoyer à PDO pour la requête préparée
+	 * @param mixed $values Un tableau de valeurs à envoyer à PDO pour la requête préparée
 	 * @return true si la requête est excéutée, false sinon
 	 */
 	public function noRes($req_qry, $values = array()) {

@@ -64,7 +64,7 @@ class EsterenChar {
 				'title' => $v['gen_anchor'],
 			);
 		}
-		foreach($steps as $step => $v) { unset($_SESSION[$v['mod']]); }
+		foreach($steps as $v) { unset($_SESSION[$v['mod']]); }
 
 		Session::write('etape', 1);
 		unset($_SESSION['amelio_bonus'], $_SESSION['bonusdom']);
@@ -76,7 +76,7 @@ class EsterenChar {
 	 * @param string $name Le nom à encoder
 	 * @return string Le nom encodé
 	 */
-	public static function sget_url_charname($char = false) {
+	function sget_url_charname($char = false) {
 		$hash = '';
 		if ($char) {
 			$hash = md5(json_encode($this->char));
@@ -223,7 +223,6 @@ class EsterenChar {
 			if (!$user_id) { Session::setFlash('<br />Si vous souhaitez vraiment créer un personnage avec ce nom, vous pouvez créer un compte, ainsi le personnage sera enregistré pour vous avec ce nom.<br />Vous pouvez toujours changer le nom du personnage à l\'étape précédente', 'error'); }
 			return false;
 		}
-		$sql = '';
 		$datas = array(
 			'user_id' => $user_id,
 			'char_name' => $this->get('details_personnage.name'),
@@ -246,7 +245,6 @@ class EsterenChar {
 
 		$compare_after = p_array_diff_recursive($this->char, $this->base_char, true);
 		$compare_before = p_array_diff_recursive($this->base_char, $this->char, true);
-		$sql2 = '';
 // 		if (!empty($compare_after) && !empty($compare_before)) {
 			$compare_before = $this->_encrypt($compare_before);
 			$compare_after = $this->_encrypt($compare_after);
@@ -351,7 +349,7 @@ class EsterenChar {
 	/**
 	 * Récupère une information du personnage avec Hash::get
 	 *
-	 * @return boolean True si réussi, False sinon
+	 * @return mixed
 	 */
 	public function get($path = null) {
 		if ($path === '' || $path === null) {
@@ -395,7 +393,6 @@ class EsterenChar {
 	 * @return boolean
 	 */
 	private function _decode_char($cnt) {
-
 		if ($cnt) {
 			$cnt = self::sdecode_char($cnt);
 			if ($cnt) {
@@ -410,7 +407,6 @@ class EsterenChar {
 			echo '<div class="container error">Le contenu du personnage a été mal récupéré. #002</div>';
 			return false;
 		}
-		return false;
 	}
 
 	/**
@@ -748,7 +744,6 @@ class EsterenChar {
 		&& isset($char['equipements']['armure'])
 		&& isset($char['equipements']['autre_equip'])
 		) {
-			$arme = array();
 			if ($char['equipements']['arme']) {
 				$arme = $this->db->req('SELECT %arme_id,%arme_name,%arme_dmg,%arme_domain FROM %%armes WHERE %arme_id IN ('.implode(',', $char['equipements']['arme']).')');
 				$armes = array();
@@ -798,7 +793,7 @@ class EsterenChar {
 			if (!empty($disc)) {
 				$ids = array_map('intval', array_keys($disc));
 				$doms = array();
-				foreach($disc as $k => $v) { $doms[$v['domain']] = $v['domain']; }//On récupère les domaines pour ne pas avoir de doublon de disciplines
+				foreach($disc as $v) { $doms[$v['domain']] = $v['domain']; }//On récupère les domaines pour ne pas avoir de doublon de disciplines
 				$discs = $this->db->req('
 					SELECT %%disciplines.%disc_name, %%discdoms.%disc_id, %%discdoms.%domain_id
 					FROM %%discdoms
@@ -976,8 +971,6 @@ class EsterenChar {
 			echo '<div class="container error">Une erreur est survenue pendant la récupération du personnage dans la base de données. #001</div>';
 			return false;
 		}
-		echo '<div class="container error">Une erreur est survenue pendant la récupération du personnage dans la base de données. #002</div>';
-		return false;
 	}
 
 	/**
@@ -1024,10 +1017,10 @@ class EsterenChar {
 				'file' => P_FONTS.DS.'LettrinEsteren-Regular.ttf',
 				'name' => 'lettrinesteren-regular',
 			),
-			'unz' => array(
-				'file' => P_FONTS.DS.'UnZialish.ttf',
-				'name' => 'unzialish',
-			),
+            'unz' => array(
+                'file' => P_FONTS.DS.'UnZialish.ttf',
+                'name' => 'unzialish',
+            ),
 			'caro' => array(
 				'file' => P_FONTS.DS.'carolingia.ttf',
 				'name' => 'carolingia',
@@ -1035,10 +1028,6 @@ class EsterenChar {
 			'carbold' => array(
 				'file' => P_FONTS.DS.'carolingia_old.ttf',
 				'name' => 'carolingia_old',
-			),
-			'unz' => array(
-				'file' => P_FONTS.DS.'UnZialish.ttf',
-				'name' => 'unzialish',
 			),
 			'times' => array(
 				'file' => P_FONTS.DS.'times.ttf',
@@ -1140,8 +1129,7 @@ class EsterenChar {
 		} else {
 			$pdf->SetTextColor(0x22, 0x11, 0x4);
 		}
-		foreach($this->get('domaines') as $key => $val) {
-			$string = '';
+		foreach($this->get('domaines') as $val) {
 			$score = $val['val'];
 			$j++;
 			if ($score >= 0) {
@@ -1286,7 +1274,7 @@ class EsterenChar {
 		if ($this->get('ogham')) {
 			$arr = $this->get('ogham');
 			$i = 0;
-			foreach ($arr as $k => $v) {
+			foreach ($arr as $v) {
 				if ($i > 5) { break; }
 				$pdf->textline($v, 147, 1377+($i*43), $p['carbold'], 20);
 				$i++;
@@ -1406,7 +1394,8 @@ class EsterenChar {
 				} elseif ($line == 2) { $larg = 908;
 				} elseif ($line == 3) { $larg = 898;
 				} elseif ($line == 4) { $larg = 878;
-				} elseif ($line > 4) { $larg = 856; }
+				} elseif ($line > 4) { $larg = 856;
+                } else { $larg = INF; }// Théoriquement impossible
 				if ($testbox[2] > $larg) {
 					if ($desc[$line] == "") { $desc[$line] .= $word;
 					} else { $line++; $desc[$line] = $word; }
@@ -1605,9 +1594,8 @@ class EsterenChar {
 			$x_arr = array(0, 91, 91, 91, 350, 350, 350, 350, 614, 614, 614, 614, 874, 874, 874, 874, 91);
 			$y_arr = array(0, 988, 1165, 1331, 988, 1165, 1333, 1499, 988, 1165, 1331, 1499, 988, 1165, 1331, 1499, 1499);
 			$j = 0;
-			foreach((array) $this->get('domaines') as $key => $val) {
+			foreach((array) $this->get('domaines') as $val) {
 				if (is_array($val) && isset($val['name']) && isset($val['val']) && isset($val['bonus']) && isset($val['malus'])) {
-					$string = '';
 					$score = $val['val'];
 					$j++;
 					if ($score >= 0) {
@@ -1702,7 +1690,7 @@ class EsterenChar {
 			if ($this->get('inventaire.armures')) {
 				$arr = $this->get('inventaire.armures');
 				$i = 0;
-				foreach ($arr as $k => $v) {
+				foreach ($arr as $v) {
 					if ($i > 3) { break; }
 					$v = str_replace("\r", '', $v);
 					$v = str_replace("\n", '', $v);
@@ -1796,7 +1784,7 @@ class EsterenChar {
 				$i = 0;
 				$x_offset = 85;
 				$word_offset = 0;
-				foreach($this->get('inventaire.possessions') as $k => $v) {
+				foreach($this->get('inventaire.possessions') as $v) {
 					if ($i == 10) {
 						if ($word_offset > 0) { break; }
 						$x_offset = 445; $word_offset = 20; $i = 0;
@@ -1825,7 +1813,7 @@ class EsterenChar {
 			if ($this->get('ogham')) {
 				$arr = $this->get('ogham');
 				$i = 0;
-				foreach ($arr as $k => $v) {
+				foreach ($arr as $v) {
 					if ($i > 5) { break; }
 					imagettftext($nimg, 20, 0, 147, 1377+$i*43, $grey, $carolingia_bold, $v);
 					$i++;
@@ -1835,10 +1823,8 @@ class EsterenChar {
 			if ($this->get('miracles')) {
 				$miracles = $this->get('miracles');
 				foreach ($miracles as $k => $v) {
-					$i = 0;
 					$taille_du_texte = 18;
 					$police_du_texte = $carolingia_bold;
-					$str = implode('', $v);
 					$story = "";
 					$offset = 0;
 					if ($k === 'min') { $offset = 171; }
@@ -1855,9 +1841,9 @@ class EsterenChar {
 						}
 					}
 					$story = explode("\n", $story);
-					foreach($story as $i => $v) {
+					foreach($story as $i => $vv) {
 						if ($i <= 2) {
-							imagettftext($nimg, $taille_du_texte, 0, 457, 1341+$i*43+$offset, $grey, $police_du_texte, $v);
+							imagettftext($nimg, $taille_du_texte, 0, 457, 1341+$i*43+$offset, $grey, $police_du_texte, $vv);
 						} elseif ($i == 3) {
 							imagettftext($nimg, $taille_du_texte, 0, 750, 1426+$offset, $grey, $police_du_texte, '(...)');
 						} else {
@@ -2010,7 +1996,9 @@ class EsterenChar {
 						$larg = 878;
 					} elseif ($line > 4) {
 						$larg = 856;
-					}
+					} else {
+                        $larg = INF;// Théoriquement impossible
+                    }
 					if ($testbox[2] > $larg) {
 						if ($desc[$line] == "") {
 							$desc[$line] .= $word;

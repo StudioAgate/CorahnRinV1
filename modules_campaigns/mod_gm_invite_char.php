@@ -18,9 +18,6 @@ foreach ($characters as $k => $v) {
 	}
 }
 
-
-
-
 $send = false;
 if (!empty($_POST)) {
 
@@ -82,9 +79,12 @@ if ($send === true) {
 				'name' => $v['user_name'],
 			);
 
-			if (!send_mail($dest, $subj, $txt, $msg_invite['mail_id'])) {
-				Session::setFlash('La partie a été créée, mais une erreur est survenue dans l\'envoi de l\'email de confirmation à l\'un des joueurs...', 'warning');
-			}
+            try {
+                send_mail($dest, $subj, $txt, $msg_invite['mail_id']);
+                Session::setFlash('Le mail a bien été renvoyé à l\'utilisateur.');
+            } catch (Exception $e) {
+                Session::setFlash('La partie a été créée, mais une erreur est survenue dans l\'envoi de l\'email de confirmation à l\'un des joueurs...', 'warning');
+            }
 		}
 	}
 	if (!in_array(false, $result)) {
