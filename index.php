@@ -115,6 +115,10 @@ define('P_DEBUG',	(Users::$id == 1 ? true : false));
 require ROOT.DS.'request.php';
 Translate::$_PAGE = $_PAGE;
 
+## Définition de la langue en fonction de la session
+## La langue est désormais définie ici pour la compatibilité avec le nouveau système de langue
+define('P_LANG', isset($_GET['lang']) && in_array($_GET['lang'], array('fr','en')) ? $_GET['lang'] : (Session::check('lang') ? Session::read('lang') : 'fr'));
+
 ## On charge le module Git au cas où une mise à jour est prévue.
 //require ROOT.DS.'git.php';
 

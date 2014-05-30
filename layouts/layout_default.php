@@ -20,10 +20,10 @@ if (isset($_PAGE['more_css'])) {
 }
 
 ?><!DOCTYPE html>
-<!--[if lt IE 7]>		<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="fr"> <![endif]-->
-<!--[if IE 7]>			<html class="no-js lt-ie9 lt-ie8" lang="fr"> <![endif]-->
-<!--[if IE 8]>			<html class="no-js lt-ie9" lang="fr"> <![endif]-->
-<!--[if gt IE 8]><!-->	<html class="no-js" lang="fr"> <!--<![endif]-->
+<!--[if lt IE 7]>		<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="<?php echo P_LANG; ?>"> <![endif]-->
+<!--[if IE 7]>			<html class="no-js lt-ie9 lt-ie8" lang="<?php echo P_LANG; ?>"> <![endif]-->
+<!--[if IE 8]>			<html class="no-js lt-ie9" lang="<?php echo P_LANG; ?>"> <![endif]-->
+<!--[if gt IE 8]><!-->	<html class="no-js" lang="<?php echo P_LANG; ?>"> <!--<![endif]-->
 	<head>
 
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">

@@ -53,14 +53,14 @@ function error_logging($errno, $errstr, $errfile, $errline) {
 		$output = $phpType[$errno];
 	}
 	if (isset($humanType[$errno])) {
-	
+
 		/**
 		 *	Définition du chemin vers le fichier de sortie dans la variable $error_file.
 		 * Si le dossier n'existe pas, le comportement de la fonction est indéfini.
 		 * Si le fichier n'existe pas, il sera créé automatiquement
 		 */
 		$error_file = ROOT.DS.'logs'.DS.'error_tracking'.DS.'error_logging_'.date('Y.m.d').'.log';
-		
+
 		/**
 		 * Le contenu du fichier s'ajoutera de cette liste de messages préformaté.
 		 * 3 découpages doivent être fait pour récupérer un tableau de valeur lisible
@@ -86,7 +86,7 @@ function error_logging($errno, $errstr, $errfile, $errline) {
 		$f = fopen($error_file, 'a');
 		fwrite($f, $final);
 		fclose($f);
-		
+
 		// Cette variable sera utilisée pour déterminer la classe css de la div qui affichera le message d'erreur.
 		// Très utile pour mettre un code couleur similaire à ce que l'on trouve sur les templates comme Twitter's Bootstrap (error = rouge, warning = jaune, etc.)
 		// À vous de définir les classes que vous utilisez !
@@ -99,12 +99,12 @@ function error_logging($errno, $errstr, $errfile, $errline) {
 			$errclass = 'notif';
 		}
 		if (preg_match('#127\.0\.0\.1#', $_SERVER['HTTP_HOST'])) {
-			$errstr .= ' file : <strong>'.$errfile.'</strong> on line <strong><u>'.$errline.'</u></strong>';//Si on est en local, on affiche le fichier et la ligne de l'erreur.
+			$errstr .= ' file : <strong>'.$errfile.'</strong> on line <strong><span class="underline">'.$errline.'</span></strong>';//Si on est en local, on affiche le fichier et la ligne de l'erreur.
 		}
-		$msg = $humanType[$errno].' - <u>'.date(DATE_RFC822).'</u>';
+		$msg = $humanType[$errno].' - <span class="underline">'.date(DATE_RFC822).'</span>';
 
 		$msg .= '<br /><br />Veuillez envoyer ce message à l\'administrateur du site';//On affiche un message d'erreur générique.
-		
+
 		echo '<div class="thrown_error '.$errclass.'">'.$msg.'</div>';
 		if ($errno & (E_ERROR | E_CORE_ERROR | E_COMPILE_ERROR | E_USER_ERROR)) {
 			exit;

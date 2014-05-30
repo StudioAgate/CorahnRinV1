@@ -12,7 +12,7 @@
         "trans": "Corahn Rin"
     },
     {
-        "source": "La plateforme de gestion de personnages pour &laquo;Les Ombres d'Esteren&raquo;",
+        "source": "La plateforme de gestion de personnages pour \"Les Ombres d'Esteren\"",
         "trans": "La plateforme de gestion de personnages pour &laquo;Les Ombres d'Esteren&raquo;"
     },
     {
@@ -74,5 +74,21 @@
     {
         "source": "Continuer la création du personnage",
         "trans": "Continuer la création du personnage"
+    },
+    {
+        "source": "Gestion du projet Corahn-Rin",
+        "trans": "Gestion du projet Corahn-Rin"
+    },
+    {
+        "source": "Voir les dernières mises à jour",
+        "trans": "Voir les dernières mises à jour"
+    },
+    {
+        "source": "Voir la liste des personnages",
+        "trans": "Voir la liste des personnages"
+    },
+    {
+        "source": "Inscrivez-vous",
+        "trans": "Inscrivez-vous"
     }
 ]

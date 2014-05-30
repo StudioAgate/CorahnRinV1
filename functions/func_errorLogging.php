@@ -87,8 +87,8 @@ function error_logging($errno, $errstr, $errfile, $errline) {
 		} elseif ($errno & (E_NOTICE | E_USER_NOTICE | E_PARSE | E_USER_DEPRECATED | E_DEPRECATED | E_STRICT)) {
 			$errclass = 'notif';
 		}
-		if (preg_match('#127\.0\.0\.1#', $_SERVER['HTTP_HOST']) || (defined('P_DEBUG') && P_DEBUG === true)) { $errstr .= ' in file : <strong>'.$errfile.'</strong> on line <strong><u>'.$errline.'</u></strong>'; }
-		$msg = $humanType[$errno].' - <u>'.date(DATE_RFC822).'</u>';
+		if (preg_match('#127\.0\.0\.1#', $_SERVER['HTTP_HOST']) || (defined('P_DEBUG') && P_DEBUG === true)) { $errstr .= ' in file : <strong>'.$errfile.'</strong> on line <strong><span class="underline">'.$errline.'</span></strong>'; }
+		$msg = $humanType[$errno].' - <span class="underline">'.date(DATE_RFC822).'</span>';
 		if (Users::$acl <= 20) { $msg .= '<br />Message : <small>'.$errstr.'</small>'; }
 		$msg .= '<br /><br />'.tr('Veuillez envoyer ce message à l\'administrateur du site', true);
 		echo '<div class="thrown_error '.$errclass.'">'.$msg.'</div>';

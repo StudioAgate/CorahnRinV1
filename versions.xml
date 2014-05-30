@@ -7,6 +7,11 @@
                 <comment>Intégration de la demande de Nepharius de pouvoir retirer un personnage d'une campagne en cours.</comment>
                 <comment>Ajouté la fonctionnalité de renvoi d'invitation à un joueur, en cas où le mail initial aurait échoué.</comment>
             </task>
+            <task type="general">
+                <element name="">Traduction</element>
+                <comment>Fix erreurs de recherche de traduction.</comment>
+                <comment>AJOUT d'une nouvelle fonctionnalité permettant d'avoir la langue dans la racine de l'url.</comment>
+            </task>
         </tasks>
     </version>
     <version date="20140527" code="1.251">

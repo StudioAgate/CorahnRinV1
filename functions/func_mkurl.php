@@ -36,6 +36,7 @@ function mkurl($base_params = array()) {
 		'params'	=> array(),
 		'aftertag'	=> '',
 		'beforetag'	=> '',
+        'lang'		=> null,
 		'post'		=> $_POST,
 		'custom'	=> false,
         'trans'     => false,
@@ -55,6 +56,7 @@ function mkurl($base_params = array()) {
 		'aftertag'	=> (string) $params['aftertag'],
 		'beforetag'	=> (string) $params['beforetag'],
 		'post'		=> (array) $params['post'],
+		'lang'		=> $params['lang'],
 		'custom'	=> (bool) $params['custom'],
         'trans'     => (bool) $params['trans'],
 	);
@@ -78,7 +80,13 @@ function mkurl($base_params = array()) {
 		}
 	}
 
-	$page = array();
+    if (!$params['lang']) {
+        $params['lang'] = $_GET['lang'];
+    }
+    if ($params['lang'] !== 'fr' && $params['lang'] !== 'en'){
+        $params['lang'] = 'fr';
+    }
+
 	if ($id && $params['custom'] === false) {
 		if (!isset($_PAGE['list'][$id])) { return 'Erreur de lien #002'; }//Si l'id n'existe pas dans la liste, alors le champ n'est pas trouvé
 
@@ -107,7 +115,7 @@ function mkurl($base_params = array()) {
 	if (!empty($params['get']) && $params['type'] !== 'get') {//On ajoute les paramètres (s'il y en a) pour les types 'href' et 'tag'
 		foreach($params['get'] as $k => $v) {
 			if ($get_params) {
-				$get_params .= ($type === 'tag' ? '&amp;' : '&');
+				$get_params .= ($params['type'] === 'tag' ? '&amp;' : '&');
 			}
 			$get_params .= $k.'='.urlencode($v);
 		}
@@ -119,13 +127,13 @@ function mkurl($base_params = array()) {
 		$final = $page['page_getmod'];
 
 	} elseif ($params['type'] === 'href') {//Uniquement le lien complet
-		$final = BASE_URL.'/'.$page['page_getmod'].$all_params.'.'.$params['ext'].($get_params ? $get_params : '');
+		$final = BASE_URL.'/'.$params['lang'].'/'.$page['page_getmod'].$all_params.'.'.$params['ext'].($get_params ? $get_params : '');
 
 	} elseif ($params['type'] === 'tag') {//Création d'une balise <a> complète
 		if ($page['page_getmod'] === 'index') {
-			$href = BASE_URL.'/'.($all_params ? 'index/'.$all_params : '').($get_params ? $get_params : '');//Pour l'accueil, on définit une url plus "jolie", notamment pour le référencement
+			$href = BASE_URL.'/'.$params['lang'].'/'.($all_params ? 'index/'.$all_params : '').($get_params ? $get_params : '');//Pour l'accueil, on définit une url plus "jolie", notamment pour le référencement
 		} elseif ($params['custom'] === false) {
-			$href = BASE_URL.'/'.$page['page_getmod'].$all_params.'.'.$params['ext'].($get_params ? $get_params : '');
+			$href = BASE_URL.'/'.$params['lang'].'/'.$page['page_getmod'].$all_params.'.'.$params['ext'].($get_params ? $get_params : '');
 		} elseif ($params['custom'] === true) {
 			$href = $params['val'];
 			if (strpos($href, 'http://') === false) {
@@ -163,6 +171,8 @@ function mkurl($base_params = array()) {
 }
 
 function mkurl_to_internal_url ($url) {
+    $url = str_replace('/fr/','/', $url);
+    $url = str_replace('/en/','/', $url);
 	$url = str_replace(BASE_URL, ROOT.DS.'webroot'.DS, $url);
 	$url = str_replace(array('/','\\'), array(DS,DS), $url);
 	$url = str_replace(DS.DS, DS, $url);
@@ -170,7 +180,7 @@ function mkurl_to_internal_url ($url) {
 }
 
 function mkurl_to_client_url ($url) {
-	$url = str_replace(ROOT.DS.'webroot', BASE_URL, $url);
+	$url = str_replace(ROOT.DS.'webroot', BASE_URL.P_LANG, $url);
 	$url = str_replace(array('\\', '/'), array('/', '/'), $url);
 	return $url;
 }

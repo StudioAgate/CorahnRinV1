@@ -1,6 +1,6 @@
 <div class="container"><?php
 
-$lang = isset($_PAGE['request'][0]) ? $_PAGE['request'][0] : false;
+$lang = isset($_PAGE['request'][0]) ? $_PAGE['request'][0] : (isset($_GET['lang']) ? $_GET['lang'] : false);
 
 if ($lang === false) {
 	tr('La langue n\'a pas été correctement sélectionnée.');

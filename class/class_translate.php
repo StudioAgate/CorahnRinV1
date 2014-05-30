@@ -72,7 +72,7 @@ class Translate {
             self::$at_least_one_modification = true;
 		}
 
-		if (defined('P_LANG') && P_LANG == 'en' && isset(self::$words_en[$domain])) {
+		if (defined('P_LANG') && P_LANG === 'en' && isset(self::$words_en[$domain])) {
             $txt = self::search($txt, self::$words_en[$domain]);
 		}
 
@@ -109,8 +109,7 @@ class Translate {
     static function search($txt, $source) {
         $txt = self::clean_word($txt);
         $result = array_filter($source, function($element) use ($txt) {
-//            return $element['source'] == $txt;
-            return stristr($element['source'], $txt);
+            return $element['source'] == $txt;
         });
         if (count($result)){
             sort($result);

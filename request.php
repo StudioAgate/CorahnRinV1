@@ -33,13 +33,19 @@ if ($request) {
 	$request = array();
 	$getmod = '';
 }
+if ($getmod !== 'fr' && $getmod !== 'en') {
+    header('Location: '.BASE_URL.'/fr/'.$_GET['request']);
+    exit;
+}
 $t = array();
 if ($ext === $getmod) { $ext = ''; }
 foreach($request as $v) {
 	if (preg_match('#:#isUu', $v)) {
 		$v = explode(':', $v, 2);
-		$t[$v[0]] = $v[1];
-	} else {
+        if ($v[1]) {
+		    $t[$v[0]] = $v[1];
+        }
+	} elseif ($v) {
 		$t[] = $v;
 	}
 }
@@ -67,6 +73,14 @@ $_PAGE['request'] = $request;
 unset($request);
 $_GET = array_map('urldecode', $get_parameters);
 unset($_GET['request'], $t, $get_parameters);
+
+
+// Gestion de la traduction insérée en page
+if ($getmod === 'fr' || $getmod === 'en') {
+    $_GET['lang'] = $getmod;
+    $getmod = array_shift($_PAGE['request']);
+}
+
 
 /**
  * Définition de la variable $_PAGE

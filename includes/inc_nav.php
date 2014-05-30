@@ -51,8 +51,8 @@
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php tr('Changer la langue'); ?> <span class="caret"></span></a>
 									<ul class="dropdown-menu">
-										<li<?php echo P_LANG == 'fr' ? ' class="active"' : ''; ?>><?php echo mkurl(array('val'=>45, 'type' => 'tag', 'anchor' => 'Français', 'params' => array('fr'))); ?></li>
-										<li<?php echo P_LANG == 'en' ? ' class="active"' : ''; ?>><?php echo mkurl(array('val'=>45, 'type' => 'tag', 'anchor' => 'Anglais', 'params' => array('en'))); ?></li>
+										<li<?php echo P_LANG == 'fr' ? ' class="active"' : ''; ?>><?php echo mkurl(array('val'=>$_PAGE['id'], 'type' => 'tag', 'anchor' => 'Français','lang'=>'fr')); ?></li>
+										<li<?php echo P_LANG == 'en' ? ' class="active"' : ''; ?>><?php echo mkurl(array('val'=>$_PAGE['id'], 'type' => 'tag', 'anchor' => 'Anglais','lang'=>'en')); ?></li>
 									</ul>
 								</li>
 								<?php if (P_LOGGED === false) {

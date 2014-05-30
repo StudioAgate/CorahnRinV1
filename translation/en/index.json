@@ -12,8 +12,8 @@
         "trans": "Corahn-Rin"
     },
     {
-        "source": "La plateforme de gestion de personnages pour &laquo;Les Ombres d'Esteren&raquo;",
-        "trans": "La plateforme de gestion de personnages pour &laquo;Les Ombres d'Esteren&raquo;"
+        "source": "La plateforme de gestion de personnages pour \"Les Ombres d'Esteren\"",
+        "trans": "Character manager for &laquo;Shadows of Esteren&raquo"
     },
     {
         "source": "Ce générateur permet de créer un personnage pour \"Les Ombres d'Esteren\", directement en ligne, mais également de modifier son contenu, d'assister à des parties et de dépenser ses points d'expérience, et plein d'autres choses encore.",
@@ -72,7 +72,7 @@
         "trans": "Home"
     },
     {
-        "source": "La plateforme de gestion de personnages pour «Les Ombres d'Esteren»",
-        "trans": "Character manager for «Shadows of Esteren»"
+        "source": "Gestion du projet Corahn-Rin",
+        "trans": "Corahn-Rin's project manager page"
     }
 ]
