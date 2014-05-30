@@ -842,5 +842,105 @@
     {
         "source": "Corahn Rin",
         "trans": "Corahn Rin"
+    },
+    {
+        "source": "<a href=\"http://jdr.pierstoval.com/esteren/spend_exp.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Dépenser de l'expérience\">Dépenser de l'expérience</a>",
+        "trans": "<a href=\"http://jdr.pierstoval.com/esteren/spend_exp.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Dépenser de l'expérience\">Dépenser de l'expérience</a>"
+    },
+    {
+        "source": "<a href=\"http://jdr.pierstoval.com/esteren/sitemap.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Sitemap\">Sitemap</a>",
+        "trans": "<a href=\"http://jdr.pierstoval.com/esteren/sitemap.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Sitemap\">Sitemap</a>"
+    },
+    {
+        "source": "<a href=\"http://jdr.pierstoval.com/esteren/campaigns.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Mes campagnes\">Mes campagnes</a>",
+        "trans": "<a href=\"http://jdr.pierstoval.com/esteren/campaigns.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Mes campagnes\">Mes campagnes</a>"
+    },
+    {
+        "source": "<a href=\"http://jdr.pierstoval.com/esteren/create_char/16_disciplines.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Créer un personnage\">Générateur : Étape 16 - Disciplines</a>",
+        "trans": "<a href=\"http://jdr.pierstoval.com/esteren/create_char/16_disciplines.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Créer un personnage\">Générateur : Étape 16 - Disciplines</a>"
+    },
+    {
+        "source": "<a href=\"http://jdr.pierstoval.com/esteren/\" class=\"btn btn-link btn-block btn_all_links\" title=\"Accueil\">Accueil</a>",
+        "trans": "<a href=\"http://jdr.pierstoval.com/esteren/\" class=\"btn btn-link btn-block btn_all_links\" title=\"Accueil\">Accueil</a>"
+    },
+    {
+        "source": "<a href=\"http://jdr.pierstoval.com/esteren/create_campaign.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Créer une campagne\">Créer une campagne</a>",
+        "trans": "<a href=\"http://jdr.pierstoval.com/esteren/create_campaign.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Créer une campagne\">Créer une campagne</a>"
+    },
+    {
+        "source": "<a href=\"http://jdr.pierstoval.com/esteren/register.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"S'inscrire\">S'inscrire</a>",
+        "trans": "<a href=\"http://jdr.pierstoval.com/esteren/register.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"S'inscrire\">S'inscrire</a>"
+    },
+    {
+        "source": "<a href=\"http://jdr.pierstoval.com/esteren/create_char/20_finalisation.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Créer un personnage\">Générateur : Étape 20 - Finalisation du personnage</a>",
+        "trans": "<a href=\"http://jdr.pierstoval.com/esteren/create_char/20_finalisation.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Créer un personnage\">Générateur : Étape 20 - Finalisation du personnage</a>"
+    },
+    {
+        "source": "<a href=\"http://jdr.pierstoval.com/esteren/admin_errors.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Gestion des erreurs\">Gestion des erreurs</a>",
+        "trans": "<a href=\"http://jdr.pierstoval.com/esteren/admin_errors.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Gestion des erreurs\">Gestion des erreurs</a>"
+    },
+    {
+        "source": "<a href=\"http://jdr.pierstoval.com/esteren/admin_my_chars.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Mes personnages\">Mes personnages</a>",
+        "trans": "<a href=\"http://jdr.pierstoval.com/esteren/admin_my_chars.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Mes personnages\">Mes personnages</a>"
+    },
+    {
+        "source": "<a href=\"http://jdr.pierstoval.com/esteren/create_char.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Créer un personnage\">Créer un personnage</a>",
+        "trans": "<a href=\"http://jdr.pierstoval.com/esteren/create_char.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Créer un personnage\">Créer un personnage</a>"
+    },
+    {
+        "source": "<a href=\"http://jdr.pierstoval.com/esteren/ajax.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Ajax\">Ajax</a>",
+        "trans": "<a href=\"http://jdr.pierstoval.com/esteren/ajax.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Ajax\">Ajax</a>"
+    },
+    {
+        "source": "<a href=\"http://jdr.pierstoval.com/esteren/versions.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Mises à jour\">Mises à jour</a>",
+        "trans": "<a href=\"http://jdr.pierstoval.com/esteren/versions.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Mises à jour\">Mises à jour</a>"
+    },
+    {
+        "source": "<a href=\"http://jdr.pierstoval.com/esteren/see_character.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Visualiser un personnage\">Visualiser un personnage</a>",
+        "trans": "<a href=\"http://jdr.pierstoval.com/esteren/see_character.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Visualiser un personnage\">Visualiser un personnage</a>"
+    },
+    {
+        "source": "<a href=\"http://jdr.pierstoval.com/esteren/sheet.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Feuille de personnage\">Feuille de personnage</a>",
+        "trans": "<a href=\"http://jdr.pierstoval.com/esteren/sheet.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Feuille de personnage\">Feuille de personnage</a>"
+    },
+    {
+        "source": "<a href=\"http://jdr.pierstoval.com/esteren/admin.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Administration\">Administration</a>",
+        "trans": "<a href=\"http://jdr.pierstoval.com/esteren/admin.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Administration\">Administration</a>"
+    },
+    {
+        "source": "<a href=\"http://jdr.pierstoval.com/esteren/create_char/02_metier.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Créer un personnage\">Générateur : Étape 2 - Métier</a>",
+        "trans": "<a href=\"http://jdr.pierstoval.com/esteren/create_char/02_metier.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Créer un personnage\">Générateur : Étape 2 - Métier</a>"
+    },
+    {
+        "source": "<a href=\"http://jdr.pierstoval.com/esteren/create_char/19_description_histoire.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Créer un personnage\">Générateur : Étape 19 - Description et histoire</a>",
+        "trans": "<a href=\"http://jdr.pierstoval.com/esteren/create_char/19_description_histoire.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Créer un personnage\">Générateur : Étape 19 - Description et histoire</a>"
+    },
+    {
+        "source": "<a href=\"http://jdr.pierstoval.com/esteren/404.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Erreur 404\">Erreur 404</a>",
+        "trans": "<a href=\"http://jdr.pierstoval.com/esteren/404.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Erreur 404\">Erreur 404</a>"
+    },
+    {
+        "source": "<a href=\"http://jdr.pierstoval.com/esteren/create_char/03_naissance.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Créer un personnage\">Générateur : Étape 3 - Lieu de naissance</a>",
+        "trans": "<a href=\"http://jdr.pierstoval.com/esteren/create_char/03_naissance.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Créer un personnage\">Générateur : Étape 3 - Lieu de naissance</a>"
+    },
+    {
+        "source": "<a href=\"http://jdr.pierstoval.com/esteren/login.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Connexion\">Connexion</a>",
+        "trans": "<a href=\"http://jdr.pierstoval.com/esteren/login.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Connexion\">Connexion</a>"
+    },
+    {
+        "source": "<a href=\"http://jdr.pierstoval.com/esteren/create_char/18_equipements.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Créer un personnage\">Générateur : Étape 18 - Équipements</a>",
+        "trans": "<a href=\"http://jdr.pierstoval.com/esteren/create_char/18_equipements.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Créer un personnage\">Générateur : Étape 18 - Équipements</a>"
+    },
+    {
+        "source": "<a href=\"http://jdr.pierstoval.com/esteren/create_char/13_domaines_primsec.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Créer un personnage\">Générateur : Étape 13 - Domaines primaires et secondaires</a>",
+        "trans": "<a href=\"http://jdr.pierstoval.com/esteren/create_char/13_domaines_primsec.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Créer un personnage\">Générateur : Étape 13 - Domaines primaires et secondaires</a>"
+    },
+    {
+        "source": "<a href=\"http://jdr.pierstoval.com/esteren/traduction.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Traduction\">Traduction</a>",
+        "trans": "<a href=\"http://jdr.pierstoval.com/esteren/traduction.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Traduction\">Traduction</a>"
+    },
+    {
+        "source": "<a href=\"http://jdr.pierstoval.com/esteren/create_char/11_des_avtg.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Créer un personnage\">Générateur : Étape 11 - Avantages et Désavantages</a>",
+        "trans": "<a href=\"http://jdr.pierstoval.com/esteren/create_char/11_des_avtg.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Créer un personnage\">Générateur : Étape 11 - Avantages et Désavantages</a>"
     }
 ]

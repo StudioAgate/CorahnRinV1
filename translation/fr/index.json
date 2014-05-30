@@ -70,5 +70,9 @@
     {
         "source": "Accueil",
         "trans": "Accueil"
+    },
+    {
+        "source": "Continuer la création du personnage",
+        "trans": "Continuer la création du personnage"
     }
 ]

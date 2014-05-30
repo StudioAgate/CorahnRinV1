@@ -118,5 +118,9 @@
     {
         "source": "Ajoutez ici les miracles majeurs que possède votre personnage",
         "trans": "Ajoutez ici les miracles majeurs que possède votre personnage"
+    },
+    {
+        "source": "Aucun personnage",
+        "trans": "Aucun personnage"
     }
 ]

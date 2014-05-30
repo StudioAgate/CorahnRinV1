@@ -14,5 +14,13 @@
     {
         "source": "Visualiser un personnage",
         "trans": "Visualiser un personnage"
+    },
+    {
+        "source": "Version originale",
+        "trans": "Version originale"
+    },
+    {
+        "source": "Version originale \"Printer Friendly\"",
+        "trans": "Version originale \"Printer Friendly\""
     }
 ]

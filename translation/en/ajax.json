@@ -1,26 +1,26 @@
 [
     {
         "source": "Artisan",
-        "trans": "Artisan"
+        "trans": "Craftsman"
     },
     {
         "source": "Bourgeois",
-        "trans": "Bourgeois"
+        "trans": "Middle class"
     },
     {
         "source": "Paysan",
-        "trans": "Paysan"
+        "trans": "Peasant"
     },
     {
         "source": "Clerge",
-        "trans": "Clerge"
+        "trans": "Clergy"
     },
     {
         "source": "Noblesse",
-        "trans": "Noblesse"
+        "trans": "Nobility"
     },
     {
         "source": "Une erreur est survenue lors de la modification de l'étape",
-        "trans": "Une erreur est survenue lors de la modification de l'étape"
+        "trans": "An error has occured when modifying the step"
     }
 ]

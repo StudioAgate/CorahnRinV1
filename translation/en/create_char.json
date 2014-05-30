@@ -1,43 +1,43 @@
 [
     {
         "source": "Peuple",
-        "trans": "Peuple"
+        "trans": "People"
     },
     {
         "source": "Étape suivante",
-        "trans": "Étape suivante"
+        "trans": "Next step"
     },
     {
         "source": "Peuple de Tri-Kazel",
-        "trans": "Peuple de Tri-Kazel"
+        "trans": "Tri-Kazel people"
     },
     {
         "source": "Les Tri-Kazeliens constituent la très grande majorité de la population de la péninsule. La plupart d'entre eux conservent une stature assez robuste héritée des Osags mais peuvent aussi avoir des traits d'autres peuples. Les Tri-Kazeliens sont issus de siècles de mélanges entre toutes les cultures ayant un jour ou l'autre foulé le sol de la péninsule.<br /><br />De par cette origine, le PJ connaît un dialecte local ; il faut donc préciser de quel pays et région il est originaire.",
-        "trans": "Les Tri-Kazeliens constituent la très grande majorité de la population de la péninsule. La plupart d'entre eux conservent une stature assez robuste héritée des Osags mais peuvent aussi avoir des traits d'autres peuples. Les Tri-Kazeliens sont issus de siècles de mélanges entre toutes les cultures ayant un jour ou l'autre foulé le sol de la péninsule.<br /><br />De par cette origine, le PJ connaît un dialecte local ; il faut donc préciser de quel pays et région il est originaire."
+        "trans": "Tri-Kazelians constitute the vast majority of the population of the peninsula. Most of them maintain a fairly robust stature inherited from Osags but may also have traits of other peoples. Tri-Kazelians come from centuries of mixing between all cultures have at one time or another foot on the peninsula. <br /><br />By this origin, the PC knows a local dialect ; you may then specify what country and region he originated."
     },
     {
         "source": "Peuple Tarish",
-        "trans": "Peuple Tarish"
+        "trans": "Tarish people"
     },
     {
         "source": "D'origine inconnue, le peuple Tarish forme une minorité nomade qui parcourt depuis des décennies les terres de la péninsule. Il est aussi appelé \"peuple de l'ouest\" car la légende veut qu'il soit arrivé par l'Océan Furieux. Les Tarishs se distinguent des Tri-Kazeliens par des pommettes hautes, le nez plutôt aquilin et les yeux souvent clairs. Beaucoup d'entre eux deviennent des saltimbanques, des mystiques ou des artisans.<br />La culture Tarish, même si elle est diluée aujourd'hui, conserve encore une base importante : c'est un peuple nomade habitué aux longs périples et leur langue n'a pas disparu, bien qu'aucun étranger ne l'ait jamais apprise.",
-        "trans": "D'origine inconnue, le peuple Tarish forme une minorité nomade qui parcourt depuis des décennies les terres de la péninsule. Il est aussi appelé \"peuple de l'ouest\" car la légende veut qu'il soit arrivé par l'Océan Furieux. Les Tarishs se distinguent des Tri-Kazeliens par des pommettes hautes, le nez plutôt aquilin et les yeux souvent clairs. Beaucoup d'entre eux deviennent des saltimbanques, des mystiques ou des artisans.<br />La culture Tarish, même si elle est diluée aujourd'hui, conserve encore une base importante : c'est un peuple nomade habitué aux longs périples et leur langue n'a pas disparu, bien qu'aucun étranger ne l'ait jamais apprise."
+        "trans": "Of unknown origin, the Tarish people form a nomad minority who have been travelling the peninsula for decades. It is also called \"people from the west\" because legend says they came by the Furious Ocean. Tarishs differ from Tri-Kazelians by high cheekbones, nose rather aquiline and often clear eyes. Many of them become acrobats, mystical people or craftsmen.<br />Tarish culture, even if it is diluted today, still retains an important basis : they're nomads, and are accustomed to long journeys and their language has not disappeared, although no outsider has ever learned it."
     },
     {
         "source": "Peuple Osag",
-        "trans": "Peuple Osag"
+        "trans": "Osag people"
     },
     {
         "source": "Habitués à ne compter que sur eux-mêmes, les Osags forment un peuple rude. Généralement dotés d'une carrure imposante, ils sont les descendants directs des clans traditionnels de la péninsule. La civilisation péninsulaire a beaucoup évolué depuis l'avènement des Trois Royaumes, mais certains clans sont restés fidèles aux traditions ancestrales et n'ont pas pris part à ces changements. Repliés sur leur mode de vie clanique, les Osags ne se sont pas métissés avec les autres peuples et ont gardé de nombreuses caractéristiques de leurs ancêtres. Les Osags font de grands guerriers et comptent parmi eux les plus célèbres Demorthèn.<br /><br />Leur langue a elle aussi survécu au passage des siècles. Les mots \"feondas\", \"C'maogh\", \"Dàmàthair\" - pour ne citer qu'eux - viennent tous de ce que les Tri-Kazeliens nomment la langue ancienne, mais qui est toujours utilisée par les Osags.",
-        "trans": "Habitués à ne compter que sur eux-mêmes, les Osags forment un peuple rude. Généralement dotés d'une carrure imposante, ils sont les descendants directs des clans traditionnels de la péninsule. La civilisation péninsulaire a beaucoup évolué depuis l'avènement des Trois Royaumes, mais certains clans sont restés fidèles aux traditions ancestrales et n'ont pas pris part à ces changements. Repliés sur leur mode de vie clanique, les Osags ne se sont pas métissés avec les autres peuples et ont gardé de nombreuses caractéristiques de leurs ancêtres. Les Osags font de grands guerriers et comptent parmi eux les plus célèbres Demorthèn.<br /><br />Leur langue a elle aussi survécu au passage des siècles. Les mots \"feondas\", \"C'maogh\", \"Dàmàthair\" - pour ne citer qu'eux - viennent tous de ce que les Tri-Kazeliens nomment la langue ancienne, mais qui est toujours utilisée par les Osags."
+        "trans": "Used to count only on themselves, Osags are tough. Usually burly, they are the direct descendants of the traditional clans of the peninsula. Peninsular civilization has evolved considerably since the advent of the Three Kingdoms, but some clans remained loyal to the traditions and did not take part in these changes. Folded on their way of life clan, the Osags have not crossbred with other people and have kept many features of their ancestors. The Osags make great warriors and among them the most famous Demorthèn.<br /><br />Their language has also survived the passage of centuries. The words \"Feondas\", \"C'maogh\", \"Dàmàthair\" - to name a few - all come from what Tri-Kazelians call the ancient language, but is still used by Osags."
     },
     {
         "source": "Peuple du Continent",
-        "trans": "Peuple du Continent"
+        "trans": "Continental people"
     },
     {
         "source": "Les hommes et les femmes du Continent sont souvent plus minces et plus élancés que les natifs de Tri-Kazel. Leur visage aura tendance à être plus fin mais avec des traits parfois taillés à la serpe. Un PJ choisissant ce peuple ne sera pas natif du Continent, mais plutôt le descendant direct d'au moins un parent Continental. Si les origines Continentales du PJ sont davantage diluées, on estime qu'il fait partie du peuple de Tri-Kazel.<br /><br />En fonction du passé de la famille du PJ et de son niveau d'intégration dans la société tri-kazelienne, il pourrait avoir appris leur langue d'origine Continentale ou bien un patois de la péninsule, au choix du PJ.",
-        "trans": "Les hommes et les femmes du Continent sont souvent plus minces et plus élancés que les natifs de Tri-Kazel. Leur visage aura tendance à être plus fin mais avec des traits parfois taillés à la serpe. Un PJ choisissant ce peuple ne sera pas natif du Continent, mais plutôt le descendant direct d'au moins un parent Continental. Si les origines Continentales du PJ sont davantage diluées, on estime qu'il fait partie du peuple de Tri-Kazel.<br /><br />En fonction du passé de la famille du PJ et de son niveau d'intégration dans la société tri-kazelienne, il pourrait avoir appris leur langue d'origine Continentale ou bien un patois de la péninsule, au choix du PJ."
+        "trans": "Men and women of the continent are often thinner and slimmer than native Tri-Kazelian. Their faces will tend to be thinner but with traits sometimes craggy. A character of that people will not be native of the continent, but rather the direct descendant of at least one parent from the continent. If Continental origins of the PCsare further diluted, she is considered as part of the Tri-people Kazel.<br /><br />Depending on the past of the family of the character and its integration in the tri-kazelian society, he might have learned the continental language or a dialect of the peninsula, as the player chooses."
     },
     {
         "source": "Étape suivante &rarr;",
@@ -49,23 +49,23 @@
     },
     {
         "source": "Créer un personnage",
-        "trans": "Créer un personnage"
+        "trans": "Create a character"
     },
     {
         "source": "Métier",
-        "trans": "Métier"
+        "trans": "Profession"
     },
     {
         "source": "Étape précédente",
-        "trans": "Étape précédente"
+        "trans": "Previous step"
     },
     {
         "source": "Métiers du Livre 1 - Univers",
-        "trans": "Métiers du Livre 1 - Univers"
+        "trans": "Jobs from Book 1 - Universe"
     },
     {
         "source": "Artisan",
-        "trans": "Artisan"
+        "trans": "Craftsman"
     },
     {
         "source": "Description",
@@ -73,19 +73,19 @@
     },
     {
         "source": "Quel que soit son domaine, l'artisan est un manuel qualifié.<br /> Forgeron, cuisinier, architecte, cordonnier, bûcheron, sculpteur, joailler ; les artisans couvrent un grand nombre de spécialités.<br /> Dans les cités où est implantée la magience, on trouve aussi des réparateurs d'artefacts et des ouvriers spécialisés travaillant dans les usines.",
-        "trans": "Quel que soit son domaine, l'artisan est un manuel qualifié.<br /> Forgeron, cuisinier, architecte, cordonnier, bûcheron, sculpteur, joailler ; les artisans couvrent un grand nombre de spécialités.<br /> Dans les cités où est implantée la magience, on trouve aussi des réparateurs d'artefacts et des ouvriers spécialisés travaillant dans les usines."
+        "trans": "Whatever the domain, the artisan is a skilled manual worker.<br />Smith, cook, designer, shoemaker, lumberjack, sculptor, jeweler ; craftsmen cover a wide range of disciplines.<br />In cities where the magience is located, there are also artifacts repairers and specialized workers in the factories."
     },
     {
         "source": "Domaine primaire",
-        "trans": "Domaine primaire"
+        "trans": "Primary domain"
     },
     {
         "source": "Artisanat",
-        "trans": "Artisanat"
+        "trans": "Craft"
     },
     {
         "source": "Domaine(s) secondaire(s)",
-        "trans": "Domaine(s) secondaire(s)"
+        "trans": "Secondary domain(s)"
     },
     {
         "source": "Relation",
@@ -97,79 +97,79 @@
     },
     {
         "source": "Choisir ce métier",
-        "trans": "Choisir ce métier"
+        "trans": "Choose this job"
     },
     {
         "source": "Fermer",
-        "trans": "Fermer"
+        "trans": "Close"
     },
     {
         "source": "Barde",
-        "trans": "Barde"
+        "trans": "Bard"
     },
     {
         "source": "Le statut de barde est hautement honorifique et les plus puissants monarques s'entourent de ces artistes qui ont de véritables rôles d'éminence grise.<br /> Artiste, acrobate, musicien, bouffon, le barde peut revêtir différents rôles.<br /> Il peut également être connu sous d'autres noms, comme les poètes aveugles filidh ou les étranges céilli de l'archipel des Tri-Sweszörs.",
-        "trans": "Le statut de barde est hautement honorifique et les plus puissants monarques s'entourent de ces artistes qui ont de véritables rôles d'éminence grise.<br /> Artiste, acrobate, musicien, bouffon, le barde peut revêtir différents rôles.<br /> Il peut également être connu sous d'autres noms, comme les poètes aveugles filidh ou les étranges céilli de l'archipel des Tri-Sweszörs."
+        "trans": "Bard status is highly honorific and most powerful monarchs surround those artists who are real power brokers.<br />Artist, acrobat, musician, clown, the bard can take different roles.<br />They may also be known by other names, for example the filidh blind poets, or the strange céilli of the Tri-Sweszörs archipelago."
     },
     {
         "source": "Représentation",
-        "trans": "Représentation"
+        "trans": "Performance"
     },
     {
         "source": "Voyage",
-        "trans": "Voyage"
+        "trans": "Travel"
     },
     {
         "source": "Chasseur",
-        "trans": "Chasseur"
+        "trans": "Hunter"
     },
     {
         "source": "Il nourrit la communauté du produit de ses longues expéditions, qui durent parfois plusieurs jours.<br /> L'expansion des villes a vu l'apparition de chasseurs d'un genre nouveau comme les ratiers.<br /> D'autres, comme les Enfants de Neven, dédient leur existence à la traque des feondas.",
-        "trans": "Il nourrit la communauté du produit de ses longues expéditions, qui durent parfois plusieurs jours.<br /> L'expansion des villes a vu l'apparition de chasseurs d'un genre nouveau comme les ratiers.<br /> D'autres, comme les Enfants de Neven, dédient leur existence à la traque des feondas."
+        "trans": "They feed the community of the product of their long expeditions, which sometimes last several days.<br />The expansion of cities saw the appearance of hunters of a new kind as ratters.<br />Others, like the Neven Children, dedicate their existence to the tracking of feondas."
     },
     {
         "source": "Milieu Naturel",
-        "trans": "Milieu Naturel"
+        "trans": "Natural environment"
     },
     {
         "source": "Combat au Contact",
-        "trans": "Combat au Contact"
+        "trans": "Close combat"
     },
     {
         "source": "Tir et Lancer",
-        "trans": "Tir et Lancer"
+        "trans": "Shooting and throwing"
     },
     {
         "source": "Chevalier",
-        "trans": "Chevalier"
+        "trans": "Knight"
     },
     {
         "source": "Ces hommes et ces femmes font partie de la noblesse et appartiennent le plus souvent à un ordre de chevalerie comme les Hilderins ou les Ronces.<br /> Certains sont des chevaliers errants, derniers héritiers d'une famille noble ; d'autres, les vassaux d'un puissant seigneur.",
-        "trans": "Ces hommes et ces femmes font partie de la noblesse et appartiennent le plus souvent à un ordre de chevalerie comme les Hilderins ou les Ronces.<br /> Certains sont des chevaliers errants, derniers héritiers d'une famille noble ; d'autres, les vassaux d'un puissant seigneur."
+        "trans": "These men and women are a member of the nobility and belong most of the time to an order of chivalry as Hilderins or Brambles.<br /> Some people are wandering knights, last heirs of a noble family; others are vassals of a powerful Lord."
     },
     {
         "source": "Combattant",
-        "trans": "Combattant"
+        "trans": "Fighter"
     },
     {
         "source": "Il peut être soldat ou mercenaire, champion de justice, bagarreur de taverne ou détrousseur des rues sombres, etc.<br /> Il se spécialise dans les armes de contact.",
-        "trans": "Il peut être soldat ou mercenaire, champion de justice, bagarreur de taverne ou détrousseur des rues sombres, etc.<br /> Il se spécialise dans les armes de contact."
+        "trans": "They can be soldiers or mercenaries, champion of justice, tavern browler or robber in the dark streets, etc.<br /> He specializes in close combat."
     },
     {
         "source": "Prouesses",
-        "trans": "Prouesses"
+        "trans": "Feats"
     },
     {
         "source": "Commerçant",
-        "trans": "Commerçant"
+        "trans": "Merchant"
     },
     {
         "source": "Marchand ambulant ou tenancier d'une échoppe bien achalandée, le commerçant peut négocier bien des marchandises.",
-        "trans": "Marchand ambulant ou tenancier d'une échoppe bien achalandée, le commerçant peut négocier bien des marchandises."
+        "trans": "Peddler or manager of a well stocked workshop, the merchants can negotiate a lot of goods."
     },
     {
         "source": "Érudition",
-        "trans": "Érudition"
+        "trans": "Erudition"
     },
     {
         "source": "Demorthèn",
@@ -177,31 +177,31 @@
     },
     {
         "source": "Représentant de la nature, il peut entrer en contact avec les esprits et leur demander d'accomplir des tâches particulières.<br /> Il est le gardien des anciennes traditions péninsulaires et il est souvent considéré avec respect.<br /> Les apprentis Demorthèn sont appelés Ionnthèn.",
-        "trans": "Représentant de la nature, il peut entrer en contact avec les esprits et leur demander d'accomplir des tâches particulières.<br /> Il est le gardien des anciennes traditions péninsulaires et il est souvent considéré avec respect.<br /> Les apprentis Demorthèn sont appelés Ionnthèn."
+        "trans": "Representative of the nature, they can get in touch with the spirits and ask them to carry out particular tasks.<br />They are the guard of the old peninsular traditions and are often considered with respect.br /> The apprentices of Demorthèn are called Ionnthèn."
     },
     {
         "source": "Mystères Demorthèn",
-        "trans": "Mystères Demorthèn"
+        "trans": "Demorthèn mysteries"
     },
     {
         "source": "Érudit",
-        "trans": "Érudit"
+        "trans": "Scholar"
     },
     {
         "source": "Passionnés par le savoir, les recherches, les érudits sont souvent employés comme scribes, professeurs ou bibliothécaires.<br /> Généralement, un érudit possède un domaine de connaissance de prédilection, comme la théologie, magience, science, etc.",
-        "trans": "Passionnés par le savoir, les recherches, les érudits sont souvent employés comme scribes, professeurs ou bibliothécaires.<br /> Généralement, un érudit possède un domaine de connaissance de prédilection, comme la théologie, magience, science, etc."
+        "trans": "Fascinated by knowledge, researches, the scholars are often used as scribes, professors or librarians.<br />Generally, a scholar possesses a domain of knowledge of predilection, like theology, magience, science, etc."
     },
     {
         "source": "Occultisme",
-        "trans": "Occultisme"
+        "trans": "Occultism"
     },
     {
         "source": "Espion",
-        "trans": "Espion"
+        "trans": "Spy"
     },
     {
         "source": "N'importe qui, qu'il soit un conseiller haut placé ou un simple mendiant, peut jouer un double rôle, amassant des informations pour le compte d'un commanditaire.<br /> Le domaine secondaire peut être choisi librement pour coller à la fausse identité de l'espion.",
-        "trans": "N'importe qui, qu'il soit un conseiller haut placé ou un simple mendiant, peut jouer un double rôle, amassant des informations pour le compte d'un commanditaire.<br /> Le domaine secondaire peut être choisi librement pour coller à la fausse identité de l'espion."
+        "trans": "Anyone, whether a senior adviser or a simple beggar, can play a dual role, collecting information on behalf of a sponsor.<br />The secondary domain of abilities and knowledge can be freely chosen to fit to the false identity of the spy."
     },
     {
         "source": "Perception",
@@ -209,31 +209,31 @@
     },
     {
         "source": "Au choix",
-        "trans": "Au choix"
+        "trans": "Choice"
     },
     {
         "source": "Explorateur",
-        "trans": "Explorateur"
+        "trans": "Explorer"
     },
     {
         "source": "Aventurier et casse-cou, l'explorateur est passionné par le voyage, fuyant souvent la pauvreté ou la monotonie de son lieu de naissance.",
-        "trans": "Aventurier et casse-cou, l'explorateur est passionné par le voyage, fuyant souvent la pauvreté ou la monotonie de son lieu de naissance."
+        "trans": "Adventurer and reckless person, the explorer is fascinated by the journey, often avoiding the poverty or the dullness of his place of birth."
     },
     {
         "source": "Investigateur",
-        "trans": "Investigateur"
+        "trans": "Investigator"
     },
     {
         "source": "Habitant généralement dans les grandes villes, les investigateurs proposent leurs services pour mener l'enquête.<br /> Chaque investigateur a son style : certains sont versés dans l'occultisme, d'autres dans la science, la magience ou encore la médecine.<br /> De ce fait, le choix du domaine secondaire est libre.",
-        "trans": "Habitant généralement dans les grandes villes, les investigateurs proposent leurs services pour mener l'enquête.<br /> Chaque investigateur a son style : certains sont versés dans l'occultisme, d'autres dans la science, la magience ou encore la médecine.<br /> De ce fait, le choix du domaine secondaire est libre."
+        "trans": "Living generally in big cities, the investigators propose their services to lead the investigation.<br />Every investigator has his style: some are involved into occultism, others in science, magience or still medicine.<br />Therefore, the choice of the secondary domain of skills is free."
     },
     {
         "source": "Magientiste",
-        "trans": "Magientiste"
+        "trans": "Magientist"
     },
     {
         "source": "En Tri-Kazel, on les nomme souvent par le terme dédaigneux de \"Daedemorthys\".<br /> Malgré cette mauvaise réputation, leur science a pour but général l'amélioration des conditions de vie de l'humanité.<br /> Un magientiste diplômé est un scientör, alors qu'un élève en cours de formation est un inceptus.",
-        "trans": "En Tri-Kazel, on les nomme souvent par le terme dédaigneux de \"Daedemorthys\".<br /> Malgré cette mauvaise réputation, leur science a pour but général l'amélioration des conditions de vie de l'humanité.<br /> Un magientiste diplômé est un scientör, alors qu'un élève en cours de formation est un inceptus."
+        "trans": "In Tri-Kazel, we often name them by the disdainful term of \"Daedemorthys\".<br />In spite of this bad reputation, their science has for general purpose the improvement of the living conditions of humanity.<br /> A qualified magientist is a Scientör, while a pupil in formation is an Inceptus."
     },
     {
         "source": "Magience",
@@ -241,39 +241,39 @@
     },
     {
         "source": "Malandrin",
-        "trans": "Malandrin"
+        "trans": "Rogue"
     },
     {
         "source": "Voleur, cambrioleur, tire-laine ; les moyens illégaux pour gagner sa vie sont assez nombreux pour attirer du monde, et ce malgré les risques.",
-        "trans": "Voleur, cambrioleur, tire-laine ; les moyens illégaux pour gagner sa vie sont assez nombreux pour attirer du monde, et ce malgré les risques."
+        "trans": "Thief, burglar, footpad; the illegal ways to make his living are enough many to attract of the world, and it in spite of the risks."
     },
     {
         "source": "Discrétion",
-        "trans": "Discrétion"
+        "trans": "Stealth"
     },
     {
         "source": "Médecin",
-        "trans": "Médecin"
+        "trans": "Physician"
     },
     {
         "source": "Il est des endroits où le demorthèn local n'est pas le meilleur guérisseur.<br /> De nouvelles techniques tout-à-fait efficaces proviennent désormais des universités des grandes villes.<br /> Certains médecins, les aliénistes, s'attachent à soigner les troubles psychiques en se référant aux travaux du professeur continental Ernst Zigger.<br /> D'autres, comme les apothicaires, sont spécialisés dans l'herboristerie.",
-        "trans": "Il est des endroits où le demorthèn local n'est pas le meilleur guérisseur.<br /> De nouvelles techniques tout-à-fait efficaces proviennent désormais des universités des grandes villes.<br /> Certains médecins, les aliénistes, s'attachent à soigner les troubles psychiques en se référant aux travaux du professeur continental Ernst Zigger.<br /> D'autres, comme les apothicaires, sont spécialisés dans l'herboristerie."
+        "trans": "There are places where the local demorthèn is not the best healer.<br />New effective techniques come from now on from the universities in big cities.<br />Certain doctors, the psychiatrists, attempt to look after the psychological troubles by referring to the works of the continental professor Ernst Zigger.<br />Other, as apothecaries, specialize in herbalism."
     },
     {
         "source": "Occultiste",
-        "trans": "Occultiste"
+        "trans": "Occultist"
     },
     {
         "source": "Passionnés d'ésotérisme, les occultistes sont souvent des universitaires ayant un grand intérêt pour ce domaine dénigré par les autres branches de la science.",
-        "trans": "Passionnés d'ésotérisme, les occultistes sont souvent des universitaires ayant un grand intérêt pour ce domaine dénigré par les autres branches de la science."
+        "trans": "Fascinated by esotericism, occultists are often academics, having a big interest for this domain denigrated by the other branches of science."
     },
     {
         "source": "Paysan",
-        "trans": "Paysan"
+        "trans": "Peasant"
     },
     {
         "source": "Qu'il cultive la terre ou élève des animaux, il participe à la vie de la communauté en la nourrissant.",
-        "trans": "Qu'il cultive la terre ou élève des animaux, il participe à la vie de la communauté en la nourrissant."
+        "trans": "That he cultivates the ground or raises animals, he participates in the life of the community by feeding it."
     },
     {
         "source": "Varigal",
@@ -281,55 +281,55 @@
     },
     {
         "source": "Voyageur, messager, porteur de nouvelles mais aussi de colis, le varigal est un lien entre les communautés éparses de Tri-Kazel.<br /> Passant l'essentiel de sa vie sur les chemins, il est généralement bien accueilli quand il arrive dans un village.<br /> Proches de la nature, les varigaux sont souvent les alliés des demorthèn.",
-        "trans": "Voyageur, messager, porteur de nouvelles mais aussi de colis, le varigal est un lien entre les communautés éparses de Tri-Kazel.<br /> Passant l'essentiel de sa vie sur les chemins, il est généralement bien accueilli quand il arrive dans un village.<br /> Proches de la nature, les varigaux sont souvent les alliés des demorthèn."
+        "trans": "Traveler, messenger, carrier of news and also parcel, the varigal is a link between the scattered communities of Tri-Kazel.<br />Spending the main part of his life on roads, he is generally well welcomed when he arrives in a village.<br />Close to the nature, varigals are often the allies of demorthèn."
     },
     {
         "source": "Moine du Temple",
-        "trans": "Moine du Temple"
+        "trans": "Monk of the Temple"
     },
     {
         "source": "Prière",
-        "trans": "Prière"
+        "trans": "Prayer"
     },
     {
         "source": "Clerc du Temple",
-        "trans": "Clerc du Temple"
+        "trans": "Cleric of the Temple"
     },
     {
         "source": "Prêtre du Temple",
-        "trans": "Prêtre du Temple"
+        "trans": "Priest of the Temple"
     },
     {
         "source": "Vecteur du Temple",
-        "trans": "Vecteur du Temple"
+        "trans": "Vector of the Temple"
     },
     {
         "source": "Sigire du Temple",
-        "trans": "Sigire du Temple"
+        "trans": "Sigire of the Temple"
     },
     {
         "source": "Chevalier lame du Temple",
-        "trans": "Chevalier lame du Temple"
+        "trans": "Blade knight of the Temple"
     },
     {
         "source": "Combattant à distance",
-        "trans": "Combattant à distance"
+        "trans": "Ranged fighter"
     },
     {
         "source": "Il peut être soldat ou mercenaire, champion de justice, bagarreur de taverne ou détrousseur des rues sombres, etc.<br /> Il se spécialise dans les armes à distance",
-        "trans": "Il peut être soldat ou mercenaire, champion de justice, bagarreur de taverne ou détrousseur des rues sombres, etc.<br /> Il se spécialise dans les armes à distance"
+        "trans": "They can be soldiers or mercenaries, champion of justice, tavern browler or robber in the dark streets, etc.<br />He specializes in ranged combat."
     },
     {
         "source": "Métiers non officiels",
-        "trans": "Métiers non officiels"
+        "trans": "Unofficial jobs"
     },
     {
         "source": "Joueur professionnel",
-        "trans": "Joueur professionnel"
+        "trans": "Professional player"
     },
     {
         "source": "Au-delà des jeux de stratégie pratiqués dans les cours et les seigneuries, il existe dans les villes une population de joueurs d'élite qui ont appris et développé des stratégies.<br /> Même quand les règles d'un jeu paraissent simples et le résultat dépendre de la chance ou de l'intuition, le joueur initié sait qu'il n'en est rien.<br /> Lui connaît les probabilités et les mathématiques, de sorte qu'il sache précisément ce qu'il risque, ou comment tromper habilement un naïf, au point de pouvoir devenir joueur professionnel et ainsi gagner des sommes considérables au jeu.<br /> Il ne s'agit pas simplement de piécettes, mais bien d'obtenir de plus puissants qu'ils soient prêts à parier leur maison ou la main de leur fille, ou n'importe quel \"bien\" de valeur d'ailleurs.<br /> L'astuce remplace la force du guerrier pour monter dans la société et se faire une place au soleil.",
-        "trans": "Au-delà des jeux de stratégie pratiqués dans les cours et les seigneuries, il existe dans les villes une population de joueurs d'élite qui ont appris et développé des stratégies.<br /> Même quand les règles d'un jeu paraissent simples et le résultat dépendre de la chance ou de l'intuition, le joueur initié sait qu'il n'en est rien.<br /> Lui connaît les probabilités et les mathématiques, de sorte qu'il sache précisément ce qu'il risque, ou comment tromper habilement un naïf, au point de pouvoir devenir joueur professionnel et ainsi gagner des sommes considérables au jeu.<br /> Il ne s'agit pas simplement de piécettes, mais bien d'obtenir de plus puissants qu'ils soient prêts à parier leur maison ou la main de leur fille, ou n'importe quel \"bien\" de valeur d'ailleurs.<br /> L'astuce remplace la force du guerrier pour monter dans la société et se faire une place au soleil."
+        "trans": "Beyond strategy games practiced in the court and lordships, there is in cities a population of elite players who have learned and developed strategies.<br /> Even when the rules of the game seem simple and the results depend on luck or intuition, initiated player knows that this is wrong.<br />He knows the probabilities and mathematics, so he knows exactly what he risks or how cleverly deceives naive to the point you can become a professional player and win large sums of money at games.<br />It is not simply a matter of small coins, but to obtain from the powerfuls their house or their daughter's hand, or any \"good\" value elsewhere.<br />Cunning replaces the strength of a warrior to get higher in the society."
     },
     {
         "source": "Dàmàthair",
@@ -337,139 +337,139 @@
     },
     {
         "source": "Les Dàmàthair sont exclusivement des femmes.<br /><br /> Elles éduquent et protègent les plus jeunes. Elles assistent aux accouchements, enseignent aux enfants suivant leur âge et les protègent en cas de danger.<br /><br /> Le rôle de la Dàmàthair est de créer les liens de la communauté passée, actuelle et future. Les enfants sont élevés ensemble comme une seule et même famille, quelle que soit leur différence de sang afin de plus tard ne former qu'un seul rempart contre ce qui peut se trouver à l'extérieur.<br /><br /> Si les habitants de Tri-Kazel ont une capacité d'entraide si importante (surtout dans les montagnes) c'est parce qu'on leur enseigne qu'ils ne sont qu'une seule entité qui ne peut survivre qu'en vivant ensemble.<br /><br /><br /> La damathair principale d'une communauté est très attachée à celle-ci et ne la quittera que pour cas de force majeure. Mais il arrive qu'elle ait une ou plusieurs jeunes assistantes qui n'ont pas encore fixé leur vocation définitive et peuvent se tourner vers un autre métier. Inversement, il arrive qu'une varigale, une vectrice (en Gwidre) ou même une militaire choisisse de s'établir comme damathair. Ces changements de trajectoire sont à discuter entre le joueur et le MJ, du moment qu'ils respectent la cohérence du personnage.",
-        "trans": "Les Dàmàthair sont exclusivement des femmes.<br /><br /> Elles éduquent et protègent les plus jeunes. Elles assistent aux accouchements, enseignent aux enfants suivant leur âge et les protègent en cas de danger.<br /><br /> Le rôle de la Dàmàthair est de créer les liens de la communauté passée, actuelle et future. Les enfants sont élevés ensemble comme une seule et même famille, quelle que soit leur différence de sang afin de plus tard ne former qu'un seul rempart contre ce qui peut se trouver à l'extérieur.<br /><br /> Si les habitants de Tri-Kazel ont une capacité d'entraide si importante (surtout dans les montagnes) c'est parce qu'on leur enseigne qu'ils ne sont qu'une seule entité qui ne peut survivre qu'en vivant ensemble.<br /><br /><br /> La damathair principale d'une communauté est très attachée à celle-ci et ne la quittera que pour cas de force majeure. Mais il arrive qu'elle ait une ou plusieurs jeunes assistantes qui n'ont pas encore fixé leur vocation définitive et peuvent se tourner vers un autre métier. Inversement, il arrive qu'une varigale, une vectrice (en Gwidre) ou même une militaire choisisse de s'établir comme damathair. Ces changements de trajectoire sont à discuter entre le joueur et le MJ, du moment qu'ils respectent la cohérence du personnage."
+        "trans": "The Dàmàthair are exclusively women.<br /> <br />They educate and protect young people. They attend births, teach children according to their age and protect them in case of danger.<br /><br />Dàmàthair role is to create community links ; past, present and future. Children are brought together as a single family, whatever their difference of blood to later form a single bulwark against what may be outside.<br /><br />If residents of Tri- Kazel have an important support capacity (especially in the mountains) it is because they are taught that they are a single entity that can only survive by living together.<br /><br /><br />The main Dàmàthair of a community is very attached to it and never leaves except for major reasons. But sometimes she has one or more young assistants who have not yet set their final mission and can turn to another job. Conversely , sometimes a varigal, a Vector (in Gwidre ) or even a military woman choose to become Dàmàthair.<br />These changes are discussed between the player and the game leader , as long as they respect the consistency of the character."
     },
     {
         "source": "Créer un autre métier",
-        "trans": "Créer un autre métier"
+        "trans": "Create another job"
     },
     {
         "source": "Lieu de naissance",
-        "trans": "Lieu de naissance"
+        "trans": "Birth place"
     },
     {
         "source": "Duché de Seòl",
-        "trans": "Duché de Seòl"
+        "trans": "Dukedom of Seòl"
     },
     {
         "source": "Duché de Kel Loar",
-        "trans": "Duché de Kel Loar"
+        "trans": "Dukedom of Kel Loar"
     },
     {
         "source": "Duché de Dùlan",
-        "trans": "Duché de Dùlan"
+        "trans": "Dukedom of Dùlan"
     },
     {
         "source": "Duché d'Osta-Baille",
-        "trans": "Duché d'Osta-Baille"
+        "trans": "Dukedom of Osta-Baille"
     },
     {
         "source": "Duché de Gorm",
-        "trans": "Duché de Gorm"
+        "trans": "Dukedom of Gorm"
     },
     {
         "source": "Duché de Tulg",
-        "trans": "Duché de Tulg"
+        "trans": "Dukedom of Tulg"
     },
     {
         "source": "Duché de Salann Tir",
-        "trans": "Duché de Salann Tir"
+        "trans": "Dukedom of Salann Tir"
     },
     {
         "source": "Duché de Tuaille",
-        "trans": "Duché de Tuaille"
+        "trans": "Dukedom of Tuaille"
     },
     {
         "source": "Terres de Déas",
-        "trans": "Terres de Déas"
+        "trans": "Lands of Déas"
     },
     {
         "source": "Île aux Cairns",
-        "trans": "Île aux Cairns"
+        "trans": "Cairns Islands"
     },
     {
         "source": "Les Épavières",
-        "trans": "Les Épavières"
+        "trans": "The Wreckers"
     },
     {
         "source": "Région d'Ard-Amrach",
-        "trans": "Région d'Ard-Amrach"
+        "trans": "Ard-Amrach region"
     },
     {
         "source": "Région d'Aimliù",
-        "trans": "Région d'Aimliù"
+        "trans": "Aimliù region"
     },
     {
         "source": "Région de Gorm Caladh",
-        "trans": "Région de Gorm Caladh"
+        "trans": "Gorm Caladh region"
     },
     {
         "source": "Forêt des Murmures",
-        "trans": "Forêt des Murmures"
+        "trans": "Forest of Whispers"
     },
     {
         "source": "Région de Gouvran",
-        "trans": "Région de Gouvran"
+        "trans": "Gouvran region"
     },
     {
         "source": "Région de Fionnfuar",
-        "trans": "Région de Fionnfuar"
+        "trans": "Fionnfuar region"
     },
     {
         "source": "Nord-Ouest des Mòr Roimh",
-        "trans": "Nord-Ouest des Mòr Roimh"
+        "trans": "North-West of the Mòr Roimh"
     },
     {
         "source": "Région d'Expiation",
-        "trans": "Région d'Expiation"
+        "trans": "Expiation region"
     },
     {
         "source": "Calvaire",
-        "trans": "Calvaire"
+        "trans": "Calvary"
     },
     {
         "source": "Archipel des Cendres",
-        "trans": "Archipel des Cendres"
+        "trans": "Ashes archipelagos"
     },
     {
         "source": "Région de Bald-Ruoch",
-        "trans": "Région de Bald-Ruoch"
+        "trans": "Bald-Ruoch region"
     },
     {
         "source": "Région de Kalvernach",
-        "trans": "Région de Kalvernach"
+        "trans": "Kalvernach region"
     },
     {
         "source": "Région du Pont de l'Alliance",
-        "trans": "Région du Pont de l'Alliance"
+        "trans": "Alliance bridge region"
     },
     {
         "source": "Archipel des Tri-Sweszörs",
-        "trans": "Archipel des Tri-Sweszörs"
+        "trans": "Tri-Sweszörs archipelago"
     },
     {
         "source": "Région de Crail et Leacach",
-        "trans": "Région de Crail et Leacach"
+        "trans": "Crail and Leacach region"
     },
     {
         "source": "Région de Fairean Ear",
-        "trans": "Région de Fairean Ear"
+        "trans": "Fairean Ear region"
     },
     {
         "source": "Région de Farl",
-        "trans": "Région de Farl"
+        "trans": "Farl region"
     },
     {
         "source": "Région d'Iolarnead",
-        "trans": "Région d'Iolarnead"
+        "trans": "Iolarnead region"
     },
     {
         "source": "Extrême-Est de Tri-Kazel",
-        "trans": "Extrême-Est de Tri-Kazel"
+        "trans": "Extreme-East of Tri-Kazel"
     },
     {
         "source": "Région de Boischandelles",
-        "trans": "Région de Boischandelles"
+        "trans": "Candlewood region"
     },
     {
         "source": "Mornegivre",
@@ -477,7 +477,7 @@
     },
     {
         "source": "Lieu de résidence géographique",
-        "trans": "Lieu de résidence géographique"
+        "trans": "Geographical birth place"
     },
     {
         "source": "Rural",
@@ -485,35 +485,35 @@
     },
     {
         "source": "Votre personnage est issu d'une campagne ou d'un lieu relativement isolé.",
-        "trans": "Votre personnage est issu d'une campagne ou d'un lieu relativement isolé."
+        "trans": "Your character comes from the countryside or a place relatively isolated."
     },
     {
         "source": "Urbain",
-        "trans": "Urbain"
+        "trans": "Urban"
     },
     {
         "source": "Votre personnage a vécu longtemps dans une ville, suffisamment pour qu'il ait adopté les codes de la ville dans son mode de vie.",
-        "trans": "Votre personnage a vécu longtemps dans une ville, suffisamment pour qu'il ait adopté les codes de la ville dans son mode de vie."
+        "trans": "Your character lived a long time in a city, enough to adopt street codes in his lifestyle."
     },
     {
         "source": "Classe sociale",
-        "trans": "Classe sociale"
+        "trans": "Social class"
     },
     {
         "source": "Choisissez ici la classe sociale de laquelle est issu votre personnage",
-        "trans": "Choisissez ici la classe sociale de laquelle est issu votre personnage"
+        "trans": "Choose here the social class which your character is from"
     },
     {
         "source": "Une fois choisie, vous avez la possibilité de choisir <strong>2 domaines</strong> parmi ceux proposés qui bénéficieront d'un bonus de +1 chacun.",
-        "trans": "Une fois choisie, vous avez la possibilité de choisir <strong>2 domaines</strong> parmi ceux proposés qui bénéficieront d'un bonus de +1 chacun."
+        "trans": "Once chosen, you may choose <strong>2 domains</strong> between those availables, they will both have a +1 bonus."
     },
     {
         "source": "Les roturiers font partie de la majorité de la population. Vous avez vécu dans une famille paysanne, à l'écart des villes et cités, sans pour autant les ignorer. Vous êtes plus proche de la nature.<br />les Demorthèn font également partie de cette classe sociale.",
-        "trans": "Les roturiers font partie de la majorité de la population. Vous avez vécu dans une famille paysanne, à l'écart des villes et cités, sans pour autant les ignorer. Vous êtes plus proche de la nature.<br />les Demorthèn font également partie de cette classe sociale."
+        "trans": "Commoners are part of the majority of the population. You lived in a peasant family, away from towns and cities, without ignoring them. You're closer to the nature.<br />Demorthèn are also part of this social class."
     },
     {
         "source": "Les roturiers font partie de la majorité de la population. Votre famille était composée d'un ou plusieurs artisans ou ouvriers, participant à la vie communale et familiale usant de ses talents manuels.",
-        "trans": "Les roturiers font partie de la majorité de la population. Votre famille était composée d'un ou plusieurs artisans ou ouvriers, participant à la vie communale et familiale usant de ses talents manuels."
+        "trans": "Commoners are part of the majority of the population. Your family was composed of one or more workers or artisans, participating in community life and family using his manual skills."
     },
     {
         "source": "Bourgeois",
@@ -521,43 +521,43 @@
     },
     {
         "source": "Votre famille a su faire des affaires dans les villes, ou tient probablement un commerce célèbre dans votre région, ce qui vous permet de vivre confortablement au sein d'une communauté familière.",
-        "trans": "Votre famille a su faire des affaires dans les villes, ou tient probablement un commerce célèbre dans votre région, ce qui vous permet de vivre confortablement au sein d'une communauté familière."
+        "trans": "Your family has done business in the cities, or possibly holds a famous trade in your area, allowing you to live comfortably in a familiar community."
     },
     {
         "source": "Clergé",
-        "trans": "Clergé"
+        "trans": "Clergy"
     },
     {
         "source": "Votre famille a toujours respecté l'Unique et ses représentants, et vous êtes issu d'un milieu très pieux. Vous avez probablement la foi, vous aussi.",
-        "trans": "Votre famille a toujours respecté l'Unique et ses représentants, et vous êtes issu d'un milieu très pieux. Vous avez probablement la foi, vous aussi."
+        "trans": "Your family has always respected the Unique and its representatives, and you come from a very religious environment. You probably have faith, too."
     },
     {
         "source": "Prières",
-        "trans": "Prières"
+        "trans": "Prayer"
     },
     {
         "source": "Noblesse",
-        "trans": "Noblesse"
+        "trans": "Nobility"
     },
     {
         "source": "Vous portez peut-être un grand nom des affaires des grandes cités, ou avez grandi en ville. Néanmoins, votre famille est placée assez haut dans la noblesse pour vous permettre d'avoir eu des enseignements particuliers.",
-        "trans": "Vous portez peut-être un grand nom des affaires des grandes cités, ou avez grandi en ville. Néanmoins, votre famille est placée assez haut dans la noblesse pour vous permettre d'avoir eu des enseignements particuliers."
+        "trans": "You may wear a famous name in the business of large cities, or have grown up in the city. However, your family is placed high enough in the nobility for you to have had individual special lessons."
     },
     {
         "source": "Combat au contact",
-        "trans": "Combat au contact"
+        "trans": "Close combat"
     },
     {
         "source": "Âge",
-        "trans": "Âge"
+        "trans": "Age"
     },
     {
         "source": "Âge <small>(Min 16, max 35)</small>",
-        "trans": "Âge <small>(Min 16, max 35)</small>"
+        "trans": "Age <small>(Min 16, max 35)</small>"
     },
     {
         "source": "Revers",
-        "trans": "Revers"
+        "trans": "Setbacks"
     },
     {
         "source": "Solitude",
@@ -565,7 +565,7 @@
     },
     {
         "source": "Les proches, amis ou famille du personnage sont morts de façon douteuse",
-        "trans": "Les proches, amis ou famille du personnage sont morts de façon douteuse"
+        "trans": "Relatives, friends or family died kind of doubtful."
     },
     {
         "source": "Violence",
@@ -573,15 +573,15 @@
     },
     {
         "source": "+1 point de Trauma définitif, souvenir violent, gore, horrible...",
-        "trans": "+1 point de Trauma définitif, souvenir violent, gore, horrible..."
+        "trans": "+1 definitive Trauma point, with a painful memory, violent, gore, horrible..."
     },
     {
         "source": "Aucun revers (moins de 21 ans)",
-        "trans": "Aucun revers (moins de 21 ans)"
+        "trans": "No setback (less than 21 years old)"
     },
     {
         "source": "Maladie",
-        "trans": "Maladie"
+        "trans": "Illness"
     },
     {
         "source": "-1 Vigueur, mais a survécu à une maladie normalement mortelle",
@@ -589,19 +589,19 @@
     },
     {
         "source": "Rumeur",
-        "trans": "Rumeur"
+        "trans": "Rumor"
     },
     {
         "source": "Une information, vraie ou non, circule à propos du personnage",
-        "trans": "Une information, vraie ou non, circule à propos du personnage"
+        "trans": "Information, true or not, circulates about the character"
     },
     {
         "source": "Pauvreté",
-        "trans": "Pauvreté"
+        "trans": "Poverty"
     },
     {
         "source": "Le personnage ne possède qu'une mauvaise arme, ou outil, a des dettes d'héritage, de vol... Il n'a plus d'argent, sa famille a été ruinée ou lui-même est ruiné d'une façon ou d'une autre, et aucun évènement ou avantage ne peut y remédier.",
-        "trans": "Le personnage ne possède qu'une mauvaise arme, ou outil, a des dettes d'héritage, de vol... Il n'a plus d'argent, sa famille a été ruinée ou lui-même est ruiné d'une façon ou d'une autre, et aucun évènement ou avantage ne peut y remédier."
+        "trans": "The character has only a bad weapon or tool, has debts inheritance, theft ... He has no money, his family was ruined or himself is ruined in one way or another, and no event or benefit can not be remedied."
     },
     {
         "source": "Séquelle",
@@ -1790,5 +1790,173 @@
     {
         "source": "Adresse email",
         "trans": "Adresse email"
+    },
+    {
+        "source": "Hystérie",
+        "trans": "Hystérie"
+    },
+    {
+        "source": "Mysticisme",
+        "trans": "Mysticisme"
+    },
+    {
+        "source": "Vous disposez de 1 points supplémentaires à répartir dans 1 domaines",
+        "trans": "Vous disposez de 1 points supplémentaires à répartir dans 1 domaines"
+    },
+    {
+        "source": "Concentration",
+        "trans": "Concentration"
+    },
+    {
+        "source": "Herboristerie",
+        "trans": "Herboristerie"
+    },
+    {
+        "source": "Langue ancienne",
+        "trans": "Langue ancienne"
+    },
+    {
+        "source": "Médecine traditionnelle",
+        "trans": "Médecine traditionnelle"
+    },
+    {
+        "source": "Méditation",
+        "trans": "Méditation"
+    },
+    {
+        "source": "Savoirs demorthèn",
+        "trans": "Savoirs demorthèn"
+    },
+    {
+        "source": "Sigil Rann",
+        "trans": "Sigil Rann"
+    },
+    {
+        "source": "Spiritualité",
+        "trans": "Spiritualité"
+    },
+    {
+        "source": "Vous n'êtes <strong>pas connecté(e)</strong>. Si vous créez le personnage, il sera supprimé au bout d'un certain temps.",
+        "trans": "Vous n'êtes <strong>pas connecté(e)</strong>. Si vous créez le personnage, il sera supprimé au bout d'un certain temps."
+    },
+    {
+        "source": "ou",
+        "trans": "ou"
+    },
+    {
+        "source": "pour conserver votre personnage.",
+        "trans": "pour conserver votre personnage."
+    },
+    {
+        "source": "Étape suivante →",
+        "trans": "Next step →"
+    },
+    {
+        "source": "Pauvre",
+        "trans": "Pauvre"
+    },
+    {
+        "source": "Le PJ ne disposera que du quart de la somme en Daols fournie à la création",
+        "trans": "Le PJ ne disposera que du quart de la somme en Daols fournie à la création"
+    },
+    {
+        "source": "Aisance financière 1",
+        "trans": "Aisance financière 1"
+    },
+    {
+        "source": "+20 daols d'azur à la création du personnage",
+        "trans": "+20 daols d'azur à la création du personnage"
+    },
+    {
+        "source": "Aisance financière 2",
+        "trans": "Aisance financière 2"
+    },
+    {
+        "source": "+50 daols d'azur à la création du personnage",
+        "trans": "+50 daols d'azur à la création du personnage"
+    },
+    {
+        "source": "Aisance financière 3",
+        "trans": "Aisance financière 3"
+    },
+    {
+        "source": "+10 daols de givre à la création du personnage",
+        "trans": "+10 daols de givre à la création du personnage"
+    },
+    {
+        "source": "Aisance financière 4",
+        "trans": "Aisance financière 4"
+    },
+    {
+        "source": "+50 daols de givre à la création du personnage",
+        "trans": "+50 daols de givre à la création du personnage"
+    },
+    {
+        "source": "Aisance financière 5",
+        "trans": "Aisance financière 5"
+    },
+    {
+        "source": "+100 daols de givre à la création du personnage",
+        "trans": "+100 daols de givre à la création du personnage"
+    },
+    {
+        "source": "Obsession",
+        "trans": "Obsession"
+    },
+    {
+        "source": "Paranoïa",
+        "trans": "Paranoïa"
+    },
+    {
+        "source": "Armes contondantes",
+        "trans": "Armes contondantes"
+    },
+    {
+        "source": "Artefact de combat",
+        "trans": "Artefact de combat"
+    },
+    {
+        "source": "Bâtons",
+        "trans": "Bâtons"
+    },
+    {
+        "source": "Combat à mains nues",
+        "trans": "Combat à mains nues"
+    },
+    {
+        "source": "Combat aveugle",
+        "trans": "Combat aveugle"
+    },
+    {
+        "source": "Épées",
+        "trans": "Épées"
+    },
+    {
+        "source": "Haches",
+        "trans": "Haches"
+    },
+    {
+        "source": "Lames courtes",
+        "trans": "Lames courtes"
+    },
+    {
+        "source": "Armes d'hast",
+        "trans": "Armes d'hast"
+    },
+    {
+        "source": "Attaque sournoise",
+        "trans": "Attaque sournoise"
+    },
+    {
+        "source": "Combat à 2 armes",
+        "trans": "Combat à 2 armes"
+    },
+    {
+        "source": "Parade",
+        "trans": "Parade"
+    },
+    {
+        "source": "Cavalerie",
+        "trans": "Cavalerie"
     }
 ]

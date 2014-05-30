@@ -1,23 +1,23 @@
 [
     {
         "source": "Fermer",
-        "trans": "Fermer"
+        "trans": "Close"
     },
     {
         "source": "Dépenser de l'expérience",
-        "trans": "Dépenser de l'expérience"
+        "trans": "Spend experience"
     },
     {
         "source": "Personnage",
-        "trans": "Personnage"
+        "trans": "Character"
     },
     {
         "source": "Expérience",
-        "trans": "Expérience"
+        "trans": "Experience"
     },
     {
         "source": "Envoyer",
-        "trans": "Envoyer"
+        "trans": "Send"
     },
     {
         "source": "Combat",
@@ -25,7 +25,7 @@
     },
     {
         "source": "Domaines",
-        "trans": "Domaines"
+        "trans": "Domains"
     },
     {
         "source": "Disciplines",
@@ -33,39 +33,39 @@
     },
     {
         "source": "Le coût en XP pour augmenter la rapidité ou la défense est le suivant :",
-        "trans": "Le coût en XP pour augmenter la rapidité ou la défense est le suivant :"
+        "trans": "The cost in XP to increase Speed or Defense is the following :"
     },
     {
         "source": "Pour augmenter 1 point, le coût est équivalent au niveau suivant multiplié par 5, puis ajouté de 5.",
-        "trans": "Pour augmenter 1 point, le coût est équivalent au niveau suivant multiplié par 5, puis ajouté de 5."
+        "trans": "To increase 1 point, the cost is equal to the next level multiplied by 5 and added 5."
     },
     {
         "source": "Rapidité",
-        "trans": "Rapidité"
+        "trans": "Speed"
     },
     {
         "source": "Score de base de rapidité",
-        "trans": "Score de base de rapidité"
+        "trans": "Base Speed score"
     },
     {
         "source": "Défense",
-        "trans": "Défense"
+        "trans": "Defense"
     },
     {
         "source": "Score de base de Défense",
-        "trans": "Score de base de Défense"
+        "trans": "Base Defense score"
     },
     {
         "source": "Artisanat",
-        "trans": "Artisanat"
+        "trans": "Craft"
     },
     {
         "source": "Combat au Contact",
-        "trans": "Combat au Contact"
+        "trans": "Close combat"
     },
     {
         "source": "Discrétion",
-        "trans": "Discrétion"
+        "trans": "Stealth"
     },
     {
         "source": "Magience",
@@ -73,15 +73,15 @@
     },
     {
         "source": "Milieu Naturel",
-        "trans": "Milieu Naturel"
+        "trans": "Natural environment"
     },
     {
         "source": "Mystères Demorthèn",
-        "trans": "Mystères Demorthèn"
+        "trans": "Demorthèn mysteries"
     },
     {
         "source": "Occultisme",
-        "trans": "Occultisme"
+        "trans": "Occultism"
     },
     {
         "source": "Perception",
@@ -89,11 +89,11 @@
     },
     {
         "source": "Prière",
-        "trans": "Prière"
+        "trans": "Prayer"
     },
     {
         "source": "Prouesses",
-        "trans": "Prouesses"
+        "trans": "Feats"
     },
     {
         "source": "Relation",
@@ -101,7 +101,7 @@
     },
     {
         "source": "Représentation",
-        "trans": "Représentation"
+        "trans": "Performance"
     },
     {
         "source": "Science",
@@ -109,35 +109,35 @@
     },
     {
         "source": "Tir et Lancer",
-        "trans": "Tir et Lancer"
+        "trans": "Shooting and throwing"
     },
     {
         "source": "Voyage",
-        "trans": "Voyage"
+        "trans": "Travel"
     },
     {
         "source": "Érudition",
-        "trans": "Érudition"
+        "trans": "Erudition"
     },
     {
         "source": "Les disciplines peuvent être choisies lorsque le domaine associé a un score de 5. Elles commencent avec un score de 6.",
-        "trans": "Les disciplines peuvent être choisies lorsque le domaine associé a un score de 5. Elles commencent avec un score de 6."
+        "trans": "Disciplines can be chosen when a domain has a score of 5. They start with a score of 10."
     },
     {
         "source": "Les disciplines liées à la magience et aux artefacts ne peuvent être prises que si le score de magience est à 1 au moins.",
-        "trans": "Les disciplines liées à la magience et aux artefacts ne peuvent être prises que si le score de magience est à 1 au moins."
+        "trans": "Disciplines associated with Magience and Artifacts can only be taken if Magience score is at least 1."
     },
     {
         "source": "Bijouterie",
-        "trans": "Bijouterie"
+        "trans": "Jewellery"
     },
     {
         "source": "Confection",
-        "trans": "Confection"
+        "trans": "Tailoring"
     },
     {
         "source": "Cuisine",
-        "trans": "Cuisine"
+        "trans": "Cooking"
     },
     {
         "source": "Distillation",
@@ -145,7 +145,7 @@
     },
     {
         "source": "Extraction minière",
-        "trans": "Extraction minière"
+        "trans": "Mining"
     },
     {
         "source": "Forge",
@@ -153,27 +153,27 @@
     },
     {
         "source": "Machinerie magientiste",
-        "trans": "Machinerie magientiste"
+        "trans": "Magientists machinery"
     },
     {
         "source": "Maroquinerie",
-        "trans": "Maroquinerie"
+        "trans": "Leather working"
     },
     {
         "source": "Menuiserie",
-        "trans": "Menuiserie"
+        "trans": "Carpentry"
     },
     {
         "source": "Outil magientiste",
-        "trans": "Outil magientiste"
+        "trans": "Magientists tools"
     },
     {
         "source": "Peinture",
-        "trans": "Peinture"
+        "trans": "Paiting"
     },
     {
         "source": "Poterie",
-        "trans": "Poterie"
+        "trans": "Pottery"
     },
     {
         "source": "Sculpture",
@@ -181,11 +181,11 @@
     },
     {
         "source": "Serrurerie",
-        "trans": "Serrurerie"
+        "trans": "Locksmith"
     },
     {
         "source": "Armes contondantes",
-        "trans": "Armes contondantes"
+        "trans": "Bludgeoning weapons"
     },
     {
         "source": "Artefact de combat",
@@ -197,67 +197,67 @@
     },
     {
         "source": "Combat à mains nues",
-        "trans": "Combat à mains nues"
+        "trans": "Unarmed combat"
     },
     {
         "source": "Combat aveugle",
-        "trans": "Combat aveugle"
+        "trans": "Blind combat"
     },
     {
         "source": "Épées",
-        "trans": "Épées"
+        "trans": "Swords"
     },
     {
         "source": "Haches",
-        "trans": "Haches"
+        "trans": "Axes"
     },
     {
         "source": "Lames courtes",
-        "trans": "Lames courtes"
+        "trans": "Short blades"
     },
     {
         "source": "Armes d'hast",
-        "trans": "Armes d'hast"
+        "trans": "Polearms"
     },
     {
         "source": "Camouflage",
-        "trans": "Camouflage"
+        "trans": "Hiding"
     },
     {
         "source": "Furtivité",
-        "trans": "Furtivité"
+        "trans": "Furtiveness"
     },
     {
         "source": "Mimétisme",
-        "trans": "Mimétisme"
+        "trans": "Mimicry"
     },
     {
         "source": "Vol à la tire",
-        "trans": "Vol à la tire"
+        "trans": "Pickpocket"
     },
     {
         "source": "Conn. des Flux",
-        "trans": "Conn. des Flux"
+        "trans": "Knowl. of Flux"
     },
     {
         "source": "Extraction de Flux",
-        "trans": "Extraction de Flux"
+        "trans": "Flux extracting"
     },
     {
         "source": "Médecine",
-        "trans": "Médecine"
+        "trans": "Medicine"
     },
     {
         "source": "Raffinage de Flux",
-        "trans": "Raffinage de Flux"
+        "trans": "Flux refining"
     },
     {
         "source": "Réparation d'artefacts",
-        "trans": "Réparation d'artefacts"
+        "trans": "Artifact repair"
     },
     {
         "source": "Utilisation d'artefacts",
-        "trans": "Utilisation d'artefacts"
+        "trans": "Artifact use"
     },
     {
         "source": "Agriculture",
@@ -265,11 +265,11 @@
     },
     {
         "source": "Dressage d'animaux",
-        "trans": "Dressage d'animaux"
+        "trans": "Animals training"
     },
     {
         "source": "Faune et flore",
-        "trans": "Faune et flore"
+        "trans": "Wildlife"
     },
     {
         "source": "Orientation",
@@ -277,15 +277,15 @@
     },
     {
         "source": "Pistage",
-        "trans": "Pistage"
+        "trans": "Tracking"
     },
     {
         "source": "Premiers soins",
-        "trans": "Premiers soins"
+        "trans": "First aid"
     },
     {
         "source": "Survie",
-        "trans": "Survie"
+        "trans": "Survival"
     },
     {
         "source": "Concentration",
@@ -293,23 +293,23 @@
     },
     {
         "source": "Herboristerie",
-        "trans": "Herboristerie"
+        "trans": "Herbalism"
     },
     {
         "source": "Langue ancienne",
-        "trans": "Langue ancienne"
+        "trans": "Ancient tongue"
     },
     {
         "source": "Médecine traditionnelle",
-        "trans": "Médecine traditionnelle"
+        "trans": "Traditional medicine"
     },
     {
         "source": "Méditation",
-        "trans": "Méditation"
+        "trans": "Meditation"
     },
     {
         "source": "Savoirs demorthèn",
-        "trans": "Savoirs demorthèn"
+        "trans": "Demorthèn knowledge"
     },
     {
         "source": "Sigil Rann",
@@ -317,31 +317,31 @@
     },
     {
         "source": "Spiritualité",
-        "trans": "Spiritualité"
+        "trans": "Spirituality"
     },
     {
         "source": "Ésotérisme",
-        "trans": "Ésotérisme"
+        "trans": "Esotericism"
     },
     {
         "source": "Hypnose",
-        "trans": "Hypnose"
+        "trans": "Hypnosis"
     },
     {
         "source": "Interprétation des rêves",
-        "trans": "Interprétation des rêves"
+        "trans": "Interpreting Dreams"
     },
     {
         "source": "Phénomènes mentaux",
-        "trans": "Phénomènes mentaux"
+        "trans": "Mental phenomen"
     },
     {
         "source": "Évaluation",
-        "trans": "Évaluation"
+        "trans": "Rating"
     },
     {
         "source": "Lecture sur les lèvres",
-        "trans": "Lecture sur les lèvres"
+        "trans": "Lip-reading"
     },
     {
         "source": "Observation",
@@ -349,7 +349,7 @@
     },
     {
         "source": "Sens aiguisés",
-        "trans": "Sens aiguisés"
+        "trans": "Heightened senses"
     },
     {
         "source": "Vigilance",
@@ -357,7 +357,7 @@
     },
     {
         "source": "Conn. du Temple",
-        "trans": "Conn. du Temple"
+        "trans": "Knowl. of the Temple"
     },
     {
         "source": "Miracles",
@@ -365,15 +365,15 @@
     },
     {
         "source": "Recueillement",
-        "trans": "Recueillement"
+        "trans": "Contemplation"
     },
     {
         "source": "Acrobaties",
-        "trans": "Acrobaties"
+        "trans": "Acrobatics"
     },
     {
         "source": "Course",
-        "trans": "Course"
+        "trans": "Running"
     },
     {
         "source": "Endurance",
@@ -381,43 +381,43 @@
     },
     {
         "source": "Escalade",
-        "trans": "Escalade"
+        "trans": "Climbing"
     },
     {
         "source": "Évasion",
-        "trans": "Évasion"
+        "trans": "Escape"
     },
     {
         "source": "Natation",
-        "trans": "Natation"
+        "trans": "Swimming"
     },
     {
         "source": "Travail de force",
-        "trans": "Travail de force"
+        "trans": "Hard physical work"
     },
     {
         "source": "Baratin",
-        "trans": "Baratin"
+        "trans": "Spiel"
     },
     {
         "source": "Charme",
-        "trans": "Charme"
+        "trans": "Charm"
     },
     {
         "source": "Commandement",
-        "trans": "Commandement"
+        "trans": "Command"
     },
     {
         "source": "Conn. d'une faction",
-        "trans": "Conn. d'une faction"
+        "trans": "Knowl. of a faction"
     },
     {
         "source": "Diplomatie",
-        "trans": "Diplomatie"
+        "trans": "Diplomacy"
     },
     {
         "source": "Étiquette d'un milieu social",
-        "trans": "Étiquette d'un milieu social"
+        "trans": "Etiquette"
     },
     {
         "source": "Intimidation",
@@ -429,31 +429,31 @@
     },
     {
         "source": "Chant",
-        "trans": "Chant"
+        "trans": "Singing"
     },
     {
         "source": "Comédie",
-        "trans": "Comédie"
+        "trans": "Comedy"
     },
     {
         "source": "Danse",
-        "trans": "Danse"
+        "trans": "Dance"
     },
     {
         "source": "Instrument de musique",
-        "trans": "Instrument de musique"
+        "trans": "Musical instrument"
     },
     {
         "source": "Jeux",
-        "trans": "Jeux"
+        "trans": "Games"
     },
     {
         "source": "Jonglage",
-        "trans": "Jonglage"
+        "trans": "Juggling"
     },
     {
         "source": "Ventriloquie",
-        "trans": "Ventriloquie"
+        "trans": "Ventriloquism"
     },
     {
         "source": "Architecture",
@@ -461,59 +461,59 @@
     },
     {
         "source": "Botanique",
-        "trans": "Botanique"
+        "trans": "Botany"
     },
     {
         "source": "Conn. troubles mentaux",
-        "trans": "Conn. troubles mentaux"
+        "trans": "Knowl. of mental troubles"
     },
     {
         "source": "Géologie",
-        "trans": "Géologie"
+        "trans": "Geology"
     },
     {
         "source": "Ingénierie",
-        "trans": "Ingénierie"
+        "trans": "Engineering"
     },
     {
         "source": "Mécanique",
-        "trans": "Mécanique"
+        "trans": "Mechanics"
     },
     {
         "source": "Zoologie",
-        "trans": "Zoologie"
+        "trans": "Zoology"
     },
     {
         "source": "Traitement de l'esprit",
-        "trans": "Traitement de l'esprit"
+        "trans": "Treat the mind"
     },
     {
         "source": "Arbalètes",
-        "trans": "Arbalètes"
+        "trans": "Crossbows"
     },
     {
         "source": "Arcs",
-        "trans": "Arcs"
+        "trans": "Bows"
     },
     {
         "source": "Armes de jet",
-        "trans": "Armes de jet"
+        "trans": "Throwing Weapons"
     },
     {
         "source": "Attelage",
-        "trans": "Attelage"
+        "trans": "Harness"
     },
     {
         "source": "Cartographie",
-        "trans": "Cartographie"
+        "trans": "Cartography"
     },
     {
         "source": "Chemins de traverse (Varigal)",
-        "trans": "Chemins de traverse (Varigal)"
+        "trans": "Side roads (Varigal)"
     },
     {
         "source": "Équitation",
-        "trans": "Équitation"
+        "trans": "Horse riding"
     },
     {
         "source": "Navigation",
@@ -521,55 +521,55 @@
     },
     {
         "source": "Signes (Varigal)",
-        "trans": "Signes (Varigal)"
+        "trans": "Signs (Varigal)"
     },
     {
         "source": "Doctrine du Temple",
-        "trans": "Doctrine du Temple"
+        "trans": "Doctrine of the Temple"
     },
     {
         "source": "Géographie",
-        "trans": "Géographie"
+        "trans": "Geography"
     },
     {
         "source": "Héraldique",
-        "trans": "Héraldique"
+        "trans": "Heraldic"
     },
     {
         "source": "Histoire",
-        "trans": "Histoire"
+        "trans": "History"
     },
     {
         "source": "Langues",
-        "trans": "Langues"
+        "trans": "Languages"
     },
     {
         "source": "Politique",
-        "trans": "Politique"
+        "trans": "Politics"
     },
     {
         "source": "Principes magientistes",
-        "trans": "Principes magientistes"
+        "trans": "Magientists principles"
     },
     {
         "source": "Traditions demorthèn",
-        "trans": "Traditions demorthèn"
+        "trans": "Demorthèn traditions"
     },
     {
         "source": "Astronomie",
-        "trans": "Astronomie"
+        "trans": "Astronomy"
     },
     {
         "source": "Légendes",
-        "trans": "Légendes"
+        "trans": "Legends"
     },
     {
         "source": "Nouvelles disciplines !",
-        "trans": "Nouvelles disciplines !"
+        "trans": "New disciplines!"
     },
     {
         "source": "Vous pouvez accéder à de nouvelles disciplines pour le domaine suivant :",
-        "trans": "Vous pouvez accéder à de nouvelles disciplines pour le domaine suivant :"
+        "trans": "You can have new disciplines for following domain :"
     },
     {
         "source": "Corahn Rin",

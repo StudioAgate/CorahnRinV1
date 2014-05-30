@@ -14,5 +14,261 @@
     {
         "source": "Mes campagnes",
         "trans": "Mes campagnes"
+    },
+    {
+        "source": "Joueur",
+        "trans": "Joueur"
+    },
+    {
+        "source": "Personnage",
+        "trans": "Personnage"
+    },
+    {
+        "source": "Métier",
+        "trans": "Métier"
+    },
+    {
+        "source": "Expérience",
+        "trans": "Expérience"
+    },
+    {
+        "source": "Statut",
+        "trans": "Statut"
+    },
+    {
+        "source": "Actions",
+        "trans": "Actions"
+    },
+    {
+        "source": "Invitation acceptée : PJ",
+        "trans": "Invitation acceptée : PJ"
+    },
+    {
+        "source": "Ajouter une récompense",
+        "trans": "Ajouter une récompense"
+    },
+    {
+        "source": "Voir le personnage",
+        "trans": "Voir le personnage"
+    },
+    {
+        "source": "Offrir des récompenses à un personnage joueur",
+        "trans": "Offrir des récompenses à un personnage joueur"
+    },
+    {
+        "source": "Armes",
+        "trans": "Armes"
+    },
+    {
+        "source": "Armures",
+        "trans": "Armures"
+    },
+    {
+        "source": "Expérience du personnage",
+        "trans": "Expérience du personnage"
+    },
+    {
+        "source": "Expérience à donner",
+        "trans": "Expérience à donner"
+    },
+    {
+        "source": "Dague,poignard,couteau",
+        "trans": "Dague,poignard,couteau"
+    },
+    {
+        "source": "Fronde",
+        "trans": "Fronde"
+    },
+    {
+        "source": "Javelot",
+        "trans": "Javelot"
+    },
+    {
+        "source": "Arc",
+        "trans": "Arc"
+    },
+    {
+        "source": "Arbalète",
+        "trans": "Arbalète"
+    },
+    {
+        "source": "Francisque",
+        "trans": "Francisque"
+    },
+    {
+        "source": "Lance courte, épieu",
+        "trans": "Lance courte, épieu"
+    },
+    {
+        "source": "Gourdin",
+        "trans": "Gourdin"
+    },
+    {
+        "source": "Marteau d'artisan",
+        "trans": "Marteau d'artisan"
+    },
+    {
+        "source": "Masse d'armes",
+        "trans": "Masse d'armes"
+    },
+    {
+        "source": "Carath",
+        "trans": "Carath"
+    },
+    {
+        "source": "Hache de bataille",
+        "trans": "Hache de bataille"
+    },
+    {
+        "source": "Epée longue droite Osag",
+        "trans": "Epée longue droite Osag"
+    },
+    {
+        "source": "Glaive continental",
+        "trans": "Glaive continental"
+    },
+    {
+        "source": "Arme d'hast",
+        "trans": "Arme d'hast"
+    },
+    {
+        "source": "Lance longue",
+        "trans": "Lance longue"
+    },
+    {
+        "source": "Marteau à deux mains",
+        "trans": "Marteau à deux mains"
+    },
+    {
+        "source": "Claymore",
+        "trans": "Claymore"
+    },
+    {
+        "source": "Épée courte",
+        "trans": "Épée courte"
+    },
+    {
+        "source": "Épée longue",
+        "trans": "Épée longue"
+    },
+    {
+        "source": "Arc court",
+        "trans": "Arc court"
+    },
+    {
+        "source": "Bâton",
+        "trans": "Bâton"
+    },
+    {
+        "source": "Bouclier rond",
+        "trans": "Bouclier rond"
+    },
+    {
+        "source": "Bouclier Osag",
+        "trans": "Bouclier Osag"
+    },
+    {
+        "source": "Écu Hilderin",
+        "trans": "Écu Hilderin"
+    },
+    {
+        "source": "Cotte de cuir",
+        "trans": "Cotte de cuir"
+    },
+    {
+        "source": "Cotte de cuir clouté",
+        "trans": "Cotte de cuir clouté"
+    },
+    {
+        "source": "Cotte de mailles",
+        "trans": "Cotte de mailles"
+    },
+    {
+        "source": "Cuirasse en roseau",
+        "trans": "Cuirasse en roseau"
+    },
+    {
+        "source": "Cuirasse continentale",
+        "trans": "Cuirasse continentale"
+    },
+    {
+        "source": "Armure de plaques",
+        "trans": "Armure de plaques"
+    },
+    {
+        "source": "Cagoule de cuir",
+        "trans": "Cagoule de cuir"
+    },
+    {
+        "source": "Cagoule de mailles",
+        "trans": "Cagoule de mailles"
+    },
+    {
+        "source": "Casque Osag",
+        "trans": "Casque Osag"
+    },
+    {
+        "source": "Casque ouvert",
+        "trans": "Casque ouvert"
+    },
+    {
+        "source": "Heaume",
+        "trans": "Heaume"
+    },
+    {
+        "source": "Pavois du temple",
+        "trans": "Pavois du temple"
+    },
+    {
+        "source": "Envoyer",
+        "trans": "Envoyer"
+    },
+    {
+        "source": "Valider les récompenses envoyées au personnage ?",
+        "trans": "Valider les récompenses envoyées au personnage ?"
+    },
+    {
+        "source": "Campagne",
+        "trans": "Campagne"
+    },
+    {
+        "source": "Invitez les joueurs à participer à votre campagne !",
+        "trans": "Invitez les joueurs à participer à votre campagne !"
+    },
+    {
+        "source": "Inviter les joueurs",
+        "trans": "Inviter les joueurs"
+    },
+    {
+        "source": "personnage(s) disponible(s)",
+        "trans": "personnage(s) disponible(s)"
+    },
+    {
+        "source": "Aucun personnage",
+        "trans": "Aucun personnage"
+    },
+    {
+        "source": "Aucune partie",
+        "trans": "Aucune partie"
+    },
+    {
+        "source": "Invitation envoyée...",
+        "trans": "Invitation envoyée..."
+    },
+    {
+        "source": "Récompenses",
+        "trans": "Récompenses"
+    },
+    {
+        "source": "Retirer de la campagne",
+        "trans": "Retirer de la campagne"
+    },
+    {
+        "source": "Retirer le personnage de la campagne ?",
+        "trans": "Retirer le personnage de la campagne ?"
+    },
+    {
+        "source": "Renvoyer l'invitation",
+        "trans": "Renvoyer l'invitation"
     }
 ]

@@ -1790,5 +1790,557 @@
     {
         "source": "Adresse email",
         "trans": "Adresse email"
+    },
+    {
+        "source": "Hystérie",
+        "trans": "Hystérie"
+    },
+    {
+        "source": "Mysticisme",
+        "trans": "Mysticisme"
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Vous disposez de 1 points supplémentaires à répartir dans 1 domaines",
+        "trans": "Vous disposez de 1 points supplémentaires à répartir dans 1 domaines"
+    },
+    {
+        "source": "Concentration",
+        "trans": "Concentration"
+    },
+    {
+        "source": "Herboristerie",
+        "trans": "Herboristerie"
+    },
+    {
+        "source": "Langue ancienne",
+        "trans": "Langue ancienne"
+    },
+    {
+        "source": "Médecine traditionnelle",
+        "trans": "Médecine traditionnelle"
+    },
+    {
+        "source": "Méditation",
+        "trans": "Méditation"
+    },
+    {
+        "source": "Savoirs demorthèn",
+        "trans": "Savoirs demorthèn"
+    },
+    {
+        "source": "Sigil Rann",
+        "trans": "Sigil Rann"
+    },
+    {
+        "source": "Spiritualité",
+        "trans": "Spiritualité"
+    },
+    {
+        "source": "Vous n'êtes <strong>pas connecté(e)</strong>. Si vous créez le personnage, il sera supprimé au bout d'un certain temps.",
+        "trans": "Vous n'êtes <strong>pas connecté(e)</strong>. Si vous créez le personnage, il sera supprimé au bout d'un certain temps."
+    },
+    {
+        "source": "ou",
+        "trans": "ou"
+    },
+    {
+        "source": "pour conserver votre personnage.",
+        "trans": "pour conserver votre personnage."
+    },
+    {
+        "source": "Pauvre",
+        "trans": "Pauvre"
+    },
+    {
+        "source": "Le PJ ne disposera que du quart de la somme en Daols fournie à la création",
+        "trans": "Le PJ ne disposera que du quart de la somme en Daols fournie à la création"
+    },
+    {
+        "source": "Aisance financière 1",
+        "trans": "Aisance financière 1"
+    },
+    {
+        "source": "+20 daols d'azur à la création du personnage",
+        "trans": "+20 daols d'azur à la création du personnage"
+    },
+    {
+        "source": "Aisance financière 2",
+        "trans": "Aisance financière 2"
+    },
+    {
+        "source": "+50 daols d'azur à la création du personnage",
+        "trans": "+50 daols d'azur à la création du personnage"
+    },
+    {
+        "source": "Aisance financière 3",
+        "trans": "Aisance financière 3"
+    },
+    {
+        "source": "+10 daols de givre à la création du personnage",
+        "trans": "+10 daols de givre à la création du personnage"
+    },
+    {
+        "source": "Aisance financière 4",
+        "trans": "Aisance financière 4"
+    },
+    {
+        "source": "+50 daols de givre à la création du personnage",
+        "trans": "+50 daols de givre à la création du personnage"
+    },
+    {
+        "source": "Aisance financière 5",
+        "trans": "Aisance financière 5"
+    },
+    {
+        "source": "+100 daols de givre à la création du personnage",
+        "trans": "+100 daols de givre à la création du personnage"
+    },
+    {
+        "source": "Obsession",
+        "trans": "Obsession"
+    },
+    {
+        "source": "Paranoïa",
+        "trans": "Paranoïa"
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Armes contondantes",
+        "trans": "Armes contondantes"
+    },
+    {
+        "source": "Artefact de combat",
+        "trans": "Artefact de combat"
+    },
+    {
+        "source": "Bâtons",
+        "trans": "Bâtons"
+    },
+    {
+        "source": "Combat à mains nues",
+        "trans": "Combat à mains nues"
+    },
+    {
+        "source": "Combat aveugle",
+        "trans": "Combat aveugle"
+    },
+    {
+        "source": "Épées",
+        "trans": "Épées"
+    },
+    {
+        "source": "Haches",
+        "trans": "Haches"
+    },
+    {
+        "source": "Lames courtes",
+        "trans": "Lames courtes"
+    },
+    {
+        "source": "Armes d'hast",
+        "trans": "Armes d'hast"
+    },
+    {
+        "source": "Attaque sournoise",
+        "trans": "Attaque sournoise"
+    },
+    {
+        "source": "Combat à 2 armes",
+        "trans": "Combat à 2 armes"
+    },
+    {
+        "source": "Parade",
+        "trans": "Parade"
+    },
+    {
+        "source": "Cavalerie",
+        "trans": "Cavalerie"
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Mimétisme",
+        "trans": "Mimétisme"
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Vous disposez de 2 points supplémentaires à répartir dans 2 domaines",
+        "trans": "Vous disposez de 2 points supplémentaires à répartir dans 2 domaines"
+    },
+    {
+        "source": "Évaluation",
+        "trans": "Évaluation"
+    },
+    {
+        "source": "Lecture sur les lèvres",
+        "trans": "Lecture sur les lèvres"
+    },
+    {
+        "source": "Observation",
+        "trans": "Observation"
+    },
+    {
+        "source": "Orientation",
+        "trans": "Orientation"
+    },
+    {
+        "source": "Sens aiguisés",
+        "trans": "Sens aiguisés"
+    },
+    {
+        "source": "Vigilance",
+        "trans": "Vigilance"
+    },
+    {
+        "source": "Calme",
+        "trans": "Calme"
+    },
+    {
+        "source": "Flegmatique",
+        "trans": "Flegmatique"
+    },
+    {
+        "source": "Paisible",
+        "trans": "Paisible"
+    },
+    {
+        "source": "Pondéré",
+        "trans": "Pondéré"
+    },
+    {
+        "source": "Faible caractère",
+        "trans": "Faible caractère"
+    },
+    {
+        "source": "Lâche",
+        "trans": "Lâche"
+    },
+    {
+        "source": "Mauvaise estime",
+        "trans": "Mauvaise estime"
+    },
+    {
+        "source": "Mou",
+        "trans": "Mou"
+    },
+    {
+        "source": "Pessimiste",
+        "trans": "Pessimiste"
+    },
+    {
+        "source": "Peureux",
+        "trans": "Peureux"
+    },
+    {
+        "source": "Triste",
+        "trans": "Triste"
+    },
+    {
+        "source": "Les voies n'ont pas été définies, merci de vous rendre à l'étape correspondante.",
+        "trans": "Les voies n'ont pas été définies, merci de vous rendre à l'étape correspondante."
+    },
+    {
+        "source": "Le métier n'a pas été défini, merci de vous rendre à l'étape correspondante.<br />",
+        "trans": "Le métier n'a pas été défini, merci de vous rendre à l'étape correspondante.<br />"
+    },
+    {
+        "source": "Adversaire",
+        "trans": "Adversaire"
+    },
+    {
+        "source": "Le personnage s'est fait un ennemi (à la discrétion du MJ)",
+        "trans": "Le personnage s'est fait un ennemi (à la discrétion du MJ)"
+    },
+    {
+        "source": "<strong>Poisse</strong> ! Un revers supplémentaire !",
+        "trans": "<strong>Poisse</strong> ! Un revers supplémentaire !"
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Vous disposez de 4 points supplémentaires à répartir dans 4 domaines",
+        "trans": "Vous disposez de 4 points supplémentaires à répartir dans 4 domaines"
+    },
+    {
+        "source": "Conn. du Temple",
+        "trans": "Conn. du Temple"
+    },
+    {
+        "source": "Miracles",
+        "trans": "Miracles"
+    },
+    {
+        "source": "Recueillement",
+        "trans": "Recueillement"
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Les avantages n'ont pas été définis, merci de vous rendre à l'étape correspondante.<br />",
+        "trans": "Les avantages n'ont pas été définis, merci de vous rendre à l'étape correspondante.<br />"
+    },
+    {
+        "source": "Veuillez envoyer ce message à l'administrateur du site",
+        "trans": "Veuillez envoyer ce message à l'administrateur du site"
+    },
+    {
+        "source": "Les voies n'ont pas été définies, merci de vous rendre à l'étape correspondante",
+        "trans": "Les voies n'ont pas été définies, merci de vous rendre à l'étape correspondante"
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Arbalètes",
+        "trans": "Arbalètes"
+    },
+    {
+        "source": "Arcs",
+        "trans": "Arcs"
+    },
+    {
+        "source": "Armes de jet",
+        "trans": "Armes de jet"
+    },
+    {
+        "source": "Archerie",
+        "trans": "Archerie"
+    },
+    {
+        "source": "Vous n'avez aucun point supplémentaire à répartir.",
+        "trans": "Vous n'avez aucun point supplémentaire à répartir."
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "L'avantage \"Mentor\" s'applique à ce domaine",
+        "trans": "L'avantage \"Mentor\" s'applique à ce domaine"
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Métier personnalisé",
+        "trans": "Métier personnalisé"
+    },
+    {
+        "source": "Conteur itinérant",
+        "trans": "Conteur itinérant"
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Conteur Varigal",
+        "trans": "Conteur Varigal"
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Chant",
+        "trans": "Chant"
+    },
+    {
+        "source": "Comédie",
+        "trans": "Comédie"
+    },
+    {
+        "source": "Danse",
+        "trans": "Danse"
+    },
+    {
+        "source": "Instrument de musique",
+        "trans": "Instrument de musique"
+    },
+    {
+        "source": "Jeux",
+        "trans": "Jeux"
+    },
+    {
+        "source": "Jonglage",
+        "trans": "Jonglage"
+    },
+    {
+        "source": "Ventriloquie",
+        "trans": "Ventriloquie"
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Attelage",
+        "trans": "Attelage"
+    },
+    {
+        "source": "Cartographie",
+        "trans": "Cartographie"
+    },
+    {
+        "source": "Chemins de traverse (Varigal)",
+        "trans": "Chemins de traverse (Varigal)"
+    },
+    {
+        "source": "Équitation",
+        "trans": "Équitation"
+    },
+    {
+        "source": "Navigation",
+        "trans": "Navigation"
+    },
+    {
+        "source": "Signes (Varigal)",
+        "trans": "Signes (Varigal)"
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Doctrine du Temple",
+        "trans": "Doctrine du Temple"
+    },
+    {
+        "source": "Géographie",
+        "trans": "Géographie"
+    },
+    {
+        "source": "Héraldique",
+        "trans": "Héraldique"
+    },
+    {
+        "source": "Langues",
+        "trans": "Langues"
+    },
+    {
+        "source": "Politique",
+        "trans": "Politique"
+    },
+    {
+        "source": "Principes magientistes",
+        "trans": "Principes magientistes"
+    },
+    {
+        "source": "Traditions demorthèn",
+        "trans": "Traditions demorthèn"
+    },
+    {
+        "source": "Astronomie",
+        "trans": "Astronomie"
+    },
+    {
+        "source": "Légendes",
+        "trans": "Légendes"
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Agriculture",
+        "trans": "Agriculture"
+    },
+    {
+        "source": "Dressage d'animaux",
+        "trans": "Dressage d'animaux"
+    },
+    {
+        "source": "Faune et flore",
+        "trans": "Faune et flore"
+    },
+    {
+        "source": "Pistage",
+        "trans": "Pistage"
+    },
+    {
+        "source": "Premiers soins",
+        "trans": "Premiers soins"
+    },
+    {
+        "source": "Survie",
+        "trans": "Survie"
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton \t<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
     }
 ]

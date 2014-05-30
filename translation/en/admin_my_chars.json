@@ -17,19 +17,19 @@
     },
     {
         "source": "Valider toutes les modifications",
-        "trans": "Valider toutes les modifications"
+        "trans": "Submit all modifications"
     },
     {
         "source": "Description et histoire",
-        "trans": "Description et histoire"
+        "trans": "Description and story"
     },
     {
         "source": "Inventaire",
-        "trans": "Inventaire"
+        "trans": "Inventory"
     },
     {
         "source": "Arts anciens",
-        "trans": "Arts anciens"
+        "trans": "Ancient arts"
     },
     {
         "source": "Description",
@@ -37,23 +37,23 @@
     },
     {
         "source": "Insérez ici une description de votre personnage",
-        "trans": "Insérez ici une description de votre personnage"
+        "trans": "Write here a description of your character"
     },
     {
         "source": "Histoire",
-        "trans": "Histoire"
+        "trans": "Story"
     },
     {
         "source": "Écrivez ici l'histoire de votre personnage",
-        "trans": "Écrivez ici l'histoire de votre personnage"
+        "trans": "Write here the story of your character"
     },
     {
         "source": "Faits marquants",
-        "trans": "Faits marquants"
+        "trans": "Important facts"
     },
     {
         "source": "Écrivez ici les faits marquants dans l'histoire de votre personnage",
-        "trans": "Écrivez ici les faits marquants dans l'histoire de votre personnage"
+        "trans": "Write here the important facts of your character"
     },
     {
         "source": "Possessions",
@@ -61,23 +61,23 @@
     },
     {
         "source": "Une par ligne",
-        "trans": "Une par ligne"
+        "trans": "One per line"
     },
     {
         "source": "Ajoutez ici les possessions de votre personnage",
-        "trans": "Ajoutez ici les possessions de votre personnage"
+        "trans": "Add here your character's possessions"
     },
     {
         "source": "Objets précieux",
-        "trans": "Objets précieux"
+        "trans": "Precious items"
     },
     {
         "source": "Ajoutez ici les objets précieux de votre personnage",
-        "trans": "Ajoutez ici les objets précieux de votre personnage"
+        "trans": "Add here the precious items"
     },
     {
         "source": "Arts Demorthèn",
-        "trans": "Arts Demorthèn"
+        "trans": "Demorthèn Arts"
     },
     {
         "source": "Ogham",
@@ -85,11 +85,11 @@
     },
     {
         "source": "Un par ligne",
-        "trans": "Un par ligne"
+        "trans": "One per line"
     },
     {
         "source": "Ajoutez ici les ogham que possède votre personnage",
-        "trans": "Ajoutez ici les ogham que possède votre personnage"
+        "trans": "Add here the ogham your character owns"
     },
     {
         "source": "Magience",
@@ -97,30 +97,34 @@
     },
     {
         "source": "Artefacts",
-        "trans": "Artefacts"
+        "trans": "Artifacts"
     },
     {
         "source": "Ajoutez ici les artefacts que possède votre personnage",
-        "trans": "Ajoutez ici les artefacts que possède votre personnage"
+        "trans": "Add here the artifacts of your character"
     },
     {
         "source": "Culte du Temple",
-        "trans": "Culte du Temple"
+        "trans": "Cult of the Temple"
     },
     {
         "source": "Miracles mineurs",
-        "trans": "Miracles mineurs"
+        "trans": "Minor miracles"
     },
     {
         "source": "Ajoutez ici les miracles mineurs que possède votre personnage",
-        "trans": "Ajoutez ici les miracles mineurs que possède votre personnage"
+        "trans": "Add here the minor miracles of your character"
     },
     {
         "source": "Miracles majeurs",
-        "trans": "Miracles majeurs"
+        "trans": "Major miracles"
     },
     {
         "source": "Ajoutez ici les miracles majeurs que possède votre personnage",
-        "trans": "Ajoutez ici les miracles majeurs que possède votre personnage"
+        "trans": "Add here the major miracles of your character"
+    },
+    {
+        "source": "Aucun personnage",
+        "trans": "Aucun personnage"
     }
 ]
