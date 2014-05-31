@@ -142,7 +142,7 @@ if (isset($_PAGE['more_css'])) {
 		}
 		?>
 
-		<script type="text/javascript">var corahn_rin = '<?php echo BASE_URL; ?>';</script>
+		<script type="text/javascript">var corahn_rin = '<?php echo BASE_URL.'/'.P_LANG; ?>';</script>
 		<?php foreach($js as $v) {
 		if (FileAndDir::fexists(mkurl_to_internal_url($v))) {?>
 <script type="text/javascript" src="<?php echo $v; ?>"></script>
