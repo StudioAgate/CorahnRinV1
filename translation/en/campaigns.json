@@ -250,5 +250,29 @@
     {
         "source": "Aucune partie",
         "trans": "No game"
+    },
+    {
+        "source": "Invitation envoyée...",
+        "trans": "Invitation sent..."
+    },
+    {
+        "source": "Récompenses",
+        "trans": "Rewards"
+    },
+    {
+        "source": "Retirer de la campagne",
+        "trans": "Withdraw from the campaign"
+    },
+    {
+        "source": "Retirer le personnage de la campagne ?",
+        "trans": "Withdraw the character from the campaign?"
+    },
+    {
+        "source": "Renvoyer l'invitation",
+        "trans": "Send back invitation mail"
+    },
+    {
+        "source": "Métier personnalisé",
+        "trans": "Custom job"
     }
 ]

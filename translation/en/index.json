@@ -74,5 +74,21 @@
     {
         "source": "Gestion du projet Corahn-Rin",
         "trans": "Corahn-Rin's project manager page"
+    },
+    {
+        "source": "Continuer la création du personnage",
+        "trans": "Continue character creation"
+    },
+    {
+        "source": "Voir les dernières mises à jour",
+        "trans": "View last updates"
+    },
+    {
+        "source": "Voir la liste des personnages",
+        "trans": "View characters list"
+    },
+    {
+        "source": "Inscrivez-vous",
+        "trans": "Subscribe"
     }
 ]

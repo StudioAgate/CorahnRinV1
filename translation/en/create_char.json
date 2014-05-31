@@ -1958,5 +1958,277 @@
     {
         "source": "Cavalerie",
         "trans": "Cavalerie"
+    },
+    {
+        "source": "Mimétisme",
+        "trans": "Mimétisme"
+    },
+    {
+        "source": "Vous disposez de 2 points supplémentaires à répartir dans 2 domaines",
+        "trans": "Vous disposez de 2 points supplémentaires à répartir dans 2 domaines"
+    },
+    {
+        "source": "Évaluation",
+        "trans": "Évaluation"
+    },
+    {
+        "source": "Lecture sur les lèvres",
+        "trans": "Lecture sur les lèvres"
+    },
+    {
+        "source": "Observation",
+        "trans": "Observation"
+    },
+    {
+        "source": "Orientation",
+        "trans": "Orientation"
+    },
+    {
+        "source": "Sens aiguisés",
+        "trans": "Sens aiguisés"
+    },
+    {
+        "source": "Vigilance",
+        "trans": "Vigilance"
+    },
+    {
+        "source": "Calme",
+        "trans": "Calme"
+    },
+    {
+        "source": "Flegmatique",
+        "trans": "Flegmatique"
+    },
+    {
+        "source": "Paisible",
+        "trans": "Paisible"
+    },
+    {
+        "source": "Pondéré",
+        "trans": "Pondéré"
+    },
+    {
+        "source": "Faible caractère",
+        "trans": "Faible caractère"
+    },
+    {
+        "source": "Lâche",
+        "trans": "Lâche"
+    },
+    {
+        "source": "Mauvaise estime",
+        "trans": "Mauvaise estime"
+    },
+    {
+        "source": "Mou",
+        "trans": "Mou"
+    },
+    {
+        "source": "Pessimiste",
+        "trans": "Pessimiste"
+    },
+    {
+        "source": "Peureux",
+        "trans": "Peureux"
+    },
+    {
+        "source": "Triste",
+        "trans": "Triste"
+    },
+    {
+        "source": "Les voies n'ont pas été définies, merci de vous rendre à l'étape correspondante.",
+        "trans": "Les voies n'ont pas été définies, merci de vous rendre à l'étape correspondante."
+    },
+    {
+        "source": "Le métier n'a pas été défini, merci de vous rendre à l'étape correspondante.<br />",
+        "trans": "Le métier n'a pas été défini, merci de vous rendre à l'étape correspondante.<br />"
+    },
+    {
+        "source": "Adversaire",
+        "trans": "Adversaire"
+    },
+    {
+        "source": "Le personnage s'est fait un ennemi (à la discrétion du MJ)",
+        "trans": "Le personnage s'est fait un ennemi (à la discrétion du MJ)"
+    },
+    {
+        "source": "<strong>Poisse</strong> ! Un revers supplémentaire !",
+        "trans": "<strong>Poisse</strong> ! Un revers supplémentaire !"
+    },
+    {
+        "source": "Vous disposez de 4 points supplémentaires à répartir dans 4 domaines",
+        "trans": "Vous disposez de 4 points supplémentaires à répartir dans 4 domaines"
+    },
+    {
+        "source": "Conn. du Temple",
+        "trans": "Conn. du Temple"
+    },
+    {
+        "source": "Miracles",
+        "trans": "Miracles"
+    },
+    {
+        "source": "Recueillement",
+        "trans": "Recueillement"
+    },
+    {
+        "source": "Les avantages n'ont pas été définis, merci de vous rendre à l'étape correspondante.<br />",
+        "trans": "Les avantages n'ont pas été définis, merci de vous rendre à l'étape correspondante.<br />"
+    },
+    {
+        "source": "Veuillez envoyer ce message à l'administrateur du site",
+        "trans": "Veuillez envoyer ce message à l'administrateur du site"
+    },
+    {
+        "source": "Les voies n'ont pas été définies, merci de vous rendre à l'étape correspondante",
+        "trans": "Les voies n'ont pas été définies, merci de vous rendre à l'étape correspondante"
+    },
+    {
+        "source": "Arbalètes",
+        "trans": "Arbalètes"
+    },
+    {
+        "source": "Arcs",
+        "trans": "Arcs"
+    },
+    {
+        "source": "Armes de jet",
+        "trans": "Armes de jet"
+    },
+    {
+        "source": "Archerie",
+        "trans": "Archerie"
+    },
+    {
+        "source": "Vous n'avez aucun point supplémentaire à répartir.",
+        "trans": "Vous n'avez aucun point supplémentaire à répartir."
+    },
+    {
+        "source": "L'avantage \"Mentor\" s'applique à ce domaine",
+        "trans": "L'avantage \"Mentor\" s'applique à ce domaine"
+    },
+    {
+        "source": "Métier personnalisé",
+        "trans": "Métier personnalisé"
+    },
+    {
+        "source": "Conteur itinérant",
+        "trans": "Conteur itinérant"
+    },
+    {
+        "source": "Conteur Varigal",
+        "trans": "Conteur Varigal"
+    },
+    {
+        "source": "Chant",
+        "trans": "Chant"
+    },
+    {
+        "source": "Comédie",
+        "trans": "Comédie"
+    },
+    {
+        "source": "Danse",
+        "trans": "Danse"
+    },
+    {
+        "source": "Instrument de musique",
+        "trans": "Instrument de musique"
+    },
+    {
+        "source": "Jeux",
+        "trans": "Jeux"
+    },
+    {
+        "source": "Jonglage",
+        "trans": "Jonglage"
+    },
+    {
+        "source": "Ventriloquie",
+        "trans": "Ventriloquie"
+    },
+    {
+        "source": "Attelage",
+        "trans": "Attelage"
+    },
+    {
+        "source": "Cartographie",
+        "trans": "Cartographie"
+    },
+    {
+        "source": "Chemins de traverse (Varigal)",
+        "trans": "Chemins de traverse (Varigal)"
+    },
+    {
+        "source": "Équitation",
+        "trans": "Équitation"
+    },
+    {
+        "source": "Navigation",
+        "trans": "Navigation"
+    },
+    {
+        "source": "Signes (Varigal)",
+        "trans": "Signes (Varigal)"
+    },
+    {
+        "source": "Doctrine du Temple",
+        "trans": "Doctrine du Temple"
+    },
+    {
+        "source": "Géographie",
+        "trans": "Géographie"
+    },
+    {
+        "source": "Héraldique",
+        "trans": "Héraldique"
+    },
+    {
+        "source": "Langues",
+        "trans": "Langues"
+    },
+    {
+        "source": "Politique",
+        "trans": "Politique"
+    },
+    {
+        "source": "Principes magientistes",
+        "trans": "Principes magientistes"
+    },
+    {
+        "source": "Traditions demorthèn",
+        "trans": "Traditions demorthèn"
+    },
+    {
+        "source": "Astronomie",
+        "trans": "Astronomie"
+    },
+    {
+        "source": "Légendes",
+        "trans": "Légendes"
+    },
+    {
+        "source": "Agriculture",
+        "trans": "Agriculture"
+    },
+    {
+        "source": "Dressage d'animaux",
+        "trans": "Dressage d'animaux"
+    },
+    {
+        "source": "Faune et flore",
+        "trans": "Faune et flore"
+    },
+    {
+        "source": "Pistage",
+        "trans": "Pistage"
+    },
+    {
+        "source": "Premiers soins",
+        "trans": "Premiers soins"
+    },
+    {
+        "source": "Survie",
+        "trans": "Survie"
     }
 ]

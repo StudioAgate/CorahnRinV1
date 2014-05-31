@@ -270,5 +270,9 @@
     {
         "source": "Renvoyer l'invitation",
         "trans": "Renvoyer l'invitation"
+    },
+    {
+        "source": "Métier personnalisé",
+        "trans": "Métier personnalisé"
     }
 ]
