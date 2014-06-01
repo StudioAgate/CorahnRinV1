@@ -36,7 +36,7 @@
 			}
 		});
 		$('#age_slider').mousedown(function() {
-			$('#gen_send').html('<img src=\"img/ajax-loader.gif\" />').css('visibility', 'visible');
+			$('#gen_send').html('<img src=\"".BASE_URL."/img/ajax-loader.gif\" />').css('visibility', 'visible');
 		});
 		$('#age_slider').mouseup(function(){
 			values.etape = ".$page_step.";

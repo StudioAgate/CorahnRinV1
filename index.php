@@ -158,30 +158,28 @@ unset($content_for_layout);
 
 Translate::translate_writewords();//On enregistre les mots à traduire
 
-if (PHP_SAPI === 'cli' && ($_PAGE['layout'] === 'default' || $_PAGE['layout'] === 'ajax')) {
-	$_PAGE['layout'] = 'cli';
+if ($_PAGE['layout'] === 'default') {
+    $time = (microtime(true) - $time)*1000;
+    $_LAYOUT = str_replace('{PAGE_TIME}', number_format($time, 4, ',', ' '), $_LAYOUT);## On affiche le message de temps d'exécution
+    $logfile = ROOT.DS.'logs'.DS.'exectime'.DS.date('Y.m.d').'.log';
+    if (!is_dir(dirname($logfile))) {
+        FileAndDir::createPath(dirname($logfile));
+        touch($logfile);
+    }
+    $f = fopen($logfile, 'a');##On stocke le temps d'exécution dans le fichier log
+    $final = "*|*|*Date=>".json_encode(date(DATE_RFC822))
+        .'||Ip=>'.json_encode($_SERVER['REMOTE_ADDR'])
+    // 	.'||Referer=>'.json_encode(@$_SERVER['HTTP_REFERER'])
+        .'||Page.get=>'.json_encode($_PAGE['get'])
+        .'||Page.request=>'.json_encode((array)@$_PAGE['request'])
+        .'||GET=>'.json_encode((array)$_GET)
+        .'||User.id=>'.json_encode(Users::$id)
+        .'||Exectime=>'.json_encode($time);
+    $final = preg_replace('#\n|\r|\t#isU', '', $final);
+    $final = preg_replace('#\s\s+#isUu', ' ', $final);
+    fwrite($f, $final);
+    fclose($f);
+    unset($f, $final);
 }
-
-$time = (microtime(true) - $time)*1000;
-$_LAYOUT = str_replace('{PAGE_TIME}', number_format($time, 4, ',', ' '), $_LAYOUT);## On affiche le message de temps d'exécution
-$logfile = ROOT.DS.'logs'.DS.'exectime'.DS.date('Y.m.d').'.log';
-if (!is_dir(dirname($logfile))) {
-    FileAndDir::createPath(dirname($logfile));
-    touch($logfile);
-}
-$f = fopen($logfile, 'a');##On stocke le temps d'exécution dans le fichier log
-$final = "*|*|*Date=>".json_encode(date(DATE_RFC822))
-	.'||Ip=>'.json_encode($_SERVER['REMOTE_ADDR'])
-// 	.'||Referer=>'.json_encode(@$_SERVER['HTTP_REFERER'])
-	.'||Page.get=>'.json_encode($_PAGE['get'])
-	.'||Page.request=>'.json_encode((array)@$_PAGE['request'])
-	.'||GET=>'.json_encode((array)$_GET)
-	.'||User.id=>'.json_encode(Users::$id)
-	.'||Exectime=>'.json_encode($time);
-$final = preg_replace('#\n|\r|\t#isU', '', $final);
-$final = preg_replace('#\s\s+#isUu', ' ', $final);
-fwrite($f, $final);
-fclose($f);
-unset($f, $final);
 
 if (is_string($_LAYOUT) && !empty($_LAYOUT)) { echo $_LAYOUT; }##On affiche finalement la page
