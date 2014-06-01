@@ -26,7 +26,8 @@ $saved = $char->export_to_db($user_id);
 		} else {
 			Session::setFlash('Le personnage a été correctement enregistré ! Il sera désormais associé à votre compte.', 'success');
 		}
-		header('Location:'.mkurl(array('val'=>1)));
+        $char_id = $db->last_id();
+		header('Location:'.mkurl(array('val'=>47,'params'=>array($char->id()))));
 		exit;
 	}
 }

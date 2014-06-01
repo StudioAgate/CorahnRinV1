@@ -177,7 +177,7 @@ class EsterenChar {
 	 * @param string $img_type Détermine le type de l'image, cela va lancer la fonction éponyme
 	 * @param boolean $printer_friendly Détermine si l'on crée une image printer friendly ou pas
 	 * @param array $pages Contient la listes des pages à générer
-	 * @return boolean True si réussi, False sinon
+	 * @return mixed False si la fonction n'existe pas ou qu'une erreur est survenue dans la méthode
 	 */
 	public function export_to_img($img_type = 'original', $printer_friendly = false, $pages = array(1,2,3)) {
 
@@ -231,7 +231,10 @@ class EsterenChar {
 			'char_content' => $this->_encrypt(),
 			'char_date_creation' => time(),
 		);
-		return $this->db->noRes('INSERT INTO %%characters SET %%%fields', $datas);
+        $ret = $this->db->noRes('INSERT INTO %%characters SET %%%fields', $datas);
+        $id = $this->db->last_id();
+        $this->id = $id;
+		return $ret;
 	}
 
 	/**
