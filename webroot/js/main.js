@@ -1,5 +1,6 @@
 (function($, document, corahn_rin, window){
     var base_url = corahn_rin;
+
     /**
      * Efface la sélection actuelle sur la page
      *
@@ -34,7 +35,7 @@
         }
         if (empty !== true) {  }
 
-        if (window.xhr) {
+        if (window.xhr && window.xhr.ajaxStop) {
             window.xhr.ajaxStop();
         }
         window.xhr = $.ajax({

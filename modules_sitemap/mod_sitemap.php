@@ -16,7 +16,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
 <!-- created with Corahn-Rin's sitemap module -->
 
 <url>
-	<loc><?php echo BASE_URL; ?></loc>
+	<loc><?php echo BASE_URL.P_LANG; ?></loc>
 	<lastmod><?php echo date('c', filemtime(ROOT.DS.'versions.xml')); ?></lastmod>
 	<changefreq>weekly</changefreq>
 	<priority>1.0000</priority>
