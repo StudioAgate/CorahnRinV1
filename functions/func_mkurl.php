@@ -179,8 +179,8 @@ function mkurl_to_internal_url ($url) {
 	return $url;
 }
 
-function mkurl_to_client_url ($url) {
-	$url = str_replace(ROOT.DS.'webroot', BASE_URL.P_LANG, $url);
+function mkurl_to_client_url ($url, $lang = true) {
+	$url = str_replace(ROOT.DS.'webroot', BASE_URL.($lang ? '/'.P_LANG : ''), $url);
 	$url = str_replace(array('\\', '/'), array('/', '/'), $url);
 	return $url;
 }

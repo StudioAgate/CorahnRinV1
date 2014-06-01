@@ -32,7 +32,9 @@ $saved = $char->export_to_db($user_id);
 }
 
 $sheets = $char->export_to_img();
-$sheets = array_map('mkurl_to_client_url', $sheets);
+foreach ($sheets as $k => $sheet) {
+    $sheets[$k] = mkurl_to_client_url($sheet, false);
+}
 
 ?>
 	<div class="row-fluid">

@@ -19,7 +19,7 @@ class EsterenChar {
 	 * @param string $param L'id de la session, sinon rien
 	 * @return number L'id du personnage
 	 */
-	public function id($param = false) { if ($param === session_id()) { $this->id = $param; } return $this->id; }
+	public function id($param = null) { if ($param === session_id()) { $this->id = $param; } return $this->id; }
 
 	/**
 	 * Récupère le nom du personnage
@@ -37,10 +37,9 @@ class EsterenChar {
 	 * Cette fonction initialise l'instance de la classe pour créer un personnage à partir de ce que l'on passera en paramètre
 	 *
 	 * @param array $char Variable qui contient le personnage généré
-	 * @param boolean $from_db Détermine si $char provient de la BDD. Si false, $char vient de la session
-	 * @return boolean
+	 * @param string $type Détermine si $char provient de la BDD. Si false, $char vient de la session
 	 */
-	function __construct($char = false, $type = 'db') {
+	function __construct($char = null, $type = 'db') {
 		global $db;
 		$this->db = $db;
 		$method = '_make_char_from_'.$type;
@@ -73,10 +72,10 @@ class EsterenChar {
 	/**
 	 * Récupère le nom urlencodé du personnage
 	 *
-	 * @param string $name Le nom à encoder
+	 * @param string $char Le nom à encoder
 	 * @return string Le nom encodé
 	 */
-	function sget_url_charname($char = false) {
+	function sget_url_charname($char = null) {
 		$hash = '';
 		if ($char) {
 			$hash = md5(json_encode($this->char));
@@ -193,7 +192,7 @@ class EsterenChar {
 	/**
 	 * Cette fonction est utilisée pour pouvoir générer les feuilles de personnage au format PDF à partir d'une instance existante
 	 *
-	 * @param string $img_type Détermine le type de l'image, cela va lancer la fonction éponyme
+	 * @param string $sheet_style Détermine le type de l'image, cela va lancer la fonction éponyme
 	 * @param boolean $printer_friendly Détermine si l'on crée une image printer friendly ou pas
 	 * @return boolean True si réussi, False sinon
 	 */
@@ -1422,13 +1421,15 @@ class EsterenChar {
 		return $pdf;
 	}
 
-	/**
-	 * Cette fonction se charge de générer les feuilles de personnage jpeg selon la feuille originale des Ombres d'Esteren
-	 *
-	 * @return boolean True si réussi, False sinon
-	 */
-	private function _make_sheet_from_original($pages = false, $printer_friendly = false) {
-		if ($pages === false) { $pages = array(1,2,3); }
+    /**
+     * Cette fonction se charge de générer les feuilles de personnage jpeg selon la feuille originale des Ombres d'Esteren
+     *
+     * @param array $pages Les pages à créer
+     * @param bool $printer_friendly
+     * @return boolean True si réussi, False sinon
+     */
+	private function _make_sheet_from_original($pages = null, $printer_friendly = false) {
+		if ($pages === null) { $pages = array(1,2,3); }
 
 		$char_name_dest = clean_word($this->get('details_personnage.name'));
 
