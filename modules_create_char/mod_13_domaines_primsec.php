@@ -104,8 +104,7 @@
 				<button class="btn btn-small<?php echo $ost[0]; ?>" data-ost="0"><?php tr("Non"); ?></button>
 			</span>
 		</p>
-		<p class="toggleOstInfos"<?php echo $ost[0] ? ' style="display:block;"' : ''; ?>><?php tr("Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton
-		<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."); ?></p>
+		<p class="toggleOstInfos"<?php echo $ost[0] ? ' style="display:block;"' : ''; ?>><?php tr("Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."); ?></p>
 	</div>
 	<div id="domainscontainer">
 		<div class="row-fluid rowfirst">

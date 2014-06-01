@@ -6,6 +6,10 @@
                 <element name="">Variable "base_url" utilisée dans les fichiers JS</element>
                 <comment>Ajouté la langue à l'url de base.</comment>
             </task>
+            <task type="general">
+                <element name="">Traduction</element>
+                <comment>Traduction du générateur (merci à Clovis).</comment>
+            </task>
         </tasks>
     </version>
     <version date="20140527" code="1.26">
