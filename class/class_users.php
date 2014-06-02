@@ -36,7 +36,7 @@ class Users {
 				return false;
 			}
 			return self::init($res);
-		} else {
+		} elseif ($db_datas) {
 			self::logout();
 			return false;
 		}
@@ -50,8 +50,6 @@ class Users {
 		self::$acl = 50;
 		self::$email = '';
 		Session::write('user', 0);
-        $_SESSION=array();
-        session_destroy();
 	}
 
 	public static function create($datas = array()) {

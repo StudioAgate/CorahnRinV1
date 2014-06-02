@@ -127,7 +127,16 @@ function mkurl($base_params = array()) {
 		$final = $page['page_getmod'];
 
 	} elseif ($params['type'] === 'href') {//Uniquement le lien complet
-		$final = BASE_URL.'/'.$params['lang'].'/'.$page['page_getmod'].$all_params.'.'.$params['ext'].($get_params ? $get_params : '');
+        if ($page['page_getmod'] === 'index') {
+            $final = BASE_URL.'/'.$params['lang'].'/'.($all_params ? 'index/'.$all_params : '').($get_params ? $get_params : '');//Pour l'accueil, on définit une url plus "jolie", notamment pour le référencement
+        } elseif ($params['custom'] === false) {
+            $final = BASE_URL.'/'.$params['lang'].'/'.$page['page_getmod'].$all_params.'.'.$params['ext'].($get_params ? $get_params : '');
+        } elseif ($params['custom'] === true) {
+            $final = $params['val'];
+            if (strpos($final, 'http://') === false) {
+                $final = 'http://'.$final;
+            }
+        }
 
 	} elseif ($params['type'] === 'tag') {//Création d'une balise <a> complète
 		if ($page['page_getmod'] === 'index') {

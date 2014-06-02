@@ -3,6 +3,7 @@
 ## Déconnexion
 if (isset($_PAGE['request'][0]) && $_PAGE['request'][0] == 'logout') {
 	Users::logout();
+    session_destroy();
 	header('Location: '.mkurl(array('val'=>1)));
 	exit;
 }
