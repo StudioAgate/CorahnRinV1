@@ -5,8 +5,8 @@
  *
  * @see Translate::translate
  */
-function tr($word, $return = false, $params = array()) {
-	return Translate::translate($word, $return, $params);
+function tr($word, $return = false, $params = array(), $domain = null) {
+	return Translate::translate($word, $return, $params, $domain);
 }
 
 class Translate {
@@ -16,7 +16,7 @@ class Translate {
 
     public static $at_least_one_modification = false;
 
-    protected static $write_en = false;
+    public static $write_en = false;
 
     public static $_PAGE;
     public static $domain = null;
@@ -49,7 +49,7 @@ class Translate {
      * @param array $params Les paramètres de texte à ajouter
      * @return mixed Le texte traduit si $return == true, sinon true après echo, sinon false
      */
-	static function translate($txt, $return = false, $params = array()) {
+	static function translate($txt, $return = false, $params = array(), $domain = null) {
 
         if  ($return === null) {
             $return = false;
@@ -61,20 +61,31 @@ class Translate {
 
 		if (!$txt) { return ''; }
 
-        $domain = self::$domain ?: (self::$_PAGE['get'] ?: 'general');
+        $domain = $domain ?: (self::$domain ?: (self::$_PAGE['get'] ?: 'general'));
 
         if (!isset(self::$words_fr[$domain])) {
             self::$words_fr[$domain] = array();
         }
 
-		if (!self::check($txt, self::$words_fr[$domain])) {
+		if (!self::check($txt, self::$words_fr[$domain], false)) {
 			self::$words_fr[$domain][] = array('source'=>$txt,'trans'=>$txt);
             self::$at_least_one_modification = true;
 		}
 
-		if (defined('P_LANG') && P_LANG === 'en' && isset(self::$words_en[$domain])) {
-            $txt = self::search($txt, self::$words_en[$domain]);
-		}
+        if (defined('P_LANG')) {
+            if (P_LANG === 'en' && isset(self::$words_en[$domain])) {
+                $txt = self::search($txt, self::$words_en[$domain], false);
+            } elseif (P_LANG === 'fr' && isset(self::$words_fr[$domain])) {
+                $txt = self::search($txt, self::$words_fr[$domain], false);
+            }
+        } else {
+            exit('Erreur : la langue n\'est pas définie.');
+        }
+
+        // Change les éventuels paramètres de remplacement à la chaîne de caractères
+        if ($params) {
+            $txt = str_replace(array_keys($params), array_values($params), $txt);
+        }
 
 		if ($return === false) {
 			echo $txt;
@@ -87,10 +98,13 @@ class Translate {
     /**
      * @param string $txt La chaîne à chercher
      * @param array $source Le tableau source
+     * @param boolean $clean Utilise la fonction self::clean_word() si vrai
      * @return string
      */
-    static function check($txt, $source) {
-        $txt = self::clean_word($txt);
+    static function check($txt, $source, $clean = true) {
+        if ($clean) {
+            $txt = self::clean_word($txt);
+        }
         $found = false;
         $result = array_filter($source, function($element) use ($txt) {
             return $element['source'] == $txt;
@@ -104,12 +118,15 @@ class Translate {
     /**
      * @param string $txt La chaîne à chercher
      * @param array $source Le tableau source
+     * @param boolean $clean Utilise la fonction self::clean_word() si vrai
      * @return string
      */
-    static function search($txt, $source) {
-        $txt = self::clean_word($txt);
+    static function search($txt, $source, $clean = true) {
+        if ($clean) {
+            $txt = self::clean_word($txt);
+        }
         $result = array_filter($source, function($element) use ($txt) {
-            return $element['source'] == $txt;
+            return self::clean_word($element['source']) == $txt;
         });
         if (count($result)){
             sort($result);
@@ -211,7 +228,7 @@ class Translate {
 	static function clean_word($word) {
 // 		$word = Encoding::toISO8859($word);
 // 		$word = Encoding::toUTF8($word);
-// 		$word = preg_replace('#\n|\r#sUu', '', $word);
+ 		$word = preg_replace('#\n|\r|\t#sUu', ' ', $word);
 		$word = preg_replace('#\s\s+#sUu', ' ', $word);
 		$word = str_replace('’', "'", $word);
 		$word = str_replace('\\\'', "'", $word);
@@ -226,6 +243,7 @@ class Translate {
 	 * @param string $trans La traduction proposée
 	 * @return mixed L'état de l'insertion
 	 */
+    /*
 	static function write_propos_en($word, $trans) {
 		$propositions_en = self::$propositions_en;
 		if ($word && $trans && $word != $trans) {
@@ -251,6 +269,7 @@ class Translate {
 		}
 
 	}
+    */
 
 	/**
 	 * Cette fonction sert à écrire les mots français dans la liste
@@ -258,22 +277,25 @@ class Translate {
 	 */
 	static function translate_writewords() {
 
-        $nb = 0;
+        $octets = 0;
+        $files = 0;
 
         if (self::$at_least_one_modification) {
             foreach (self::$words_fr as $domain => $words) {
                 $words_for_translation = json_encode($words, 480);
-                $nb += (int) file_put_contents(ROOT.DS.'translation'.DS.'fr'.DS.$domain.'.json', $words_for_translation);
+                $octets += (int) file_put_contents(ROOT.DS.'translation'.DS.'fr'.DS.$domain.'.json', $words_for_translation);
+                $files++;
             }
         }
 
         if (self::$write_en) {
             foreach (self::$words_en as $domain => $words) {
                 $words_for_translation = json_encode($words, 480);
-                $nb += (int) file_put_contents(ROOT.DS.'translation'.DS.'en'.DS.$domain.'.json', $words_for_translation);
+                $octets += (int) file_put_contents(ROOT.DS.'translation'.DS.'en'.DS.$domain.'.json', $words_for_translation);
+                $files++;
             }
         }
 
-		return $nb;
+		return array('octets'=>$octets,'files'=>$files);
 	}
 }

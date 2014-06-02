@@ -20,9 +20,6 @@ define('P_MKURL_FIELDS', 'page_id,page_getmod,page_anchor');
 ## Contenu de la balise meta generator
 define('P_META_GENERATOR', 'Corahn Rin {version} - Automatic character creation by Pierstoval');
 
-## Définition de la langue en fonction de la session
-//define('P_LANG', isset($_GET['lang']) && in_array($_GET['lang'], array('fr','en')) ? $_GET['lang'] : (Session::check('lang') ? Session::read('lang') : 'fr'));
-
 ## Constantes liées à FPDF pour les fichiers externes
 define('P_FPDF_FONTPATH', ROOT.DS.'files'.DS.'fpdf'.DS.'fonts');
 define('P_FPDF_SYSTEM_TTF_FONTS', ROOT.DS.'files'.DS.'fpdf'.DS.'fonts');

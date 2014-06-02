@@ -21,7 +21,7 @@
     },
     {
         "source": "D'origine inconnue, le peuple Tarish forme une minorité nomade qui parcourt depuis des décennies les terres de la péninsule. Il est aussi appelé \"peuple de l'ouest\" car la légende veut qu'il soit arrivé par l'Océan Furieux. Les Tarishs se distinguent des Tri-Kazeliens par des pommettes hautes, le nez plutôt aquilin et les yeux souvent clairs. Beaucoup d'entre eux deviennent des saltimbanques, des mystiques ou des artisans.<br />La culture Tarish, même si elle est diluée aujourd'hui, conserve encore une base importante : c'est un peuple nomade habitué aux longs périples et leur langue n'a pas disparu, bien qu'aucun étranger ne l'ait jamais apprise.",
-        "trans": "Of unknown origin, the Tarish people form a nomadic minority that has been traveling around the lands of the peninsula for decades. They are also called “people from the west”, for they came over by crossing the Furious Ocean, according to legend. Tarishes can be differentiated from the Tri-Kazelians by their high cheekbones, their rather aquiline nose, and their often pale eyes. Many of them become entertainers, mystics, or craftsmen.<br />The Tarish culture, although diluted today, still rests on an important base: they are a nomadic people used to long journeys and their language did not disappear, although no stranger has ever learned it."
+        "trans": "Of unknown origin, the Tarish people form a nomadic minority that has been traveling around the lands of the peninsula for decades. They are also called \"people from the west\", for they came over by crossing the Furious Ocean, according to legend. Tarishes can be differentiated from the Tri-Kazelians by their high cheekbones, their rather aquiline nose, and their often pale eyes. Many of them become entertainers, mystics, or craftsmen.<br />The Tarish culture, although diluted today, still rests on an important base: they are a nomadic people used to long journeys and their language did not disappear, although no stranger has ever learned it."
     },
     {
         "source": "Peuple Osag",
@@ -29,7 +29,7 @@
     },
     {
         "source": "Habitués à ne compter que sur eux-mêmes, les Osags forment un peuple rude. Généralement dotés d'une carrure imposante, ils sont les descendants directs des clans traditionnels de la péninsule. La civilisation péninsulaire a beaucoup évolué depuis l'avènement des Trois Royaumes, mais certains clans sont restés fidèles aux traditions ancestrales et n'ont pas pris part à ces changements. Repliés sur leur mode de vie clanique, les Osags ne se sont pas métissés avec les autres peuples et ont gardé de nombreuses caractéristiques de leurs ancêtres. Les Osags font de grands guerriers et comptent parmi eux les plus célèbres Demorthèn.<br /><br />Leur langue a elle aussi survécu au passage des siècles. Les mots \"feondas\", \"C'maogh\", \"Dàmàthair\" - pour ne citer qu'eux - viennent tous de ce que les Tri-Kazeliens nomment la langue ancienne, mais qui est toujours utilisée par les Osags.",
-        "trans": "Used to relying only on each other, the Osag are a hardened people, with a generally strong build. They are the direct descendants of the peninsula’s traditional clans. The peninsular civilization has evolved a lot since the foundation of the Three Kingdoms, but some clans remained faithful to the ancestral traditions and did not take part in these changes. Retired within their clannish way of life, the Osag did not mingle with the other peoples and have kept many of their ancestors’ characteristics. The Osag make great warriors, and count the most famous Demorthèn among them.<br /><br />Their language has also survived the passing centuries. The words \“Feondas\”, \“C’maogh\”, or \“Dàmàthair\”, to mention only a few, all come from what Tri-Kazelians call the ancient tongue, but which is still used by Osag."
+        "trans": "Used to relying only on each other, the Osag are a hardened people, with a generally strong build. They are the direct descendants of the peninsula’s traditional clans. The peninsular civilization has evolved a lot since the foundation of the Three Kingdoms, but some clans remained faithful to the ancestral traditions and did not take part in these changes. Retired within their clannish way of life, the Osag did not mingle with the other peoples and have kept many of their ancestors’ characteristics. The Osag make great warriors, and count the most famous Demorthèn among them.<br /><br />Their language has also survived the passing centuries. The words \"Feondas\", \"C’maogh\", or \"Dàmàthair\", to mention only a few, all come from what Tri-Kazelians call the ancient tongue, but which is still used by Osag."
     },
     {
         "source": "Peuple du Continent",
@@ -233,7 +233,7 @@
     },
     {
         "source": "En Tri-Kazel, on les nomme souvent par le terme dédaigneux de \"Daedemorthys\".<br /> Malgré cette mauvaise réputation, leur science a pour but général l'amélioration des conditions de vie de l'humanité.<br /> Un magientiste diplômé est un scientör, alors qu'un élève en cours de formation est un inceptus.",
-        "trans": "In Tri-Kazel, they are often named with the derogatory word \“Daedemorthys\”. <br /> In spite of such a bad reputation, the general goal of their science is to improve mankind’s living conditions.<br /> A qualified Magientist is a Scientör, while a pupil in training is an Inceptus."
+        "trans": "In Tri-Kazel, they are often named with the derogatory word \"Daedemorthys\". <br /> In spite of such a bad reputation, the general goal of their science is to improve mankind’s living conditions.<br /> A qualified Magientist is a Scientör, while a pupil in training is an Inceptus."
     },
     {
         "source": "Magience",
@@ -2230,5 +2230,9 @@
     {
         "source": "Survie",
         "trans": "Survival"
+    },
+    {
+        "source": "Réinitialiser le personnage",
+        "trans": "Reset character"
     }
 ]

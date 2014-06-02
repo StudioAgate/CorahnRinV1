@@ -77,8 +77,12 @@ unset($_GET['request'], $t, $get_parameters);
 
 // Gestion de la traduction insérée en page
 if ($getmod === 'fr' || $getmod === 'en') {
-    $_GET['lang'] = $getmod;
+    ## La langue est désormais définie ici pour la compatibilité avec le nouveau système de langue
+    define('P_LANG', $getmod);
     $getmod = array_shift($_PAGE['request']);
+} else {
+    header('Location: '.BASE_URL.'/fr/404.html');
+    exit;
 }
 
 

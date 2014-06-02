@@ -6,6 +6,7 @@
 	$t = $db->req('SELECT %gen_step,%gen_mod,%gen_anchor,%gen_id FROM %%steps ORDER BY %gen_step ASC');//On génère la liste des étapes
 	$steps = array();
 	$page_step = 0;
+    $page_title = null;
 
 	foreach ($t as $v) {//On formate la liste des étapes
 		$steps[$v['gen_id']] = array(
@@ -19,7 +20,7 @@
 		}
 	}
 
-	if (!$page_mod) {
+	if (!$page_mod || !$page_title || !$page_step) {
 		$page_mod = $steps[1]['mod'];
 		header('Location:'.mkurl(array('params'=>array($page_mod))));
 		exit;
@@ -69,7 +70,7 @@
 
 			foreach ($steps as $etape => $v) {
 				$active = $page_step == $etape ? ' class="active"' : '';
-				$anchor = $v['step'].'. '.$v['title'];
+				$anchor = $v['step'].'. '.tr($v['title'], true);
 				if ($step >= $etape) {
 					?><li<?php echo $active; ?>>
 						<?php echo mkurl(array('params'=>array($v['mod']), 'type' => 'tag', 'attr' => array('class'=>'create_char_link'), 'anchor' => $anchor)); ?>
@@ -83,7 +84,7 @@
 
 			?>
 				<li>
-					<?php echo mkurl(array('val'=>52, 'type' => 'tag', 'attr' => array('class'=>'create_char_link'))); ?>
+					<?php echo mkurl(array('val'=>52, 'type' => 'tag', 'trans'=>true, 'attr' => array('class'=>'create_char_link'))); ?>
 				</li>
 			</ul>
 			<!--<div class="progress"><div class="bar bar-black" style="width: <?php echo $page_step*5; ?>%;"></div></div>-->

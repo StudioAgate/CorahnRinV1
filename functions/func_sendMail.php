@@ -70,7 +70,7 @@ function send_mail($dest = array(), $subj = '', $message = '', $mail_id = 0, $fr
 
 	//$mail->AddCustomHeader('MIME-Version', '1.0');
 
-	$mail->SetLanguage('fr');
+	$mail->SetLanguage(P_LANG);
 
 	if ($_SERVER['HTTP_HOST'] === '127.0.0.1') {
 		$mail->IsSMTP();//Active le SMTP

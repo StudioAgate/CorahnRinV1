@@ -1,5 +1,5 @@
 <div class="container"><?php
-
+/*
 $lang = isset($_PAGE['request'][0]) ? $_PAGE['request'][0] : (isset($_GET['lang']) ? $_GET['lang'] : false);
 
 if ($lang === false) {
@@ -18,4 +18,5 @@ if (isset($_PAGE['referer']['full_url']) && $_PAGE['referer']['full_url'] && $_P
 	header('Location:'.mkurl(array('val'=>1)));
 	exit;
 }
+*/
 ?></div>

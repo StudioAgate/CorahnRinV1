@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+    <version date="20140602" code="1.262">
+        <tasks>
+            <task type="general">
+                <element name="">Traduction</element>
+                <comment>Fix du format JSON incorrect du module "create_char" qui empêchait le chargement de toutes les traductions de ce module.</comment>
+                <comment>Ajouté la prise en compte du domaine de traduction en direct.</comment>
+                <comment>Ajouté la prise en compte d'éventuels paramètres de traduction (éléments à ne pas retraduire).</comment>
+            </task>
+        </tasks>
+    </version>
     <version date="20140601" code="1.261">
         <tasks>
             <task type="js">

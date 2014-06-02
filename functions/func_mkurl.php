@@ -81,7 +81,7 @@ function mkurl($base_params = array()) {
 	}
 
     if (!$params['lang']) {
-        $params['lang'] = $_GET['lang'];
+        $params['lang'] = P_LANG;
     }
     if ($params['lang'] !== 'fr' && $params['lang'] !== 'en'){
         $params['lang'] = 'fr';

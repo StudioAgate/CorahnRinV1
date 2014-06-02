@@ -93,10 +93,11 @@ class Users {
 				$dest = array('name' => $user['user_name'], 'mail' => $user['user_email']);
 				$mail_msg = $db->row('SELECT %mail_id, %mail_contents, %mail_subject FROM %%mails WHERE %mail_code = ?', 'register');
 				if (isset($mail_msg['mail_contents']) && isset($mail_msg['mail_subject'])) {
-					$subj = $mail_msg['mail_subject'];
-					$txt = $mail_msg['mail_contents'];
-					$txt = str_replace('{name}', htmlspecialchars($user['user_name']), $txt);
-					$txt = str_replace('{link}', mkurl(array('val'=>64,'type'=>'tag','anchor'=>'Confirmer l\'adresse mail','params'=>array('confirm_register', $user['user_confirm']))), $txt);
+					$subj = tr($mail_msg['mail_subject'], true, null, 'mails');
+					$txt = tr($mail_msg['mail_contents'], true, array(
+                        '{name}' => htmlspecialchars($user['user_name']),
+                        '{link}' => mkurl(array('val'=>64,'type'=>'tag','anchor'=>tr('Confirmer l\'adresse mail', true),'params'=>array('confirm_register', $user['user_confirm']))),
+                    ), 'mails');
 					if (send_mail($dest, $subj, $txt, $mail_msg['mail_id'])) {
 						Session::setFlash('Inscription effectuée ! Vous allez recevoir un mail de confirmation pour valider votre inscription', 'success');
 						return true;

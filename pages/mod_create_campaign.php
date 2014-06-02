@@ -74,7 +74,7 @@ if ($send === true) {
 		'char_status' => 0,
 	);
 	$msg_invite = $db->row('SELECT %mail_id, %mail_contents, %mail_subject FROM %%mails WHERE %mail_code = ?', 'campaign_invite');
-	$subj = $msg_invite['mail_subject'];
+	$subj = tr($msg_invite['mail_subject'], true, null, 'mails');
 	if ($send_chars) {
 		foreach ($send_chars as $k => $v) {
 			unset($datas['char_confirm_invite'], $datas['char_id']);
@@ -83,7 +83,7 @@ if ($send === true) {
 			$datas['char_id'] = $v['char_id'];
 			$result2[] = $db->noRes($sql, $datas);
 
-			$txt = $msg_invite['mail_contents'];
+			$txt = tr($msg_invite['mail_contents'], true, null, 'mails');
 			$txt = str_replace('{user_name}', $v['user_name'], $txt);
 			$txt = str_replace('{cp_name}', $game['game_name'], $txt);
 			$txt = str_replace('{char_name}', $v['char_name'], $txt);

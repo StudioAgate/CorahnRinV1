@@ -60,14 +60,14 @@ if (isset($_PAGE['request'][2])) {
         }
 
         $msg_invite = $db->row('SELECT %mail_id, %mail_contents, %mail_subject FROM %%mails WHERE %mail_code = ?', array('campaign_invite'));
-        $subj = tr($msg_invite['mail_subject'], true);
-        $txt = tr($msg_invite['mail_contents'], true);
-
-        $txt = str_replace('{user_name}', $result['user_name'], $txt);
-        $txt = str_replace('{cp_name}', $result['game_name'], $txt);
-        $txt = str_replace('{char_name}', $result['char_name'], $txt);
-        $txt = str_replace('{cp_mj}', $result['gm_name'], $txt);
-        $txt = str_replace('{link}', mkurl(array('val'=>64,'type'=>'tag','anchor'=>'Confirmer l\'invitation','trans'=>true,'params'=>array('confirm_campaign_invite', $result['char_confirm_invite']))), $txt);
+        $subj = tr($msg_invite['mail_subject'], true, null, 'mails');
+        $txt = tr($msg_invite['mail_contents'], true, array(
+            '{user_name}' => $result['user_name'],
+            '{cp_name}' => $result['game_name'],
+            '{char_name}' => $result['char_name'],
+            '{cp_mj}' => $result['gm_name'],
+            '{link}' => mkurl(array('val'=>64,'type'=>'tag','anchor'=>'Confirmer l\'invitation','trans'=>true,'params'=>array('confirm_campaign_invite', $result['char_confirm_invite']))),
+        ), 'mails');
 
         $dest = array(
             'mail' => $result['user_email'],
