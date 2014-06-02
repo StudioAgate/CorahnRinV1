@@ -1,5 +1,6 @@
 (function($, document, corahn_rin, window){
-    var base_url = corahn_rin;
+    window.base_url = corahn_rin;
+    var base_url = window.base_url;
 
     /**
      * Efface la sélection actuelle sur la page
@@ -44,7 +45,7 @@
             data : values,
             success : function(msg) {
                 if (empty !== true) {
-                    $('#gen_send').delay(1).attr('href', action).html(nextsteptranslate).css('visibility', 'visible');
+                    $('#gen_send').delay(1).attr('href', base_url+action).html(nextsteptranslate).css('visibility', 'visible');
                 } else {
                     $('#gen_send').delay(1).attr('href', '#').html(nextsteptranslate).css('visibility', 'hidden');
                 }

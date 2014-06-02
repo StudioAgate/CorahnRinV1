@@ -41,6 +41,9 @@
 		exit;
 	}
 
+    $p_action = isset($steps[$page_step+1]) ? mkurl(array('params'=>array($steps[$page_step+1]['mod']))) : '';
+    $p_action = str_replace(BASE_URL.'/'.P_LANG, '', $p_action);
+
 	if (isset($steps[$page_step])) {
 
 		$datas = array(
@@ -48,12 +51,11 @@
 			'page_mod' => $page_mod,
 			'page_step' => $page_step,
 			'p_stepval' => Session::read($steps[$page_step]['mod']),
-			'p_action' => isset($steps[$page_step+1]) ? mkurl(array('params'=>array($steps[$page_step+1]['mod']))) : '',
+			'p_action' => $p_action,
 			'p_prev' => $page_step > 1 ? mkurl(array('params'=>array($steps[$page_step-1]['mod']))) : '',
 		);
 		$_PAGE['more_css'][] = BASE_URL.'/css/pages/pg_'.$page_mod.'.css';
 		$_PAGE['more_js'][] = BASE_URL.'/js/pages/pg_'.$page_mod.'.js';
-
 
 		/*
 		if (P_DEBUG === true) {
@@ -94,7 +96,7 @@
 			if ($datas['p_prev']) {
 				?><a href="<?php echo $datas['p_prev']; ?>" class="btn" id="gen_prev">&larr; <?php tr("Étape précédente"); ?></a>
 			<?php } ?>
-			<a href="<?php echo isset($_SESSION[$page_mod]) ? $datas['p_action'] : '#'; ?>" class="btn<?php echo $datas['p_stepval'] ? ' vsbl' : ''; ?>" id="gen_send"><?php tr("Étape suivante"); ?> &rarr;</a>
+			<a href="<?php echo isset($_SESSION[$page_mod]) ? BASE_URL.'/'.P_LANG.$datas['p_action'] : '#'; ?>" class="btn<?php echo $datas['p_stepval'] ? ' vsbl' : ''; ?>" id="gen_send"><?php tr("Étape suivante"); ?> &rarr;</a>
 
 			<?php
 				load_module($page_mod, 'module', $datas);
@@ -104,7 +106,7 @@
 		<?php
 	}
 	?>
-<script type="text/javascript">var nextsteptranslate = '<?php tr("Étape suivante &rarr;"); ?>';</script>
+<script type="text/javascript">var nextsteptranslate = '<?php tr("Étape suivante"); ?> &rarr;';</script>
 </div>
 <!-- /container -->
 <?php
