@@ -72,14 +72,12 @@ class Translate {
             self::$at_least_one_modification = true;
 		}
 
-        if (defined('P_LANG')) {
-            if (P_LANG === 'en' && isset(self::$words_en[$domain])) {
-                $txt = self::search($txt, self::$words_en[$domain], false);
-            } elseif (P_LANG === 'fr' && isset(self::$words_fr[$domain])) {
-                $txt = self::search($txt, self::$words_fr[$domain], false);
-            }
-        } else {
-            exit('Erreur : la langue n\'est pas définie.');
+        $lang = defined('P_LANG') ? P_LANG : 'fr';
+
+        if ($lang === 'en' && isset(self::$words_en[$domain])) {
+            $txt = self::search($txt, self::$words_en[$domain], false);
+        } elseif ($lang === 'fr' && isset(self::$words_fr[$domain])) {
+            $txt = self::search($txt, self::$words_fr[$domain], false);
         }
 
         // Change les éventuels paramètres de remplacement à la chaîne de caractères
