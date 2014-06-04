@@ -111,15 +111,18 @@ if (!empty($_POST)) {
 
 	if (strpos($stepname, 'classe') !== false) {
 		$val = array('Artisan', 'Bourgeois', 'Paysan', 'Clerge', 'Noblesse');
-		foreach ($val as $k => $v) { $val[$k] = tr($v, true); }
-		if (
-			!in_array($_SESSION[$stepname]['classe'], $val)
-			|| !is_numeric($_SESSION[$stepname]['dom1'])
-			|| !is_numeric($_SESSION[$stepname]['dom2'])
-			) {
-			unset($_SESSION[$stepname]);
-			$_SESSION['etape']--;
-		}
+        if (isset($_SESSION[$stepname]['classe'])) {
+            if (
+                !in_array($_SESSION[$stepname]['classe'], $val)
+                || !is_numeric($_SESSION[$stepname]['dom1'])
+                || !is_numeric($_SESSION[$stepname]['dom2'])
+                ) {
+                unset($_SESSION[$stepname]);
+                $_SESSION['etape']--;
+            }
+        } else {
+            unset($_SESSION[$stepname]);
+        }
 	}
 
 	if (strpos($stepname, 'voies') !== false) {
