@@ -10,7 +10,7 @@
 
 	$age = isset($_SESSION[$steps[6]['mod']]) ? $_SESSION[$steps[6]['mod']] : false;
 	if ($age === false) {
-		tr("L\'âge n\'a pas été défini, merci de vous rendre à l\'étape correspondante.");
+		tr('L\'âge n\'a pas été défini, merci de vous rendre à l\'étape correspondante.');
 		echo '<br />';
 		mkurl(array('params'=>6, 'type' => 'tag', 'anchor' => 'Aller à la page des Voies', 'attr' => 'class="btn"'));
 		return;
@@ -112,6 +112,6 @@ buffWrite('css', '
 ', $page_mod);
 buffWrite('js', "
 	$(document).ready(function(){
-		$('#gen_send').delay(1).attr('href', '".$p_action."').html(nextsteptranslate).css('visibility', 'visible');
+		$('#gen_send').delay(1).attr('href', base_url+'".$p_action."').html(nextsteptranslate).css('visibility', 'visible');
 	});
 ", $page_mod);
