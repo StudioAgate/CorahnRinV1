@@ -10,4 +10,8 @@ $time = microtime(true);
 
 date_default_timezone_set('Europe/Paris');
 
+try {
 require '../index.php';
+} catch (\Exception $e) {
+    echo 'Exception !<br />',$e->getMessage();
+}

@@ -2,41 +2,47 @@
 
 if (!empty($_POST) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])) {
 
-	$err = '';
-	if (!$_POST['name']) { $err .= '<p class="error">'.tr('Le nom d\'utilisateur doit être renseigné', true).'</p>'; }
-	if (!$_POST['password']) { $err .= '<p class="error">'.tr('Entrez un mot de passe', true).'</p>'; }
-	if (!$_POST['email'] || !preg_match(P_MAIL_REGEX, $_POST['email'])) { $err .= '<p class="error">'.tr('Entrez une adresse email correcte', true).'</p>'; }
+    if (Session::read('_token') !== Session::read('tokenToCheck') || $_PAGE['referer']['id'] !== $_PAGE['id']) {
+        Session::setFlash('Une erreur est survenue dans l\'envoi du formulaire, veuillez réessayer', 'error');
+        httpCode(403);
+    } else {
 
-	if ($err !== '') {
-		Session::setFlash($err, 'notif');
-		header('Location:'.mkurl(array('val'=>$_PAGE['id'])));
-		exit;
-	}
+        $err = '';
+        if (!$_POST['name']) { $err .= ''.tr('Le nom d\'utilisateur doit être renseigné', true).'<br />'; }
+        if (!$_POST['password']) { $err .= ''.tr('Entrez un mot de passe', true).'<br />'; }
+        if (!$_POST['email'] || !preg_match(P_MAIL_REGEX, $_POST['email'])) { $err .= ''.tr('Entrez une adresse email correcte', true).''; }
 
-	$datas = array(
-		'name' => $_POST['name'],
-		'password' => $_POST['password'],
-		'email' => $_POST['email'],
-		'status' => 0,
-		'confirm' => md5($_POST['name'].uniqid(preg_replace('#[^a-z_]+#isUu', '', $_POST['name']), true)),
-	);
+        if ($err !== '') {
+            Session::setFlash($err, 'error');
+        } else {
+            $datas = array(
+                'name' => $_POST['name'],
+                'password' => $_POST['password'],
+                'email' => $_POST['email'],
+                'status' => 0,
+                'confirm' => md5($_POST['name'].uniqid(preg_replace('#[^a-z_]+#isUu', '', $_POST['name']), true)),
+            );
 
-	$create = Users::create($datas);
-	if ($create === false) {
-		redirect(array(), 'Erreur lors de la création du compte #001', 'error', true);
-		exit;
-	} else {
-		if (isset($_GET['redirect']) && $_GET['redirect'] && url_exists($_GET['redirect'])) {
-			redirect($_GET['redirect']);
-		} else {
-			redirect(array('val'=>34));
-		}
-	}
+            Session::delete('tokenToCheck');
+            $create = Users::create($datas);
+            if ($create === false) {
+                Session::setFlash($err, 'error');
+            } else {
+                if (isset($_GET['redirect']) && $_GET['redirect'] && url_exists($_GET['redirect'])) {
+                    redirect($_GET['redirect']);
+                } else {
+                    redirect(array('val'=>34));
+                }
+            }
+        }
+    }
 }
 
 if (P_LOGGED === true) {
 	redirect(array('val'=>34));
 }
+
+Session::write('tokenToCheck', Session::read('_token'));
 
 ?>
 
@@ -84,7 +90,4 @@ if (P_LOGGED === true) {
 CSSFILE
 );
 
-// 	buffWrite('js', <<<JSFILE
-
-// JSFILE
-// );
+ 	buffWrite('js', '');

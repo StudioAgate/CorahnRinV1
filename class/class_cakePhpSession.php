@@ -25,7 +25,19 @@ class Session {
 		ini_set('session.use_trans_sid', 0);													//Evite de passe l'id de la session dans l'url
 		session_name($sessionName); 															//On affecte le nom
 		session_start(); 																		//On démarre la session
+
+        $time = self::read('_time') ?: rand(120,240);
+
+        if (!self::check('_token') || self::read('_valid') < time() - $time) {
+            self::write('_token', self::createToken());
+            self::write('_valid', time());
+            self::write('_time', rand(120,240));
+        }
 	}
+
+    static function createToken() {
+        return sha1(uniqid('corahn_rin_token', true));
+    }
 
 /**
  * ACCESSEURS EN LECTURE, ECRITURE, SUPPRESSION ET CONTROLE DE LA VARIABLE DE SESSION

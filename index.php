@@ -62,6 +62,7 @@ $function_inc = array(
 	'getXPFromDoms',
 	'errorLogging',
 	'goto404',
+    'httpCode',
 	'isBlacklisted',
 	'minify',
 	'isCorrectEmail',

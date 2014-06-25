@@ -19,9 +19,9 @@ FileAndDir::remove_directory(CHAR_EXPORT.DS);
 FileAndDir::remove(ROOT.DS.'logs'.DS.'cache_sql'.DS.'cache.php');
 
 //On force le navigateur à recharger la page
-// header('Pragma: no-cache');
-// header('Cache-Control: no-cache, must-revalidate');
-// header('Expires: Thu, 03 Jan 2013 06:23:00 GMT');
+header('Pragma: no-cache');
+header('Cache-Control: no-cache, must-revalidate');
+header('Expires: Thu, 03 Jan 2013 06:23:00 GMT');
 
 //Si le referer n'est pas la page en cours, on renvoie vers le referer. Sinon, vers la page d'accueil
 if (isset($_PAGE['referer']['id']) && isset($_PAGE['list'][$_PAGE['referer']['id']]) && $_PAGE['referer']['id'] != $_PAGE['id']) {

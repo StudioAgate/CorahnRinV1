@@ -15,30 +15,38 @@ if (P_LOGGED === true) {
 
 ## Connexion
 if (isset($_POST['nickname']) && isset($_POST['password'])) {
-	$user = $db->row(
-		'SELECT %user_id FROM %%users WHERE %user_name = :name AND %user_password = :pwd',
-		array('name'=>$_POST['nickname'],'pwd'=>Users::pwd($_POST['password']))
-	);
-	if ($user) {
-		$_SESSION['user'] = $user['user_id'];
-		if (isset($_GET['redirect']) && $_GET['redirect'] && url_exists($_GET['redirect'])) {
-			redirect($_GET['redirect']);
-		} else {
-			redirect(array('val'=>34));
-		}
-	} else {
-		$_SESSION['user'] = 0;
-		if ($_POST['nickname'] && !$_POST['password']) {
-			Session::setFlash('Veuillez entrer le mot de passe.', 'error');
-		} elseif ($_POST['nickname'] && $_POST['password']) {
-			Session::setFlash('Le nom d\'utilisateur ou le mot de passe est incorrect.', 'error');
-		} elseif (!$_POST['nickname']) {
-			Session::setFlash('Veuillez entrer un nom d\'utilisateur.', 'error');
-		}
-	}
-	unset($user);
+
+    if (Session::read('_token') !== Session::read('tokenToCheck')) {
+        Session::setFlash('Une erreur est survenue dans l\'envoi du formulaire, veuillez réessayer', 'error');
+    } else {
+
+        $user = $db->row(
+            'SELECT %user_id FROM %%users WHERE %user_name = :name AND %user_password = :pwd',
+            array('name'=>$_POST['nickname'],'pwd'=>Users::pwd($_POST['password']))
+        );
+        if ($user) {
+            $_SESSION['user'] = $user['user_id'];
+            Session::delete('tokenToCheck');
+            if (isset($_GET['redirect']) && $_GET['redirect'] && url_exists($_GET['redirect'])) {
+                redirect($_GET['redirect']);
+            } else {
+                redirect(array('val'=>34));
+            }
+        } else {
+            $_SESSION['user'] = 0;
+            if ($_POST['nickname'] && !$_POST['password']) {
+                Session::setFlash('Veuillez entrer le mot de passe.', 'error');
+            } elseif ($_POST['nickname'] && $_POST['password']) {
+                Session::setFlash('Le nom d\'utilisateur ou le mot de passe est incorrect.', 'error');
+            } elseif (!$_POST['nickname']) {
+                Session::setFlash('Veuillez entrer un nom d\'utilisateur.', 'error');
+            }
+        }
+        unset($user);
+    }
 }
 
+Session::write('tokenToCheck', Session::read('_token'));
 
 if (P_LOGGED === false) { ?>
 	<div class="container">
