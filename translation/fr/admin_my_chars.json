@@ -122,5 +122,13 @@
     {
         "source": "Aucun personnage",
         "trans": "Aucun personnage"
+    },
+    {
+        "source": "Voulez-vous vraiment supprimer ce personnage ?",
+        "trans": "Voulez-vous vraiment supprimer ce personnage ?"
+    },
+    {
+        "source": "Valider la suppression",
+        "trans": "Valider la suppression"
     }
 ]

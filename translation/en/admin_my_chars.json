@@ -125,6 +125,14 @@
     },
     {
         "source": "Aucun personnage",
-        "trans": "Aucun personnage"
+        "trans": "No character"
+    },
+    {
+        "source": "Voulez-vous vraiment supprimer ce personnage ?",
+        "trans": "Do you really want to delete this character ?"
+    },
+    {
+        "source": "Valider la suppression",
+        "trans": "Accept deletion"
     }
 ]

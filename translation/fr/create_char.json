@@ -2346,5 +2346,133 @@
     {
         "source": "Réinitialiser le personnage",
         "trans": "Réinitialiser le personnage"
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton<span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Conn. des Flux",
+        "trans": "Conn. des Flux"
+    },
+    {
+        "source": "Extraction de Flux",
+        "trans": "Extraction de Flux"
+    },
+    {
+        "source": "Médecine",
+        "trans": "Médecine"
+    },
+    {
+        "source": "Raffinage de Flux",
+        "trans": "Raffinage de Flux"
+    },
+    {
+        "source": "Réparation d'artefacts",
+        "trans": "Réparation d'artefacts"
+    },
+    {
+        "source": "Utilisation d'artefacts",
+        "trans": "Utilisation d'artefacts"
+    },
+    {
+        "source": "Acrobaties",
+        "trans": "Acrobaties"
+    },
+    {
+        "source": "Course",
+        "trans": "Course"
+    },
+    {
+        "source": "Endurance",
+        "trans": "Endurance"
+    },
+    {
+        "source": "Escalade",
+        "trans": "Escalade"
+    },
+    {
+        "source": "Évasion",
+        "trans": "Évasion"
+    },
+    {
+        "source": "Natation",
+        "trans": "Natation"
+    },
+    {
+        "source": "Travail de force",
+        "trans": "Travail de force"
+    },
+    {
+        "source": "Camouflage",
+        "trans": "Camouflage"
+    },
+    {
+        "source": "Furtivité",
+        "trans": "Furtivité"
+    },
+    {
+        "source": "Vol à la tire",
+        "trans": "Vol à la tire"
+    },
+    {
+        "source": "Vous disposez de 5 points supplémentaires à répartir dans 5 domaines",
+        "trans": "Vous disposez de 5 points supplémentaires à répartir dans 5 domaines"
+    },
+    {
+        "source": "Ésotérisme",
+        "trans": "Ésotérisme"
+    },
+    {
+        "source": "Hypnose",
+        "trans": "Hypnose"
+    },
+    {
+        "source": "Interprétation des rêves",
+        "trans": "Interprétation des rêves"
+    },
+    {
+        "source": "Phénomènes mentaux",
+        "trans": "Phénomènes mentaux"
+    },
+    {
+        "source": "Architecture",
+        "trans": "Architecture"
+    },
+    {
+        "source": "Botanique",
+        "trans": "Botanique"
+    },
+    {
+        "source": "Conn. troubles mentaux",
+        "trans": "Conn. troubles mentaux"
+    },
+    {
+        "source": "Géologie",
+        "trans": "Géologie"
+    },
+    {
+        "source": "Ingénierie",
+        "trans": "Ingénierie"
+    },
+    {
+        "source": "Mécanique",
+        "trans": "Mécanique"
+    },
+    {
+        "source": "Zoologie",
+        "trans": "Zoologie"
+    },
+    {
+        "source": "Traitement de l'esprit",
+        "trans": "Traitement de l'esprit"
+    },
+    {
+        "source": "Conteur varigal",
+        "trans": "Conteur varigal"
+    },
+    {
+        "source": "L'âge n'a pas été défini, merci de vous rendre à l'étape correspondante.",
+        "trans": "L'âge n'a pas été défini, merci de vous rendre à l'étape correspondante."
     }
 ]

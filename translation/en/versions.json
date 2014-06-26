@@ -1158,5 +1158,37 @@
     {
         "source": "<a href=\"http://jdr.pierstoval.com/esteren/fr/create_char/11_des_avtg.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Créer un personnage\">Générateur : Étape 11 - Avantages et Désavantages</a>",
         "trans": "<a href=\"http://jdr.pierstoval.com/esteren/fr/create_char/11_des_avtg.html\" class=\"btn btn-link btn-block btn_all_links\" title=\"Créer un personnage\">Générateur : Étape 11 - Avantages et Désavantages</a>"
+    },
+    {
+        "source": "Fix du format JSON incorrect du module \"create_char\" qui empêchait le chargement de toutes les traductions de ce module.",
+        "trans": "Fix du format JSON incorrect du module \"create_char\" qui empêchait le chargement de toutes les traductions de ce module."
+    },
+    {
+        "source": "Ajouté la prise en compte du domaine de traduction en direct.",
+        "trans": "Ajouté la prise en compte du domaine de traduction en direct."
+    },
+    {
+        "source": "Ajouté la prise en compte d'éventuels paramètres de traduction (éléments à ne pas retraduire).",
+        "trans": "Ajouté la prise en compte d'éventuels paramètres de traduction (éléments à ne pas retraduire)."
+    },
+    {
+        "source": "Variable \"base_url\" utilisée dans les fichiers JS",
+        "trans": "Variable \"base_url\" utilisée dans les fichiers JS"
+    },
+    {
+        "source": "Ajouté la langue à l'url de base.",
+        "trans": "Ajouté la langue à l'url de base."
+    },
+    {
+        "source": "Traduction du générateur (merci à Clovis).",
+        "trans": "Traduction du générateur (merci à Clovis)."
+    },
+    {
+        "source": "Sécurité",
+        "trans": "Sécurité"
+    },
+    {
+        "source": "Renforcé la sécurité pour la connexion et l'inscription, pour diminuer le nombre d'inscriptions \"spam\".",
+        "trans": "Renforcé la sécurité pour la connexion et l'inscription, pour diminuer le nombre d'inscriptions \"spam\"."
     }
 ]

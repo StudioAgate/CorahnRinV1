@@ -1,31 +1,31 @@
 [
     {
         "source": "Inscription",
-        "trans": "Inscription"
+        "trans": "Register"
     },
     {
         "source": "Inscrivez-vous dès maintenant pour pouvoir avoir accès en permanence à vos personnages !",
-        "trans": "Inscrivez-vous dès maintenant pour pouvoir avoir accès en permanence à vos personnages !"
+        "trans": "Sign up now to have permanent access to your characters !"
     },
     {
         "source": "Vous avez déjà un compte ?",
-        "trans": "Vous avez déjà un compte ?"
+        "trans": "Already have an account ?"
     },
     {
         "source": "Nom d'utilisateur",
-        "trans": "Nom d'utilisateur"
+        "trans": "User name"
     },
     {
         "source": "Mot de passe",
-        "trans": "Mot de passe"
+        "trans": "Password"
     },
     {
         "source": "Adresse email",
-        "trans": "Adresse email"
+        "trans": "Email address"
     },
     {
         "source": "Envoyer",
-        "trans": "Envoyer"
+        "trans": "Send"
     },
     {
         "source": "Corahn Rin",
@@ -33,6 +33,6 @@
     },
     {
         "source": "S'inscrire",
-        "trans": "S'inscrire"
+        "trans": "Register"
     }
 ]

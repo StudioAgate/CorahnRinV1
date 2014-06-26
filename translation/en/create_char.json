@@ -2234,5 +2234,145 @@
     {
         "source": "Réinitialiser le personnage",
         "trans": "Reset character"
+    },
+    {
+        "source": "Région de Bald-Ruoch",
+        "trans": "Region of Baldh-Ruoch"
+    },
+    {
+        "source": "Bonne vue",
+        "trans": "Bonne vue"
+    },
+    {
+        "source": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton <span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné.",
+        "trans": "Si non, choisissez le domaine de compétence dans lequel vous avez été formé en cliquant sur le bouton <span class=\"btn btn-mini\"><span class=\"icon-certificate icon-red\"></span></span> à côté du domaine concerné."
+    },
+    {
+        "source": "Vous disposez de 1 points supplémentaires à répartir dans 1 domaines",
+        "trans": "You have 1 extra point to spread in 1 Domain"
+    },
+    {
+        "source": "Conn. des Flux",
+        "trans": "Flux knowledge"
+    },
+    {
+        "source": "Extraction de Flux",
+        "trans": "Flux extraction"
+    },
+    {
+        "source": "Médecine",
+        "trans": "Medicine"
+    },
+    {
+        "source": "Raffinage de Flux",
+        "trans": "Flux refining"
+    },
+    {
+        "source": "Réparation d'artefacts",
+        "trans": "Artifacts repairing"
+    },
+    {
+        "source": "Utilisation d'artefacts",
+        "trans": "Artifacts use"
+    },
+    {
+        "source": "Acrobaties",
+        "trans": "Acrobatics"
+    },
+    {
+        "source": "Course",
+        "trans": "Running"
+    },
+    {
+        "source": "Endurance",
+        "trans": "Endurance"
+    },
+    {
+        "source": "Escalade",
+        "trans": "Climbing"
+    },
+    {
+        "source": "Évasion",
+        "trans": "Escape"
+    },
+    {
+        "source": "Natation",
+        "trans": "Swimming"
+    },
+    {
+        "source": "Travail de force",
+        "trans": "Hard physical work"
+    },
+    {
+        "source": "Camouflage",
+        "trans": "Camouflage"
+    },
+    {
+        "source": "Furtivité",
+        "trans": "Stealth"
+    },
+    {
+        "source": "Vol à la tire",
+        "trans": "Pickpocket"
+    },
+    {
+        "source": "Vous disposez de 5 points supplémentaires à répartir dans 5 domaines",
+        "trans": "You have 5 extra points to spread in 5 Domains"
+    },
+    {
+        "source": "Ésotérisme",
+        "trans": "Esotericisim"
+    },
+    {
+        "source": "Hypnose",
+        "trans": "Hypnosis"
+    },
+    {
+        "source": "Interprétation des rêves",
+        "trans": "Interpreting dreams"
+    },
+    {
+        "source": "Phénomènes mentaux",
+        "trans": "Mental phenomena"
+    },
+    {
+        "source": "Architecture",
+        "trans": "Architecture"
+    },
+    {
+        "source": "Botanique",
+        "trans": "Botany"
+    },
+    {
+        "source": "Conn. troubles mentaux",
+        "trans": "Mental troubles knowledge"
+    },
+    {
+        "source": "Géologie",
+        "trans": "Geology"
+    },
+    {
+        "source": "Ingénierie",
+        "trans": "Engineering"
+    },
+    {
+        "source": "Mécanique",
+        "trans": "Mechanics"
+    },
+    {
+        "source": "Zoologie",
+        "trans": "Zoology"
+    },
+    {
+        "source": "Traitement de l'esprit",
+        "trans": "Treat the mind"
+    },
+    {
+        "source": "Conteur varigal",
+        "trans": "Varigal storyteller"
+    },
+    {
+        "source": "L'âge n'a pas été défini, merci de vous rendre à l'étape correspondante.",
+        "trans": "The age has not be defined. Thanks to refer to the previous step."
     }
 ]
