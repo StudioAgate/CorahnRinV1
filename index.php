@@ -124,7 +124,7 @@ $_PAGE['layout'] = 'default';
 
 ## Récupération du module dans $module
 ob_start();
-	if (file_exists(ROOT.DS.'pages'.DS.'mod_' . $_PAGE['get'] . '.php')) {//S'il existe on le charge
+	if (file_exists(ROOT.DS.'modules'.DS.'mod_' . $_PAGE['get'] . '.php')) {//S'il existe on le charge
 		load_module($_PAGE['get'], 'page');
 	} else {
 		goto_404();
@@ -155,7 +155,7 @@ unset($content_for_layout);
 
 Translate::translate_writewords();//On enregistre les mots à traduire
 
-if ($_PAGE['layout'] === 'default') {
+if (strpos($_LAYOUT, '{PAGE_TIME}') !== false) {
     $time = (microtime(true) - $time)*1000;
     $_LAYOUT = str_replace('{PAGE_TIME}', number_format($time, 4, ',', ' '), $_LAYOUT);## On affiche le message de temps d'exécution
     $logfile = ROOT.DS.'logs'.DS.'exectime'.DS.date('Y.m.d').'.log';

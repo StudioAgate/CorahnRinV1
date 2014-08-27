@@ -13,7 +13,7 @@ function load_module($module_name = '', $module_type = 'page', $additionnal_vars
 	$module_type = (string) $module_type; //On s'assure de l'intégrité des valeurs
 
 	$filename = array(//On définit les types d'éléments
-		'page'		=> ROOT.DS.'pages'.DS.'mod_'.$module_name.'.php',
+		'page'		=> ROOT.DS.'modules'.DS.'mod_'.$module_name.'.php',
 		'module'	=> ROOT.DS.'modules_'.$_PAGE['get'].DS.'mod_'.$module_name.'.php',
 		'menu'		=> ROOT.DS.'includes'.DS.'inc_nav'.$module_name.'.php',
 		'inc'		=> ROOT.DS.'includes'.DS.'inc_'.$module_name.'.php',

@@ -30,7 +30,7 @@ if (Users::$acl === 0) {
 	$vlogin = isset($vmodif['page_require_login']) ? $vmodif['page_require_login'] : '';
 	if (isset($_POST['suppr'])) {
 		$db -> noRes('DELETE FROM %%pages WHERE %page_id = ?', array($_POST['idmodif']));
-		@unlink(ROOT.DS.'pages'.DS.'mod_'.$_POST['name'].'.php');
+		@unlink(ROOT.DS.'modules'.DS.'mod_'.$_POST['name'].'.php');
 		@unlink(ROOT.DS.'webroot'.DS.'js'.DS.'pages'.DS.'pg'.$_POST['name'].'.js');
 		@unlink(ROOT.DS.'css'.DS.'pages'.DS.'pg'.$_POST['name'].'.css');
 		$vname = $vanchor = $vstep = $vcheck = $vadmin = $vacl = '';
@@ -75,8 +75,8 @@ if (Users::$acl === 0) {
 						ROOT.DS.'modules_'.$_POST['name']);
 			}
 			//Rename du fichier module php
-			rename(	ROOT.DS.'pages'.DS.'mod_'.$vmodif['page_getmod'].'.php',
-					ROOT.DS.'pages'.DS.'mod_'.$_POST['name'].'.php');
+			rename(	ROOT.DS.'modules'.DS.'mod_'.$vmodif['page_getmod'].'.php',
+					ROOT.DS.'modules'.DS.'mod_'.$_POST['name'].'.php');
 			$vname = $vanchor = $vstep = $vcheck = $vadmin = $vacl = '';
 			redirect(array(), 'Modification effectuée !', 'success');
 		} else {

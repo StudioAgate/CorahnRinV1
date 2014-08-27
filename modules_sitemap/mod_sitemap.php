@@ -41,14 +41,14 @@ foreach ($_PAGE['list'] as $page_id => $page) {
 	if (($page['page_show_in_menu'] === 1 && $page['page_show_in_debug'] === 0 && $page['page_require_login'] === 0)
 		|| $page_id == 48
 		|| $page_id == 56) {
-		$lastmod = filemtime(ROOT.DS.'pages'.DS.'mod_'.$page['page_getmod'].'.php');
+		$lastmod = filemtime(ROOT.DS.'modules'.DS.'mod_'.$page['page_getmod'].'.php');
 		$lastmod = date('c', $lastmod);
 		?>
 
 <url>
 	<loc><?php echo mkurl(array('val'=>$page['page_id'])); ?></loc>
 	<lastmod><?php echo $lastmod; ?></lastmod>
-	<changefreq>weekly</changefreq>
+	<changefreq>monthly</changefreq>
 	<priority>1.0000</priority>
 </url>
 
