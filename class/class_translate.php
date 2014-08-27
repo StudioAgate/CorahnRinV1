@@ -44,9 +44,10 @@ class Translate {
 
     /**
      * Cette fonction sert à traduire le texte. Si le mot n'est pas traduit, on l'ajoute à la liste pour qu'il le soit plus tard.
-     * @param string $txt Le texte à traduire
+     * @param string  $txt    Le texte à traduire
      * @param boolean $return Si false, on fait un echo du texte. Si true, on le retourne.
-     * @param array $params Les paramètres de texte à ajouter
+     * @param array   $params Les paramètres de texte à ajouter
+     * @param null    $domain
      * @return mixed Le texte traduit si $return == true, sinon true après echo, sinon false
      */
 	static function translate($txt, $return = false, $params = array(), $domain = null) {
@@ -180,12 +181,14 @@ class Translate {
         }
         return self::$propositions_en;
 	}
-	/**
-	 * Cette fonction sert à ajouter ou éditer un mot traduit
-	 * @param string $word_source Le mot ou l'expression à traduire
-	 * @param string $trans La traduction
+
+    /**
+     * Cette fonction sert à ajouter ou éditer un mot traduit
+     * @param string $word_source Le mot ou l'expression à traduire
+     * @param string $trans       La traduction
+     * @param        $domain
      * @return boolean
-	 */
+     */
 	static function write_words_en($word_source, $trans, $domain) {
         $word_source = self::clean_word($word_source);
 		$trans = self::clean_word($trans);
