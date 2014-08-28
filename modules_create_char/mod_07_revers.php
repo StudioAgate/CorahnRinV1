@@ -73,7 +73,7 @@
                                 // Erreur
                                 redirect(mkurl(array('params'=>$steps[$page_step]['mod'])), tr('Indiquez des revers corrects.', true), 'error');
                             } else {
-                                $dice[$setback] = $setback;
+                                $dice[] = $setback;
                             }
                         }
                     } else {
