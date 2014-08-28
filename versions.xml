@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+    <version date="20140828" code="1.28">
+        <tasks>
+            <task type="page">
+                <element name="pages/mod_create_char.php" id="62"></element>
+                <comment>Modification de l'étape : désormais, l'utilisateur peut choisir ses revers manuellement, ou les tirer automatiquement.</comment>
+                <comment>Merci à Maxime Carron et à Arthus pour leurs propositions.</comment>
+                <comment>Ticket redmine redmine#10</comment>
+            </task>
+        </tasks>
+    </version>
     <version date="20140625" code="1.27">
         <tasks>
             <task type="general">

@@ -40,6 +40,9 @@ foreach ($versions->version as $v) {
 			'comments' => array()
 		);
 		foreach ($task->comment as $comment) {
+            if (strpos($comment, 'redmine#') !== false) {
+                $comment = preg_replace('~redmine\#([0-9]+)~', '<a href="http://tests.pierstoval.com/redmine/issues/$1">#$1</a>', $comment);
+            }
 			$element['comments'][] = (string) $comment;
 			$i++;
 			$total_maj++;
