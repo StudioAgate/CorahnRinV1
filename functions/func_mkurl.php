@@ -18,6 +18,7 @@
  * &nbsp; &nbsp;beforetag &nbsp; &nbsp; Texte ou code html à rajouter AVANT la balise &lt;a&gt;. Utilisé seulement si type = tag<br />
  * &nbsp; &nbsp;post = $_POST &nbsp; &nbsp; Envoyer des données POST supplémentaires à la page<br />
  * &nbsp; &nbsp;custom &nbsp; &nbsp; Ce paramètre permet de créer une url externe ou personnalisée. Elle sera envoyée à $params['val']<br />
+ * @return string
  * @author Pierstoval 26/12/2012
  */
 function mkurl($base_params = array()) {
@@ -148,7 +149,9 @@ function mkurl($base_params = array()) {
 			if (strpos($href, 'http://') === false) {
 				$href = 'http://'.$href;
 			}
-		}
+		} else {
+            $href = '';
+        }
 		$attr = '';
 		if (!isset($params['attr']['title'])
 			|| (isset($params['attr'][0])

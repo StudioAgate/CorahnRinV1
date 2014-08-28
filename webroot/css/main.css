@@ -47,6 +47,12 @@ a.btn.btn-inverse:link, a.btn.btn-inverse:visited, a.btn.btn-inverse:active { co
 	display: inline-block;
 	vertical-align: top;
 }
+a.btn.btn-primary,
+a.btn.btn-danger,
+a.btn.btn-warning,
+a.btn.btn-info {
+    color: #eee;
+}
 .ib.mid { vertical-align: middle; }
 .ib.bot { vertical-align: bottom; }
 .ib.base { vertical-align: baseline; }
