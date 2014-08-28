@@ -1,6 +1,5 @@
 <?php
 
-	$output = '';
 	$t = $db->req('SELECT %rev_id,%rev_name,%rev_desc FROM %%revers ORDER BY %rev_id ASC');
 	$revers = array();
 	foreach ($t as $k => $v) {
@@ -22,9 +21,9 @@
     if ($age > 30) { $nb_revers ++; }
 
     $choose_manually = null;
+    $poisse = false;
 
 	if ($nb_revers === 0) {
-        $output = tr('Aucun revers (moins de 21 ans)', true);
         $dice = array(0=>0);
     } else {
 		if (!$p_stepval) {
@@ -36,7 +35,7 @@
                     if ($dice[0] == 10) {
                         $dice[1] = rand(2, 9);
                     } elseif ($dice[0] == 1) {
-                        $output .= tr("<strong>Poisse</strong> ! Un revers supplémentaire !", true).'<br />';
+                        $poisse = true;
                         $dice[0] = rand(2, 9);
                         $dice[1] = rand(2, 9);
                         do {
@@ -97,17 +96,6 @@
 			$dice = $p_stepval;
 		}
 
-        if (isset($dice) && !empty($dice)) {
-            if (isset($dice[0]) && $dice[0] == 0) {
-                $output = tr('Aucun revers (moins de 21 ans)', true);
-            } elseif (isset($dice[0]) && $dice[0] > 0) {
-                foreach ($dice as $val) {
-                    if ($val) {
-                        $output .= '<strong>'.tr($revers[$val]['rev_name'], true).'</strong>, '.tr($revers[$val]['rev_desc'], true).'<br />';
-                    }
-                }
-            }
-        }
 
 	}
 	if ($nb_revers === 0 || $age < 21) {
@@ -118,29 +106,35 @@
             redirect(mkurl(array('params'=>$steps[$page_step+1]['mod'])));
 		}
 	}
-
 	if (empty($p_stepval) && isset($dice)) {
 		Session::write($page_mod, $dice);
 		$_SESSION['etape'] = $page_step+1;
 		$p_stepval = $dice;
 	}
-
 	?>
 	<div class="row">
 		<div class="span" id="revers">
 		<?php
 		if ($p_stepval) {
-            if (isset($dice[0])) {
+            if (isset($p_stepval[0]) && $p_stepval[0] == 0) {
                 ?>
                 <p><?php tr('Aucun revers (moins de 21 ans)'); ?></p>
                 <?php
             } else {
+                if ($poisse) {
+                    tr("<strong>Poisse</strong> ! Un revers supplémentaire !");
+                }
+                $chance = false;
                 foreach ($p_stepval as $setback) {
                     ?>
                     <p>
                         <strong><?php tr($revers[$setback]['rev_name']); ?></strong> <?php tr($revers[$setback]['rev_desc']); ?>
                     </p>
                     <?php
+                    if ($p_stepval[0] == 10 && !$chance) {
+                        echo '<p>', tr('Revers évité : ', true), '</p>';
+                        $chance = true;
+                    }
                 }
             }
 		} else {
@@ -173,15 +167,11 @@
             }
 		}
 		unset($dice);
-		?><p id="generated"><?php
-			if (!$p_stepval) { echo $output; }//Ce qui est affiché après avoir appuyé sur le bouton
-			unset($output);
-		?></p>
+		?>
 		</div>
 	</div>
 
 	<?php
-// 	unset($output, $k);
 echo "<style type=\"text/css\">#gen_send{visibility:visible;}</style>";
 buffWrite('css', '
 	#formgen p#generated { display: none; }
