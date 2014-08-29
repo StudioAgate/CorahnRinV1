@@ -27,6 +27,7 @@
         $dice = array(0=>0);
         if (!$p_stepval) {
             Session::write($page_mod, $dice);
+            $_SESSION['etape'] = $page_step+1;
             redirect(mkurl(array('params'=>$steps[$page_step]['mod'])));
         }
     } else {
@@ -60,6 +61,7 @@
                         $dice[3] = $act;
                     }
                     Session::write($page_mod, $dice);
+                    $_SESSION['etape'] = $page_step+1;
                     redirect(mkurl(array('params'=>$steps[$page_step]['mod'])));
                 } elseif ($_GET['manually'] !== 'true') {
                     // Paramètre invalide
@@ -83,6 +85,7 @@
                             }
                         }
                         Session::write($page_mod, $dice);
+                        $_SESSION['etape'] = $page_step+1;
                         redirect(mkurl(array('params'=>$steps[$page_step]['mod'])));
                     } else {
                         // Message d'erreur sur la quantité de revers choisis
@@ -110,7 +113,7 @@
         $dice = array(0=>0);
         $_SESSION[$page_mod] = array(0=>0);
         if (!$p_stepval && P_DEBUG === false) {
-            $_SESSION['etape']++;
+            $_SESSION['etape'] = $page_step+1;
             redirect(mkurl(array('params'=>$steps[$page_step+1]['mod'])));
         }
     }
