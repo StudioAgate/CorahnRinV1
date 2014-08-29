@@ -25,6 +25,8 @@
 
     if ($nb_revers === 0) {
         $dice = array(0=>0);
+        Session::write($page_mod, $dice);
+        redirect(mkurl(array('params'=>$steps[$page_step]['mod'])));
     } else {
         if (!$p_stepval) {
             if (isset($_GET['manually'])) {
