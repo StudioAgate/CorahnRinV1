@@ -2,6 +2,16 @@
 if ($_PAGE['extension'] !== 'xml') {
 	redirect(array('ext' => 'xml'));
 }
+
+$cacheFile = ROOT.DS.'tmp'.DS.'modsitemap.xml';
+if (file_exists($cacheFile) && filemtime($cacheFile) >= (time() - 86400) && file_get_contents($cacheFile)) {
+	echo file_get_contents($cacheFile);
+	return;
+}
+
+ob_start();
+
+
 //Titre
 echo '<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="'.mkurl(array('params'=>'style', 'ext'=>'xsl')).'"?>';
@@ -148,3 +158,17 @@ foreach ($chars as $k => $char) {
 ?>
 
 </urlset>
+
+
+<?php
+
+
+$cacheFileContent = ob_get_clean();
+
+if (!is_dir(dirname($cacheFile))) {
+	mkdir(dirname($cacheFile), 0777, true);
+}
+
+file_put_contents($cacheFile, $cacheFileContent);
+touch($cacheFile);
+
