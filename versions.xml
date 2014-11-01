@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+    <version date="20141101" code="1.281">
+        <tasks>
+            <task type="general">
+                <element name="">Sécurité</element>
+                <comment>Corrigé un bug qui permettait l'accès à des parties du site auparavant protégées</comment>
+            </task>
+        </tasks>
+    </version>
     <version date="20140828" code="1.28">
         <tasks>
             <task type="page">

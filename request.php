@@ -103,7 +103,7 @@ if ($result) {
 	foreach ($result as $data) {
 		$_PAGE['list'][$data['page_id']] = $data;
 		if ($_PAGE['get'] === $data['page_getmod'] || $_PAGE['id'] === $data['page_id']) {
-			if (Users::$acl > $data['page_acl'] || (P_LOGGED === false && $data['page_require_login'] === '1')) {
+			if (Users::$acl > $data['page_acl'] || (P_LOGGED === false && $data['page_require_login'] === 1)) {
 				Session::setFlash("Vous n'avez pas les droits pour accéder à cette page.", 'error');
 				header('Location:'.mkurl(array('val'=>1)));
 				exit;
