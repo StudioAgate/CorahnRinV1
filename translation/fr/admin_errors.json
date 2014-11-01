@@ -6,5 +6,17 @@
     {
         "source": "Gestion des erreurs",
         "trans": "Gestion des erreurs"
+    },
+    {
+        "source": "Temps maximum",
+        "trans": "Temps maximum"
+    },
+    {
+        "source": "Temps moyen",
+        "trans": "Temps moyen"
+    },
+    {
+        "source": "Temps minimum",
+        "trans": "Temps minimum"
     }
 ]

@@ -34,5 +34,9 @@
     {
         "source": "S'inscrire",
         "trans": "S'inscrire"
+    },
+    {
+        "source": "Entrez une adresse email correcte",
+        "trans": "Entrez une adresse email correcte"
     }
 ]

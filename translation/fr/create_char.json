@@ -2474,5 +2474,165 @@
     {
         "source": "L'âge n'a pas été défini, merci de vous rendre à l'étape correspondante.",
         "trans": "L'âge n'a pas été défini, merci de vous rendre à l'étape correspondante."
+    },
+    {
+        "source": "Baratin",
+        "trans": "Baratin"
+    },
+    {
+        "source": "Charme",
+        "trans": "Charme"
+    },
+    {
+        "source": "Commandement",
+        "trans": "Commandement"
+    },
+    {
+        "source": "Conn. d'une faction",
+        "trans": "Conn. d'une faction"
+    },
+    {
+        "source": "Diplomatie",
+        "trans": "Diplomatie"
+    },
+    {
+        "source": "Étiquette d'un milieu social",
+        "trans": "Étiquette d'un milieu social"
+    },
+    {
+        "source": "Intimidation",
+        "trans": "Intimidation"
+    },
+    {
+        "source": "Persuasion",
+        "trans": "Persuasion"
+    },
+    {
+        "source": "Votre personnage a <strong>%age%</strong> ans, il doit donc tirer <strong>%nb_revers%</strong> revers.",
+        "trans": "Votre personnage a <strong>%age%</strong> ans, il doit donc tirer <strong>%nb_revers%</strong> revers."
+    },
+    {
+        "source": "Vous pouvez choisir de les tirer aléatoirement, ou alors les choisir vous-même.",
+        "trans": "Vous pouvez choisir de les tirer aléatoirement, ou alors les choisir vous-même."
+    },
+    {
+        "source": "Attention ! Si vous choisissez manuellement vos revers, vous ne pourrez PAS choisir d'échapper à un revers, ni subir un revers supplémentaire.",
+        "trans": "Attention ! Si vous choisissez manuellement vos revers, vous ne pourrez PAS choisir d'échapper à un revers, ni subir un revers supplémentaire."
+    },
+    {
+        "source": "Tirer aléatoirement",
+        "trans": "Tirer aléatoirement"
+    },
+    {
+        "source": "Choisir manuellement",
+        "trans": "Choisir manuellement"
+    },
+    {
+        "source": "Reste %remaining% revers à choisir.",
+        "trans": "Reste %remaining% revers à choisir."
+    },
+    {
+        "source": "Envoyer",
+        "trans": "Envoyer"
+    },
+    {
+        "source": "Eclaireur",
+        "trans": "Eclaireur"
+    },
+    {
+        "source": "Revers évité :",
+        "trans": "Revers évité :"
+    },
+    {
+        "source": "porm",
+        "trans": "porm"
+    },
+    {
+        "source": "Le lieu de résidence géographique n'a pas été défini, merci de vous rendre à l'étape correspondante",
+        "trans": "Le lieu de résidence géographique n'a pas été défini, merci de vous rendre à l'étape correspondante"
+    },
+    {
+        "source": "Noble",
+        "trans": "Noble"
+    },
+    {
+        "source": "Apprenti magientiste",
+        "trans": "Apprenti magientiste"
+    },
+    {
+        "source": "GBDFDN",
+        "trans": "GBDFDN"
+    },
+    {
+        "source": "Liar",
+        "trans": "Liar"
+    },
+    {
+        "source": "Les domaines primaires et secondaires n'ont pas été définis, merci de vous rendre à l'étape correspondante.<br />",
+        "trans": "Les domaines primaires et secondaires n'ont pas été définis, merci de vous rendre à l'étape correspondante.<br />"
+    },
+    {
+        "source": "Adepte de Chanaïg",
+        "trans": "Adepte de Chanaïg"
+    },
+    {
+        "source": "Chef du village",
+        "trans": "Chef du village"
+    },
+    {
+        "source": "Rentier",
+        "trans": "Rentier"
+    },
+    {
+        "source": "varigal demo",
+        "trans": "varigal demo"
+    },
+    {
+        "source": "Demortiama",
+        "trans": "Demortiama"
+    },
+    {
+        "source": "La classe sociale n'a pas été définie, merci de vous rendre à l'étape correspondante.",
+        "trans": "La classe sociale n'a pas été définie, merci de vous rendre à l'étape correspondante."
+    },
+    {
+        "source": "Acteur pornographique",
+        "trans": "Acteur pornographique"
+    },
+    {
+        "source": "demorten combattant",
+        "trans": "demorten combattant"
+    },
+    {
+        "source": "demoten combattant",
+        "trans": "demoten combattant"
+    },
+    {
+        "source": "catcheuse",
+        "trans": "catcheuse"
+    },
+    {
+        "source": "Adepte du Dieu rouge",
+        "trans": "Adepte du Dieu rouge"
+    },
+    {
+        "source": "Les bonus supplémentaires aux domaines n'ont pas été définis, merci de vous rendre à l'étape correspondante",
+        "trans": "Les bonus supplémentaires aux domaines n'ont pas été définis, merci de vous rendre à l'étape correspondante"
+    },
+    {
+        "source": "Ionnthèn",
+        "trans": "Ionnthèn"
+    },
+    {
+        "source": "Nécromant",
+        "trans": "Nécromant"
+    },
+    {
+        "source": "Necromancie",
+        "trans": "Necromancie"
+    },
+    {
+        "source": "Occultiste vagabon",
+        "trans": "Occultiste vagabon"
     }
 ]
