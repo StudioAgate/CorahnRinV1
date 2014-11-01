@@ -39,10 +39,13 @@ if ($char_id) {
 
 	$characters = $db->req($req);
 	unset($req);
-} ?>
+}
+?>
 
 <div class="container">
-	<?php if ($char_id && $char) { ?>
+	<?php if ($char_id && $char) {
+		$_PAGE['title_for_layout'] = $char['char_name'];
+		?>
 		<h3><?php echo $char['char_name']; ?></h3>
 		<?php if (P_DEBUG === true) { ?>
 		<button class="showhidden btn btn-small"><span class="icon-plus"></span></button><div class="hid"><?php pr(Esterenchar::sdecode_char($char['char_content'])); ?></div>

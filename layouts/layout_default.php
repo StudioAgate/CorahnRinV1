@@ -37,7 +37,7 @@ if (isset($_PAGE['more_css'])) {
 		<link rel="apple-touch-icon-precomposed" href="<?php echo BASE_URL; ?>/img/favicon-57.png">
 		<link rel="shortcut icon" href="<?php echo BASE_URL; ?>/img/favicon.png">
 
-		<title><?php echo tr('Corahn Rin', true), ' - ', tr($_PAGE['anchor'], true); ?></title>
+		<title><?php echo tr('Corahn Rin', true), ' - ', (isset($_PAGE['title_for_layout']) && $_PAGE['title_for_layout'] ? $_PAGE['title_for_layout'] : tr($_PAGE['anchor'], true)); ?></title>
 
 		<?php foreach($css as $v) {
 			if (FileAndDir::fexists(mkurl_to_internal_url($v))) {?>
