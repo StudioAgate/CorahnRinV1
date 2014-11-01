@@ -13,6 +13,13 @@ foreach($_PAGE['list'] as $v) {
 $updates = array();
 $total_maj = 0;
 
+$cacheFile = ROOT.DS.'tmp'.DS.'modversions.html';
+if (file_exists($cacheFile) && filemtime($cacheFile) >= (time() - 86400) && file_get_contents($cacheFile)) {
+	echo file_get_contents($cacheFile);
+	return;
+}
+
+ob_start();
 
 $t = $db->req('SELECT %gen_step,%gen_mod,%gen_anchor FROM %%steps ORDER BY %gen_step ASC');//On génère la liste des étapes
 $steps = array();
@@ -184,3 +191,11 @@ JSFILE
 );
 
 
+$cacheFileContent = ob_get_clean();
+
+if (!is_dir(dirname($cacheFile))) {
+	mkdir(dirname($cacheFile), 0777, true);
+}
+
+file_put_contents($cacheFile, $cacheFileContent);
+touch($cacheFile);

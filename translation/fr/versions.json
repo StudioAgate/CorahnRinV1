@@ -1202,5 +1202,9 @@
     {
         "source": "Ticket redmine <a href=\"http://tests.pierstoval.com/redmine/issues/10\">#10</a>",
         "trans": "Ticket redmine <a href=\"http://tests.pierstoval.com/redmine/issues/10\">#10</a>"
+    },
+    {
+        "source": "Corrigé un bug qui permettait l'accès à des parties du site auparavant protégées",
+        "trans": "Corrigé un bug qui permettait l'accès à des parties du site auparavant protégées"
     }
 ]
