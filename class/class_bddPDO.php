@@ -370,11 +370,13 @@ class bdd {
 	 */
 	private function _init_cache() {
 		$this->cache = array();
+		/*
 		if (FileAndDir::fexists($this->cache_filename)) {
 			include $this->cache_filename;
 		} else {
 			FileAndDir::put($this->cache_filename, '<?php $this->cache = array();');
 		}
+		*/
 		return $this->cache;
 	}
 
