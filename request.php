@@ -34,7 +34,7 @@ if ($request) {
 	$getmod = '';
 }
 if ($getmod !== 'fr' && $getmod !== 'en') {
-    header('Location: '.BASE_URL.'/fr/'.$_GET['request']);
+    header('Location: '.BASE_URL.'/fr/'.(isset($_GET['request']) ? $_GET['request'] : ''));
     exit;
 }
 $t = array();
