@@ -107,7 +107,7 @@ if (isset($_PAGE['more_css'])) {
 				?> &ndash; <?php
 					echo tr('Dernière mise à jour', true).' : '.$_PAGE['version']['date'];
 				?></p>
-				<p><?php tr("Tous droits réservés - Pierstoval"); ?> 2012-2013</p>
+				<p><?php tr("Tous droits réservés - Pierstoval"); ?> 2011-2015</p>
 				<p><?php tr("Tous les contenus sont générés par l'auteur du site, mais proviennent des livres des Ombres d'Esteren,<br />et appartiennent au collectif Forgesonges, et édité par Agate Editions."); ?></p>
 				<p><?php tr('Page générée en'); ?> {PAGE_TIME} <?php tr('millisecondes'); ?></p>
 			</footer>
