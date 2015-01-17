@@ -86,8 +86,8 @@ if ($char_id) {
 				<h4><?php tr('Version originale "Printer Friendly"'); ?></h4>
 				<?php
 				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'jpg', 'anchor'=>tr('Voir la page %page%', true, array('%page%' => 1)), 'trans' => false, 'attr'=>'class="btn pageview"', 'params'=>array(0=>$char_id,'page'=>1,'print'=>true, clean_word($char['char_name']))));
-				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'jpg', 'anchor'=>tr('Voir la page %page%', true, array('%page%' => 1)), 'attr'=>'class="btn pageview"', 'params'=>array(0=>$char_id,'page'=>2,'print'=>true, clean_word($char['char_name']))));
-				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'jpg', 'anchor'=>tr('Voir la page %page%', true, array('%page%' => 1)), 'attr'=>'class="btn pageview"', 'params'=>array(0=>$char_id,'page'=>3,'print'=>true, clean_word($char['char_name']))));
+				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'jpg', 'anchor'=>tr('Voir la page %page%', true, array('%page%' => 2)), 'attr'=>'class="btn pageview"', 'params'=>array(0=>$char_id,'page'=>2,'print'=>true, clean_word($char['char_name']))));
+				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'jpg', 'anchor'=>tr('Voir la page %page%', true, array('%page%' => 3)), 'attr'=>'class="btn pageview"', 'params'=>array(0=>$char_id,'page'=>3,'print'=>true, clean_word($char['char_name']))));
 				echo '<br />';
 				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'pdf', 'anchor'=>'Télécharger au format PDF', 'trans' => true, 'attr'=>array('class'=>'btn pageview'), 'params'=>array($char_id,'pdf'=>true,'print'=>true, clean_word($char['char_name']))));
 				?>
