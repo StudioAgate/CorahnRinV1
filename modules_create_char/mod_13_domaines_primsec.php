@@ -53,7 +53,7 @@
 		?>
 			<div id="jobdesc" class="info noicon">
 				<h4><?php tr("Métier prédéfini"); ?> : <?php tr($job['job_name']); ?></h4>
-				<?php tr("Rappel de la description"); ?> : <p><?php tr($job['job_desc']); ?></p>
+				<?php tr("Rappel de la description"); ?> : <p><?php tr(nl2br($job['job_desc'])); ?></p>
 			</div>
 		<?php
 		} else {

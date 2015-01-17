@@ -1009,7 +1009,7 @@
     },
     {
         "source": "Les avantages ou désavantages <span style=\"text-decoration: underline;\">soulignés</span> peuvent être sélectionnés une deuxième fois. Vous ne pouvez sélectionner une 2e fois qu'un seul élément, mais vous pouvez doubler un avantage ET un désavantage.",
-        "trans": "Advantages and Disadvantages <span style=\"text-decoration: underline;\">soulignés</span> can be selected twice. You can only select one element twice, but you can have one double Advantage and one double Disadvantage."
+        "trans": "Advantages and Disadvantages that are <span style=\"text-decoration: underline;\">underlined</span> can be selected twice. You can only select one element twice, but you can have one double Advantage and one double Disadvantage."
     },
     {
         "source": "Le gain d'xp avec des désavantages est limité à 80XP",
@@ -1381,7 +1381,7 @@
     },
     {
         "source": "Domaines primaires et secondaires",
-        "trans": "Primary and Seconday Domains"
+        "trans": "Primary and Secondary Domains"
     },
     {
         "source": "Voici vos domaines de compétences, ils déterminent les aptitudes générales de votre personnage",
