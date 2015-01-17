@@ -38,5 +38,9 @@
     {
         "source": "Entrez une adresse email correcte",
         "trans": "Entrez une adresse email correcte"
+    },
+    {
+        "source": "Entrez un mot de passe",
+        "trans": "Entrez un mot de passe"
     }
 ]

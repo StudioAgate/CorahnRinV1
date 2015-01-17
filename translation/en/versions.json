@@ -1190,5 +1190,21 @@
     {
         "source": "Renforcé la sécurité pour la connexion et l'inscription, pour diminuer le nombre d'inscriptions \"spam\".",
         "trans": "Renforcé la sécurité pour la connexion et l'inscription, pour diminuer le nombre d'inscriptions \"spam\"."
+    },
+    {
+        "source": "Modification de l'étape : désormais, l'utilisateur peut choisir ses revers manuellement, ou les tirer automatiquement.",
+        "trans": "Modification de l'étape : désormais, l'utilisateur peut choisir ses revers manuellement, ou les tirer automatiquement."
+    },
+    {
+        "source": "Merci à Maxime Carron et à Arthus pour leurs propositions.",
+        "trans": "Merci à Maxime Carron et à Arthus pour leurs propositions."
+    },
+    {
+        "source": "Ticket redmine <a href=\"http://tests.pierstoval.com/redmine/issues/10\">#10</a>",
+        "trans": "Ticket redmine <a href=\"http://tests.pierstoval.com/redmine/issues/10\">#10</a>"
+    },
+    {
+        "source": "Corrigé un bug qui permettait l'accès à des parties du site auparavant protégées",
+        "trans": "Corrigé un bug qui permettait l'accès à des parties du site auparavant protégées"
     }
 ]
