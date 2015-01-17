@@ -2622,5 +2622,25 @@
     {
         "source": "Idéal",
         "trans": "Conviction"
+    },
+    {
+        "source": "Tarish",
+        "trans": "Tarish"
+    },
+    {
+        "source": "Reizh",
+        "trans": "Reizh"
+    },
+    {
+        "source": "Instinctive",
+        "trans": "Instinctive"
+    },
+    {
+        "source": "Qualité",
+        "trans": "Quality"
+    },
+    {
+        "source": "Défaut",
+        "trans": "Flaw"
     }
 ]

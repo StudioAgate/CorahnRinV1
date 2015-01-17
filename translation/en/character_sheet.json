@@ -1,0 +1,14 @@
+[
+    {
+        "source": "Homme",
+        "trans": "Male"
+    },
+    {
+        "source": "Urbain",
+        "trans": "Urban"
+    },
+    {
+        "source": "Reste",
+        "trans": "Remaining"
+    }
+]
