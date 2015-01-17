@@ -14,7 +14,7 @@ if ($del === 'delete') {
 	if (!empty($_POST)) {
 		if (isset($_POST['delete']) && $_POST['delete'] === 'yes') {
 			if ($character->delete_char()) {
-				redirect(array('val'=>58), 'Le personnage a été correctement supprimé !', 'success');
+				redirect(array('val'=>58), tr('Le personnage a été correctement supprimé !', true), 'success');
 			} else {
 				redirect(array('params'=>$_PAGE['request']), 'Personnage non supprimé. #003', 'error');
 			}
@@ -25,7 +25,7 @@ if ($del === 'delete') {
 		<fieldset>
 			<h3><?php echo $character->get('details_personnage.name'); ?></h3>
 			<p class="error"><?php tr('Voulez-vous vraiment supprimer ce personnage ?'); ?></p>
-			<?php echo mkurl(array('type'=>'tag','anchor'=>'&larr; Retour à la page précédente', 'attr'=>array('class'=>'btn btn-success', 'style'=>'color:#fff'))); ?>
+			<?php echo mkurl(array('type'=>'tag','anchor'=>'&larr; '.tr('Retour à la page précédente', true), 'attr'=>array('class'=>'btn btn-success', 'style'=>'color:#fff'))); ?>
 			&nbsp; <button type="submit" class="btn btn-mini btn-danger" name="delete" value="yes" id="delete"><?php tr('Valider la suppression'); ?></button>
 		</fieldset>
 	</form>

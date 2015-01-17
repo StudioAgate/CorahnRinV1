@@ -134,5 +134,21 @@
     {
         "source": "Valider la suppression",
         "trans": "Accept deletion"
+    },
+    {
+        "source": "Supprimer",
+        "trans": "Delete"
+    },
+    {
+        "source": "Modifier",
+        "trans": "Edit"
+    },
+    {
+        "source": "Dépenser de l'expérience",
+        "trans": "Spend experience points"
+    },
+    {
+        "source": "Retour à la page précédente",
+        "trans": "Back to previous page"
     }
 ]
