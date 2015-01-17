@@ -282,5 +282,9 @@
     {
         "source": "En tant que joueur",
         "trans": "As player"
+    },
+    {
+        "source": "Créer une campagne",
+        "trans": "Create a new campaign"
     }
 ]
