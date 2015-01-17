@@ -2602,5 +2602,25 @@
     {
         "source": "Chasseur de prime",
         "trans": "Bounty hunter"
+    },
+    {
+        "source": "Combativité",
+        "trans": "Combativeness"
+    },
+    {
+        "source": "Créativité",
+        "trans": "Creativity"
+    },
+    {
+        "source": "Empathie",
+        "trans": "Empathy"
+    },
+    {
+        "source": "Raison",
+        "trans": "Reason"
+    },
+    {
+        "source": "Idéal",
+        "trans": "Conviction"
     }
 ]

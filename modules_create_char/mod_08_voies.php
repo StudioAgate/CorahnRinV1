@@ -21,7 +21,7 @@
 		$output = '';
 			foreach($voies as $val) {
 				$output .= '<div class="span12">
-				<h3>'.$val['voie_name'].'</h3>
+				<h3>'.tr($val['voie_name'], true).'</h3>
 					<a class="ib btn moins">-</a>
 					<span id="'.$val['voie_shortname'].'" class="btn btn-inverse disabled voie">'.($p_stepval ? $p_stepval[$val['voie_id']] : '1').'</span>
 					<a class="ib btn plus">+</a>
