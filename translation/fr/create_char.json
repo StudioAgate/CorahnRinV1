@@ -2702,5 +2702,25 @@
     {
         "source": "Chasseur de prime",
         "trans": "Chasseur de prime"
+    },
+    {
+        "source": "Combativité",
+        "trans": "Combativité"
+    },
+    {
+        "source": "Créativité",
+        "trans": "Créativité"
+    },
+    {
+        "source": "Empathie",
+        "trans": "Empathie"
+    },
+    {
+        "source": "Raison",
+        "trans": "Raison"
+    },
+    {
+        "source": "Idéal",
+        "trans": "Idéal"
     }
 ]
