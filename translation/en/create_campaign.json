@@ -1,7 +1,7 @@
 [
     {
         "source": "Nom de la partie",
-        "trans": "Nom de la partie"
+        "trans": "Game name"
     },
     {
         "source": "Description",
@@ -9,19 +9,19 @@
     },
     {
         "source": "Créer la partie",
-        "trans": "Créer la partie"
+        "trans": "Create game"
     },
     {
         "source": "Invitez les joueurs à participer à votre campagne !",
-        "trans": "Invitez les joueurs à participer à votre campagne !"
+        "trans": "Invite other players to join your campaign!"
     },
     {
         "source": "Sélectionnez les personnages des joueurs que vous voulez intégrer à votre campagne.",
-        "trans": "Sélectionnez les personnages des joueurs que vous voulez intégrer à votre campagne."
+        "trans": "Select the players' characters you want to invite to your campaign."
     },
     {
         "source": "personnage(s) disponible(s)",
-        "trans": "personnage(s) disponible(s)"
+        "trans": "available character(s)"
     },
     {
         "source": "Corahn Rin",
@@ -29,6 +29,6 @@
     },
     {
         "source": "Créer une campagne",
-        "trans": "Créer une campagne"
+        "trans": "Create campaign"
     }
 ]

@@ -2377,27 +2377,27 @@
     },
     {
         "source": "Baratin",
-        "trans": "Baratin"
+        "trans": "Spiel"
     },
     {
         "source": "Charme",
-        "trans": "Charme"
+        "trans": "Charm"
     },
     {
         "source": "Commandement",
-        "trans": "Commandement"
+        "trans": "Command"
     },
     {
         "source": "Conn. d'une faction",
-        "trans": "Conn. d'une faction"
+        "trans": "Faction knowledge"
     },
     {
         "source": "Diplomatie",
-        "trans": "Diplomatie"
+        "trans": "Diplomacy"
     },
     {
         "source": "Étiquette d'un milieu social",
-        "trans": "Étiquette d'un milieu social"
+        "trans": "Etiquette of a particular social class"
     },
     {
         "source": "Intimidation",
@@ -2409,39 +2409,39 @@
     },
     {
         "source": "Votre personnage a <strong>%age%</strong> ans, il doit donc tirer <strong>%nb_revers%</strong> revers.",
-        "trans": "Votre personnage a <strong>%age%</strong> ans, il doit donc tirer <strong>%nb_revers%</strong> revers."
+        "trans": "Your character is <strong>%age%</strong> years old, he then gets randomly <strong>%nb_revers%</strong> setbacks."
     },
     {
         "source": "Vous pouvez choisir de les tirer aléatoirement, ou alors les choisir vous-même.",
-        "trans": "Vous pouvez choisir de les tirer aléatoirement, ou alors les choisir vous-même."
+        "trans": "You can choose to get them randomly or choose them manually."
     },
     {
         "source": "Attention ! Si vous choisissez manuellement vos revers, vous ne pourrez PAS choisir d'échapper à un revers, ni subir un revers supplémentaire.",
-        "trans": "Attention ! Si vous choisissez manuellement vos revers, vous ne pourrez PAS choisir d'échapper à un revers, ni subir un revers supplémentaire."
+        "trans": "Warning! If you choose them manually, you will NOT be able to \"avoid\" a setback, nor undergo one more setback."
     },
     {
         "source": "Tirer aléatoirement",
-        "trans": "Tirer aléatoirement"
+        "trans": "Get randomly"
     },
     {
         "source": "Choisir manuellement",
-        "trans": "Choisir manuellement"
+        "trans": "Choose manually"
     },
     {
         "source": "Reste %remaining% revers à choisir.",
-        "trans": "Reste %remaining% revers à choisir."
+        "trans": "%remaining% setbacks remaining."
     },
     {
         "source": "Envoyer",
-        "trans": "Envoyer"
+        "trans": "Send"
     },
     {
         "source": "Eclaireur",
-        "trans": "Eclaireur"
+        "trans": "Ranger"
     },
     {
         "source": "Revers évité :",
-        "trans": "Revers évité :"
+        "trans": "Avoided setback:"
     },
     {
         "source": "porm",
@@ -2457,7 +2457,7 @@
     },
     {
         "source": "Apprenti magientiste",
-        "trans": "Apprenti magientiste"
+        "trans": "Magientist apprentice"
     },
     {
         "source": "GBDFDN",
@@ -2549,7 +2549,7 @@
     },
     {
         "source": "Assassin",
-        "trans": "Assassin"
+        "trans": "Assasin"
     },
     {
         "source": "demorthèn combattant",
@@ -2557,15 +2557,15 @@
     },
     {
         "source": "Vous disposez de 6 points supplémentaires à répartir dans 6 domaines",
-        "trans": "Vous disposez de 6 points supplémentaires à répartir dans 6 domaines"
+        "trans": "You have 6 extra points to spread in 6 Domains"
     },
     {
         "source": "Rodeur",
-        "trans": "Rodeur"
+        "trans": "Ranger"
     },
     {
         "source": "Barbare",
-        "trans": "Barbare"
+        "trans": "Barbarian"
     },
     {
         "source": "Truc Perso 1",
@@ -2581,7 +2581,7 @@
     },
     {
         "source": "Morkaï",
-        "trans": "Morkaï"
+        "trans": "Morcail"
     },
     {
         "source": "Chasseur de Feondas",
@@ -2590,5 +2590,17 @@
     {
         "source": "Bretteur",
         "trans": "Bretteur"
+    },
+    {
+        "source": "Ange Noir",
+        "trans": "Ange Noir"
+    },
+    {
+        "source": "billybiy",
+        "trans": "billybiy"
+    },
+    {
+        "source": "Chasseur de prime",
+        "trans": "Bounty hunter"
     }
 ]

@@ -37,10 +37,10 @@
     },
     {
         "source": "Entrez une adresse email correcte",
-        "trans": "Entrez une adresse email correcte"
+        "trans": "Enter a valid email address"
     },
     {
         "source": "Entrez un mot de passe",
-        "trans": "Entrez un mot de passe"
+        "trans": "Enter a password"
     }
 ]
