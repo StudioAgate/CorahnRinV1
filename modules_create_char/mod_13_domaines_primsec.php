@@ -52,8 +52,8 @@
 		if ($job = $db->row('SELECT %job_name, %job_desc FROM %%jobs WHERE %job_id = ? LIMIT 0,1', array($job))) {
 		?>
 			<div id="jobdesc" class="info noicon">
-				<h4><?php tr("Métier prédéfini"); ?> : <?php echo $job['job_name']; ?></h4>
-				<?php tr("Rappel de la description"); ?> : <p><?php echo $job['job_desc']; ?></p>
+				<h4><?php tr("Métier prédéfini"); ?> : <?php tr($job['job_name']); ?></h4>
+				<?php tr("Rappel de la description"); ?> : <p><?php tr($job['job_desc']); ?></p>
 			</div>
 		<?php
 		} else {
