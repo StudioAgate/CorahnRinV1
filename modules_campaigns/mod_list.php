@@ -39,7 +39,7 @@ $games_player = $db->req('SELECT
 	</div>
 
 	<div class="content">
-		<h4>En tant que MJ</h4>
+		<h4><?php tr('En tant que MJ'); ?></h4>
 		<?php
 		if (!$games) {
 			echo '<p>', tr('Aucune partie', true), '</p>';
@@ -63,7 +63,7 @@ $games_player = $db->req('SELECT
 	</div>
 
 	<div class="content">
-		<h4>En tant que joueur</h4>
+		<h4><?php tr('En tant que joueur'); ?></h4>
 		<?php
 		if (!$games_player) {
 			echo '<p>', tr('Aucune partie', true), '</p>';

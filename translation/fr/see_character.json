@@ -22,5 +22,33 @@
     {
         "source": "Version originale \"Printer Friendly\"",
         "trans": "Version originale \"Printer Friendly\""
+    },
+    {
+        "source": "Voir la page %page%",
+        "trans": "Voir la page %page%"
+    },
+    {
+        "source": "Télécharger au format PDF",
+        "trans": "Télécharger au format PDF"
+    },
+    {
+        "source": "Nom",
+        "trans": "Nom"
+    },
+    {
+        "source": "Métier",
+        "trans": "Métier"
+    },
+    {
+        "source": "Peuple",
+        "trans": "Peuple"
+    },
+    {
+        "source": "Origine",
+        "trans": "Origine"
+    },
+    {
+        "source": "Tout télécharger au format ZIP",
+        "trans": "Tout télécharger au format ZIP"
     }
 ]

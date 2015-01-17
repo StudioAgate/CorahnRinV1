@@ -2,7 +2,7 @@
 $char_name = $character->get('details_personnage.name');
 $char_name = clean_word($char_name);
 
-$pdf_filename = CHAR_EXPORT.DS.$character->id().DS.$char_name.'-original'.($printer_friendly === true ? '-print' : '').'.pdf';
+$pdf_filename = CHAR_EXPORT.DS.$character->id().DS.$char_name.'-original'.($printer_friendly === true ? '-print' : '').'_'.P_LANG.'.pdf';
 // $pdf_destname = str_replace(ROOT, BASE_URL, $pdf_filename);
 // $pdf_destname = str_replace(array('\\', '/'), array('/', '/'), $pdf_destname);
 // $pdf_destname = str_replace('webroot'.DS, '', $pdf_destname);

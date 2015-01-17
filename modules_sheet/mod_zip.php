@@ -2,17 +2,17 @@
 
 $char_name = $character->get('details_personnage.name');
 $char_name = clean_word($char_name);
-$zip_dest_name = CHAR_EXPORT.DS.$char_id.DS.$char_name.'.zip';
+$zip_dest_name = CHAR_EXPORT.DS.$char_id.DS.$char_name.'_'.P_LANG.'.zip';
 
 $files_to_load = array(
-	CHAR_EXPORT.DS.$character->id().DS.$char_name.'_original1-print.jpg'	=> $char_name.'-original-page1-print.jpg',
-	CHAR_EXPORT.DS.$character->id().DS.$char_name.'_original2-print.jpg'	=> $char_name.'-original-page2-print.jpg',
-	CHAR_EXPORT.DS.$character->id().DS.$char_name.'_original3-print.jpg'	=> $char_name.'-original-page3-print.jpg',
-	CHAR_EXPORT.DS.$character->id().DS.$char_name.'_original1.jpg'			=> $char_name.'-original-page1.jpg',
-	CHAR_EXPORT.DS.$character->id().DS.$char_name.'_original2.jpg'			=> $char_name.'-original-page2.jpg',
-	CHAR_EXPORT.DS.$character->id().DS.$char_name.'_original3.jpg'			=> $char_name.'-original-page3.jpg',
-	CHAR_EXPORT.DS.$character->id().DS.$char_name.'-original.pdf'			=> $char_name.'-original.pdf',
-	CHAR_EXPORT.DS.$character->id().DS.$char_name.'-original-print.pdf'		=> $char_name.'-original-print.pdf',
+	CHAR_EXPORT.DS.$character->id().DS.$char_name.'_original1-print_'.P_LANG.'.jpg'	=> $char_name.'-original-page1-print_'.P_LANG.'.jpg',
+	CHAR_EXPORT.DS.$character->id().DS.$char_name.'_original2-print_'.P_LANG.'.jpg'	=> $char_name.'-original-page2-print_'.P_LANG.'.jpg',
+	CHAR_EXPORT.DS.$character->id().DS.$char_name.'_original3-print_'.P_LANG.'.jpg'	=> $char_name.'-original-page3-print_'.P_LANG.'.jpg',
+	CHAR_EXPORT.DS.$character->id().DS.$char_name.'_original1_'.P_LANG.'.jpg'			=> $char_name.'-original-page1_'.P_LANG.'.jpg',
+	CHAR_EXPORT.DS.$character->id().DS.$char_name.'_original2_'.P_LANG.'.jpg'			=> $char_name.'-original-page2_'.P_LANG.'.jpg',
+	CHAR_EXPORT.DS.$character->id().DS.$char_name.'_original3_'.P_LANG.'.jpg'			=> $char_name.'-original-page3_'.P_LANG.'.jpg',
+	CHAR_EXPORT.DS.$character->id().DS.$char_name.'-original_'.P_LANG.'.pdf'			=> $char_name.'-original_'.P_LANG.'.pdf',
+	CHAR_EXPORT.DS.$character->id().DS.$char_name.'-original-print_'.P_LANG.'.pdf'		=> $char_name.'-original-print_'.P_LANG.'.pdf',
 );
 
 $imgs = array();

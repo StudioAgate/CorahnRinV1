@@ -59,6 +59,7 @@ if ($char_id) {
 						'type'=>'tag',
 						'ext' => 'zip',
 						'anchor'=>'Tout télécharger au format ZIP',
+						'trans' => true,
 						'attr'=>array('class'=>'btn pageview btn-block'),
 						'params'=>array(
 							$char_id,
@@ -74,21 +75,21 @@ if ($char_id) {
 			<div class="span6 sheetlist">
 				<h4><?php tr('Version originale'); ?></h4>
 				<?php
-				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'jpg', 'anchor'=>'Voir la page 1', 'attr'=>'class="btn pageview"', 'params'=>array(0=>$char_id,'page'=>1, clean_word($char['char_name']))));
-				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'jpg', 'anchor'=>'Voir la page 2', 'attr'=>'class="btn pageview"', 'params'=>array(0=>$char_id,'page'=>2, clean_word($char['char_name']))));
-				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'jpg', 'anchor'=>'Voir la page 3', 'attr'=>'class="btn pageview"', 'params'=>array(0=>$char_id,'page'=>3, clean_word($char['char_name']))));
+				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'jpg', 'anchor'=>tr('Voir la page %page%', true, array('%page%' => 1)), 'attr'=>'class="btn pageview"', 'params'=>array(0=>$char_id,'page'=>1, clean_word($char['char_name']))));
+				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'jpg', 'anchor'=>tr('Voir la page %page%', true, array('%page%' => 2)), 'attr'=>'class="btn pageview"', 'params'=>array(0=>$char_id,'page'=>2, clean_word($char['char_name']))));
+				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'jpg', 'anchor'=>tr('Voir la page %page%', true, array('%page%' => 3)), 'attr'=>'class="btn pageview"', 'params'=>array(0=>$char_id,'page'=>3, clean_word($char['char_name']))));
 				echo '<br />';
-				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'pdf', 'anchor'=>'Télécharger au format PDF', 'attr'=>array('class'=>'btn pageview'), 'params'=>array($char_id,'pdf'=>true, clean_word($char['char_name']))));
+				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'pdf', 'anchor'=>'Télécharger au format PDF', 'trans' => true, 'attr'=>array('class'=>'btn pageview'), 'params'=>array($char_id,'pdf'=>true, clean_word($char['char_name']))));
 				?>
 			</div>
 			<div class="span6 sheetlist">
 				<h4><?php tr('Version originale "Printer Friendly"'); ?></h4>
 				<?php
-				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'jpg', 'anchor'=>'Voir la page 1', 'attr'=>'class="btn pageview"', 'params'=>array(0=>$char_id,'page'=>1,'print'=>true, clean_word($char['char_name']))));
-				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'jpg', 'anchor'=>'Voir la page 2', 'attr'=>'class="btn pageview"', 'params'=>array(0=>$char_id,'page'=>2,'print'=>true, clean_word($char['char_name']))));
-				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'jpg', 'anchor'=>'Voir la page 3', 'attr'=>'class="btn pageview"', 'params'=>array(0=>$char_id,'page'=>3,'print'=>true, clean_word($char['char_name']))));
+				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'jpg', 'anchor'=>tr('Voir la page %page%', true, array('%page%' => 1)), 'trans' => false, 'attr'=>'class="btn pageview"', 'params'=>array(0=>$char_id,'page'=>1,'print'=>true, clean_word($char['char_name']))));
+				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'jpg', 'anchor'=>tr('Voir la page %page%', true, array('%page%' => 1)), 'attr'=>'class="btn pageview"', 'params'=>array(0=>$char_id,'page'=>2,'print'=>true, clean_word($char['char_name']))));
+				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'jpg', 'anchor'=>tr('Voir la page %page%', true, array('%page%' => 1)), 'attr'=>'class="btn pageview"', 'params'=>array(0=>$char_id,'page'=>3,'print'=>true, clean_word($char['char_name']))));
 				echo '<br />';
-				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'pdf', 'anchor'=>'Télécharger au format PDF', 'attr'=>array('class'=>'btn pageview'), 'params'=>array($char_id,'pdf'=>true,'print'=>true, clean_word($char['char_name']))));
+				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'pdf', 'anchor'=>'Télécharger au format PDF', 'trans' => true, 'attr'=>array('class'=>'btn pageview'), 'params'=>array($char_id,'pdf'=>true,'print'=>true, clean_word($char['char_name']))));
 				?>
 			</div>
 		</div>
@@ -109,10 +110,10 @@ if ($char_id) {
 			$output = '
 				<li class="bl"><span class="btn btn-block btn-link listlinks">'
 					.mkurl(array('val'=>$_PAGE['id'], 'type'=> 'TAG', 'anchor'=>$tags_order['charname'].'#', 'attr' =>'class="ib charid"', 'params'=>array('orderby'=>'id', 'sort'=>$sort)))
-					.mkurl(array('val'=>$_PAGE['id'], 'type'=> 'TAG', 'anchor'=>$tags_order['charname'].'Nom', 'attr' =>'class="ib charname"', 'params'=>array('orderby'=>'name', 'sort'=>$sort)))
-					.mkurl(array('val'=>$_PAGE['id'], 'type'=> 'TAG', 'anchor' =>$tags_order['charjob'].'Métier', 'attr' =>'class="ib charjob"', 'params' =>array('orderby'=>'jobname', 'sort'=>$sort)))
-					.mkurl(array('val'=>$_PAGE['id'], 'type'=> 'TAG', 'anchor' =>$tags_order['charpeople'].'Peuple','attr'=>'class="ib charpeople"', 'params' =>array('orderby'=>'people', 'sort'=>$sort)))
-					.mkurl(array('val'=>$_PAGE['id'], 'type'=> 'TAG', 'anchor' =>$tags_order['charorigin'].'Origine','attr'=>'class="ib charorigin"', 'params' =>array('orderby'=>'origin', 'sort'=>$sort)))
+					.mkurl(array('val'=>$_PAGE['id'], 'type'=> 'TAG', 'anchor'=>$tags_order['charname'].tr('Nom',true), 'attr' =>'class="ib charname"', 'params'=>array('orderby'=>'name', 'sort'=>$sort)))
+					.mkurl(array('val'=>$_PAGE['id'], 'type'=> 'TAG', 'anchor' =>$tags_order['charjob'].tr('Métier',true), 'attr' =>'class="ib charjob"', 'params' =>array('orderby'=>'jobname', 'sort'=>$sort)))
+					.mkurl(array('val'=>$_PAGE['id'], 'type'=> 'TAG', 'anchor' =>$tags_order['charpeople'].tr('Peuple', true),'attr'=>'class="ib charpeople"', 'params' =>array('orderby'=>'people', 'sort'=>$sort)))
+					.mkurl(array('val'=>$_PAGE['id'], 'type'=> 'TAG', 'anchor' =>$tags_order['charorigin'].tr('Origine', true),'attr'=>'class="ib charorigin"', 'params' =>array('orderby'=>'origin', 'sort'=>$sort)))
 				.'</span></li>';
 			foreach ($characters as $c) {
 				if (strlen($c['char_name']) > 2) {

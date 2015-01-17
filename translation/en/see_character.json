@@ -22,5 +22,33 @@
     {
         "source": "Version originale \"Printer Friendly\"",
         "trans": "Original \"Printer friendly\" version"
+    },
+    {
+        "source": "Voir la page %page%",
+        "trans": "View page %page%"
+    },
+    {
+        "source": "Télécharger au format PDF",
+        "trans": "Download PDF format"
+    },
+    {
+        "source": "Nom",
+        "trans": "Name"
+    },
+    {
+        "source": "Métier",
+        "trans": "Profession"
+    },
+    {
+        "source": "Peuple",
+        "trans": "Ethnicity"
+    },
+    {
+        "source": "Origine",
+        "trans": "Origin"
+    },
+    {
+        "source": "Tout télécharger au format ZIP",
+        "trans": "Download all sheets in ZIP format"
     }
 ]

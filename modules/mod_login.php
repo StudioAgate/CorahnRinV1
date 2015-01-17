@@ -66,7 +66,10 @@ if (P_LOGGED === false) { ?>
 				</div>
 			</fieldset>
 		</form>
-		<div class="center"><p><?php tr("Vous n'êtes pas inscrit(e) ?"); ?></p><p><?php echo mkurl(array('val'=>56, 'type' => 'tag', 'anchor' => 'Créez un compte !', 'attr' => 'class="btn btn-link"')); ?></div>
+		<div class="center">
+			<p><?php tr("Vous n'êtes pas inscrit(e) ?"); ?></p>
+			<p><?php echo mkurl(array('val'=>56, 'type' => 'tag', 'anchor' => 'Créez un compte !', 'trans' => true, 'attr' => 'class="btn btn-link"')); ?></p>
+		</div>
 	</div>
 	<?php
 }

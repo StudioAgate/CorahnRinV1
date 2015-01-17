@@ -36,7 +36,7 @@ class EsterenChar {
 	/**
 	 * Cette fonction initialise l'instance de la classe pour créer un personnage à partir de ce que l'on passera en paramètre
 	 *
-	 * @param array $char Variable qui contient le personnage généré
+	 * @param array|int $char Variable qui contient le personnage généré
 	 * @param string $type Détermine si $char provient de la BDD. Si false, $char vient de la session
 	 */
 	function __construct($char = null, $type = 'db') {
@@ -1052,19 +1052,19 @@ class EsterenChar {
 
 		//*-----------------------------------
 		$pdf->AddPage('', array($general_width, $general_height));
-		$pdf->Image(WEBROOT.DS.'files'.DS.'sheets'.DS.'esteren1'.($printer_friendly === true ? '-pf' : '').'.jpg', 0, 0, $general_width, $general_height);
+		$pdf->Image(WEBROOT.DS.'files'.DS.'sheets'.DS.'esteren1'.($printer_friendly === true ? '-pf' : '').'_'.P_LANG.'.jpg', 0, 0, $general_width, $general_height);
 
 		$pdf->textbox($this->get('details_personnage.name'), 213, 280, $p['lettrine'], 25, 370);
 
 		$pdf->textbox($this->get('details_personnage.joueur'), 880, 280, $p['lettrine'], 21, 230);
 
-		$pdf->textline(substr($this->get('details_personnage.sexe'), 0, 1), 215, 322, $p['times'], 18);
+		$pdf->textline(substr(tr($this->get('details_personnage.sexe'), true), 0, 1), 215, 322, $p['times'], 18);
 		$pdf->textline(substr($this->get('age'), 0, 3), 343, 322, $p['caro'], 18);
 
-		$pdf->multiple_lines($this->get('details_personnage.description'), 295, 365, $p['carbold'], 17, 820, 1, 0);
+		$pdf->multiple_lines(tr($this->get('details_personnage.description'), true, null, 'characters.'.$this->id), 295, 365, $p['carbold'], 17, 820, 1, 0);
 
-		$pdf->textline(substr($this->get('peuple'), 0, 20), 530, 322, $p['lettrine'], 18);
-		$pdf->textline(substr($this->get('metier.name'), 0, 25), 895, 322, $p['lettrine'], 18);
+		$pdf->textline(substr(tr($this->get('peuple'), true, null, 'create_char'), 0, 20), 530, 322, $p['lettrine'], 18);
+		$pdf->textline(substr(tr($this->get('metier.name'), true, null, 'create_char'), 0, 25), 895, 322, $p['lettrine'], 18);
 
 		// voies
 		$pdf->textline($this->get('voies.1.val'), 325, 545, $p['carbold'], 28);
@@ -1095,12 +1095,12 @@ class EsterenChar {
 		$pdf->textline($this->get('voies.3.val'), 1065, 1502, $p['unz'], 22);
 
 		// Avantages et désavantages
-		$av = array(); foreach($this->get('avantages') as $v) { $av[] = $v['name'].($v['val']>1 ? '    x'.$v['val'] : ''); }
+		$av = array(); foreach($this->get('avantages') as $v) { $av[] = tr($v['name'], true, null, 'create_char').($v['val']>1 ? '    x'.$v['val'] : ''); }
 		if (isset($av[0])) { $pdf->textline(substr($av[0], 0, 25), 430, 500, $p['caro'], 18); }
 		if (isset($av[1])) { $pdf->textline(substr($av[1], 0, 25), 430, 540, $p['caro'], 18); }
 		if (isset($av[2])) { $pdf->textline(substr($av[2], 0, 25), 430, 580, $p['caro'], 18); }
 		if (isset($av[3])) { $pdf->textline(substr($av[3], 0, 25), 430, 620, $p['caro'], 18); }
-		$dv = array(); foreach($this->get('desavantages') as $v) { $dv[] = $v['name'].($v['val']>1 ? '    x'.$v['val'] : ''); }
+		$dv = array(); foreach($this->get('desavantages') as $v) { $dv[] = tr($v['name'], true, null, 'create_char').($v['val']>1 ? '    x'.$v['val'] : ''); }
 		if (isset($dv[0])) { $pdf->textline(substr($dv[0], 0, 25), 430, 685, $p['caro'], 18); }
 		if (isset($dv[1])) { $pdf->textline(substr($dv[1], 0, 25), 430, 725, $p['caro'], 18); }
 		if (isset($dv[2])) { $pdf->textline(substr($dv[2], 0, 25), 430, 765, $p['caro'], 18); }
@@ -1147,7 +1147,7 @@ class EsterenChar {
 			}
 			$l = 0;
 			foreach($val['disciplines'] as $v) {
-				$pdf->textline($v['name'], $x_arr[$j]+45, $y_arr[$j]+45+$l*22, $p['times'], 13);
+				$pdf->textline(tr($v['name'], true, null, 'create_char'), $x_arr[$j]+45, $y_arr[$j]+45+$l*22, $p['times'], 13);
 				$pdf->textline($v['val'], $x_arr[$j]+222, $y_arr[$j]+45+$l*22, $p['caro'], 17);
 				$l++;
 			}
@@ -1162,13 +1162,13 @@ class EsterenChar {
 
 		//*-----------------------------------
 		$pdf->AddPage('', array($general_width, $general_height));
-		$pdf->Image(WEBROOT.DS.'files'.DS.'sheets'.DS.'esteren2'.($printer_friendly === true ? '-pf' : '').'.jpg', 0, 0, $general_width, $general_height);
+		$pdf->Image(WEBROOT.DS.'files'.DS.'sheets'.DS.'esteren2'.($printer_friendly === true ? '-pf' : '').'_'.P_LANG.'.jpg', 0, 0, $general_width, $general_height);
 
 
 		$i = 0;
 		foreach($this->get('inventaire.armes') as $v) {
 			if ($i > 4) { break; }
-			$pdf->textline($v['name'], 123, 151+$i*43, $p['times'], 14);//Affichage de l'arme
+			$pdf->textline(tr($v['name'], true, null, 'create_char'), 123, 151+$i*43, $p['times'], 14);//Affichage de l'arme
 			$pdf->textline($v['degats'], 370, 157+$i*43-2, $p['caro'], 20);
 			$i++;
 		}
@@ -1226,7 +1226,7 @@ class EsterenChar {
 				if ($i > 3) { break; }
 				$v = str_replace("\r", '', $v);
 				$v = str_replace("\n", '', $v);
-				$str = $v['name'].' ('.$v['protection'].')';
+				$str = tr($v['name'], true, null, 'create_char').' ('.$v['protection'].')';
 				$pdf->textline($str, 750, 277+($i*31), $p['times'], 14);
 				$i++;
 			}
@@ -1236,7 +1236,7 @@ class EsterenChar {
 		if ($this->get('arts_combat')) {
 			$i = 0;
 			foreach ($this->get('arts_combat') as $v) {
-				$str = $v['name'];
+				$str = tr($v['name'], true, null, 'create_char');
 				$pdf->textline($str, 448, 1026+($i*44), $p['carbold'], 20);
 				$i++;
 			}
@@ -1306,7 +1306,7 @@ class EsterenChar {
 		/*---------TROISIÈME FICHE---------*/
 		/*---------------------------------*/
 		$pdf->AddPage('', array($general_width, $general_height));
-		$pdf->Image(WEBROOT.DS.'files'.DS.'sheets'.DS.'esteren3'.($printer_friendly === true ? '-pf' : '').'.jpg', 0, 0, $general_width, $general_height);
+		$pdf->Image(WEBROOT.DS.'files'.DS.'sheets'.DS.'esteren3'.($printer_friendly === true ? '-pf' : '').'_'.P_LANG.'.jpg', 0, 0, $general_width, $general_height);
 
 		$resist_mentale = $this->get('resistance_mentale.val') + $this->get('resistance_mentale.exp');
 		$pdf->textline($resist_mentale, 323, 528, $p['carbold'], 25);
@@ -1316,19 +1316,19 @@ class EsterenChar {
 		$pdf->textline($this->get('voies.4.val'), 1050, 1110, $p['carbold'], 28);
 		$pdf->textline($this->get('voies.5.val'), 1050, 1180, $p['carbold'], 28);
 
-		$story = $this->get('details_personnage.histoire');
+		$story = tr($this->get('details_personnage.histoire'), true, null, 'characters.'.$this->id);
 		$story = substr($story, 0, 1200);
 		$pdf->multiple_lines($story, 90, 173, $p['times'], 14, 1015, 6, 43);
 
-		$str = $this->get('region_naissance.royaume').' - '.$this->get('region_naissance.name').' - Milieu '.$this->get('residence_geographique');
+		$str = tr($this->get('region_naissance.royaume'), true, null, 'create_char').' - '.tr($this->get('region_naissance.name'), true, null, 'create_char').' - '.tr($this->get('residence_geographique'), true);
 		$pdf->textline($str, 557, 86, $p['caro'], 14);
 		unset($str);
 
-		$pdf->textline($this->get('classe_sociale'), 557, 114, $p['caro'], 14);
+		$pdf->textline(tr($this->get('classe_sociale'), true, null, 'create_char'), 557, 114, $p['caro'], 14);
 
 		if ($this->get('revers')) {
 			$rev = array();
-			foreach($this->get('revers') as $v) { $rev[] = $v['name']; }
+			foreach($this->get('revers') as $v) { $rev[] = tr($v['name'], true, null, 'create_char'); }
 			$rev = implode(' - ', $rev);
 			$pdf->textline($rev, 557, 142, $p['caro'], 14);
 		}
@@ -1368,21 +1368,21 @@ class EsterenChar {
 		//Orientation
 		$pdf->textline($this->get('orientation.conscience'), 271, 878, $p['carbold'], 21);
 		$pdf->textline($this->get('orientation.instinct'), 420, 878, $p['carbold'], 21);
-		$pdf->textline($this->get('orientation.name'), 645, 877, $p['carbold'], 18);
+		$pdf->textline(tr($this->get('orientation.name'), true, null, 'create_char'), 645, 877, $p['carbold'], 18);
 
 		//Désordre mental
 		$pdf->textline($this->get('desordre_mental.name'), 195, 674, $p['carbold'], 21);
 
 		//Qualité et défaut
-		$pdf->textline('Qualité : '.$this->get('traits_caractere.qualite.name'), 270, 940, $p['carbold'], 21);
-		$pdf->textline('Défaut : '.$this->get('traits_caractere.defaut.name'), 270, 982, $p['carbold'], 21);
+		$pdf->textline(tr('Qualité', true, null, 'create_char').' : '.tr($this->get('traits_caractere.qualite.name'), true, null, 'create_char'), 270, 940, $p['carbold'], 21);
+		$pdf->textline(tr('Défaut', true, null, 'create_char').' : '.tr($this->get('traits_caractere.defaut.name'), true, null, 'create_char'), 270, 982, $p['carbold'], 21);
 
 		//Expérience
-		$pdf->textline('Reste :  '.$this->get('experience.reste').'         Total :  '.$this->get('experience.total'), 679, 1325, $p['carbold'], 24);
+		$pdf->textline(tr('Reste', true).' :  '.$this->get('experience.reste').'         Total :  '.$this->get('experience.total'), 679, 1325, $p['carbold'], 24);
 
 
 		if ($this->get('details_personnage.faits')) {
-			$str = preg_replace('#\n|\r#isU', '', $this->get('details_personnage.faits'));
+			$str = preg_replace('#\n|\r#isU', '', tr($this->get('details_personnage.faits'), true, null, 'characters.'.$this->id));
 			$taille_du_texte = 14;
 			$police_du_texte = $p['times'];
 			$desc = array(0 => '');
@@ -1432,14 +1432,16 @@ class EsterenChar {
      * @return boolean True si réussi, False sinon
      */
 	private function _make_sheet_from_original($pages = null, $printer_friendly = false) {
+		Translate::$domain = 'character_sheet';
+
 		if ($pages === null) { $pages = array(1,2,3); }
 
 		$char_name_dest = clean_word($this->get('details_personnage.name'));
 
 		$ret_names = array(
-			CHAR_EXPORT.DS.$this->id.DS.$char_name_dest.'_original1'.($printer_friendly === true ? '-print' : '').'.jpg',
-			CHAR_EXPORT.DS.$this->id.DS.$char_name_dest.'_original2'.($printer_friendly === true ? '-print' : '').'.jpg',
-			CHAR_EXPORT.DS.$this->id.DS.$char_name_dest.'_original3'.($printer_friendly === true ? '-print' : '').'.jpg',
+			CHAR_EXPORT.DS.$this->id.DS.$char_name_dest.'_original1'.($printer_friendly === true ? '-print' : '').'_'.P_LANG.'.jpg',
+			CHAR_EXPORT.DS.$this->id.DS.$char_name_dest.'_original2'.($printer_friendly === true ? '-print' : '').'_'.P_LANG.'.jpg',
+			CHAR_EXPORT.DS.$this->id.DS.$char_name_dest.'_original3'.($printer_friendly === true ? '-print' : '').'_'.P_LANG.'.jpg',
 		);
 
 		$name = $this->id;
@@ -1468,7 +1470,7 @@ class EsterenChar {
 		/*---------PREMIÈRE FICHE---------*/
 		/*--------------------------------*/
 		if (in_array(1,$pages)) {
-			$fiche = ROOT.DS.'webroot'.DS.'files'.DS.'sheets'.DS.'esteren1'.($printer_friendly === true?'-pf':'').'.jpg';
+			$fiche = ROOT.DS.'webroot'.DS.'files'.DS.'sheets'.DS.'esteren1'.($printer_friendly === true?'-pf':'').'_'.P_LANG.'.jpg';
 			$img = imagecreatefromjpeg($fiche);
 
 			//Couleurs
@@ -1506,13 +1508,13 @@ class EsterenChar {
 			imagettftext($nimg, 21, 0, 880, 280, $grey, $lettrine, $player_name);
 			unset($taille_du_texte, $police_du_texte, $char_name, $arr, $player_name);
 
-			imagettftext($nimg, 18, 0, 215, 322, $grey, $times, substr($this->get('details_personnage.sexe'), 0, 1));
+			imagettftext($nimg, 18, 0, 215, 322, $grey, $times, substr(tr($this->get('details_personnage.sexe'), true), 0, 1));
 			imagettftext($nimg, 20, 0, 343, 322, $grey, $carolingia_bold, substr($this->get('age'), 0, 3));
 
 			$taille_du_texte = 17;
 			$police_du_texte = $carolingia;
 			$desc = "";
-			$arr = explode(' ', $this->get('details_personnage.description'), 100);
+			$arr = explode(' ', tr($this->get('details_personnage.description'), true, array(), 'characters.'.$this->id), 100);
 			foreach ( $arr as $word ){
 
 				$teststring = $desc.' '.$word;
@@ -1535,8 +1537,8 @@ class EsterenChar {
 			}
 			unset($i,$v,$desc,$arr,$word,$teststring,$testbox,$police_du_texte,$taille_du_texte);
 
-			imagettftext($nimg, 18, 0, 530, 322, $grey, $lettrine, substr($this->get('peuple'), 0, 20));
-			imagettftext($nimg, 18, 0, 895, 322, $grey, $lettrine, substr($this->get('metier.name'), 0, 25));
+			imagettftext($nimg, 18, 0, 530, 322, $grey, $lettrine, substr(tr($this->get('peuple'), true, null, 'create_char'), 0, 20));
+			imagettftext($nimg, 18, 0, 895, 322, $grey, $lettrine, substr(tr($this->get('metier.name'), true, null, 'create_char'), 0, 25));
 
 			// voies
 			imagettftext($nimg, 28, 0, 325, 545, $grey, $carolingia_bold, $this->get('voies.1.val'));
@@ -1567,12 +1569,12 @@ class EsterenChar {
 			imagettftext($nimg, 22, 0, 1065, 1502, $grey, $unzialish, $this->get('voies.3.val'));
 
 			// Avantages et désavantages
-			$av = array(); foreach(($this->get('avantages') ? $this->get('avantages') : array()) as $v) { $av[] = $v['name'].($v['val']>1 ? '    x'.$v['val'] : ''); }
+			$av = array(); foreach(($this->get('avantages') ? $this->get('avantages') : array()) as $v) { $av[] = tr($v['name'], true, null, 'create_char').($v['val']>1 ? '    x'.$v['val'] : ''); }
 			if (isset($av[0])) { imagettftext($nimg, 18, 0, 430, 500, $grey, $carolingia, substr($av[0], 0, 25)); }
 			if (isset($av[1])) { imagettftext($nimg, 18, 0, 430, 540, $grey, $carolingia, substr($av[1], 0, 25)); }
 			if (isset($av[2])) { imagettftext($nimg, 18, 0, 430, 580, $grey, $carolingia, substr($av[2], 0, 25)); }
 			if (isset($av[3])) { imagettftext($nimg, 18, 0, 430, 620, $grey, $carolingia, substr($av[3], 0, 25)); }
-			$dv = array(); foreach(($this->get('desavantages') ? $this->get('desavantages') : array()) as $v) { $dv[] = $v['name'].($v['val']>1 ? '    x'.$v['val'] : ''); }
+			$dv = array(); foreach(($this->get('desavantages') ? $this->get('desavantages') : array()) as $v) { $dv[] = tr($v['name'], true, null, 'create_char').($v['val']>1 ? '    x'.$v['val'] : ''); }
 			if (isset($dv[0])) { imagettftext($nimg, 18, 0, 430, 685, $grey, $carolingia, substr($dv[0], 0, 25)); }
 			if (isset($dv[1])) { imagettftext($nimg, 18, 0, 430, 725, $grey, $carolingia, substr($dv[1], 0, 25)); }
 			if (isset($dv[2])) { imagettftext($nimg, 18, 0, 430, 765, $grey, $carolingia, substr($dv[2], 0, 25)); }
@@ -1615,7 +1617,7 @@ class EsterenChar {
 					}
 					$l = 0;
 					foreach($val['disciplines'] as $v) {
-						imagettftext($nimg, 13, 0, $x_arr[$j]+45, $y_arr[$j]+45+$l*22, $darkgrey, $times, $v['name']);
+						imagettftext($nimg, 13, 0, $x_arr[$j]+45, $y_arr[$j]+45+$l*22, $darkgrey, $times, tr($v['name'], true, null, 'create_char'));
 						imagettftext($nimg, 17, 0, $x_arr[$j]+222, $y_arr[$j]+45+$l*22, $darkgrey, $carolingia, $v['val']);
 						$l++;
 					}
@@ -1634,7 +1636,7 @@ class EsterenChar {
 		/*--------------------------------*/
 		if (in_array(2,$pages)) {
 
-			$fiche = ROOT.DS.'webroot'.DS.'files'.DS.'sheets'.DS.'esteren2'.($printer_friendly === true?'-pf':'').'.jpg';
+			$fiche = ROOT.DS.'webroot'.DS.'files'.DS.'sheets'.DS.'esteren2'.($printer_friendly === true?'-pf':'').'_'.P_LANG.'.jpg';
 			$img = imagecreatefromjpeg($fiche);
 
 			//Couleurs
@@ -1650,7 +1652,7 @@ class EsterenChar {
 			foreach((array) $this->get('inventaire.armes') as $v) {
 				if (!is_array($v) && isset($v['name']) && isset($v['degats'])) {
 					if ($i > 4) { break; }
-					imagettftext($nimg, 14, 0, 123, 151+$i*43, $grey, $times, $v['name']);//Affichage de l'arme
+					imagettftext($nimg, 14, 0, 123, 151+$i*43, $grey, $times, tr($v['name'], true, null, 'create_char'));//Affichage de l'arme
 					imagettftext($nimg, 20, 0, 370, 157+$i*43-2, $grey, $carolingia, $v['degats']);
 					$i++;
 				}
@@ -1698,7 +1700,7 @@ class EsterenChar {
 					if ($i > 3) { break; }
 					$v = str_replace("\r", '', $v);
 					$v = str_replace("\n", '', $v);
-					$str = $v['name'].' ('.$v['protection'].')';
+					$str = tr($v['name'], true, null, 'create_char').' ('.$v['protection'].')';
 					imagettftext($nimg, 14, 0, 750, 277+($i*31), $grey, $times, $str);
 					$i++;
 				}
@@ -1707,7 +1709,7 @@ class EsterenChar {
 			if ($this->get('arts_combat')) {
 				$i = 0;
 				foreach ($this->get('arts_combat') as $v) {
-					$str = $v['name'];
+					$str = tr($v['name'], true, null, 'create_char');
 					imagettftext($nimg, 20, 0, 448, 1026+($i*44), ($printer_friendly === true ? $darkgrey : $brown), $carolingia_bold, $str);
 					$i++;
 				}
@@ -1878,7 +1880,7 @@ class EsterenChar {
 		/*---------TROISIÈME FICHE---------*/
 		/*---------------------------------*/
 		if (in_array(3,$pages)) {
-			$fiche = ROOT.DS.'webroot'.DS.'files'.DS.'sheets'.DS.'esteren3'.($printer_friendly === true?'-pf':'').'.jpg';
+			$fiche = ROOT.DS.'webroot'.DS.'files'.DS.'sheets'.DS.'esteren3'.($printer_friendly === true?'-pf':'').'_'.P_LANG.'.jpg';
 			$img = imagecreatefromjpeg($fiche);
 
 			//Couleurs
@@ -1904,7 +1906,7 @@ class EsterenChar {
 				$taille_du_texte = 14;
 				$police_du_texte = $times;
 				$story = "";
-				$arr = explode(' ', $this->get('details_personnage.histoire'), 250);
+				$arr = explode(' ', tr($this->get('details_personnage.histoire'), true, array(), 'characters.'.$this->id), 250);
 				foreach ( $arr as $word ){
 
 					$teststring = $story.' '.$word;
@@ -1928,13 +1930,13 @@ class EsterenChar {
 				}
 			}
 
-			imagettftext($nimg, 14, 0, 557, 86, $grey, $carolingia, $this->get('region_naissance.royaume').' - '.$this->get('region_naissance.name').' - Milieu '.$this->get('residence_geographique'));
+			imagettftext($nimg, 14, 0, 557, 86, $grey, $carolingia, tr($this->get('region_naissance.royaume'), true, null, 'create_char').' - '.tr($this->get('region_naissance.name'), true, null, 'create_char').' - '.tr($this->get('residence_geographique'), true));
 
-			imagettftext($nimg, 14, 0, 557, 114, $grey, $carolingia, $this->get('classe_sociale'));
+			imagettftext($nimg, 14, 0, 557, 114, $grey, $carolingia, tr($this->get('classe_sociale'), true, null, 'create_char'));
 
 			$rev = array();
 			if ($this->get('revers')) {
-				foreach($this->get('revers') as $v) { $rev[] = $v['name']; }
+				foreach($this->get('revers') as $v) { $rev[] = tr($v['name'], true, null, 'create_char'); }
 				$rev = implode(' - ', $rev);
 				imagettftext($nimg, 14, 0, 557, 142, $grey, $carolingia, $rev);
 			}
@@ -1964,22 +1966,22 @@ class EsterenChar {
 			//Orientation
 			imagettftext($nimg, 21, 0, 271, 878, $grey, $carolingia_bold, $this->get('orientation.conscience'));
 			imagettftext($nimg, 21, 0, 420, 878, $grey, $carolingia_bold, $this->get('orientation.instinct'));
-			imagettftext($nimg, 18, 0, 645, 877, $grey, $carolingia_bold, $this->get('orientation.name'));
+			imagettftext($nimg, 18, 0, 645, 877, $grey, $carolingia_bold, tr($this->get('orientation.name'), true, null, 'create_char'));
 
 			//Désordre mental
 			imagettftext($nimg, 21, 0, 195, 674, $grey, $carolingia_bold, $this->get('desordre_mental.name'));
 
 			//Qualité et défaut
-			imagettftext($nimg, 21, 0, 270, 940, $grey, $carolingia_bold, 'Qualité : '.$this->get('traits_caractere.qualite.name'));
-			imagettftext($nimg, 21, 0, 270, 982, $grey, $carolingia_bold, 'Défaut : '.$this->get('traits_caractere.defaut.name'));
+			imagettftext($nimg, 21, 0, 270, 940, $grey, $carolingia_bold, tr('Qualité', true, null, 'create_char').' : '.tr($this->get('traits_caractere.qualite.name'), true, null, 'create_char'));
+			imagettftext($nimg, 21, 0, 270, 982, $grey, $carolingia_bold, tr('Défaut', true, null, 'create_char').' : '.tr($this->get('traits_caractere.defaut.name'), true, null, 'create_char'));
 
 			//Expérience
 			imagettftext($nimg, 24, 0, 679, 1325, ($printer_friendly === true ? $grey : $brown), $carolingia_bold,
-			'Reste :  '.$this->get('experience.reste').'         Total :  '.$this->get('experience.total'));
+			tr('Reste', true).' :  '.$this->get('experience.reste').'         Total :  '.$this->get('experience.total'));
 
 			//Faits marquants
 			if ($this->get('details_personnage.faits')) {
-				$this->set('details_personnage.faits', preg_replace('#\n|\r#isU', '', $this->get('details_personnage.faits')));
+				$this->set('details_personnage.faits', preg_replace('#\n|\r#isU', '', tr($this->get('details_personnage.faits'), true, null, 'characters.'.$this->id)));
 				$taille_du_texte = 14;
 				$police_du_texte = $times;
 				$desc = array(0 => '');
@@ -2046,6 +2048,7 @@ class EsterenChar {
 			}
 		}//Fin fiche 3
 
+		Translate::$domain = null;
 		return $ret;
 	}
 }

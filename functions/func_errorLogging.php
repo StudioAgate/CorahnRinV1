@@ -91,6 +91,7 @@ function error_logging($errno, $errstr, $errfile, $errline) {
 		$msg = $humanType[$errno].' - <span class="underline">'.date(DATE_RFC822).'</span>';
 		if (Users::$acl <= 20) { $msg .= '<br />Message : <small>'.$errstr.'</small>'; }
 		$msg .= '<br /><br />'.tr('Veuillez envoyer ce message à l\'administrateur du site', true);
+		send_mail('pierstoval+esterenErrors@gmail.com', 'Error !', $msg, 0, 'no-reply@pierstoval.com');
 		echo '<div class="thrown_error '.$errclass.'">'.$msg.'</div>';
 		if ($errno & (E_ERROR | E_CORE_ERROR | E_COMPILE_ERROR | E_USER_ERROR)) {
 			exit;

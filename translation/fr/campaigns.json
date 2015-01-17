@@ -274,5 +274,13 @@
     {
         "source": "Métier personnalisé",
         "trans": "Métier personnalisé"
+    },
+    {
+        "source": "En tant que MJ",
+        "trans": "En tant que MJ"
+    },
+    {
+        "source": "En tant que joueur",
+        "trans": "En tant que joueur"
     }
 ]

@@ -274,5 +274,13 @@
     {
         "source": "Métier personnalisé",
         "trans": "Custom job"
+    },
+    {
+        "source": "En tant que MJ",
+        "trans": "As Game Leader"
+    },
+    {
+        "source": "En tant que joueur",
+        "trans": "As player"
     }
 ]

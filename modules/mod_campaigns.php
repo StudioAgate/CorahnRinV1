@@ -20,7 +20,7 @@ CSSFILE
 );
 
 buffWrite('js', <<<JSFILE
-$(document).ready(function(){
+\$(document).ready(function(){
 	$('.select_char').click(function(){
 		$(this).toggleClass('btn-inverse').next('input[name="'+$(this).attr('data-valid')+'"]').val($(this).is('.btn-inverse') ? '1' : '0');
 	});

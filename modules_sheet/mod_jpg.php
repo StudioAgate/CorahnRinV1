@@ -1,7 +1,7 @@
 <?php
 $char_name_dest = clean_word($character->get('details_personnage.name'));
 
-$filename = CHAR_EXPORT.DS.$character->id().DS.$char_name_dest.'_original'.$sheet_page.($printer_friendly === true ? '-print' : '').'.jpg';
+$filename = CHAR_EXPORT.DS.$character->id().DS.$char_name_dest.'_original'.$sheet_page.($printer_friendly === true ? '-print' : '').'_'.P_LANG.'.jpg';
 if (!FileAndDir::fexists($filename)) {
 	$img = $character->export_to_img($sheet_style, $printer_friendly, array($sheet_page));
 	$img = (string) @$img[0];
