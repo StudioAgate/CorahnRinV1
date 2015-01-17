@@ -34,7 +34,7 @@ $games_player = $db->req('SELECT
 	<div class="content">
 		<p><?php
 			tr('Aucune campagne ? Créez la votre !');
-			echo '&nbsp;', mkurl(array('val'=>61, 'type' => 'tag', 'anchor' => null, 'attr' => 'class="btn"'));
+			echo '&nbsp;', mkurl(array('val'=>61, 'type' => 'tag', 'trans' => true, 'attr' => 'class="btn"'));
 		?></p>
 	</div>
 
