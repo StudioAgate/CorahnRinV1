@@ -61,8 +61,8 @@ if (preg_match('#\?#isUu', $get_parameters)) {
 	$t = array();
 	foreach($get_parameters as $k => $v) {
 		$v = explode('=', $v);
-		$t[$v[0]] = @$v[1];
-		$_GET[$v[0]] = @$v[1];
+		$t[$v[0]] = isset($v[1]) ? $v[1] : null;
+		$_GET[$v[0]] = isset($v[1]) ? $v[1] : null;
 	}
 	$get_parameters = $t;
 } else {
