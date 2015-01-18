@@ -1473,7 +1473,7 @@
     },
     {
         "source": "Si vous avez choisi l'avantage \"Allié Mentor\", alors choisir une discipline dans votre domaine de prédilection ne vous coûtera que 20XP, mais toujours 1 point bonus.",
-        "trans": "If you have chosen the \"Mentor Ally\", Advantage, choosing a Discipline in the chosen Domain will only cost 20XP, but still 1 bonus point."
+        "trans": "If you have chosen the \"Mentor Ally\", Advantage, when choosing a Discipline in the chosen domain will cost only 20XP instead of 25XP, but still 1 bonus point."
     },
     {
         "source": "Attention ! À ce stade, les <strong>points bonus non dépensés</strong> sont <strong>perdus</strong> !",
