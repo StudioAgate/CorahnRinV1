@@ -31,7 +31,7 @@
 		<div class="row">
 			<div class="span">
 				<p><?php
-					if (@$voies) {
+					if (isset($voies) && $voies) {
 						?>
 							<span class="btn <?php echo $attr_rati; ?>" data-stepid="Rationnelle"><?php tr("Orientation rationnelle"); ?></span>
 							<span class="btn <?php echo $attr_inst; ?>" data-stepid="Instinctive"><?php tr("Orientation instinctive"); ?></span>
