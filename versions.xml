@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+    <version date="20150224" code="1.29">
+        <tasks>
+            <task type="general">
+                <element name="">Sécurité</element>
+                <comment>Optimisé la gestion de la requête, de la locale, de la page d'accueil et de la page 404.</comment>
+            </task>
+        </tasks>
+    </version>
     <version date="20141101" code="1.281">
         <tasks>
             <task type="general">
