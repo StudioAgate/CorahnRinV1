@@ -1,7 +1,7 @@
 <?php
 /**
  * Ce fichier est la passerelle appelée par toutes les urls.
- * Les .htaccess de la racine et de webroot/ se chargent d'envoyer la requête dans $_GET['request']
+ * Les .htaccess de la racine et de webroot/ se chargent d'envoyer la requête
  * Le fichier racine index.php se charge de charger le site.
  */
 
@@ -11,7 +11,7 @@ $time = microtime(true);
 date_default_timezone_set('Europe/Paris');
 
 try {
-require '../index.php';
+    require '../app.php';
 } catch (\Exception $e) {
     echo 'Exception !<br />',$e->getMessage();
 }

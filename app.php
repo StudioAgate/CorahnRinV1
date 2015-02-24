@@ -110,7 +110,7 @@ require ROOT.DS.'config.php';
 ## Initialisation de l'utilisateur
 Users::init((int) Session::read('user'));
 define('P_LOGGED',	(Users::$id > 0 ? true : false));
-define('P_DEBUG',	(Users::$id == 1 ? true : false));
+define('P_DEBUG', true);//	(Users::$id == 1 ? true : false));
 
 ## On va créer la requête dans la variable $_PAGE
 require ROOT.DS.'request.php';
@@ -127,7 +127,7 @@ ob_start();
 	if (file_exists(ROOT.DS.'modules'.DS.'mod_' . $_PAGE['get'] . '.php')) {//S'il existe on le charge
 		load_module($_PAGE['get'], 'page');
 	} else {
-		goto_404();
+		load_module('404', 'page');
 	}
 $_PAGE['content_for_layout'] = ob_get_clean();
 ## Fin de récupération du module
@@ -163,20 +163,22 @@ if (strpos($_LAYOUT, '{PAGE_TIME}') !== false) {
         FileAndDir::createPath(dirname($logfile));
         touch($logfile);
     }
-    $f = fopen($logfile, 'a');##On stocke le temps d'exécution dans le fichier log
-    $final = "*|*|*Date=>".json_encode(date(DATE_RFC822))
-        .'||Ip=>'.json_encode($_SERVER['REMOTE_ADDR'])
-    // 	.'||Referer=>'.json_encode(@$_SERVER['HTTP_REFERER'])
-        .'||Page.get=>'.json_encode($_PAGE['get'])
-        .'||Page.request=>'.json_encode((array)@$_PAGE['request'])
-        .'||GET=>'.json_encode((array)$_GET)
-        .'||User.id=>'.json_encode(Users::$id)
-        .'||Exectime=>'.json_encode($time);
-    $final = preg_replace('#\n|\r|\t#isU', '', $final);
-    $final = preg_replace('#\s\s+#isUu', ' ', $final);
-    fwrite($f, $final);
-    fclose($f);
-    unset($f, $final);
+    if (!isset($_PAGE['dont_log'])) {
+        $f = fopen($logfile, 'a');##On stocke le temps d'exécution dans le fichier log
+        $final = "*|*|*Date=>".json_encode(date(DATE_RFC822))
+            .'||Ip=>'.json_encode($_SERVER['REMOTE_ADDR'])
+         	.'||Referer=>'.json_encode(isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '')
+            .'||Page.get=>'.json_encode($_PAGE['get'])
+            .'||Page.request=>'.json_encode((array)@$_PAGE['request'])
+            .'||GET=>'.json_encode((array)$_GET)
+            .'||User.id=>'.json_encode(Users::$id)
+            .'||Exectime=>'.json_encode($time);
+        $final = preg_replace('#\n|\r|\t#isU', '', $final);
+        $final = preg_replace('#\s\s+#isUu', ' ', $final);
+        fwrite($f, $final);
+        fclose($f);
+        unset($f, $final);
+    }
 }
 
 if (is_string($_LAYOUT) && !empty($_LAYOUT)) { echo $_LAYOUT; }##On affiche finalement la page

@@ -88,11 +88,22 @@ function error_logging($errno, $errstr, $errfile, $errline) {
 			$errclass = 'notif';
 		}
 		if (preg_match('#127\.0\.0\.1#', $_SERVER['HTTP_HOST']) || (defined('P_DEBUG') && P_DEBUG === true)) { $errstr .= ' in file : <strong>'.$errfile.'</strong> on line <strong><span class="underline">'.$errline.'</span></strong>'; }
-		$msg = $humanType[$errno].' - <span class="underline">'.date(DATE_RFC822).'</span>';
-		if (Users::$acl <= 20) { $msg .= '<br />Message : <small>'.$errstr.'</small>'; }
-		$msg .= '<br /><br />'.tr('Veuillez envoyer ce message à l\'administrateur du site', true);
-		send_mail('pierstoval+esterenErrors@gmail.com', 'Error !', $msg, 0, 'no-reply@pierstoval.com');
-		echo '<div class="thrown_error '.$errclass.'">'.$msg.'</div>';
+
+        $msgEcho = $humanType[$errno].' - <span class="underline">'.date(DATE_RFC822).'</span>';
+        $trace = '<br />Message : <small>'.$errstr.'</small>';
+        $msgMail = $msgEcho.$trace;
+		if (Users::$acl <= 20) {
+            $ref = new ReflectionClass('Users');
+            $user = $ref->getStaticProperties();
+            $p = $_PAGE;
+            unset($p['list']);
+            $msgEcho .= $trace."<br />\n".print_r(array('_PAGE' => $p, '_SERVER' => $_SERVER, 'User' => $user));
+        }
+        $msgEcho .= '<br /><br />'.tr('Veuillez envoyer ce message à l\'administrateur du site', true);
+        try {
+		    send_mail('pierstoval+esterenErrors@gmail.com', 'Error !', $msgMail, 0, 'no-reply@pierstoval.com');
+        } catch (Exception $e) {}
+		echo '<div class="thrown_error '.$errclass.'">'.$msgEcho.'</div>';
 		if ($errno & (E_ERROR | E_CORE_ERROR | E_COMPILE_ERROR | E_USER_ERROR)) {
 			exit;
 		}

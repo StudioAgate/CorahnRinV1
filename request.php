@@ -4,16 +4,20 @@
 // $_POST = get_post_datas();
 
 ## Définition de la constante BASE_URL. Source : http://www.koezion-cms.com/
-$baseUrl = '';
-$scriptPath = preg_split("#[\\\\/]#", dirname(__FILE__), -1, PREG_SPLIT_NO_EMPTY);
-$urlPath = preg_split("#[\\\\/]#", $_SERVER['REQUEST_URI'], -1, PREG_SPLIT_NO_EMPTY);
-foreach($urlPath as $k => $v) {
-	$key = array_search($v, $scriptPath);
-	if($key !== false) {
-		$baseUrl .= "/".$v;
-	} else {
-		break;
-	}
+if (isset($_SERVER['BASE'])) {
+    $baseUrl = $_SERVER['BASE'];
+} else {
+    $baseUrl = '';
+    $scriptPath = preg_split("#[\\\\/]#", dirname(__FILE__), -1, PREG_SPLIT_NO_EMPTY);
+    $urlPath = preg_split("#[\\\\/]#", $_SERVER['REQUEST_URI'], -1, PREG_SPLIT_NO_EMPTY);
+    foreach($urlPath as $k => $v) {
+        $key = array_search($v, $scriptPath);
+        if($key !== false) {
+            $baseUrl .= "/".$v;
+        } else {
+            break;
+        }
+    }
 }
 define('BASE_URL', 'http://'.P_BASE_HOST.$baseUrl);//url absolue du site
 unset($baseUrl, $scriptPath, $urlPath, $k, $v, $key);
@@ -21,22 +25,33 @@ unset($baseUrl, $scriptPath, $urlPath, $k, $v, $key);
 /**
  * On crée la variable $_PAGE['request'] pour obtenir les paramètres découpés par les '/'
  */
-$request = isset($_GET['request']) ? $_GET['request'] : '';
+$request = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
+if (isset($_SERVER['BASE'])) {
+    $request = str_replace($_SERVER['BASE'], '', $request);
+}
 $ext = pathinfo($request);
 $ext = isset($ext['extension']) ? strtolower($ext['extension']) : '';//On génère l'extension de l'url
 $request = preg_replace('#\.([a-zA-Z0-9]{1,6})$#isUu', '', $request);
 
 if ($request) {
-	$request = explode('/', $request);
+	$request = preg_split('~/~', $request, null, PREG_SPLIT_NO_EMPTY);
+	$lang = array_shift($request);
 	$getmod = array_shift($request);
 } else {
 	$request = array();
-	$getmod = '';
+    $lang = null;
+	$getmod = null;
 }
-if ($getmod !== 'fr' && $getmod !== 'en') {
-    header('Location: '.BASE_URL.'/fr/'.(isset($_GET['request']) ? $_GET['request'] : ''));
+
+if ($lang !== 'fr' && $lang !== 'en') {
+    $url = BASE_URL.'/fr/'.$getmod;
+    if ($getmod && count($request)) {
+        $url .= '/'.implode('/', $request);
+    }
+    header('Location: '.$url);
     exit;
 }
+
 $t = array();
 if ($ext === $getmod) { $ext = ''; }
 foreach($request as $v) {
@@ -76,10 +91,9 @@ unset($_GET['request'], $t, $get_parameters);
 
 
 // Gestion de la traduction insérée en page
-if ($getmod === 'fr' || $getmod === 'en') {
+if ($lang === 'fr' || $lang === 'en') {
     ## La langue est désormais définie ici pour la compatibilité avec le nouveau système de langue
-    define('P_LANG', $getmod);
-    $getmod = array_shift($_PAGE['request']);
+    define('P_LANG', $lang);
 } else {
     header('Location: '.BASE_URL.'/fr/404.html');
     exit;
@@ -93,12 +107,13 @@ if ($getmod === 'fr' || $getmod === 'en') {
  * comme le gestionnaire d'urls (mkurl) ou le chargement de modules (load_module)
  */
 $_PAGE['get'] = is_string($getmod) && $getmod ? $getmod : 'index';
-$_PAGE['id'] = is_numeric($getmod) && $getmod ? $getmod : 1;
+$_PAGE['id'] = null;
 $_PAGE['extension'] = $ext;
 $_PAGE['style'] = 'corahn_rin';//id CSS de la balise body
 $_PAGE['anchor'] = '';
 $_PAGE['list'] = array();
 $result = $db->req('SELECT * FROM %%pages ORDER BY %page_anchor ASC');
+
 if ($result) {
 	foreach ($result as $data) {
 		$_PAGE['list'][$data['page_id']] = $data;
@@ -125,8 +140,34 @@ if ($result) {
 }
 unset($result, $data);
 
+if (!$_PAGE['id'] || !isset($_PAGE['list'][$_PAGE['id']])) {
+    $page = null;
+    foreach ($_PAGE['list'] as $id => $data) {
+        if (((string) $data['page_getmod']) === '404') {
+            $page = $data;
+            break;
+        }
+    }
+    if (!$page) {
+        header('HTTP/1.0 404 Not Found');
+        header('Status: 404 Not Found');
+        echo 'Not found.';
+        exit;
+    }
+    $_PAGE['id'] = (int) $page['page_id'];
+    $_PAGE['anchor'] = $page['page_anchor'];
+    $_PAGE['acl'] = (int) $page['page_acl'];
+    $_PAGE['extension'] = 'html';
+}
+
 if (!$_PAGE['extension'] && $_PAGE['get'] !== 'index') {
-	redirect(array('val'=>$_PAGE['id'], 'ext' => 'html'));
+    $url = BASE_URL.'/fr/'.$_PAGE['get'];
+    if (count($_PAGE['request'])) {
+        $url .= '/'.implode('/', $_PAGE['request']);
+    }
+    $url .= '.html';
+    header('Location: '.$url);
+    exit;
 }
 
 ## Si le module chargé est "index" alors on redirige vers une page d'accueil possédant une url "saine"
