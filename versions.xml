@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+    <version date="20150412" code="1.30">
+        <tasks>
+            <task type="page">
+                <element name="pages/mod_sheet.php" id="49"></element>
+                <comment>Corrigé la feuille PDF sur laquelle la description ne s'affichait pas.</comment>
+            </task>
+        </tasks>
+    </version>
     <version date="20150224" code="1.29">
         <tasks>
             <task type="general">

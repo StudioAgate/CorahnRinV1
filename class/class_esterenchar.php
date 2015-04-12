@@ -1061,7 +1061,9 @@ class EsterenChar {
 		$pdf->textline(substr(tr($this->get('details_personnage.sexe'), true), 0, 1), 215, 322, $p['times'], 18);
 		$pdf->textline(substr($this->get('age'), 0, 3), 343, 322, $p['caro'], 18);
 
-		$pdf->multiple_lines(tr($this->get('details_personnage.description'), true, null, 'characters.'.$this->id), 295, 365, $p['carbold'], 17, 820, 1, 0);
+        $description = tr($this->get('details_personnage.description'), true, null, 'characters.'.$this->id);
+        $description = str_replace("\n", '', $description);
+		$pdf->textline($description, 295, 365, $p['carbold'], 17);
 
 		$pdf->textline(substr(tr($this->get('peuple'), true, null, 'create_char'), 0, 20), 530, 322, $p['lettrine'], 18);
 		$pdf->textline(substr(tr($this->get('metier.name'), true, null, 'create_char'), 0, 25), 895, 322, $p['lettrine'], 18);
