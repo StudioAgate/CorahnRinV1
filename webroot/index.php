@@ -13,5 +13,9 @@ date_default_timezone_set('Europe/Paris');
 try {
     require '../app.php';
 } catch (\Exception $e) {
-    echo 'Exception !<br />',$e->getMessage();
+    echo 'Exception !<br />';
+    do {
+        echo " > ".$e->getMessage().'<br />';
+        $e = $e->getPrevious();
+    } while ($e);
 }
