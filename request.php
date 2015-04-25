@@ -29,6 +29,7 @@ $request = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
 if (isset($_SERVER['BASE'])) {
     $request = str_replace($_SERVER['BASE'], '', $request);
 }
+$request = preg_replace('#\?.*$#isUu', '', $request);
 $ext = pathinfo($request);
 $ext = isset($ext['extension']) ? strtolower($ext['extension']) : '';//On génère l'extension de l'url
 $request = preg_replace('#\.([a-zA-Z0-9]{1,6})$#isUu', '', $request);
@@ -87,6 +88,11 @@ if (preg_match('#\?#isUu', $get_parameters)) {
 $_PAGE['request'] = $request;
 unset($request);
 $_GET = array_map('urldecode', $get_parameters);
+foreach ($_GET as $key => $param) {
+    if (!$key) {
+        unset($_GET[$key]);
+    }
+}
 unset($_GET['request'], $t, $get_parameters);
 
 
