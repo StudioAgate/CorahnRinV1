@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
-    <version date="20150425" code="1.31">
+    <version date="20150425" code="1.31.0">
         <tasks>
             <task type="page">
                 <element name="pages/mod_login.php" id="48"></element>
@@ -8,7 +8,7 @@
             </task>
         </tasks>
     </version>
-    <version date="20150412" code="1.30">
+    <version date="20150412" code="1.30.0">
         <tasks>
             <task type="page">
                 <element name="pages/mod_sheet.php" id="49"></element>
@@ -16,7 +16,7 @@
             </task>
         </tasks>
     </version>
-    <version date="20150224" code="1.29">
+    <version date="20150224" code="1.29.0">
         <tasks>
             <task type="general">
                 <element name="">Sécurité</element>
@@ -24,7 +24,7 @@
             </task>
         </tasks>
     </version>
-    <version date="20141101" code="1.281">
+    <version date="20141101" code="1.28.1">
         <tasks>
             <task type="general">
                 <element name="">Sécurité</element>
@@ -32,7 +32,7 @@
             </task>
         </tasks>
     </version>
-    <version date="20140828" code="1.28">
+    <version date="20140828" code="1.28.0">
         <tasks>
             <task type="page">
                 <element name="pages/mod_create_char.php" id="62"></element>
@@ -42,7 +42,7 @@
             </task>
         </tasks>
     </version>
-    <version date="20140625" code="1.27">
+    <version date="20140625" code="1.27.0">
         <tasks>
             <task type="general">
                 <element name="">Sécurité</element>
@@ -50,7 +50,7 @@
             </task>
         </tasks>
     </version>
-    <version date="20140602" code="1.262">
+    <version date="20140602" code="1.26.2">
         <tasks>
             <task type="general">
                 <element name="">Traduction</element>
@@ -60,7 +60,7 @@
             </task>
         </tasks>
     </version>
-    <version date="20140601" code="1.261">
+    <version date="20140601" code="1.26.1">
         <tasks>
             <task type="js">
                 <element name="">Variable "base_url" utilisée dans les fichiers JS</element>
@@ -72,7 +72,7 @@
             </task>
         </tasks>
     </version>
-    <version date="20140527" code="1.26">
+    <version date="20140527" code="1.26.0">
         <tasks>
             <task type="general">
                 <element name="pages/mod_campaigns.php" id="60"></element>
@@ -86,7 +86,7 @@
             </task>
         </tasks>
     </version>
-    <version date="20140527" code="1.251">
+    <version date="20140527" code="1.25.1">
         <tasks>
             <task type="general">
                 <element name="">Traduction</element>
@@ -95,7 +95,7 @@
             </task>
         </tasks>
     </version>
-    <version date="20140526" code="1.25">
+    <version date="20140526" code="1.25.0">
         <tasks>
             <task type="general">
                 <element name="">Traduction</element>
@@ -103,7 +103,7 @@
             </task>
         </tasks>
     </version>
-	<version date="20140519" code="1.24">
+	<version date="20140519" code="1.24.0">
 		<tasks>
 			<task type="general">
 				<element name="">Mise à jour Github</element>
@@ -113,7 +113,7 @@
 			</task>
 		</tasks>
 	</version>
-	<version date="20130717" code="1.232">
+	<version date="20130717" code="1.23.2">
 		<tasks>
 			<task type="css">
 				<element name="">Design général</element>
@@ -121,7 +121,7 @@
 			</task>
 		</tasks>
 	</version>
-	<version date="20130713" code="1.231">
+	<version date="20130713" code="1.23.1">
 		<tasks>
 			<task type="db">
 				<element name="est_steps">Performances de la table des étapes</element>
@@ -129,7 +129,7 @@
 			</task>
 		</tasks>
 	</version>
-	<version date="20130707" code="1.230">
+	<version date="20130707" code="1.23.0">
 		<tasks>
 			<task type="function">
 				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
@@ -142,7 +142,7 @@
 			</task>
 		</tasks>
 	</version>
-	<version date="20130706" code="1.221">
+	<version date="20130706" code="1.22.1">
 		<tasks>
 			<task type="function">
 				<element name="git.php">Git</element>
@@ -154,7 +154,7 @@
 			</task>
 		</tasks>
 	</version>
-	<version date="20130628" code="1.220">
+	<version date="20130628" code="1.22.0">
 		<tasks>
 			<task type="db">
 				<element name="">Performances</element>
@@ -175,7 +175,7 @@
 			</task>
 		</tasks>
 	</version>
-	<version date="20130623" code="1.211">
+	<version date="20130623" code="1.21.1">
 		<tasks>
 			<task type="page">
 				<element name="pages/mod_campaigns.php" id="60"></element>
@@ -191,7 +191,7 @@
 			</task>
 		</tasks>
 	</version>
-	<version date="20130623" code="1.210">
+	<version date="20130623" code="1.21.0">
 		<tasks>
 			<task type="page">
 				<element name="pages/mod_index.php" id="1"></element>
@@ -217,7 +217,7 @@
 			</task>
 		</tasks>
 	</version>
-	<version date="20130620" code="1.202">
+	<version date="20130620" code="1.20.2">
 		<tasks>
 			<task type="function">
 				<element name="">Bugs mineurs</element>
@@ -241,7 +241,7 @@
 			</task>
 		</tasks>
 	</version>
-	<version date="20130619" code="1.201">
+	<version date="20130619" code="1.20.1">
 		<tasks>
 			<task type="page">
 				<element name="pages/mod_spend_exp.php" id="63"></element>
@@ -347,7 +347,7 @@
 			</task>
 		</tasks>
 	</version>
-	<version date="20130526" code="1.12">
+	<version date="20130526" code="1.12.0">
 		<tasks>
 			<task type="page">
 				<element name="pages/mod_admin.php" id="34"></element>
@@ -359,7 +359,7 @@
 			</task>
 		</tasks>
 	</version>
-	<version date="20130523" code="1.11">
+	<version date="20130523" code="1.11.0">
 		<tasks>
 			<task type="css">
 				<element name="css/main.css">CSS Général</element>
@@ -387,7 +387,7 @@
 			</task>
 		</tasks>
 	</version>
-	<version date="20130521" code="1.10">
+	<version date="20130521" code="1.10.0">
 		<tasks>
 			<task type="function">
 				<element name="functions_func_isCorrectEmail.php">Validateur d'adresse mail</element>
@@ -399,7 +399,7 @@
 			</task>
 		</tasks>
 	</version>
-	<version date="20130518" code="1.09">
+	<version date="20130518" code="1.9.0">
 		<tasks>
 			<task type="function">
 				<element name="functions_func_isCorrectEmail.php">Validateur d'adresse mail</element>
@@ -411,7 +411,7 @@
 			</task>
 		</tasks>
 	</version>
-	<version date="20130517" code="1.08">
+	<version date="20130517" code="1.8.0">
 		<tasks>
 			<task type="function">
 				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
@@ -466,7 +466,7 @@
 			</task>
 		</tasks>
 	</version>
-	<version date="20130511" code="1.07">
+	<version date="20130511" code="1.7.0">
 		<tasks>
 			<task type="page">
 				<element name="pages/mod_login.php" id="48"></element>
@@ -487,7 +487,7 @@
 			</task>
 		</tasks>
 	</version>
-	<version date="20130504" code="1.06">
+	<version date="20130504" code="1.6.0">
 		<tasks>
 			<task type="function">
 				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
@@ -496,7 +496,7 @@
 			</task>
 		</tasks>
 	</version>
-	<version date="20130502" code="1.05">
+	<version date="20130502" code="1.5.0">
 		<tasks>
 			<task type="function">
 				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
@@ -537,7 +537,7 @@
 			</task>
 		</tasks>
 	</version>
-	<version date="20130429" code="1.04">
+	<version date="20130429" code="1.4.0">
 		<tasks>
 			<task type="function">
 				<element name="functions/class_translate.php">Fonction de traduction</element>
@@ -557,7 +557,7 @@
 			</task>
 		</tasks>
 	</version>
-	<version date="20130428" code="1.03">
+	<version date="20130428" code="1.3.0">
 		<tasks>
 			<task type="function">
 				<element name="functions/class_translate.php">Fonction de traduction</element>
@@ -567,7 +567,7 @@
 			</task>
 		</tasks>
 	</version>
-	<version date="20130427" code="1.02">
+	<version date="20130427" code="1.2.0">
 		<tasks>
 			<task type="page">
 				<element name="pages/mod_traduction.php" id="43"></element>
@@ -609,7 +609,7 @@
 			</task>
 		</tasks>
 	</version>
-	<version date="20130426" code="1.01">
+	<version date="20130426" code="1.1.0">
 		<tasks>
 			<task type="page">
 				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/11_des_avtg.php"></element>

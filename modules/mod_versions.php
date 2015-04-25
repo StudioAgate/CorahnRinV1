@@ -199,3 +199,5 @@ if (!is_dir(dirname($cacheFile))) {
 
 file_put_contents($cacheFile, $cacheFileContent);
 touch($cacheFile);
+
+echo $cacheFileContent;
