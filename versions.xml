@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+    <version date="20150425" code="1.31">
+        <tasks>
+            <task type="page">
+                <element name="pages/mod_login.php" id="48"></element>
+                <comment>Ajouté un encart "Mot de passe oublié".</comment>
+            </task>
+        </tasks>
+    </version>
     <version date="20150412" code="1.30">
         <tasks>
             <task type="page">

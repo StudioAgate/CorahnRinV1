@@ -39,19 +39,21 @@ if (isset($_POST['recover_email'])) {
 }
 
 ## Reset mdp
-if ($resetPassword && isset($_POST['password'])) {
-    $user = $db->row('SELECT %user_id, %user_name, %user_confirm FROM %%users WHERE %user_confirm = :token', array('token' => $resetPassword));
+if ($resetPassword) {
+    $user = $db->row('SELECT %user_id, %user_name, %user_email, %user_confirm FROM %%users WHERE %user_confirm = :token', array('token' => $resetPassword));
     if (!$user) {
         ?><p class="alert"><?php tr('Cet utilisateur n\'existe pas.'); ?></p><?php
         return;
     }
-    $password = Users::pwd($_POST['password']);
-    if ($db->noRes('UPDATE %%users SET %user_password = :user_password WHERE %user_id = :id', array('id' => $user['id'], 'user_password' => $password))) {
-        Session::setFlash('Mot de passe modifié !', 'success');
-    } else {
-        Session::setFlash('Une erreur inconnue est survenue lors de la modification du mot de passe...', 'success');
+    if (isset($_POST['password'])) {
+        $password = Users::pwd($_POST['password']);
+        if ($db->noRes('UPDATE %%users SET %user_password = :user_password, %user_confirm = "" WHERE %user_id = :id', array('id' => $user['user_id'], 'user_password' => $password))) {
+            Session::setFlash('Mot de passe modifié !', 'success');
+        } else {
+            Session::setFlash('Une erreur inconnue est survenue lors de la modification du mot de passe...', 'error');
+        }
+        redirect(array('val' => 1));
     }
-    redirect(array('val' => 1));
 }
 
 ## Connexion
