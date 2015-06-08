@@ -24,7 +24,6 @@ local.properties
 ###Esteren
 db.php
 Maquettage/
-Maquettage/*
 webroot/css/main.min.css
 webroot/css/pages/*.css
 webroot/js/pages/*.js
@@ -36,3 +35,4 @@ logs/error_tracking/*.log
 logs/exectime/*.log
 logs/referer/*.log
 logs/sql/*.log
+translation/*/characters/*
