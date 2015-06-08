@@ -12,7 +12,7 @@ function tr($word, $return = false, $params = array(), $domain = null) {
 class Translate {
 	public static $words_fr = array();
 	public static $words_en = array();
-	public static $propositions_en = array();
+//	public static $propositions_en = array();
 
     public static $at_least_one_modification = false;
 
@@ -30,15 +30,18 @@ class Translate {
         self::createTree();
 		self::get_words_fr();
 		self::get_words_en();
-		self::get_propositions_en();
+//		self::get_propositions_en();
 	}
 
     static function createTree() {
-        if (!FileAndDir::dexists(ROOT.DS.'translation'.DS.'fr'.DS)) {
-            FileAndDir::createPath(ROOT.DS.'translation'.DS.'fr'.DS);
+        if (!is_dir(ROOT.DS.'translation'.DS.'fr'.DS)) {
+            mkdir(ROOT.DS.'translation'.DS.'fr'.DS, 0775, true);
         }
-        if (!FileAndDir::dexists(ROOT.DS.'translation'.DS.'en'.DS)) {
-            FileAndDir::createPath(ROOT.DS.'translation'.DS.'en'.DS);
+        if (!is_dir(ROOT.DS.'translation'.DS.'fr'.DS.'characters'.DS)) {
+            mkdir(ROOT.DS.'translation'.DS.'fr'.DS.'characters'.DS, 0775, true);
+        }
+        if (!is_dir(ROOT.DS.'translation'.DS.'en'.DS.'characters'.DS)) {
+            mkdir(ROOT.DS.'translation'.DS.'en'.DS.'characters'.DS, 0775, true);
         }
     }
 
@@ -164,6 +167,16 @@ class Translate {
                 self::$words_en[$domain] = json_decode(file_get_contents($file), true);
             }
         }
+
+        // Character files
+        $files = glob($dir.'characters'.DS.'*.json');
+        foreach ($files as $file) {
+            if (is_file($file)) {
+                $domain = 'characters.'.basename($file, '.json');
+                self::$words_en[$domain] = json_decode(file_get_contents($file), true);
+            }
+        }
+
         return self::$words_en;
 	}
 
@@ -171,16 +184,16 @@ class Translate {
 	 * Cette fonction récupère les propositions de traductions fr=>en
 	 * @return array Clé = mot en français ; Valeur = proposition de traduction
 	 */
-	static function get_propositions_en() {
-        $file = ROOT.DS.'translation'.DS.'en'.DS.'propositions_en.txt';
-        if (FileAndDir::fexists($file)) {
-            $w = FileAndDir::get($file);
-            $w = json_decode($w, true) ?: array();
-            self::$propositions_en = $w;
-            unset($w);
-        }
-        return self::$propositions_en;
-	}
+//	static function get_propositions_en() {
+//        $file = ROOT.DS.'translation'.DS.'en'.DS.'propositions_en.txt';
+//        if (FileAndDir::fexists($file)) {
+//            $w = FileAndDir::get($file);
+//            $w = json_decode($w, true) ?: array();
+//            self::$propositions_en = $w;
+//            unset($w);
+//        }
+//        return self::$propositions_en;
+//	}
 
     /**
      * Cette fonction sert à ajouter ou éditer un mot traduit
@@ -281,22 +294,31 @@ class Translate {
         $octets = 0;
         $files = 0;
 
-        if (self::$at_least_one_modification) {
+        if (true || self::$at_least_one_modification) {
             foreach (self::$words_fr as $domain => $words) {
+                if (preg_match('~^characters\.~', $domain)) {
+                    $domain = preg_replace('~^characters\.~', 'characters'.DS, $domain);
+                }
+                dump(ROOT.DS.'translation'.DS.'fr'.DS.$domain.'.json');
                 $words_for_translation = json_encode($words, 480);
                 $octets += (int) file_put_contents(ROOT.DS.'translation'.DS.'fr'.DS.$domain.'.json', $words_for_translation);
                 $files++;
             }
         }
 
-        if (self::$write_en) {
+        if (true || self::$write_en) {
             foreach (self::$words_en as $domain => $words) {
+                if (preg_match('~^characters\.~', $domain)) {
+                    $domain = preg_replace('~^characters\.~', 'characters'.DS, $domain);
+                }
+                dump(ROOT.DS.'translation'.DS.'en'.DS.$domain.'.json');
                 $words_for_translation = json_encode($words, 480);
                 $octets += (int) file_put_contents(ROOT.DS.'translation'.DS.'en'.DS.$domain.'.json', $words_for_translation);
                 $files++;
             }
         }
 
+        exit('ok');
 		return array('octets'=>$octets,'files'=>$files);
 	}
 }

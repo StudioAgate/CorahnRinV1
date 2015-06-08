@@ -23,5 +23,8 @@ if (isset($_PAGE['file_to_download'])) {
 		echo 'Erreur';
 		echo $_PAGE['file_to_download'];
 	}
+<<<<<<< HEAD
 }
-
+=======
+}
+>>>>>>> If the translation is a character one, save it in another directory

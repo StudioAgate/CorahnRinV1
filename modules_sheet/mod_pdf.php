@@ -6,8 +6,9 @@ $pdf_filename = CHAR_EXPORT.DS.$character->id().DS.$char_name.'-original'.($prin
 // $pdf_destname = str_replace(ROOT, BASE_URL, $pdf_filename);
 // $pdf_destname = str_replace(array('\\', '/'), array('/', '/'), $pdf_destname);
 // $pdf_destname = str_replace('webroot'.DS, '', $pdf_destname);
-if (!FileAndDir::fexists($pdf_filename)) {
+if (!file_exists($pdf_filename)) {
 
+    /** @var tFPDF $pdf_file */
 	$pdf_file = $character->export_to_pdf($sheet_style, $printer_friendly);
 	$pdf_file->Output($pdf_filename);
 }
