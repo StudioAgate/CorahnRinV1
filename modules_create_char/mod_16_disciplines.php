@@ -24,7 +24,7 @@
 	$bonusdom = isset($_SESSION[$steps[15]['mod']]) ? $_SESSION[$steps[15]['mod']] : false;
 	$sess_bonus = isset($_SESSION['bonusdom']) ? (int) $_SESSION['bonusdom'] : false;
 	if ($bonusdom === false || $sess_bonus === false) {
-		tr("Les bonus supplémentaires aux domaines n\'ont pas été définis, merci de vous rendre à l\'étape correspondante");
+		tr("Les bonus supplémentaires aux domaines n'ont pas été définis, merci de vous rendre à l'étape correspondante");
 		echo mkurl(array('params'=>15, 'type' => 'tag', 'anchor' => 'Aller à la page correspondante', 'attr' => 'class="btn"'));
 		return;
 	}
@@ -54,10 +54,9 @@
 		if ($v < 5) { unset($totaldoms[$k]); }
 	}
 
-// 	$dom_ids = array_keys($totaldoms);
 	$dom_ids = array();
 	foreach ($primsec as $k => $v) {
-		if ($v == 5) {
+		if ($v == 5 || $v == 3) {
 			$dom_ids[] = (int) $k;
 		}
 	}

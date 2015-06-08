@@ -7,7 +7,7 @@
 		<?php tr('Si vous souhaitez contribuer à Corahn-Rin, n\'hésitez pas et postez vos rapports de bug ou vos propositions d\'amélioration sur la page "Redmine" du générateur :'); ?>
 		<br />
 		<?php echo mkurl(array(
-			'val'=>'http://tests.pierstoval.com/redmine/projects/corahn-rin-v1',
+			'val'=>'http://redmine.pierstoval.com/projects/corahn-rin-v1',
 			'custom'=>true,
             'trans' => true,
 			'anchor'=>'Gestion du projet Corahn-Rin',
