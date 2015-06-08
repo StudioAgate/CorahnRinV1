@@ -14,5 +14,4 @@ if (isset($_PAGE['file_to_download']) && FileAndDir::fexists($_PAGE['file_to_dow
     ob_end_clean();
     flush();
     readfile($_PAGE['file_to_download']);
-    exit;
 }

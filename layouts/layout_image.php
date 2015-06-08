@@ -23,5 +23,4 @@ if (isset($_PAGE['file_to_download'])) {
 		echo 'Erreur';
 		echo $_PAGE['file_to_download'];
 	}
-	exit;
 }
