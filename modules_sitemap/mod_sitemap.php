@@ -67,7 +67,8 @@ foreach ($_PAGE['list'] as $page_id => $page) {
 }
 
 // Personnages
-$chars = $db->req('SELECT %char_id, %char_name, %char_date_creation, %char_date_update, %char_name FROM %%characters');
+//$chars = $db->req('SELECT %char_id, %char_name, %char_date_creation, %char_date_update, %char_name FROM %%characters');
+$chars = array();
 foreach ($chars as $k => $char) {
 	$lastmod = $char['char_date_update'] ? $char['char_date_update'] : $char['char_date_creation'];
 	$lastmod = date('c', $lastmod);
