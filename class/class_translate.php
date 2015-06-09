@@ -151,7 +151,17 @@ class Translate {
                 self::$words_fr[$domain] = json_decode(file_get_contents($file), true);
             }
         }
-		return self::$words_fr;
+
+        // Character files
+        $files = glob($dir.'characters'.DS.'*.json');
+        foreach ($files as $file) {
+            if (is_file($file)) {
+                $domain = 'characters.'.basename($file, '.json');
+                self::$words_fr[$domain] = json_decode(file_get_contents($file), true);
+            }
+        }
+
+        return self::$words_fr;
 	}
 
 	/**
@@ -294,7 +304,7 @@ class Translate {
         $octets = 0;
         $files = 0;
 
-        if (true || self::$at_least_one_modification) {
+        if (self::$at_least_one_modification) {
             foreach (self::$words_fr as $domain => $words) {
                 if (preg_match('~^characters\.~', $domain)) {
                     $domain = preg_replace('~^characters\.~', 'characters'.DS, $domain);
@@ -305,7 +315,7 @@ class Translate {
             }
         }
 
-        if (true || self::$write_en) {
+        if (self::$write_en) {
             foreach (self::$words_en as $domain => $words) {
                 if (preg_match('~^characters\.~', $domain)) {
                     $domain = preg_replace('~^characters\.~', 'characters'.DS, $domain);
