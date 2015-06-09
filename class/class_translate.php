@@ -299,7 +299,6 @@ class Translate {
                 if (preg_match('~^characters\.~', $domain)) {
                     $domain = preg_replace('~^characters\.~', 'characters'.DS, $domain);
                 }
-                dump(ROOT.DS.'translation'.DS.'fr'.DS.$domain.'.json');
                 $words_for_translation = json_encode($words, 480);
                 $octets += (int) file_put_contents(ROOT.DS.'translation'.DS.'fr'.DS.$domain.'.json', $words_for_translation);
                 $files++;
@@ -311,14 +310,12 @@ class Translate {
                 if (preg_match('~^characters\.~', $domain)) {
                     $domain = preg_replace('~^characters\.~', 'characters'.DS, $domain);
                 }
-                dump(ROOT.DS.'translation'.DS.'en'.DS.$domain.'.json');
                 $words_for_translation = json_encode($words, 480);
                 $octets += (int) file_put_contents(ROOT.DS.'translation'.DS.'en'.DS.$domain.'.json', $words_for_translation);
                 $files++;
             }
         }
 
-        exit('ok');
 		return array('octets'=>$octets,'files'=>$files);
 	}
 }
