@@ -6,6 +6,7 @@
  */
 function goto_404 () {
 	global $_PAGE;
+    Translate::$domain = null;
 
 	$error_file = ROOT.DS.'logs'.DS.'404'.DS.date('Y.m.d').'.log';
     if (!is_dir(dirname($error_file))) {
