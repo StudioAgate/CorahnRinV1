@@ -20,6 +20,7 @@ class Translate {
 
     public static $_PAGE;
     public static $domain = null;
+    public static $char_id = null;
 
     function __construct(){}
 
@@ -65,7 +66,7 @@ class Translate {
 
 		if (!$txt) { return ''; }
 
-        $domain = $domain ?: (self::$domain ?: (self::$_PAGE['get'] ?: 'general'));
+        $domain = $domain ?: (self::$domain ?: (self::$char_id ? 'characters.'.self::$char_id : (self::$_PAGE['get'] ?: 'general')));
 
         if (!isset(self::$words_fr[$domain])) {
             self::$words_fr[$domain] = array();

@@ -1,5 +1,5 @@
 <?php
-    Translate::$domain = null;
+    Translate::$domain = '404';
 	header('HTTP/1.0 404 Not Found');
 	header('Status: 404 Not Found');
 
@@ -14,11 +14,9 @@
 </div><!-- /container -->
 
 	<?php
+    Translate::$domain = null;
+
 	buffWrite('css', <<<CSSFILE
 	a.btn.btn-large.btn-danger { color: white; }
 CSSFILE
-);
-	buffWrite('js', <<<JSFILE
-
-JSFILE
 );

@@ -18,6 +18,8 @@ $pdf =				isset($_PAGE['request']['pdf']) ? true : false;
 //MakeFont::MakeFont(ROOT.DS.'webroot'.DS.'css'.DS.'fonts'.DS.'UnZialish.ttf', 'cp1252');
 //MakeFont::MakeFont(ROOT.DS.'webroot'.DS.'css'.DS.'fonts'.DS.'arial.ttf', 'cp1252');
 
+Translate::$char_id = $char_id;
+
 if (!$char_id) { redirect(array('val'=>47), 'Aucun personnage entré', 'warning'); }
 $character = new Esterenchar($char_id, 'db');
 if (!$character->get()) { redirect(array('val'=>47), 'Aucun personnage trouvé', 'warning'); }
@@ -29,7 +31,6 @@ if ($pdf === true) {
 		'sheet_style' => $sheet_style,
 	);
 	load_module('pdf', 'module', $datas);
-	return;
 } elseif ($zip === true) {
 	$datas = array(
 		'char_id' => $char_id,
@@ -38,7 +39,6 @@ if ($pdf === true) {
 		'sheet_style' => $sheet_style,
 	);
 	load_module('zip', 'module', $datas);
-	return;
 } else {
 	$datas = array(
 		'character' => $character,
@@ -47,15 +47,6 @@ if ($pdf === true) {
 		'sheet_page' => $sheet_page,
 	);
 	load_module('jpg', 'module', $datas);
-	return;
 }
-?>
 
-<?php
-
-	buffWrite('js', <<<JSFILE
-	$(document).ready(function(){
-		$(".imageshow").click(function() { return !window.open(this.href); });
-	});
-JSFILE
-);
+Translate::$char_id = null;
