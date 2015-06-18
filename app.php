@@ -109,8 +109,9 @@ require ROOT.DS.'config.php';
 
 ## Initialisation de l'utilisateur
 Users::init((int) Session::read('user'));
-define('P_LOGGED',	(Users::$id > 0 ? true : false));
-define('P_DEBUG', true);//	(Users::$id == 1 ? true : false));
+define('P_LOGGED',	Users::$id > 0);
+define('P_DEBUG', 	Users::$id == 1);
+
 
 ## On va créer la requête dans la variable $_PAGE
 require ROOT.DS.'request.php';
