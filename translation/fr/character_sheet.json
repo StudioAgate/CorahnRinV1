@@ -10,5 +10,13 @@
     {
         "source": "Reste",
         "trans": "Reste"
+    },
+    {
+        "source": "Femme",
+        "trans": "Femme"
+    },
+    {
+        "source": "Rural",
+        "trans": "Rural"
     }
 ]

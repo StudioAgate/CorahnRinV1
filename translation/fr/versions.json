@@ -1206,5 +1206,41 @@
     {
         "source": "Corrigé un bug qui permettait l'accès à des parties du site auparavant protégées",
         "trans": "Corrigé un bug qui permettait l'accès à des parties du site auparavant protégées"
+    },
+    {
+        "source": "Corrigé l'étape 16 - Disciplines. Désormais, il est possible de choisir des disciplines dans les domaines primaires ET secondaires.",
+        "trans": "Corrigé l'étape 16 - Disciplines. Désormais, il est possible de choisir des disciplines dans les domaines primaires ET secondaires."
+    },
+    {
+        "source": "Ticket Redmine <a href=\"http://redmine.pierstoval.com/issues/499\">#499</a>",
+        "trans": "Ticket Redmine <a href=\"http://redmine.pierstoval.com/issues/499\">#499</a>"
+    },
+    {
+        "source": "Changé les urls relatives à Redmine",
+        "trans": "Changé les urls relatives à Redmine"
+    },
+    {
+        "source": "Ajouté un encart \"Mot de passe oublié\".",
+        "trans": "Ajouté un encart \"Mot de passe oublié\"."
+    },
+    {
+        "source": "Corrigé la feuille PDF sur laquelle la description ne s'affichait pas.",
+        "trans": "Corrigé la feuille PDF sur laquelle la description ne s'affichait pas."
+    },
+    {
+        "source": "Optimisé la gestion de la requête, de la locale, de la page d'accueil et de la page 404.",
+        "trans": "Optimisé la gestion de la requête, de la locale, de la page d'accueil et de la page 404."
+    },
+    {
+        "source": "Ticket redmine <a href=\"http://redmine.pierstoval.com/issues/10\">#10</a>",
+        "trans": "Ticket redmine <a href=\"http://redmine.pierstoval.com/issues/10\">#10</a>"
+    },
+    {
+        "source": "Corrigé l'étape 16 - Discipline, un bug permettait de choisir des disciplines pour un domaine avec un score inférieur à 5.",
+        "trans": "Corrigé l'étape 16 - Discipline, un bug permettait de choisir des disciplines pour un domaine avec un score inférieur à 5."
+    },
+    {
+        "source": "Ticket Redmine <a href=\"http://redmine.pierstoval.com/issues/1022\">#1022</a>",
+        "trans": "Ticket Redmine <a href=\"http://redmine.pierstoval.com/issues/1022\">#1022</a>"
     }
 ]

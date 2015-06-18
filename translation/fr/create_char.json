@@ -2742,5 +2742,397 @@
     {
         "source": "Défaut",
         "trans": "Défaut"
+    },
+    {
+        "source": "Tri-Kazel",
+        "trans": "Tri-Kazel"
+    },
+    {
+        "source": "Taol-Kaer",
+        "trans": "Taol-Kaer"
+    },
+    {
+        "source": "Intuitive",
+        "trans": "Intuitive"
+    },
+    {
+        "source": "Impulsive",
+        "trans": "Impulsive"
+    },
+    {
+        "source": "Osag",
+        "trans": "Osag"
+    },
+    {
+        "source": "Rationnelle",
+        "trans": "Rationnelle"
+    },
+    {
+        "source": "Clerge",
+        "trans": "Clerge"
+    },
+    {
+        "source": "Belle",
+        "trans": "Belle"
+    },
+    {
+        "source": "Forte",
+        "trans": "Forte"
+    },
+    {
+        "source": "Lente d'esprit",
+        "trans": "Lente d'esprit"
+    },
+    {
+        "source": "Disciplinée",
+        "trans": "Disciplinée"
+    },
+    {
+        "source": "Nobles",
+        "trans": "Nobles"
+    },
+    {
+        "source": "Douillette",
+        "trans": "Douillette"
+    },
+    {
+        "source": "Gwidre",
+        "trans": "Gwidre"
+    },
+    {
+        "source": "Vive d'esprit",
+        "trans": "Vive d'esprit"
+    },
+    {
+        "source": "Malchanceuse",
+        "trans": "Malchanceuse"
+    },
+    {
+        "source": "Cagoule de cuir",
+        "trans": "Cagoule de cuir"
+    },
+    {
+        "source": "Continent",
+        "trans": "Continent"
+    },
+    {
+        "source": "Religieux du Temple",
+        "trans": "Religieux du Temple"
+    },
+    {
+        "source": "Lettrée",
+        "trans": "Lettrée"
+    },
+    {
+        "source": "Obtuse",
+        "trans": "Obtuse"
+    },
+    {
+        "source": "Persévérante",
+        "trans": "Persévérante"
+    },
+    {
+        "source": "Originale",
+        "trans": "Originale"
+    },
+    {
+        "source": "Inventive",
+        "trans": "Inventive"
+    },
+    {
+        "source": "Maladroite",
+        "trans": "Maladroite"
+    },
+    {
+        "source": "Maladive",
+        "trans": "Maladive"
+    },
+    {
+        "source": "Généreuse",
+        "trans": "Généreuse"
+    },
+    {
+        "source": "Émotive",
+        "trans": "Émotive"
+    },
+    {
+        "source": "Chanceuse",
+        "trans": "Chanceuse"
+    },
+    {
+        "source": "Distraite",
+        "trans": "Distraite"
+    },
+    {
+        "source": "morcail",
+        "trans": "morcail"
+    },
+    {
+        "source": "Froide",
+        "trans": "Froide"
+    },
+    {
+        "source": "Ingénieuse",
+        "trans": "Ingénieuse"
+    },
+    {
+        "source": "Précautionneuse",
+        "trans": "Précautionneuse"
+    },
+    {
+        "source": "Endurante",
+        "trans": "Endurante"
+    },
+    {
+        "source": "Combative",
+        "trans": "Combative"
+    },
+    {
+        "source": "Cagoule de mailles",
+        "trans": "Cagoule de mailles"
+    },
+    {
+        "source": "Débrouillarde",
+        "trans": "Débrouillarde"
+    },
+    {
+        "source": "Indépendante",
+        "trans": "Indépendante"
+    },
+    {
+        "source": "Renfermée",
+        "trans": "Renfermée"
+    },
+    {
+        "source": "Peu entravée",
+        "trans": "Peu entravée"
+    },
+    {
+        "source": "Capricieuse",
+        "trans": "Capricieuse"
+    },
+    {
+        "source": "Apprenti",
+        "trans": "Apprenti"
+    },
+    {
+        "source": "Irréfléchie",
+        "trans": "Irréfléchie"
+    },
+    {
+        "source": "Indisciplinée",
+        "trans": "Indisciplinée"
+    },
+    {
+        "source": "Courageuse",
+        "trans": "Courageuse"
+    },
+    {
+        "source": "Bavarde",
+        "trans": "Bavarde"
+    },
+    {
+        "source": "Laide",
+        "trans": "Laide"
+    },
+    {
+        "source": "Butée",
+        "trans": "Butée"
+    },
+    {
+        "source": "Domestique",
+        "trans": "Domestique"
+    },
+    {
+        "source": "Droite",
+        "trans": "Droite"
+    },
+    {
+        "source": "Boiteuse",
+        "trans": "Boiteuse"
+    },
+    {
+        "source": "Extravertie",
+        "trans": "Extravertie"
+    },
+    {
+        "source": "Fière",
+        "trans": "Fière"
+    },
+    {
+        "source": "Sérieuse",
+        "trans": "Sérieuse"
+    },
+    {
+        "source": "Heaume",
+        "trans": "Heaume"
+    },
+    {
+        "source": "prostituée",
+        "trans": "prostituée"
+    },
+    {
+        "source": "Mal entendante",
+        "trans": "Mal entendante"
+    },
+    {
+        "source": "Mystique",
+        "trans": "Mystique"
+    },
+    {
+        "source": "Prudente",
+        "trans": "Prudente"
+    },
+    {
+        "source": "Poseuse",
+        "trans": "Poseuse"
+    },
+    {
+        "source": "Inconstante",
+        "trans": "Inconstante"
+    },
+    {
+        "source": "Repliée sur soi",
+        "trans": "Repliée sur soi"
+    },
+    {
+        "source": "Réfléchie",
+        "trans": "Réfléchie"
+    },
+    {
+        "source": "Hésitante",
+        "trans": "Hésitante"
+    },
+    {
+        "source": "Prostituée",
+        "trans": "Prostituée"
+    },
+    {
+        "source": "Concentrée",
+        "trans": "Concentrée"
+    },
+    {
+        "source": "Intolérante",
+        "trans": "Intolérante"
+    },
+    {
+        "source": "Combattant Demorthèn",
+        "trans": "Combattant Demorthèn"
+    },
+    {
+        "source": "Immorale",
+        "trans": "Immorale"
+    },
+    {
+        "source": "Outrecuidante",
+        "trans": "Outrecuidante"
+    },
+    {
+        "source": "Chasseur de féondas",
+        "trans": "Chasseur de féondas"
+    },
+    {
+        "source": "Mage",
+        "trans": "Mage"
+    },
+    {
+        "source": "Lente",
+        "trans": "Lente"
+    },
+    {
+        "source": "Demorthèn Vagabond",
+        "trans": "Demorthèn Vagabond"
+    },
+    {
+        "source": "Inconséquente",
+        "trans": "Inconséquente"
+    },
+    {
+        "source": "Vagabond",
+        "trans": "Vagabond"
+    },
+    {
+        "source": "Mécène",
+        "trans": "Mécène"
+    },
+    {
+        "source": "Imprudente",
+        "trans": "Imprudente"
+    },
+    {
+        "source": "courtisane",
+        "trans": "courtisane"
+    },
+    {
+        "source": "Menteuse",
+        "trans": "Menteuse"
+    },
+    {
+        "source": "Archéologue",
+        "trans": "Archéologue"
+    },
+    {
+        "source": "Loyale",
+        "trans": "Loyale"
+    },
+    {
+        "source": "Traitresse",
+        "trans": "Traitresse"
+    },
+    {
+        "source": "Sorcière",
+        "trans": "Sorcière"
+    },
+    {
+        "source": ".....",
+        "trans": "....."
+    },
+    {
+        "source": "Custodian",
+        "trans": "Custodian"
+    },
+    {
+        "source": "mercener",
+        "trans": "mercener"
+    },
+    {
+        "source": "Ionnthèn Combattant",
+        "trans": "Ionnthèn Combattant"
+    },
+    {
+        "source": "vagabond",
+        "trans": "vagabond"
+    },
+    {
+        "source": "Mercenaire",
+        "trans": "Mercenaire"
+    },
+    {
+        "source": "fourbe",
+        "trans": "fourbe"
+    },
+    {
+        "source": "politicien",
+        "trans": "politicien"
+    },
+    {
+        "source": "Sorcier",
+        "trans": "Sorcier"
+    },
+    {
+        "source": "Réceptive",
+        "trans": "Réceptive"
+    },
+    {
+        "source": "Peureuse",
+        "trans": "Peureuse"
+    },
+    {
+        "source": "Orgueilleuse",
+        "trans": "Orgueilleuse"
+    },
+    {
+        "source": "Alchimiste",
+        "trans": "Alchimiste"
     }
 ]
