@@ -1290,8 +1290,8 @@ class EsterenChar {
 			$maj = (array) $this->get('miracles.maj');
 			$min = implode(', ', $min);
 			$maj = implode(', ', $maj);
-			$pdf->multiple_lines($min, 457, 1341, $p['carbold'], 18, 270, 3, 43);
-			$pdf->multiple_lines($maj, 457, 1512, $p['carbold'], 18, 270, 3, 43);
+			$pdf->multiple_lines($maj, 457, 1341, $p['carbold'], 18, 270, 3, 43);
+			$pdf->multiple_lines($min, 457, 1512, $p['carbold'], 18, 270, 3, 43);
 		}
 
 		$pdf->textline($this->get('rindath.val').' / '.$this->get('rindath.max'), 195, 1272, $p['carbold'], 32);
