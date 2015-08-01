@@ -73,8 +73,10 @@ unset($v, $comment, $task, $day, $month, $year, $date, $code, $element, $version
 			<h4 class="version_name">
 				<span class="icon-plus"></span>
 				<?php echo 'Version', ' ', $code, ' &ndash; ', $update['date'];
-				if ($update['date'] === date('d/m/Y')) { echo ' <small style="color:#881111;">', 'Aujourd\'hui !', '</small>'; }?>
-				<small>(<?php echo $update['modifications'];?> <?php echo 'modification', $update['modifications'] > 1 ? 's' : ''; ?>)</small>
+                $now = new DateTime();
+                $versionDate = DateTime::createFromFormat('d/m/Y', $update['date']);
+				if ($now->diff($versionDate)->days < 7) { echo ' <small style="color:#881111;">', 'New !', '</small>'; }?>
+				&nbsp;<small>(<?php echo $update['modifications'];?> <?php echo 'modification', $update['modifications'] > 1 ? 's' : ''; ?>)</small>
 			</h4>
 			<div class="taskslist">
 			<?php
