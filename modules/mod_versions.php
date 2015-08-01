@@ -62,9 +62,9 @@ unset($v, $comment, $task, $day, $month, $year, $date, $code, $element, $version
 
 ?>
 <div class="container">
-	<h2><?php tr('Dernières mises à jour'); ?></h2>
-	<p><?php echo tr('Nombre total de versions : ', true), ' ', count($updates); ?></p>
-	<p><?php echo tr('Nombre total de mises à jour : ', true), ' ', $total_maj; ?></p>
+	<h2><?php echo 'Dernières mises à jour'; ?></h2>
+	<p><?php echo 'Nombre total de versions : ', ' ', count($updates); ?></p>
+	<p><?php echo 'Nombre total de mises à jour : ', ' ', $total_maj; ?></p>
 	<ul id="versions">
 		<?php
 		unset($total_maj);
@@ -72,9 +72,9 @@ unset($v, $comment, $task, $day, $month, $year, $date, $code, $element, $version
 		<li class="version clearfix">
 			<h4 class="version_name">
 				<span class="icon-plus"></span>
-				<?php echo tr('Version', true), ' ', $code, ' &ndash; ', $update['date'];
-				if ($update['date'] === date('d/m/Y')) { echo ' <small style="color:#881111;">', tr('Aujourd\'hui !', true), '</small>'; }?>
-				<small>(<?php echo $update['modifications'];?> <?php tr('modification'); echo $update['modifications'] > 1 ? 's' : ''; ?>)</small>
+				<?php echo 'Version', ' ', $code, ' &ndash; ', $update['date'];
+				if ($update['date'] === date('d/m/Y')) { echo ' <small style="color:#881111;">', 'Aujourd\'hui !', '</small>'; }?>
+				<small>(<?php echo $update['modifications'];?> <?php echo 'modification', $update['modifications'] > 1 ? 's' : ''; ?>)</small>
 			</h4>
 			<div class="taskslist">
 			<?php
@@ -82,12 +82,12 @@ unset($v, $comment, $task, $day, $month, $year, $date, $code, $element, $version
 				?><div class="row-fluid">
 					<div class="span2">
 						<h5 class=""><?php
-							if		($type == 'page')	{ tr('Pages'); }
-							elseif	($type == 'function'){tr('Fonctionnalités'); }
-							elseif	($type == 'css')	{ tr('Design'); }
-							elseif	($type == 'db')		{ tr('Base de données'); }
-							elseif	($type == 'js')		{ tr('Javascript/jQuery'); }
-							else						{ tr('Autres'); }
+							if		($type == 'page')	{ echo 'Pages'; }
+							elseif	($type == 'function'){echo 'Fonctionnalités'; }
+							elseif	($type == 'css')	{ echo 'Design'; }
+							elseif	($type == 'db')		{ echo 'Base de données'; }
+							elseif	($type == 'js')		{ echo 'Javascript/jQuery'; }
+							else						{ echo 'Autres'; }
 						?></h5>
 					</div>
 					<div class="span9"><?php
@@ -114,8 +114,8 @@ unset($v, $comment, $task, $day, $month, $year, $date, $code, $element, $version
 						} else { $element = $task['title']; }
 						?>
 							<div class="row-fluid elements_list">
-								<div class="span4"><h6><?php tr($element);?></h6></div>
-								<div class="span8"><p><?php foreach ($task['comments'] as $com) { tr($com);echo '<br />'; }?></p></div>
+								<div class="span4"><h6><?php echo $element; ?></h6></div>
+								<div class="span8"><p><?php foreach ($task['comments'] as $com) { echo $com, '<br />'; }?></p></div>
 							</div>
 						<?php
 					}
