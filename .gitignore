@@ -20,7 +20,6 @@ local.properties
 .cproject
 .buildpath
 
-
 ###Esteren
 db.php
 Maquettage/
@@ -38,4 +37,3 @@ logs/sql/*.log
 
 translation/fr/characters/*
 translation/en/characters/*
-
