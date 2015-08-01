@@ -35,5 +35,6 @@ logs/exectime/*.log
 logs/referer/*.log
 logs/sql/*.log
 
-translation/fr/characters/*
-translation/en/characters/*
+translation/*/characters/*
+translation/*/[0-9]*.json
+
