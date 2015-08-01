@@ -1,0 +1,3 @@
+User-agent: *
+Disallow /fr/sheet/
+Disallow /en/sheet/
