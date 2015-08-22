@@ -1,0 +1,16 @@
+{
+    "name": "esteren/corahnrin-v1",
+    "description": "CorahnRin first application by Pierstoval",
+    "type": "project",
+    "require": {
+        "symfony/yaml": "~2.7"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alex Pierstoval Rock Ancelet",
+            "email": "pierstoval@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
