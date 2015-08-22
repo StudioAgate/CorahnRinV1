@@ -3,9 +3,12 @@
 /**
  * Charge un élément spécifique
  *
- * @param string $module_name Le nom de l'élément à charger
- * @param string $module_type Le type d'élément. Définit le dossier de chargement du fichier
- * @param array $additionnal_vars Un tableau où les ensembles clé=>valeurs créent des variables locales à utiliser dans le module
+ * @param string $module_name      Le nom de l'élément à charger
+ * @param string $module_type      Le type d'élément. Définit le dossier de chargement du fichier
+ * @param array  $additionnal_vars Un tableau où les ensembles clé=>valeurs créent des variables locales à utiliser dans le module
+ * @param bool   $show_err         Shows an error if the template does not exist
+ *
+ * @return mixed
  */
 function load_module($module_name = '', $module_type = 'page', $additionnal_vars = array(), $show_err = true) {
 	global $_PAGE, $db;
@@ -38,11 +41,11 @@ function load_module($module_name = '', $module_type = 'page', $additionnal_vars
 		if (!isset($additionnal_vars['v'])) { unset($v); }
 		if (!isset($additionnal_vars['module_name'])) { unset($module_name); }
 		if (!isset($additionnal_vars['additionnal_vars'])) { unset($additionnal_vars); }
-		require $filename[$module_type];
+        unset($show_err);
+		return require $filename[$module_type];
 	} else {
 		if ($show_err === true) {
 			Session::setFlash('Le module "'.$module_name.'" n\'existe pas dans l\'élément "'.$module_type.'"', 'error');
 		}
-		return;
 	}
 }
