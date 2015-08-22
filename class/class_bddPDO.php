@@ -17,8 +17,8 @@ class bdd {
 	private $last_query;
 	private $last_values;
 	private $last_results;
-    private $queriesRunnedCount = 0;
-    private $queriesRunned = [];
+    public $queriesRunnedCount = 0;
+    public $queriesRunned = [];
 
 	function __construct($host = '127.0.0.1', $user = 'root', $pwd = '', $database = 'mydb', $tb_prefix = '', $db_type = 'mysql') {
 		$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
@@ -274,7 +274,7 @@ class bdd {
             $this->showErr($e, $req_qry, $result, true);
         }
         $this->queriesRunnedCount++;
-        $this->queriesRunned[] = $req_qry;
+        $this->queriesRunned[] = $req_qry . ' ['.implode(',', $values).']';
 		return $result;
 	}
 

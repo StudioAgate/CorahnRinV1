@@ -185,4 +185,20 @@ if (strpos($_LAYOUT, '{PAGE_TIME}') !== false) {
     }
 }
 
-if (is_string($_LAYOUT) && !empty($_LAYOUT)) { echo $_LAYOUT; }##On affiche finalement la page
+if (strpos($_LAYOUT, '{QUERIES}') !== false) {
+    $queriesTxt = '';
+    if (P_DEBUG) {
+        $queriesTxt .= '
+            <button class="btn btn-mini btn-primary" onclick="$(this).next().slideToggle(400);">Voir les <span class="badge badge-inverse">'.$db->queriesRunnedCount.'</span> requêtes</button>
+            <ul class="hide unstyled txtleft">
+        ';
+        foreach ($db->queriesRunned as $sql) {
+            $queriesTxt .= '<li class="txtleft"><pre class="txtleft">'.$sql.'</pre></li>';
+        }
+        $queriesTxt .= '</ul>';
+    }
+    $_LAYOUT = str_replace('{QUERIES}', $queriesTxt, $_LAYOUT);
+}
+
+// On affiche finalement la page
+if (is_string($_LAYOUT) && !empty($_LAYOUT)) { echo $_LAYOUT; }
