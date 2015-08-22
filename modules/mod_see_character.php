@@ -14,12 +14,12 @@ if ($char_id) {
         redirect(array(), 'Aucun personnage trouvé', 'warning');
     }
     $modifications = $db->req('SELECT %charmod_date, %charmod_content_before, %charmod_content_after, %charmod_page_module, %char_id, %user_id FROM %%charmod WHERE %char_id = :char_id ORDER BY %charmod_date DESC', array('char_id' => $char_id));
-    $usersModifiersIds = array_reduce($modifications, function($result, $charmod) {
+    $usersModifiersIds = array_reduce($modifications?:[], function($result, $charmod) {
         $result[$charmod['user_id']] = $charmod['user_id'];
         return $result;
     }, array());
     $users = $db->req('SELECT %user_id, %user_name FROM %%users WHERE %user_id IN (%%%in)', array_values($usersModifiersIds));
-    $users = array_reduce($users, function($result, $user) {
+    $users = array_reduce($users?:[], function($result, $user) {
         $result[$user['user_id']] = $user['user_name'];
         return $result;
     }, array());
@@ -126,8 +126,10 @@ if ($char_id) {
                     'before' => $contentBefore,
                     'after' => $contentAfter
                 ));
-                $processed = $ymlDumper->dump($processed, 6, 2);
-                if (trim($processed) === 'null') { continue; }
+                if (empty($processed)) { continue; }
+                $processed = $ymlDumper->dump($processed, 6, 0);
+                $content = $processed === 'null' ? '~' : nl2br($processed);
+                $content = str_replace('<br />- ', '<br>', $content);
                 ?>
                 <div class="row-fluid">
                     <div class="span4">
@@ -135,7 +137,7 @@ if ($char_id) {
                         <?php echo $users[$mod['user_id']]; ?>
                     </div>
                     <div class="span8">
-                        <pre><?php echo $processed === 'null' ? '~' : $processed; ?></pre>
+                        <div><?php echo $content; ?></div>
                     </div>
                 </div>
         <?php }
