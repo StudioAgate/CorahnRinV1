@@ -17,16 +17,10 @@ class bdd {
 	private $last_query;
 	private $last_values;
 	private $last_results;
-	private $cache;
-	private $cache_saved = false;
-	private $cache_filename;
+    private $queriesRunnedCount = 0;
+    private $queriesRunned = [];
 
 	function __construct($host = '127.0.0.1', $user = 'root', $pwd = '', $database = 'mydb', $tb_prefix = '', $db_type = 'mysql') {
-		$this->cache_filename = ROOT.DS.'logs'.DS.'cache_sql'.DS.'cache.php';
-        if (!FileAndDir::dexists(dirname($this->cache_filename))) {
-            FileAndDir::createPath(dirname($this->cache_filename));
-        }
-
 		$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
 		self::$prefix = $tb_prefix;
 		$dsn = $db_type.':host=' . $host . ';dbname=' . $database . '';
@@ -34,16 +28,12 @@ class bdd {
 		try {
 			$this->db = new PDO($dsn, $user, $pwd, $pdo_options);
 			$this->dbname = $database;
-			$this->_init_cache();
 		} catch (Exception $e) {
-			return $this->showErr($e, null, null, true);
+			$this->showErr($e, null, null, true);
+            return null;
 		}
 		//$this->initErr(false);
 		$this->noRes('SET NAMES "utf8"');
-	}
-
-	function __destruct() {
-		$this->_export_cache();
 	}
 
 	function __toString() {
@@ -158,7 +148,8 @@ class bdd {
 			$last_id = $this->db->lastInsertId();
 			$last_id = (int) $last_id;
 		} catch (Exception $e) {
-			$last_id = $this->showErr($e, '', $last_id, true);
+            $last_id = false;
+			$this->showErr($e, '', $last_id, true);
 		}
 		return $last_id;
 	}
@@ -193,7 +184,6 @@ class bdd {
 		}
 		$this->last_results = $contents;
 		if (is_object($result)) { $result->closeCursor(); }
-		if (preg_match('#select#isUu', $req_qry) && $contents) { $this->_save_cache($req_qry, $values, $contents); }
 		return $contents;
 	}
 
@@ -227,7 +217,6 @@ class bdd {
 			$contents = false;
 		}
 		$this->last_results = $contents;
-		if (preg_match('#select#isUu', $req_qry) && $contents) { $this->_save_cache($req_qry, $values, $contents); }
 		if (is_object($result)) { $result->closeCursor(); }
 		return $contents;
 	}
@@ -252,7 +241,6 @@ class bdd {
 		}
 		$this->last_results = $results;
 		if ($results) { $result->closeCursor(); }
-		if (preg_match('#insert|delete#isUu', $req_qry) && $results) { $this->_save_cache($req_qry, $values, $results); }
 		return $results ? true : false;
 	}
 
@@ -278,139 +266,16 @@ class bdd {
 	 */
 	private function runReq($req_qry, $values = array()) {
 		$values = (array) $values;
-		$check_cache = $this->_check_cache($req_qry, $values);
-		if ($check_cache !== false && strpos($req_qry, 'select') !== false) {
-			$result = $this->_get_cache($check_cache, $req_qry, $values);
-		} else {
-			try {
-				$result = $this->db->prepare($req_qry);
-				$result->execute($values);
-			} catch (Exception $e) {
-				$result = $this->showErr($e, $req_qry, $result, true);
-			}
-		}
+        try {
+            $result = $this->db->prepare($req_qry);
+            $result->execute($values);
+        } catch (Exception $e) {
+            $result = false;
+            $this->showErr($e, $req_qry, $result, true);
+        }
+        $this->queriesRunnedCount++;
+        $this->queriesRunned[] = $req_qry;
 		return $result;
 	}
 
-	/**
-	 * Vérifie si une requête existe dans le cache
-	 * @param string $req Une requête parsée avec sbuildReq() à vérifier
-	 * @param array $values Un tableau passé en paramètres à la requête préparée
-	 * @return boolean Vrai si la requête existe, false sinon
-	 * @author Pierstoval 13/06/2013
-	 */
-	private function _check_cache($req, $values = array()) {
-		$cache = $this->cache;
-
-		if (isset($this->cache[$req])) {
-			return true;
-		}
-// 		foreach ($cache as $index => $element) {
-// 			if ($req === $element['req'] && $values === $element['values']) {
-// 				return $index;
-// 			}
-// 		}
-		return false;
-	}
-
-	/**
-	 * Sauvegarde une requête et ses résultats dans le cache
-	 * @param string $req Une requête parsée avec sbuildReq() à mettre en cache
-	 * @param array $results Les résultats de la requête à mettre en cache
-	 * @param array $values Un tableau passé en paramètres à la requête préparée
-	 * @return boolean Vrai si l'enregistrement a été réalisé, false sinon
-	 * @author Pierstoval 13/06/2013
-	 */
-	private function _save_cache($req, $values = array(), $results = '') {
-		$cache = (array) $this->cache;
-
-		if ($this->_check_cache($req, $values) !== false) { return false; }
-
-		$save = array(
-			'req' => $req,
-			'values' => $values,
-			'results' => $results,
-		);
-		$cache[$req] = $save;
-
-		$this->cache = $cache;
-		$this->cache_saved = true;
-		return true;
-	}
-
-	/**
-	 * Récupère le contenu d'une requête dans le cache
-	 * @param string $req Une requête parsée avec sbuildReq() à vérifier
-	 * @param array $values Un tableau passé en paramètres à la requête préparée
-	 * @return mixed Les données récupérées dans le cache (de tout type, tableau, chaîne, booléen...), false sinon.
-	 * @author Pierstoval 13/06/2013
-	 */
-	private function _get_cache($index, $req, $values = array()) {
-		$cache = $this->cache;
-
-		$results = false;
-		if (isset($cache[$req]) &&
-			$cache[$req]['req'] === $req &&
-			$cache[$req]['values'] === $values) {
-			$results = $cache[$req]['results'];
-		}
-// 		if (isset($cache[$index]) &&
-// 			$cache[$index]['req'] === $req &&
-// 			$cache[$index]['values'] === $values) {
-// 			$results = $cache[$index]['results'];
-// 		}
-
-		return $results;
-	}
-
-	/**
-	 * Récupère le contenu du cache sql
-	 * @return mixed Les données récupérées dans le cache (de tout type, tableau, chaîne, booléen...), false sinon.
-	 * @author Pierstoval 13/06/2013
-	 */
-	private function _init_cache() {
-		$this->cache = array();
-		/*
-		if (FileAndDir::fexists($this->cache_filename)) {
-			include $this->cache_filename;
-		} else {
-			FileAndDir::put($this->cache_filename, '<?php $this->cache = array();');
-		}
-		*/
-		return $this->cache;
-	}
-
-	private function _export_cache() {
-		if ($this->cache_saved === true) {
-			$cache = $this->cache;
-
-			$export = var_export($cache, true);
-
-// 			$export = str_replace("\n", '', $export);
-// 			$export = str_replace("\r", '', $export);
-// 			$export = str_replace("\t", '', $export);
-			$export = preg_replace('#\s+\'#Uu', "'", $export);
-			$export = preg_replace('#\s+\)#Uu', ')', $export);
-			$export = preg_replace('#\s+array #Uu', 'array', $export);
-			$export = preg_replace('#\s+([0-9]+) =>#Uu', '$1=>', $export);
-// 			$export = str_replace(' }', '}', $export);
-// 			$export = str_replace(';}', '}', $export);
-// 			$export = str_replace(' {', '{', $export);;
-// 			$export = str_replace('{ ', '{', $export);
-// 			$export = str_replace(', ', ',', $export);
-// 			$export = str_replace(': ', ':', $export);
-// 			$export = str_replace(' :', ':', $export);
-// 			$export = str_replace(' !=', '!=', $export);
-// 			$export = str_replace(' =', '=', $export);
-// 			$export = str_replace('= ', '=', $export);
-// 			$export = str_replace(' <', '<', $export);
-// 			$export = str_replace(' >', '>', $export);
-// 			$export = str_replace('< ', '<', $export);
-// 			$export = str_replace('> ', '>', $export);
-
-			$cache_save = '<?php $this->cache = '.($export ? $export : "''").';';
-
-			FileAndDir::put($this->cache_filename, $cache_save);
-		}
-	}
 }
