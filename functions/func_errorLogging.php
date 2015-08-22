@@ -103,7 +103,7 @@ function error_logging($errno, $errstr, $errfile, $errline) {
         try {
 		    send_mail('pierstoval+esterenErrors@gmail.com', 'Error !', $msgMail, 0, 'no-reply@pierstoval.com');
         } catch (Exception $e) {}
-		echo '<div class="thrown_error '.$errclass.'">'.$msgEcho.'</div>';
+		echo '<pre class="thrown_error '.$errclass.'">'.$msgEcho.'</pre>';
 		if ($errno & (E_ERROR | E_CORE_ERROR | E_COMPILE_ERROR | E_USER_ERROR)) {
 			exit;
 		}

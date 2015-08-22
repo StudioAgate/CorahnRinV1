@@ -106,7 +106,7 @@ class bdd {
 		$f = fopen($error_file, 'a');
 		fwrite($f, $final);
 		fclose($f);
-		echo 'Une erreur MySQL est survenue...';
+		echo '<pre>Une erreur MySQL est survenue...</pre>';
 	}
 
 	/**
