@@ -1,5 +1,7 @@
 <?php
 
+$_PAGE['dont_log'] = true;
+
 $char = new Esterenchar($_SESSION, 'session');
 
 $char->id(session_id());
