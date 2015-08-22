@@ -4,14 +4,27 @@ $folder = ROOT.DS.'webroot'.DS.'files'.DS.'characters_export';
 
 $char_id = isset($_PAGE['request'][0]) ? $_PAGE['request'][0] : 0;
 
-$char = $characters = null;
+$ymlDumper = new Symfony\Component\Yaml\Dumper();
+$ymlDumper->setIndentation(2);
+
+$orderby = $sort = $char = $characters = $modifications = $users = null;
 if ($char_id) {
 	$char = $db->row('SELECT %char_id,%char_name,%%characters.%char_content FROM %%characters WHERE %char_id = ?', $char_id);
-	if (!$char) {
-		redirect(array(), 'Aucun personnage trouvé', 'warning');
-	}
+    if (!$char) {
+        redirect(array(), 'Aucun personnage trouvé', 'warning');
+    }
+    $modifications = $db->req('SELECT %charmod_date, %charmod_content_before, %charmod_content_after, %charmod_page_module, %char_id, %user_id FROM %%charmod WHERE %char_id = :char_id ORDER BY %charmod_date DESC', array('char_id' => $char_id));
+    $usersModifiersIds = array_reduce($modifications, function($result, $charmod) {
+        $result[$charmod['user_id']] = $charmod['user_id'];
+        return $result;
+    }, array());
+    $users = $db->req('SELECT %user_id, %user_name FROM %%users WHERE %user_id IN (%%%in)', array_values($usersModifiersIds));
+    $users = array_reduce($users, function($result, $user) {
+        $result[$user['user_id']] = $user['user_name'];
+        return $result;
+    }, array());
 } else {
-	$orderby = isset($_PAGE['request']['orderby']) ? $_PAGE['request']['orderby'] : 'name';
+    $orderby = isset($_PAGE['request']['orderby']) ? $_PAGE['request']['orderby'] : 'name';
 	$orderby = strtolower($orderby);
 	$auth_fields = array('name'=>1,'jobname'=>1,'origin'=>1,'people'=>1,'id'=>1);
 	if (!isset($auth_fields[$orderby])) { $orderby = 'name'; }
@@ -95,7 +108,43 @@ if ($char_id) {
 				?>
 			</div>
 		</div>
-		<?php
+
+        <?php if ($modifications && count($modifications)) { ?>
+            <h2>Modifications:</h2>
+            <div class="row-fluid">
+                <div class="span4"><h3 class="center"><?php tr('Date &ndash; utilisateur'); ?></h3></div>
+                <div class="span8"><h3 class="center"><?php tr('Modification'); ?></h3></div>
+            </div>
+            <?php
+            foreach ($modifications as $mod) { ?>
+                <?php
+                $contentBefore = json_decode($mod['charmod_content_before'], true);
+                $contentAfter = json_decode($mod['charmod_content_after'], true);
+                if (!count($contentBefore) && !count($contentAfter)) { continue; }
+                $before = $after = array();
+                $processed = load_module('character_diff', 'module', array(
+                    'before' => $contentBefore,
+                    'after' => $contentAfter
+                ));
+                $processed = $ymlDumper->dump($processed, 6, 2);
+                if (trim($processed) === 'null') { continue; }
+                ?>
+                <div class="row-fluid">
+                    <div class="span4">
+                        <strong><?php echo date('Y-m-d \&\n\b\s\p\; H:i:s', $mod['charmod_date']); ?></strong> &ndash;
+                        <?php echo $users[$mod['user_id']]; ?>
+                    </div>
+                    <div class="span8">
+                        <pre><?php echo $processed === 'null' ? '~' : $processed; ?></pre>
+                    </div>
+                </div>
+        <?php }
+//            dump($modifications);
+        }
+
+
+
+
 	} elseif (is_array($characters)) {
 		?>
 		<h3><?php tr('Personnages enregistrés'); ?> : <?php echo count($characters); ?></h3>

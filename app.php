@@ -5,6 +5,8 @@
  * Effectue le chargement des modules du site en fonction de l'url
  */
 
+require __DIR__.'/vendor/autoload.php';
+
 define('ROOT', dirname(__FILE__)); //Chemin vers le dossier racine
 define('DS', DIRECTORY_SEPARATOR); //Définition du séparateur dans le cas ou l'on est sur windows ou linux
 
@@ -62,6 +64,7 @@ $function_inc = array(
 	'getXPFromDoms',
 	'errorLogging',
 	'goto404',
+	'gv',
     'httpCode',
 	'isBlacklisted',
 	'minify',

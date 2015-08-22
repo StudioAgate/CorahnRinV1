@@ -38,3 +38,4 @@ logs/sql/*.log
 translation/*/characters/*
 translation/*/[0-9]*.json
 
+/vendor/
