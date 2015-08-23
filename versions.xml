@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+    <version date="20150823" code="1.32.0">
+        <tasks>
+            <task type="page">
+                <element name="pages/mod_see_character" id="47"></element>
+                <comment>Désormais, les dernières modifications de chaque personnage sont visible sur sa page.</comment>
+            </task>
+        </tasks>
+    </version>
     <version date="20150801" code="1.31.3">
         <tasks>
             <task type="page">
