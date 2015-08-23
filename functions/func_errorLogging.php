@@ -101,7 +101,9 @@ function error_logging($errno, $errstr, $errfile, $errline) {
         }
         $msgEcho .= '<br /><br />'.tr('Veuillez envoyer ce message à l\'administrateur du site', true);
         try {
-		    send_mail('pierstoval+esterenErrors@gmail.com', 'Error !', $msgMail, 0, 'no-reply@pierstoval.com');
+            if ($_SERVER['REMOTE_ADDR'] !== '127.0.0.1') {
+		        send_mail('pierstoval+esterenErrors@gmail.com', 'Error !', $msgMail, 0, 'no-reply@pierstoval.com');
+            }
         } catch (Exception $e) {}
 		echo '<pre class="thrown_error '.$errclass.'">'.$msgEcho.'</pre>';
 		if ($errno & (E_ERROR | E_CORE_ERROR | E_COMPILE_ERROR | E_USER_ERROR)) {
