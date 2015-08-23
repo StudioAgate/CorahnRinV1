@@ -104,7 +104,11 @@ if ($char_id) {
                 <div class="span8"><h3 class="center"><?php tr('Modification'); ?></h3></div>
             </div>
             <?php
-            $domains = $db->req('SELECT %domain_id, %domain_name FROM %%domains');
+            $domains = []; $a = $db->req('SELECT %domain_id, %domain_name FROM %%domains');
+            foreach ($a as $domain) { $domains[$domain['domain_id']] = $domain; }
+            $disciplines = []; $a = $db->req('SELECT %disc_id, %disc_name FROM %%disciplines');
+            foreach ($a as $discipline) { $disciplines[$discipline['disc_id']] = $discipline; }
+
             foreach ($modifications as $mod) { ?>
                 <?php
                 $contentBefore = json_decode($mod['charmod_content_before'], true);
@@ -115,6 +119,7 @@ if ($char_id) {
                     'before' => $contentBefore,
                     'after' => $contentAfter,
                     'referenceDomains' => $domains,
+                    'referenceDisciplines' => $disciplines,
                 ));
                 if (empty($processed)) { continue; }
                 $processed = $ymlDumper->dump($processed, 6, 0);
@@ -122,7 +127,7 @@ if ($char_id) {
                 $content = str_replace("': '", ': ', $content);
                 $content = str_replace("'\n", "\n", $content);
                 $content = str_replace("''", "'", $content);
-                $content = str_replace("XP: '", 'XP: ', $content);
+                $content = str_replace(": '", ': ', $content);
                 $content = preg_replace('~\n *( *- *)?\'~isUu', "\n  ", $content);
                 ?>
                 <div class="row-fluid">

@@ -2,6 +2,7 @@
 /** @var array $before */
 /** @var array $after */
 /** @var array $referenceDomains */
+/** @var array $referenceDisciplines */
 
 $processed = [];
 
@@ -45,14 +46,14 @@ if ($inventaire = gv('inventaire', $before, $after)) {
         $armes['before'] = array_reduce($armes['before']?:[], $filter, []);
         $armes['after'] = array_reduce($armes['after']?:[], $filter, []);
         $processed['armes'] = [];
-        foreach (array_diff($armes['before'], $armes['after']) as $diffBefore) { $processed['armes'][] = '- '.$diffBefore; }
-        foreach (array_diff($armes['after'], $armes['before']) as $diffAfter) { $processed['armes'][] = '+ '.$diffAfter; }
+        foreach (array_diff($armes['before'], $armes['after']) as $diffBefore) { $processed['armes'][] = '-'.$diffBefore; }
+        foreach (array_diff($armes['after'], $armes['before']) as $diffAfter) { $processed['armes'][] = '+'.$diffAfter; }
     }
 
     if ($possessions = gv('possessions', $inventaire['before']?:[], $inventaire['after']?:[])) {
         $processed['possessions'] = [];
-        foreach (array_diff($possessions['before']?:[], $possessions['after']?:[]) as $diffBefore) { if (!trim($diffBefore)) { continue; } $processed['possessions'][] = '- '.$diffBefore; }
-        foreach (array_diff($possessions['after']?:[], $possessions['before']?:[]) as $diffAfter) { if (!trim($diffAfter)) { continue; } $processed['possessions'][] = '+ '.$diffAfter; }
+        foreach (array_diff($possessions['before']?:[], $possessions['after']?:[]) as $diffBefore) { if (!trim($diffBefore)) { continue; } $processed['possessions'][] = '-'.$diffBefore; }
+        foreach (array_diff($possessions['after']?:[], $possessions['before']?:[]) as $diffAfter) { if (!trim($diffAfter)) { continue; } $processed['possessions'][] = '+'.$diffAfter; }
         if (!count($processed['possessions'])) {
             unset($processed['possessions']);
         }
@@ -60,8 +61,8 @@ if ($inventaire = gv('inventaire', $before, $after)) {
 
     if ($objets_precieux = gv('objets_precieux', $inventaire['before']?:[], $inventaire['after']?:[])) {
         $processed['objets_precieux'] = [];
-        foreach (array_diff($objets_precieux['before']?:[], $objets_precieux['after']?:[]) as $diffBefore) { if (!trim($diffBefore)) { continue; } $processed['objets_precieux'][] = '- '.$diffBefore; }
-        foreach (array_diff($objets_precieux['after']?:[], $objets_precieux['before']?:[]) as $diffAfter) { if (!trim($diffAfter)) { continue; } $processed['objets_precieux'][] = '+ '.$diffAfter; }
+        foreach (array_diff($objets_precieux['before']?:[], $objets_precieux['after']?:[]) as $diffBefore) { if (!trim($diffBefore)) { continue; } $processed['objets_precieux'][] = '-'.$diffBefore; }
+        foreach (array_diff($objets_precieux['after']?:[], $objets_precieux['before']?:[]) as $diffAfter) { if (!trim($diffAfter)) { continue; } $processed['objets_precieux'][] = '+'.$diffAfter; }
         if (!count($processed['objets_precieux'])) { unset($processed['objets_precieux']); }
     }
 
@@ -116,11 +117,12 @@ if ($domaines = gv('domaines', $before, $after)) {
         }
         foreach ($list as $id => $val) {
             if (isset($val['val'])) {
+//                dump($referenceDomains, $id, $finalDomains);
                 $finalDomains[$referenceDomains[$id]['domain_name']][$type] = $val['val'];
             }
             if (isset($val['disciplines'])) {
                 foreach ($val['disciplines'] as $discId => $disc) {
-                    $disciplines[$disc['name']][$type] = $disc['val'];
+                    $disciplines[$referenceDisciplines[$discId]['disc_name']][$type] = $disc['val'];
                 }
             }
         }
@@ -141,11 +143,6 @@ if ($domaines = gv('domaines', $before, $after)) {
     if (count($disciplines)) {
         $processed['disciplines'] = $disciplines;
     }
-//    $armures['before'] = array_reduce($armures['before']?:[], $filter, []);
-//    $armures['after'] = array_reduce($armures['after']?:[], $filter, []);
-//    $processed['armures'] = [];
-//    foreach (array_diff($armures['before']?:[], $armures['after']?:[]) as $diffBefore) { $processed['armures'][] = '- '.$diffBefore; }
-//    foreach (array_diff($armures['after']?:[], $armures['before']?:[]) as $diffAfter) { $processed['armures'][] = '+ '.$diffAfter; }
 }
 
 return $processed;
