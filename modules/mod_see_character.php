@@ -87,23 +87,11 @@ if ($char_id) {
 		<div class="row-fluid">
 			<div class="span6 sheetlist">
                 <br>
-<!--				<h4>--><?php //tr('Version originale'); ?><!--</h4>-->
 				<?php
-//				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'jpg', 'anchor'=>tr('Voir la page %page%', true, array('%page%' => 1)), 'attr'=>'class="btn pageview"', 'params'=>array(0=>$char_id,'page'=>1, clean_word($char['char_name']))));
-//				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'jpg', 'anchor'=>tr('Voir la page %page%', true, array('%page%' => 2)), 'attr'=>'class="btn pageview"', 'params'=>array(0=>$char_id,'page'=>2, clean_word($char['char_name']))));
-//				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'jpg', 'anchor'=>tr('Voir la page %page%', true, array('%page%' => 3)), 'attr'=>'class="btn pageview"', 'params'=>array(0=>$char_id,'page'=>3, clean_word($char['char_name']))));
-//				echo '<br />';
 				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'pdf', 'anchor'=>'Version originale', 'trans' => true, 'attr'=>array('class'=>'btn pageview'), 'params'=>array($char_id,'pdf'=>true, clean_word($char['char_name']))));
 				?>
                 <br>
-<!--			</div>-->
-<!--			<div class="span6 sheetlist">-->
-<!--				<h4>--><?php //tr('Version originale "Printer Friendly"'); ?><!--</h4>-->
 				<?php
-//				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'jpg', 'anchor'=>tr('Voir la page %page%', true, array('%page%' => 1)), 'trans' => false, 'attr'=>'class="btn pageview"', 'params'=>array(0=>$char_id,'page'=>1,'print'=>true, clean_word($char['char_name']))));
-//				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'jpg', 'anchor'=>tr('Voir la page %page%', true, array('%page%' => 2)), 'attr'=>'class="btn pageview"', 'params'=>array(0=>$char_id,'page'=>2,'print'=>true, clean_word($char['char_name']))));
-//				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'jpg', 'anchor'=>tr('Voir la page %page%', true, array('%page%' => 3)), 'attr'=>'class="btn pageview"', 'params'=>array(0=>$char_id,'page'=>3,'print'=>true, clean_word($char['char_name']))));
-//				echo '<br />';
 				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'pdf', 'anchor'=>'Version originale "Printer Friendly"', 'trans' => true, 'attr'=>array('class'=>'btn pageview'), 'params'=>array($char_id,'pdf'=>true,'print'=>true, clean_word($char['char_name']))));
 				?>
 			</div>
@@ -116,6 +104,7 @@ if ($char_id) {
                 <div class="span8"><h3 class="center"><?php tr('Modification'); ?></h3></div>
             </div>
             <?php
+            $domains = $db->req('SELECT %domain_id, %domain_name FROM %%domains');
             foreach ($modifications as $mod) { ?>
                 <?php
                 $contentBefore = json_decode($mod['charmod_content_before'], true);
@@ -124,12 +113,17 @@ if ($char_id) {
                 $before = $after = array();
                 $processed = load_module('character_diff', 'module', array(
                     'before' => $contentBefore,
-                    'after' => $contentAfter
+                    'after' => $contentAfter,
+                    'referenceDomains' => $domains,
                 ));
                 if (empty($processed)) { continue; }
                 $processed = $ymlDumper->dump($processed, 6, 0);
-                $content = $processed === 'null' ? '~' : nl2br($processed);
-                $content = str_replace('<br />- ', '<br>', $content);
+                $content = $processed;
+                $content = str_replace("': '", ': ', $content);
+                $content = str_replace("'\n", "\n", $content);
+                $content = str_replace("''", "'", $content);
+                $content = str_replace("XP: '", 'XP: ', $content);
+                $content = preg_replace('~\n *( *- *)?\'~isUu', "\n  ", $content);
                 ?>
                 <div class="row-fluid">
                     <div class="span4">
@@ -137,11 +131,10 @@ if ($char_id) {
                         <?php echo $users[$mod['user_id']]; ?>
                     </div>
                     <div class="span8">
-                        <div><?php echo $content; ?></div>
+                        <pre><?php echo $content; ?></pre>
                     </div>
                 </div>
         <?php }
-//            dump($modifications);
         }
 
 

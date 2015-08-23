@@ -1,8 +1,7 @@
 <?php
 /** @var array $before */
 /** @var array $after */
-
-//dump($before, $after);
+/** @var array $referenceDomains */
 
 $processed = [];
 
@@ -106,6 +105,47 @@ if ($miracles = gv('miracles', $before, $after)) {
         foreach (array_diff($min['after']?:[], $min['before']?:[]) as $diffAfter) { if (!trim($diffAfter)) { continue; } $processed['miracles_min'][] = '+ '.$diffAfter; }
         if (!count($processed['miracles_min'])) { unset($processed['miracles_min']); }
     }
+}
+
+if ($domaines = gv('domaines', $before, $after)) {
+    $finalDomains = [];
+    $disciplines = [];
+    foreach ($domaines as $type => $list) {
+        if (!$list) {
+            continue;
+        }
+        foreach ($list as $id => $val) {
+            if (isset($val['val'])) {
+                $finalDomains[$referenceDomains[$id]['domain_name']][$type] = $val['val'];
+            }
+            if (isset($val['disciplines'])) {
+                foreach ($val['disciplines'] as $discId => $disc) {
+                    $disciplines[$disc['name']][$type] = $disc['val'];
+                }
+            }
+        }
+    }
+    foreach ($finalDomains as $id => $domain) {
+        $domain = (isset($domain['after'])?$domain['after']:0) - (isset($domain['before'])?$domain['before']:0);
+        $domain = ($domain>0?'+':'-').' '.abs($domain);
+        $finalDomains[$id] = $domain;
+    }
+    if (count($finalDomains)) {
+        $processed['domaines'] = $finalDomains;
+    }
+    foreach ($disciplines as $id => $disc) {
+        $disc = (isset($disc['after'])?$disc['after']:0) - (isset($disc['before'])?$disc['before']:0);
+        $disc = ($disc>0?'+':'-').' '.abs($disc);
+        $disciplines[$id] = $disc;
+    }
+    if (count($disciplines)) {
+        $processed['disciplines'] = $disciplines;
+    }
+//    $armures['before'] = array_reduce($armures['before']?:[], $filter, []);
+//    $armures['after'] = array_reduce($armures['after']?:[], $filter, []);
+//    $processed['armures'] = [];
+//    foreach (array_diff($armures['before']?:[], $armures['after']?:[]) as $diffBefore) { $processed['armures'][] = '- '.$diffBefore; }
+//    foreach (array_diff($armures['after']?:[], $armures['before']?:[]) as $diffAfter) { $processed['armures'][] = '+ '.$diffAfter; }
 }
 
 return $processed;
