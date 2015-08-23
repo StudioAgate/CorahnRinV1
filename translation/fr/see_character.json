@@ -50,5 +50,25 @@
     {
         "source": "Tout télécharger au format ZIP",
         "trans": "Tout télécharger au format ZIP"
+    },
+    {
+        "source": "Date &ndash; utilisateur",
+        "trans": "Date &ndash; utilisateur"
+    },
+    {
+        "source": "Modification",
+        "trans": "Modification"
+    },
+    {
+        "source": "Histoire mise à jour...",
+        "trans": "Histoire mise à jour..."
+    },
+    {
+        "source": "Description mise à jour...",
+        "trans": "Description mise à jour..."
+    },
+    {
+        "source": "Fais marquants mis à jour...",
+        "trans": "Fais marquants mis à jour..."
     }
 ]

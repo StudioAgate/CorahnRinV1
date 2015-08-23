@@ -50,5 +50,25 @@
     {
         "source": "Tout télécharger au format ZIP",
         "trans": "Download all sheets in ZIP format"
+    },
+    {
+        "source": "Date &ndash; utilisateur",
+        "trans": "Date &ndash; user"
+    },
+    {
+        "source": "Modification",
+        "trans": "Modification"
+    },
+    {
+        "source": "Histoire mise à jour...",
+        "trans": "Story updated..."
+    },
+    {
+        "source": "Description mise à jour...",
+        "trans": "Description updated..."
+    },
+    {
+        "source": "Fais marquants mis à jour...",
+        "trans": "Notable facts updated..."
     }
 ]
