@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+    <version date="20150829" code="1.33.0">
+        <tasks>
+            <task type="page">
+                <element name="pages/mod_see_character" id="47"></element>
+                <comment>Ajout du module "Daols"</comment>
+                <comment>Ticket Redmine redmine#1189</comment>
+            </task>
+        </tasks>
+    </version>
     <version date="20150823" code="1.32.1">
         <tasks>
             <task type="page">
