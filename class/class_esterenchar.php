@@ -1,6 +1,90 @@
 <?php
 
-
+/**
+ * Class EsterenChar
+ * @method getVoies
+ * @method getMetier
+ * @method getMetierId
+ * @method getMetierName
+ * @method getMetierDescription
+ * @method getRegion_naissance
+ * @method getRegion_naissanceId
+ * @method getRegion_naissanceName
+ * @method getRegion_naissanceRoyaume
+ * @method getRegion_naissanceDescription
+ * @method getTraits_caractere
+ * @method getTraits_caractereDefaut
+ * @method getTraits_caractereQualite
+ * @method getDomaines
+ * @method getAvantages
+ * @method getDesavantages
+ * @method getRevers
+ * @method getDesordre_mental
+ * @method getDesordre_mentalId
+ * @method getDesordre_mentalName
+ * @method getDetails_personnage
+ * @method getDetails_personnageName
+ * @method getDetails_personnageSexe
+ * @method getDetails_personnageJoueur
+ * @method getDetails_personnageHistoire
+ * @method getDetails_personnageFaits
+ * @method getDetails_personnageDescription
+ * @method getInventaire
+ * @method getInventaireArmes
+ * @method getInventaireArmures
+ * @method getInventairePossessions
+ * @method getInventaireArgent
+ * @method getInventaireObjets_precieux
+ * @method getInventaireOgham
+ * @method getInventaireArtefacts
+ * @method getInventaireMiracles
+ * @method getOrientation
+ * @method getOrientationName
+ * @method getOrientationInstinct
+ * @method getOrientationConscience
+ * @method getResidence_geographique
+ * @method getClasse_sociale
+ * @method getAge
+ * @method getPotentiel
+ * @method getPeuple
+ * @method getResistance_mentale
+ * @method getResistance_mentaleVal
+ * @method getResistance_mentaleExp
+ * @method getSante
+ * @method getVigueur
+ * @method getDefense
+ * @method getDefenseBase
+ * @method getDefenseAmelioration
+ * @method getSurvie
+ * @method getRapidite
+ * @method getRapiditeBase
+ * @method getRapiditeAmelioration
+ * @method getTraumatismes
+ * @method getTraumatismesPermanents
+ * @method getTraumatismesCurables
+ * @method getRindath
+ * @method getRindathVal
+ * @method getRindathMax
+ * @method getExaltation
+ * @method getExaltationVal
+ * @method getExaltationMax
+ * @method getOgham
+ * @method getMiracles
+ * @method getMiraclesMajeurs
+ * @method getMiraclesMineurs
+ * @method getMiraclesMin
+ * @method getMiraclesMaj
+ * @method getArtefacts
+ * @method getFlux
+ * @method getFluxMineral
+ * @method getFluxVegetal
+ * @method getFluxOrganique
+ * @method getFluxFossile
+ * @method getArts_combat
+ * @method getExperience
+ * @method getExperienceTotal
+ * @method getExperienceReste
+ */
 class EsterenChar {
 
 	private $base_char = array();//Le personnage récupéré dans la BDD ou dans la session (utilisé pour voir les différences et stocker les modifications)
@@ -51,6 +135,28 @@ class EsterenChar {
 			FileAndDir::createPath(CHAR_EXPORT.DS.$this->id);
 		}
 	}
+
+    function __call($name, $arguments)
+    {
+        if (strpos($name, 'get') === 0) {
+            $path = lcfirst(preg_replace('~^get~', '', $name));
+            $stringPath = preg_replace_callback('~[A-Z]~', function($matches) {
+                return '.'.strtolower($matches[0]);
+            }, $path);
+            if ($value = $this->get($stringPath)) {
+                return $value;
+            }
+        } elseif (strpos($name, 'set') === 0 && count($arguments) === 1) {
+            $path = lcfirst(preg_replace('~^get~', '', $name));
+            $stringPath = preg_replace_callback('~[A-Z]~', function($matches) {
+                return '.'.strtolower($matches[0]);
+            }, $path);
+            if ($value = $this->set($stringPath, $arguments[0])) {
+                return $value;
+            }
+        }
+        throw new \Exception('Undefined method "'.$name.'" in '.__CLASS__);
+    }
 
 	public static function session_clear() {
 		global $db;
@@ -359,7 +465,7 @@ class EsterenChar {
 		return (Hash::get((array)$this->char, $path) === $get_value); //On retourne le résultat de la fonction
 	}
 
-	/**
+    /**
 	 * Récupère une information du personnage avec Hash::get
 	 *
 	 * @return mixed
