@@ -108,18 +108,16 @@ class EsterenChar {
 	/**
 	 * Génère un tableau déterminant la quantité de daols (braise, azur et givre) en fonction de l'argent initial
 	 *
-	 * @param int $argent La quantité d'argent. Si elle n'est pas mentionnée, l'argent du personnage sera récupéré automatiquement
+	 * @param array|int $argent La quantité d'argent. Si elle n'est pas mentionnée, l'argent du personnage sera récupéré automatiquement
 	 * @return array Un tableau contenant les trois valeurs de daosl
 	 */
 	public function get_daols($argent = null) {
 
 		if ($argent === null) {
 			$argent = $this->get('inventaire.argent');
-		} else {
-            if (!is_array($argent)) {
-			    $argent = (int) $argent;
-            }
-		}
+		} elseif (!is_array($argent)) {
+            $argent = (int) $argent;
+        }
 
         if (is_numeric($argent)) {
             $braise = $azur = $givre = 0;

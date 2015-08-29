@@ -70,5 +70,17 @@
     {
         "source": "Fais marquants mis à jour...",
         "trans": "Fais marquants mis à jour..."
+    },
+    {
+        "source": "Daols-Braise",
+        "trans": "Daols-Braise"
+    },
+    {
+        "source": "Daols-Azur",
+        "trans": "Daols-Azur"
+    },
+    {
+        "source": "Daols-Givre",
+        "trans": "Daols-Givre"
     }
 ]

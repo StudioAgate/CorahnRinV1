@@ -100,6 +100,7 @@ $modules_list = array(
 	'experience' => 'Expérience',
 	'armes' => 'Armes',
 	'armures' => 'Armures',
+	'daols' => 'Daols',
 );
 
 ?>
@@ -109,6 +110,7 @@ $modules_list = array(
 	<input type="hidden" name="game_id" value="<?php echo $game_id; ?>" />
 	<input type="hidden" name="char_id" value="<?php echo $char_id; ?>" />
 	<h3><?php tr('Offrir des récompenses à un personnage joueur'); ?></h3>
+    <h2><?php echo $char->name(); ?></h2>
 
 	<ul class="nav nav-tabs" id="modify_tabs">
 	<?php

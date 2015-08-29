@@ -286,5 +286,21 @@
     {
         "source": "Créer une campagne",
         "trans": "Créer une campagne"
+    },
+    {
+        "source": "Daols",
+        "trans": "Daols"
+    },
+    {
+        "source": "Daols de braise",
+        "trans": "Daols de braise"
+    },
+    {
+        "source": "Daols d'azur",
+        "trans": "Daols d'azur"
+    },
+    {
+        "source": "Daols de givre",
+        "trans": "Daols de givre"
     }
 ]

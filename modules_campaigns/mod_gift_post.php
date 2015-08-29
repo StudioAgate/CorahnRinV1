@@ -54,6 +54,12 @@ if ($t) {
 $char->set('inventaire.armures', $armures);
 unset($t,$v);
 
+$char->set('inventaire.argent', $char->get_daols(array(
+    'braise' => (int) $post['daols_braise'],
+    'azur' => (int) $post['daols_azur'],
+    'givre' => (int) $post['daols_givre'],
+)));
+
 if ($char->update_to_db()) {
 	Session::setFlash('Le personnage a été correctement modifié !', 'success');
 	header('Location:'.mkurl(array('val'=>60,'params'=>array($game_id))));

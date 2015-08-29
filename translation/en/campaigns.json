@@ -286,5 +286,21 @@
     {
         "source": "Créer une campagne",
         "trans": "Create a new campaign"
+    },
+    {
+        "source": "Daols",
+        "trans": "Daols"
+    },
+    {
+        "source": "Daols de braise",
+        "trans": "Ember daols"
+    },
+    {
+        "source": "Daols d'azur",
+        "trans": "Azure daols"
+    },
+    {
+        "source": "Daols de givre",
+        "trans": "Frost daols"
     }
 ]

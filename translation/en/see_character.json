@@ -70,5 +70,17 @@
     {
         "source": "Fais marquants mis à jour...",
         "trans": "Notable facts updated..."
+    },
+    {
+        "source": "Daols-Braise",
+        "trans": "Daols-Ember"
+    },
+    {
+        "source": "Daols-Azur",
+        "trans": "Daols-Azure"
+    },
+    {
+        "source": "Daols-Givre",
+        "trans": "Daols-Frost"
     }
 ]

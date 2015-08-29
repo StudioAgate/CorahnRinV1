@@ -108,10 +108,10 @@ if ($miracles = gv('miracles', $before, $after)) {
     }
 }
 
-if ($domaines = gv('domaines', $before, $after)) {
+if ($daols = gv('daols', $before, $after)) {
     $finalDomains = [];
     $disciplines = [];
-    foreach ($domaines as $type => $list) {
+    foreach ($daols as $type => $list) {
         if (!$list) {
             continue;
         }
@@ -133,7 +133,7 @@ if ($domaines = gv('domaines', $before, $after)) {
         $finalDomains[$id] = $domain;
     }
     if (count($finalDomains)) {
-        $processed['domaines'] = $finalDomains;
+        $processed['daols'] = $finalDomains;
     }
     foreach ($disciplines as $id => $disc) {
         $disc = (isset($disc['after'])?$disc['after']:0) - (isset($disc['before'])?$disc['before']:0);
@@ -142,6 +142,24 @@ if ($domaines = gv('domaines', $before, $after)) {
     }
     if (count($disciplines)) {
         $processed['disciplines'] = $disciplines;
+    }
+}
+
+if ($daols = gv('inventaire.argent', $before, $after)) {
+    foreach (array('braise', 'azur', 'givre') as $daol) {
+        $dBefore = isset($daols['before'][$daol]) ? $daols['before'][$daol] : 0;
+        $dAfter = isset($daols['after'][$daol]) ? $daols['after'][$daol] : 0;
+        if (null !== $dAfter) {
+            if (null !== $dBefore) {
+                $diff = $dAfter - $dBefore;
+                if ($diff > 0) {
+                    $diff = '+'.$diff;
+                }
+                if ($diff) {
+                    $processed[tr('Daols-'.ucfirst($daol), true)] = $diff;
+                }
+            }
+        }
     }
 }
 
