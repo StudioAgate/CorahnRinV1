@@ -112,22 +112,35 @@ class EsterenChar {
 	 * @return array Un tableau contenant les trois valeurs de daosl
 	 */
 	public function get_daols($argent = null) {
+
 		if ($argent === null) {
 			$argent = $this->get('inventaire.argent');
 		} else {
-			$argent = (int) $argent;
+            if (!is_array($argent)) {
+			    $argent = (int) $argent;
+            }
 		}
-		$braise = $azur = $givre = 0;
 
-		do {
-			if ($argent >= 100) {
-				$givre += 1; $argent -= 100;
-			} elseif ($argent >= 10) {
-				$azur += 1; $argent -= 10;
-			} elseif ($argent > 0) {
-				$braise += 1; $argent -= 1;
-			}
-		} while ($argent > 0);
+        if (is_numeric($argent)) {
+            $braise = $azur = $givre = 0;
+            do {
+                if ($argent >= 100) {
+                    $givre += 1;
+                    $argent -= 100;
+                } elseif ($argent >= 10) {
+                    $azur += 1;
+                    $argent -= 10;
+                } elseif ($argent > 0) {
+                    $braise += 1;
+                    $argent -= 1;
+                }
+            } while ($argent > 1);
+        } else {
+            $braise = isset($argent['braise']) ? $argent['braise'] : 0;
+            $azur = isset($argent['azur']) ? $argent['azur'] : 0;
+            $givre = isset($argent['givre']) ? $argent['givre'] : 0;
+        }
+        
 		return array(
 			'braise' => $braise,
 			'azur' => $azur,
