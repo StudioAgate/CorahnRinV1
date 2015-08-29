@@ -2076,10 +2076,6 @@
         "trans": "You have not defined your Charater's Advantages. Go back to the corresponding step.<br />"
     },
     {
-        "source": "Veuillez envoyer ce message à l'administrateur du site",
-        "trans": "Please send this message to the website's administrator"
-    },
-    {
         "source": "Les voies n'ont pas été définies, merci de vous rendre à l'étape correspondante",
         "trans": "You have not defined your Charater's Ways. Go back to the corresponding step."
     },

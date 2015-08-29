@@ -99,7 +99,7 @@ function error_logging($errno, $errstr, $errfile, $errline) {
             unset($p['list']);
             $msgEcho .= $trace."<br />\n".print_r(array('_PAGE' => $p, '_SERVER' => $_SERVER, 'User' => $user));
         }
-        $msgEcho .= '<br /><br />'.tr('Veuillez envoyer ce message à l\'administrateur du site', true);
+        $msgEcho .= '<br /><br />'.tr('Veuillez envoyer ce message à l\'administrateur du site', true, array(), 'general');
         try {
             if ($_SERVER['REMOTE_ADDR'] !== '127.0.0.1') {
 		        send_mail('pierstoval+esterenErrors@gmail.com', 'Error !', $msgMail, 0, 'no-reply@pierstoval.com');

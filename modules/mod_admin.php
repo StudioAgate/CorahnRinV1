@@ -8,6 +8,27 @@ if (P_LOGGED === false) {
 	exit;
 } elseif (P_LOGGED === true) {
 
+    // The next functions are used to generate automatic getters to the EsterenChar class
+    /*
+    function a(array $content, $charContent, $nestedKey = '') {
+        $k = array_keys($content);
+        foreach ($k as $key) {
+            if (is_numeric($key)) { continue; }
+            echo '<br>    * @method get'.ucfirst(trim($nestedKey, '.').ucfirst($key));
+            if (isset($charContent[$nestedKey.$key]) && is_array($charContent[$nestedKey.$key])) {
+                $content = $charContent[$nestedKey.$key];
+                if (!is_numeric($key)) {
+                    a($content, $charContent, $key.'.');
+                }
+            }
+        }
+    }
+    $content = $charObj->get();
+
+    $charContent = $charObj->get();
+    a($charContent, $charContent);
+    */
+
 	?><div class="container"><h3><?php tr("Bienvenue sur le panneau d'administration"); ?></h3></div><?php
 
 	//Chargement des modules spécifiques aux utilisateurs

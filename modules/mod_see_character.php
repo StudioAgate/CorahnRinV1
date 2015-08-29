@@ -7,12 +7,15 @@ $char_id = isset($_PAGE['request'][0]) ? $_PAGE['request'][0] : 0;
 $ymlDumper = new Symfony\Component\Yaml\Dumper();
 $ymlDumper->setIndentation(2);
 
-$orderby = $sort = $char = $characters = $modifications = $users = null;
+/** @var EsterenChar $charObj */
+$orderby = $sort = $char = $charObj = $characters = $modifications = $users = null;
+
 if ($char_id) {
 	$char = $db->row('SELECT %char_id,%char_name,%%characters.%char_content FROM %%characters WHERE %char_id = ?', $char_id);
     if (!$char) {
         redirect(array(), 'Aucun personnage trouvé', 'warning');
     }
+    $charObj = new EsterenChar($char_id);
     $modifications = $db->req('SELECT %charmod_date, %charmod_content_before, %charmod_content_after, %charmod_page_module, %char_id, %user_id FROM %%charmod WHERE %char_id = :char_id ORDER BY %charmod_date DESC', array('char_id' => $char_id));
     $usersModifiersIds = array_reduce($modifications?:[], function($result, $charmod) {
         $result[$charmod['user_id']] = $charmod['user_id'];
@@ -57,9 +60,9 @@ if ($char_id) {
 
 <div class="container">
 	<?php if ($char_id && $char) {
-		$_PAGE['title_for_layout'] = $char['char_name'];
+		$_PAGE['title_for_layout'] = $charObj->name();
 		?>
-		<h3><?php echo $char['char_name']; ?></h3>
+		<h3><?php echo $charObj->name(); ?></h3>
 		<?php if (P_DEBUG === true) { ?>
 		<button class="showhidden btn btn-small"><span class="icon-plus"></span></button><div class="hid"><?php pr(Esterenchar::sdecode_char($char['char_content'])); ?></div>
 		<?php } ?>
@@ -77,7 +80,7 @@ if ($char_id) {
 						'params'=>array(
 							$char_id,
 							'zip'=>true,
-							clean_word($char['char_name'])
+							clean_word($charObj->name())
 						)
 					)
 				);
@@ -88,11 +91,11 @@ if ($char_id) {
 			<div class="span6 sheetlist">
                 <br>
 				<?php
-				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'pdf', 'anchor'=>'Version originale', 'trans' => true, 'attr'=>array('class'=>'btn pageview'), 'params'=>array($char_id,'pdf'=>true, clean_word($char['char_name']))));
+				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'pdf', 'anchor'=>'Version originale', 'trans' => true, 'attr'=>array('class'=>'btn pageview'), 'params'=>array($char_id,'pdf'=>true, clean_word($charObj->name()))));
 				?>
                 <br>
 				<?php
-				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'pdf', 'anchor'=>'Version originale "Printer Friendly"', 'trans' => true, 'attr'=>array('class'=>'btn pageview'), 'params'=>array($char_id,'pdf'=>true,'print'=>true, clean_word($char['char_name']))));
+				echo mkurl(array('val'=>49, 'type'=>'tag', 'ext' => 'pdf', 'anchor'=>'Version originale "Printer Friendly"', 'trans' => true, 'attr'=>array('class'=>'btn pageview'), 'params'=>array($char_id,'pdf'=>true,'print'=>true, clean_word($charObj->name()))));
 				?>
 			</div>
 		</div>
