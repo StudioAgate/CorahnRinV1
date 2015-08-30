@@ -69,7 +69,7 @@ if ($traumaCurables + $traumaPerma <= 20) {
     Session::setFlash('Les valeurs de traumatismes n\'ont pas été modifiées car leur somme est supérieure à 20. Merci de les vérifier.', 'warning');
 }
 
-$endurcissement = abs((int) $post['endurcissement']);
+$endurcissement = abs((int) $post['endur_perma']);
 $char->set('endurcissement', $endurcissement < 20 ? $endurcissement : 20);
 
 if ($char->update_to_db()) {

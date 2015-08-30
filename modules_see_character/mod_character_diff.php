@@ -163,4 +163,28 @@ if ($daols = gv('inventaire.argent', $before, $after)) {
     }
 }
 
+$intValues = array(
+    'traumatismes.permanents' => 'Trauma-permanent',
+    'traumatismes.curables' => 'Trauma-curable',
+    'endurcissement' => 'Endurcissement',
+);
+
+foreach ($intValues as $intKey => $intProcessKey) {
+    $values = gv($intKey, $before, $after);
+
+    $dBefore = isset($values['before']) ? $values['before'] : 0;
+    $dAfter = isset($values['after']) ? $values['after']: 0;
+    if (null !== $dAfter) {
+        if (null !== $dBefore) {
+            $diff = $dAfter - $dBefore;
+            if ($diff > 0) {
+                $diff = '+'.$diff;
+            }
+            if ($diff) {
+                $processed[tr($intProcessKey, true)] = $diff;
+            }
+        }
+    }
+}
+
 return $processed;

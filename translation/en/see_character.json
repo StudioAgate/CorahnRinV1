@@ -82,5 +82,17 @@
     {
         "source": "Daols-Givre",
         "trans": "Daols-Frost"
+    },
+    {
+        "source": "Endurcissement",
+        "trans": "Hardening"
+    },
+    {
+        "source": "Trauma-permanent",
+        "trans": "Trauma-permanent"
+    },
+    {
+        "source": "Trauma-curable",
+        "trans": "Trauma-curable"
     }
 ]
