@@ -143,7 +143,7 @@ class EsterenChar {
             $stringPath = preg_replace_callback('~[A-Z]~', function($matches) {
                 return '.'.strtolower($matches[0]);
             }, $path);
-            if ($value = $this->get($stringPath)) {
+            if (null !== $value = $this->get($stringPath)) {
                 return $value;
             }
         } elseif (strpos($name, 'set') === 0 && count($arguments) === 1) {
@@ -470,13 +470,13 @@ class EsterenChar {
 	 *
 	 * @return mixed
 	 */
-	public function get($path = null) {
+	public function get($path = null, $defaultValue = null) {
 		if ($path === '' || $path === null) {
 			return $this->char;
 		} else {
 			$element = Hash::get($this->char, $path);
 			//$element = isset($element[0]) ? $element[0] : '';
-			return $element; //On récupère un élément du personnage en fonction du chemin donné
+			return $element !== null ? $element : $defaultValue; //On récupère un élément du personnage en fonction du chemin donné
 		}
 	}
 
