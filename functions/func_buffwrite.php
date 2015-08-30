@@ -30,7 +30,9 @@ function buffWrite($type, $content, $dest = '') {
 	if (P_GEN_FILES_ONLOAD === true || $_SERVER['HTTP_HOST'] === '127.0.0.1' || !FileAndDir::fexists($dest)) {
 		//if ($type == 'js') { $content = Minifier::minify($content); }
 		//$content = Minifier::minify($content);
-		$content = minify($content, $type);
+        if (P_DEBUG === false) {
+		    $content = minify($content, $type);
+        }
         if (!is_dir(dirname($dest))) {
             FileAndDir::createPath(dirname($dest));
             touch($dest);

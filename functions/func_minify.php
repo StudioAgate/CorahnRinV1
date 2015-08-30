@@ -4,8 +4,10 @@
  * Diminue la taille d'une chaîne de caractère, notamment pour les fichiers css et js
  *
  * @param string $content Le contenu à minifier
- * @param string $type Le type de contenu envoyé
+ * @param string $type    Le type de contenu envoyé
+ *
  * @author Pierstoval 05/06/2013
+ * @return mixed|string
  */
 function minify($content, $type = 'css') {
 
