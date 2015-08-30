@@ -1,0 +1,10 @@
+[
+    {
+        "source": "Les valeurs de traumatismes n'ont pas été modifiées car leur somme est supérieure à 20. Merci de les vérifier.",
+        "trans": "Les valeurs de traumatismes n'ont pas été modifiées car leur somme est supérieure à 20. Merci de les vérifier."
+    },
+    {
+        "source": "Le personnage a été correctement modifié !",
+        "trans": "Le personnage a été correctement modifié !"
+    }
+]

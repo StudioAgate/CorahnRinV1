@@ -302,5 +302,41 @@
     {
         "source": "Daols de givre",
         "trans": "Daols de givre"
+    },
+    {
+        "source": "Trauma",
+        "trans": "Trauma"
+    },
+    {
+        "source": "Attention, la somme des valeurs de Trauma et d'Endurcissement ne doit pas dépasser 20!",
+        "trans": "Attention, la somme des valeurs de Trauma et d'Endurcissement ne doit pas dépasser 20!"
+    },
+    {
+        "source": "Traumatismes",
+        "trans": "Traumatismes"
+    },
+    {
+        "source": "Trauma permanent",
+        "trans": "Trauma permanent"
+    },
+    {
+        "source": "Trauma curable",
+        "trans": "Trauma curable"
+    },
+    {
+        "source": "Endurcissement",
+        "trans": "Endurcissement"
+    },
+    {
+        "source": "Endurcissement permanent",
+        "trans": "Endurcissement permanent"
+    },
+    {
+        "source": "Les valeurs de traumatismes n'ont pas été modifiées car leur somme est supérieure à 20. Merci de les vérifier.",
+        "trans": "Les valeurs de traumatismes n'ont pas été modifiées car leur somme est supérieure à 20. Merci de les vérifier."
+    },
+    {
+        "source": "Le personnage a été correctement modifié !",
+        "trans": "Le personnage a été correctement modifié !"
     }
 ]

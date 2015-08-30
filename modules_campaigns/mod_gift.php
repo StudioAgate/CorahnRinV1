@@ -101,6 +101,7 @@ $modules_list = array(
 	'armes' => 'Armes',
 	'armures' => 'Armures',
 	'daols' => 'Daols',
+	'trauma' => 'Trauma',
 );
 
 ?>
@@ -141,30 +142,37 @@ $modules_list = array(
 $_PAGE['more_js'][] = BASE_URL.'/js/pages/pg_'.$_PAGE['get'].'_gift.js';
 
 buffWrite('js', <<<JSFILE
+
 	function remove_chars() {
-		var text = $('#exp').val().replace(/[^0-9]+/gi, '');
-		//alert(text);
-		$('#exp_slider').slider('option', 'value', Number(text));
-		$('#exp').val(text);
 	}
 	$(document).ready(function(){
 		$('form').submit(function(){
 			return confirm(valid_txt);
 		});
-		$('#exp_slider').slider({
-			range: 'min',
-			value: 0,
-			min: 0,
-			max: 100,
-			slide: function( event, ui ) {
-				$('#exp').val(ui.value);
-			}
+		$('.data-slider').each(function(){
+		    var _this = $(this);
+            _this.slider({
+                range: 'min',
+                value: 0,
+                min: _this.attr('data-slider-min'),
+                max: _this.attr('data-slider-max'),
+                slide: function( event, ui ) {
+                    $(_this.attr('data-slider-input')).val(ui.value);
+                }
+            });
+            $(_this.attr('data-slider-input')).on('mousedown blur focus', function () {
+                var val = $(this).val(),
+                    text = val.replace(/[^0-9]+/gi, '')
+                ;
+                //alert(text);
+                _this.slider('option', 'value', Number(text));
+                $(this).val(text);
+            });
 		});
 		$('.change_value.btn').click(function(){
 			$(this).toggleClass('btn-inverse')
 				.next('input[type="hidden"]').val($(this).is('.btn-inverse') ? '1' : '0');
 		});
-		$('#exp').on('click blur focus keydown keyup', function () { remove_chars(); });
 	});
 JSFILE
 , $_PAGE['get'].'_gift');

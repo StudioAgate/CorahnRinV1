@@ -12,5 +12,5 @@ $exp_total = $char->get('experience.total');
 				<input id="exp" name="exp" type="text" class="input-mini" value="0" />
 			</div>
 		</div>
-		<div id="exp_slider" class="ml10"></div>
+		<div id="exp_slider" class="data-slider ml10"  data-slider-input="#exp" data-slider-min="0" data-slider-max="100"></div>
 	</div>

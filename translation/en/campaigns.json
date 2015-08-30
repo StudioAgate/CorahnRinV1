@@ -302,5 +302,33 @@
     {
         "source": "Daols de givre",
         "trans": "Frost daols"
+    },
+    {
+        "source": "Trauma",
+        "trans": "Trauma"
+    },
+    {
+        "source": "Attention, la somme des valeurs de Trauma et d'Endurcissement ne doit pas dépasser 20!",
+        "trans": "Be careful, the Trauma values sum must not exceed 20!"
+    },
+    {
+        "source": "Traumatismes",
+        "trans": "Trauma"
+    },
+    {
+        "source": "Trauma permanent",
+        "trans": "Permanent trauma"
+    },
+    {
+        "source": "Trauma curable",
+        "trans": "Curable trauma"
+    },
+    {
+        "source": "Endurcissement",
+        "trans": "Hardening"
+    },
+    {
+        "source": "Endurcissement permanent",
+        "trans": "Permanent hardening"
     }
 ]

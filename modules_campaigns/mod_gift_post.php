@@ -55,10 +55,22 @@ $char->set('inventaire.armures', $armures);
 unset($t,$v);
 
 $char->set('inventaire.argent', $char->get_daols(array(
-    'braise' => (int) $post['daols_braise'],
-    'azur' => (int) $post['daols_azur'],
-    'givre' => (int) $post['daols_givre'],
+    'braise' => abs((int) $post['daols_braise']),
+    'azur' => abs((int) $post['daols_azur']),
+    'givre' => abs((int) $post['daols_givre']),
 )));
+
+$traumaCurables = abs((int) $post['trauma_curable']);
+$traumaPerma = abs((int) $post['trauma_perma']);
+if ($traumaCurables + $traumaPerma <= 20) {
+    $char->set('traumatismes.curables', $traumaCurables);
+    $char->set('traumatismes.permanents', $traumaPerma);
+} else {
+    Session::setFlash('Les valeurs de traumatismes n\'ont pas été modifiées car leur somme est supérieure à 20. Merci de les vérifier.', 'warning');
+}
+
+$endurcissement = abs((int) $post['endurcissement']);
+$char->set('endurcissement', $endurcissement < 20 ? $endurcissement : 20);
 
 if ($char->update_to_db()) {
 	Session::setFlash('Le personnage a été correctement modifié !', 'success');
