@@ -137,12 +137,26 @@ class Session {
  */
 	static function setFlash($message, $type = 'notif') {
 
-		$msg = Session::read('Flash.message');//On réécrit par-dessus si la variable existe déjà
+		$flashBag = Session::read('flash_bag');
 
-		//Initialisation de la variable de session avec les valeurs reçues
-		Session::write('Flash.message', $msg.($msg ? '<br />' : '').$message);
-		Session::write('Flash.type', $type.($msg && !preg_match('# noicon#', $type) ? ' noicon' : ''));
+        if (!isset($flashBag[$type])) {
+            $flashBag[$type] = array();
+        }
+
+        $flashBag[$type][] = $message;
+
+		Session::write('flash_bag', $flashBag);
 	}
+
+    /**
+     * @return array
+     */
+    public static function getFlashbag()
+    {
+        $datas = self::read('flash_bag');
+        self::delete('flash_bag');
+        return $datas;
+    }
 
 /**
  * EN ATTENTE DE COMM

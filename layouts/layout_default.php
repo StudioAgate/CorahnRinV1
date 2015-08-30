@@ -56,16 +56,21 @@ if (isset($_PAGE['more_css'])) {
 
 		<?php
 		//Affichage du message flash s'il existe
-		if (Session::check('Flash')) {
-			$message = Session::read('Flash.message');
-			$err = Session::read('Flash.type');
+		if (Session::check('flash_bag')) {
+            $flashBag = Session::getFlashbag();
 			$err_ok = array('info','success','error','warning','notif','info noicon','success noicon','error noicon','warning noicon','notif noicon');
-			if (!in_array($err, $err_ok)) { $err = ''; }
 
 			?><div class="container"><?php
-				if ($err) { ?><div class="<?php echo $err; ?>"><?php }
-				echo $message;
-				if ($err) { ?></div><?php }
+                foreach ($flashBag as $type => $messages) {
+                    $err = in_array($type, $err_ok);
+                    if ($err) { ?><div class="alert <?php echo $type; ?>"><?php }
+                    $i = 0;
+                    foreach ($messages as $message) {
+                        if ($i>0){echo'<br>';}else{$i++;}
+                        tr($message, false, array(), 'flash_messages');
+                    }
+                    if ($err) { ?></div><?php }
+                }
 			?></div><?php
 
 			if (isset($_SESSION['send_mail'])) {
@@ -75,7 +80,6 @@ if (isset($_PAGE['more_css'])) {
 				unset($_SESSION['send_mail']);
 			}
 
-			Session::delete('Flash');
 			unset($message,$err,$err_ok);
 		}
 
