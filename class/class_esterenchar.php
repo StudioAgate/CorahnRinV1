@@ -251,7 +251,7 @@ class EsterenChar {
                 return $value;
             }
         } elseif (strpos($name, 'set') === 0 && count($arguments) === 1) {
-            $path = lcfirst(preg_replace('~^get~', '', $name));
+            $path = lcfirst(preg_replace('~^set~', '', $name));
             $stringPath = preg_replace_callback('~[A-Z]~', function($matches) {
                 return '.'.strtolower($matches[0]);
             }, $path);
