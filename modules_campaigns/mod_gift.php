@@ -21,8 +21,20 @@ if ($game['game_mj'] != Users::$id) {
 	exit;
 }
 
+$char = $db->row('SELECT %char_id FROM
+		%%characters WHERE %char_id = :char_id && %game_id = :game_id && (%char_status = :pj || %char_status = :pnj)', array('char_id'=>$char_id,'game_id'=>$game_id,'pj'=>1,'pnj'=>2));
+
+if (!$char) {
+    Session::setFlash('Vous ne pouvez pas donner de récompense à ce personnage.', 'error');
+    header('Location:'.mkurl(array('params'=>array(0=>$game_id))));
+    exit;
+}
+
+unset($char);
+$char = new EsterenChar($char_id, 'db');
+
 if (!empty($_POST)) {
-	load_module('gift_post', 'module');
+	load_module('gift_post', 'module', array('char' => $char));
 }
 
 if (!isset($char_id)) { return; }
@@ -83,18 +95,6 @@ if (isset($_PAGE['request'][2])) {
     }
     redirect(array('params' => array(0=>$game_id)));
 }
-
-$char = $db->row('SELECT * FROM
-		%%characters WHERE %char_id = :char_id && %game_id = :game_id && (%char_status = :pj || %char_status = :pnj)', array('char_id'=>$char_id,'game_id'=>$game_id,'pj'=>1,'pnj'=>2));
-
-if (!$char) {
-	Session::setFlash('Vous ne pouvez pas donner de récompense à ce personnage.', 'error');
-	header('Location:'.mkurl(array('params'=>array(0=>$game_id))));
-	exit;
-}
-
-unset($char);
-$char = new EsterenChar($char_id, 'db');
 
 $modules_list = array(
 	'experience' => 'Expérience',

@@ -84,6 +84,89 @@
  * @method getExperience
  * @method getExperienceTotal
  * @method getExperienceReste
+ *
+ * @method setVoies
+ * @method setMetier
+ * @method setMetierId
+ * @method setMetierName
+ * @method setMetierDescription
+ * @method setRegion_naissance
+ * @method setRegion_naissanceId
+ * @method setRegion_naissanceName
+ * @method setRegion_naissanceRoyaume
+ * @method setRegion_naissanceDescription
+ * @method setTraits_caractere
+ * @method setTraits_caractereDefaut
+ * @method setTraits_caractereQualite
+ * @method setDomaines
+ * @method setAvantages
+ * @method setDesavantages
+ * @method setRevers
+ * @method setDesordre_mental
+ * @method setDesordre_mentalId
+ * @method setDesordre_mentalName
+ * @method setDetails_personnage
+ * @method setDetails_personnageName
+ * @method setDetails_personnageSexe
+ * @method setDetails_personnageJoueur
+ * @method setDetails_personnageHistoire
+ * @method setDetails_personnageFaits
+ * @method setDetails_personnageDescription
+ * @method setInventaire
+ * @method setInventaireArmes
+ * @method setInventaireArmures
+ * @method setInventairePossessions
+ * @method setInventaireArgent
+ * @method setInventaireObjets_precieux
+ * @method setInventaireOgham
+ * @method setInventaireArtefacts
+ * @method setInventaireMiracles
+ * @method setOrientation
+ * @method setOrientationName
+ * @method setOrientationInstinct
+ * @method setOrientationConscience
+ * @method setResidence_geographique
+ * @method setClasse_sociale
+ * @method setAge
+ * @method setPotentiel
+ * @method setPeuple
+ * @method setResistance_mentale
+ * @method setResistance_mentaleVal
+ * @method setResistance_mentaleExp
+ * @method setSante
+ * @method setVigueur
+ * @method setDefense
+ * @method setDefenseBase
+ * @method setDefenseAmelioration
+ * @method setSurvie
+ * @method setRapidite
+ * @method setRapiditeBase
+ * @method setRapiditeAmelioration
+ * @method setTraumatismes
+ * @method setTraumatismesPermanents
+ * @method setTraumatismesCurables
+ * @method setRindath
+ * @method setRindathVal
+ * @method setRindathMax
+ * @method setExaltation
+ * @method setExaltationVal
+ * @method setExaltationMax
+ * @method setOgham
+ * @method setMiracles
+ * @method setMiraclesMajeurs
+ * @method setMiraclesMineurs
+ * @method setMiraclesMin
+ * @method setMiraclesMaj
+ * @method setArtefacts
+ * @method setFlux
+ * @method setFluxMineral
+ * @method setFluxVegetal
+ * @method setFluxOrganique
+ * @method setFluxFossile
+ * @method setArts_combat
+ * @method setExperience
+ * @method setExperienceTotal
+ * @method setExperienceReste
  */
 class EsterenChar {
 
@@ -134,7 +217,28 @@ class EsterenChar {
 		if ($ret === true && $this->id > 0 && !FileAndDir::dexists(CHAR_EXPORT.DS.$this->id)) {
 			FileAndDir::createPath(CHAR_EXPORT.DS.$this->id);
 		}
+
+        $this->fixCharacter();
 	}
+
+    /**
+     *
+     */
+    public function fixCharacter()
+    {
+        $update = false;
+
+        $daols = $this->getInventaireArgent();
+        if (is_numeric($daols)) {
+            $daols = $this->get_daols((int) $daols);
+            $this->setInventaireArgent($daols);
+            $update = true;
+        }
+
+        if ($update) {
+            $this->update_to_db(false);
+        }
+    }
 
     function __call($name, $arguments)
     {
@@ -354,30 +458,32 @@ class EsterenChar {
 		return $ret;
 	}
 
-	/**
-	 * Met à jour le personnage dans la base de données
-	 *
-	 * @return boolean True si réussi, False sinon
-	 */
-	public function update_to_db() {
+    /**
+     * Met à jour le personnage dans la base de données
+     *
+     * @param bool $makeDiff
+     *
+     * @return bool True si réussi, False sinon
+     */
+	public function update_to_db($makeDiff = true) {
 		global $_PAGE;
 
-		$compare_after = p_array_diff_recursive($this->char, $this->base_char, true);
-		$compare_before = p_array_diff_recursive($this->base_char, $this->char, true);
-// 		if (!empty($compare_after) && !empty($compare_before)) {
-			$compare_before = $this->_encrypt($compare_before);
-			$compare_after = $this->_encrypt($compare_after);
-			$datas_compare = array(
-				'charmod_content_before' => $compare_before,
-				'charmod_content_after' => $compare_after,
-				'charmod_date' => time(),
-				'charmod_page_module' => $_PAGE['get'],
-				'charmod_page_request' => $this->_encrypt($_PAGE['request']),
-				'char_id' => $this->id,
-				'user_id' => Users::$id,
-			);
-			$sql2 = 'INSERT INTO %%charmod SET %%%fields';
-// 		}
+        if ($makeDiff) {
+            $compare_after = p_array_diff_recursive($this->char, $this->base_char, true);
+            $compare_before = p_array_diff_recursive($this->base_char, $this->char, true);
+            $compare_before = $this->_encrypt($compare_before);
+            $compare_after = $this->_encrypt($compare_after);
+            $datas_compare = array(
+                'charmod_content_before' => $compare_before,
+                'charmod_content_after' => $compare_after,
+                'charmod_date' => time(),
+                'charmod_page_module' => $_PAGE['get'],
+                'charmod_page_request' => $this->_encrypt($_PAGE['request']),
+                'char_id' => $this->id,
+                'user_id' => Users::$id,
+            );
+            $sql2 = 'INSERT INTO %%charmod SET %%%fields';
+        }
 
 		$datas = array(
 			'char_name' => $this->get('details_personnage.name'),
@@ -416,7 +522,7 @@ class EsterenChar {
 			return false;
 		} elseif ($req && isset($req['char_id']) && isset($req['char_name'])) {
 			$this->char = array();
-			if ($this->update_to_db()) {
+			if ($this->update_to_db(false)) {
 				$ret = $this->db->noRes('DELETE FROM %%characters WHERE %char_id = ?', array($req['char_id']));
 				if (!$ret) {
 					Session::setFlash('Une erreur est survenue lors de la suppression du personnage. #001', 'error');

@@ -15,8 +15,6 @@ unset($post['game_id']);
 $char_id = $post['char_id'];
 unset($post['char_id']);
 
-$char = new Esterenchar($char_id, 'db');
-
 $char->set('experience.total', '+='.$post['exp']);
 $char->set('experience.reste', '+='.$post['exp']);
 
