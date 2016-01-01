@@ -1225,6 +1225,8 @@
 				break;
 			case 'F':
 				// Save to local file
+				if (!is_dir(dirname($name))) { mkdir(dirname($name)); }
+				if (!file_exists($name)) { touch($name); }
 				$f = fopen($name,'wb');
 				if(!$f)
 					$this->Error('Unable to create output file: '.$name);
