@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+    <version date="20160131" code="1.33.2">
+        <tasks>
+            <task type="general">
+                <element name="">Sécurité</element>
+                <comment>Ajouté le support de HTTPS / SSL.</comment>
+            </task>
+        </tasks>
+    </version>
     <version date="20150917" code="1.33.1">
         <tasks>
             <task type="page">
