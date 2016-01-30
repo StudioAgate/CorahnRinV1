@@ -134,8 +134,8 @@ function mkurl($base_params = array()) {
             $final = BASE_URL.'/'.$params['lang'].'/'.$page['page_getmod'].$all_params.'.'.$params['ext'].($get_params ? $get_params : '');
         } elseif ($params['custom'] === true) {
             $final = $params['val'];
-            if (strpos($final, 'http://') === false) {
-                $final = 'http://'.$final;
+            if (strpos($final, 'http') === false) {
+                $final = 'http'.(is_ssl() ? 's' : '').'://'.$final;
             }
         }
 
@@ -146,8 +146,8 @@ function mkurl($base_params = array()) {
 			$href = BASE_URL.'/'.$params['lang'].'/'.$page['page_getmod'].$all_params.'.'.$params['ext'].($get_params ? $get_params : '');
 		} elseif ($params['custom'] === true) {
 			$href = $params['val'];
-			if (strpos($href, 'http://') === false) {
-				$href = 'http://'.$href;
+			if (strpos($href, 'http') === false) {
+				$href = 'http'.(is_ssl() ? 's' : '').'://'.$href;
 			}
 		} else {
             $href = '';
@@ -196,3 +196,15 @@ function mkurl_to_client_url ($url, $lang = true) {
 	$url = str_replace(array('\\', '/'), array('/', '/'), $url);
 	return $url;
 }
+function is_ssl() {
+    if ( isset($_SERVER['HTTPS']) ) {
+        if ( 'on' == strtolower($_SERVER['HTTPS']) )
+            return true;
+        if ( '1' == $_SERVER['HTTPS'] )
+            return true;
+    } elseif ( isset($_SERVER['SERVER_PORT']) && ( '443' == $_SERVER['SERVER_PORT'] ) ) {
+        return true;
+    }
+    return false;
+}
+

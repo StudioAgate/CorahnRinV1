@@ -19,7 +19,7 @@ if (isset($_SERVER['BASE'])) {
         }
     }
 }
-define('BASE_URL', 'http://'.P_BASE_HOST.$baseUrl);//url absolue du site
+define('BASE_URL', 'http'.(is_ssl()?'s':'').'://'.P_BASE_HOST.$baseUrl);//url absolue du site
 unset($baseUrl, $scriptPath, $urlPath, $k, $v, $key);
 
 /**
