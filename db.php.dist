@@ -13,6 +13,4 @@ define('P_DB_INITERRORS', false);
 ## Détermine quel type d'erreur sera envoyé
 define('P_DB_ERROR_TYPE', 'notice');
 
-## Création de la connexion à la BDD
-$db = new bdd(P_DB_HOST, P_DB_USER, P_DB_PWD, P_DB_DBNAME, P_DB_PREFIX);
-
+define('P_DEBUG', true);

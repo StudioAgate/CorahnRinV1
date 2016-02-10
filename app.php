@@ -7,86 +7,86 @@
 
 require __DIR__.'/vendor/autoload.php';
 
-define('ROOT', dirname(__FILE__)); //Chemin vers le dossier racine
+define('ROOT', __DIR__); //Chemin vers le dossier racine
 define('DS', DIRECTORY_SEPARATOR); //Définition du séparateur dans le cas ou l'on est sur windows ou linux
 
-define('WEBROOT',		ROOT.DS.'webroot');
-define('P_FONTS',		WEBROOT.DS.'css'.DS.'fonts');
-define('P_CSS',			WEBROOT.DS.'css');
-define('P_JS',			WEBROOT.DS.'js');
-define('CHAR_EXPORT',	WEBROOT.DS.'files'.DS.'characters_export');
+define('WEBROOT',     ROOT.DS.'webroot');
+define('P_FONTS',     WEBROOT.DS.'css'.DS.'fonts');
+define('P_CSS',       WEBROOT.DS.'css');
+define('P_JS',        WEBROOT.DS.'js');
+define('CHAR_EXPORT', WEBROOT.DS.'files'.DS.'characters_export');
 
 ## Chargement des classes
 $class_inc = array(
-	'bddPDO',
-	'encoding',
-	'esterenchar',
-	'minifier',
-	'translate',
-	'users',
-	'fpdf',
-	//'fpdfMakefont',
-	//'fpdfTTFparser',
-	'tfpdf',
-	'tfpdfTTFonts',
-	'mailerEasyPeasyICS',
-	'mailerHtml2text',
-	'mailerNtlm_sasl_client',
-	'mailerPhpmailer',
-	'mailerPop3',
-	'mailerSmtp',
-	'cakePhpFileAndDir',
-	'cakePhpInflector',
-	'cakePhpHash',
-	'cakePhpSession',
-	'cakePhpSet',
-	'cakePhpString',
+    'bddPDO',
+    'encoding',
+    'esterenchar',
+    'minifier',
+    'translate',
+    'users',
+    'fpdf',
+    //'fpdfMakefont',
+    //'fpdfTTFparser',
+    'tfpdf',
+    'tfpdfTTFonts',
+    'mailerEasyPeasyICS',
+    'mailerHtml2text',
+    'mailerNtlm_sasl_client',
+    'mailerPhpmailer',
+    'mailerPop3',
+    'mailerSmtp',
+    'cakePhpFileAndDir',
+    'cakePhpInflector',
+    'cakePhpHash',
+    'cakePhpSession',
+    'cakePhpSet',
+    'cakePhpString',
 );
 foreach ($class_inc as $val) {
-	$filename = ROOT.DS.'class'.DS.'class_'.$val.'.php';
-	if (file_exists($filename)) {
-		require $filename;
-	} else {
-		echo 'Erreur dans le chargement de la classe '.$val;
-		exit;
-	}
+    $filename = ROOT.DS.'class'.DS.'class_'.$val.'.php';
+    if (file_exists($filename)) {
+        require $filename;
+    } else {
+        echo 'Erreur dans le chargement de la classe '.$val;
+        exit;
+    }
 }
 unset($class_inc);
 
 ## Chargement des fonctions
 $function_inc = array(
-	'arrayDiffRecursive',
-	'buffwrite',
-	'createZip',
-	'getPostDatas',
-	'getXPFromAvtg',
-	'getXPFromDiscs',
-	'getXPFromDoms',
-	'errorLogging',
-	'goto404',
-	'gv',
+    'arrayDiffRecursive',
+    'buffwrite',
+    'createZip',
+    'getPostDatas',
+    'getXPFromAvtg',
+    'getXPFromDiscs',
+    'getXPFromDoms',
+    'errorLogging',
+    'goto404',
+    'gv',
     'httpCode',
-	'isBlacklisted',
-	'minify',
-	'isCorrectEmail',
-	'mkurl',
-	'mailerHtmlfilter',
-	'pDump',
-	'printrToArray',
-	'loadModule',
-	'removeAccents',
-	'sendMail',
-	'urlExists',
-	'redirect',
+    'isBlacklisted',
+    'minify',
+    'isCorrectEmail',
+    'mkurl',
+    'mailerHtmlfilter',
+    'pDump',
+    'printrToArray',
+    'loadModule',
+    'removeAccents',
+    'sendMail',
+    'urlExists',
+    'redirect',
 );
 foreach ($function_inc as $val) {
-	$filename = ROOT.DS.'functions'.DS.'func_'.$val .'.php';
-	if (file_exists($filename)) {
-		require $filename;
-	} else {
-		echo 'Erreur dans le chargement de la fonction '.$val;
-		exit;
-	}
+    $filename = ROOT.DS.'functions'.DS.'func_'.$val .'.php';
+    if (file_exists($filename)) {
+        require $filename;
+    } else {
+        echo 'Erreur dans le chargement de la fonction '.$val;
+        exit;
+    }
 }
 unset($function_inc,$val,$filename);
 
@@ -98,7 +98,7 @@ define('P_BASE_HOST', $_SERVER['HTTP_HOST']);
 
 ## Redéfinition de HTTP_HOST pour éviter les problèmes de compatibilité sur les serveurs locaux, ou les changements de ports avec EasyPHP ou WAMP par exemple
 if (preg_match('#127\.0\.0\.1|localhost#isUu', $_SERVER['HTTP_HOST'])) {
-	$_SERVER['HTTP_HOST'] = '127.0.0.1';//On définit le serveur local
+    $_SERVER['HTTP_HOST'] = '127.0.0.1';//On définit le serveur local
 }
 ## Configuration de la base de données
 if (!FileAndDir::fexists(ROOT.DS.'db.php')) {
@@ -107,14 +107,19 @@ if (!FileAndDir::fexists(ROOT.DS.'db.php')) {
 }
 require ROOT.DS.'db.php';
 
+## Création de la connexion à la BDD
+$db = new bdd(P_DB_HOST, P_DB_USER, P_DB_PWD, P_DB_DBNAME, P_DB_PREFIX);
+
 ## On charge tous les paramètres de base du site (variable $_PAGE, session, etc)
 require ROOT.DS.'config.php';
 
 ## Initialisation de l'utilisateur
 Users::init((int) Session::read('user'));
-define('P_LOGGED',	Users::$id > 0);
-define('P_DEBUG', 	Users::$id == 1);
+define('P_LOGGED', Users::$id > 0);
 
+if (!defined('P_DEBUG')) {
+    define('P_DEBUG', Users::$id == 1);
+}
 
 ## On va créer la requête dans la variable $_PAGE
 require ROOT.DS.'request.php';
@@ -128,32 +133,32 @@ $_PAGE['layout'] = 'default';
 
 ## Récupération du module dans $module
 ob_start();
-	if (file_exists(ROOT.DS.'modules'.DS.'mod_' . $_PAGE['get'] . '.php')) {//S'il existe on le charge
-		load_module($_PAGE['get'], 'page');
-	} else {
-		load_module('404', 'page');
-	}
+    if (file_exists(ROOT.DS.'modules'.DS.'mod_' . $_PAGE['get'] . '.php')) {//S'il existe on le charge
+        load_module($_PAGE['get'], 'page');
+    } else {
+        load_module('404', 'page');
+    }
 $_PAGE['content_for_layout'] = ob_get_clean();
 ## Fin de récupération du module
 
 ## Création de la variable contenant la navigation
 if ($_PAGE['layout'] === 'default') {
-	ob_start();
-	load_module('', 'menu');
-	//include ROOT.DS.'includes'.DS.'inc_nav.php';
-	$_PAGE['nav_for_layout'] = ob_get_clean();
+    ob_start();
+    load_module('', 'menu');
+    //include ROOT.DS.'includes'.DS.'inc_nav.php';
+    $_PAGE['nav_for_layout'] = ob_get_clean();
 }
 
 $_LAYOUT = '';
 ob_start();
-	if (file_exists(ROOT.DS.'layouts'.DS.'layout_'.$_PAGE['layout'].'.php')) {
-		load_module($_PAGE['layout'], 'layout');
-		//require ROOT.DS.'layouts'.DS.'layout_'.$_PAGE['layout'].'.php';//S'il existe on le charge
-	} else {
-		Session::setFlash('Le layout "'.$_PAGE['layout'].'" n\'existe pas.', 'error');
-		load_module('default', 'layout');
-		//require ROOT.DS.'layouts'.DS.'layout_default.php';//On charge par défaut sinon
-	}
+    if (file_exists(ROOT.DS.'layouts'.DS.'layout_'.$_PAGE['layout'].'.php')) {
+        load_module($_PAGE['layout'], 'layout');
+        //require ROOT.DS.'layouts'.DS.'layout_'.$_PAGE['layout'].'.php';//S'il existe on le charge
+    } else {
+        Session::setFlash('Le layout "'.$_PAGE['layout'].'" n\'existe pas.', 'error');
+        load_module('default', 'layout');
+        //require ROOT.DS.'layouts'.DS.'layout_default.php';//On charge par défaut sinon
+    }
 $_LAYOUT = ob_get_clean();
 unset($content_for_layout);
 
@@ -171,7 +176,7 @@ if (strpos($_LAYOUT, '{PAGE_TIME}') !== false) {
         $f = fopen($logfile, 'a');##On stocke le temps d'exécution dans le fichier log
         $final = "*|*|*Date=>".json_encode(date(DATE_RFC822))
             .'||Ip=>'.json_encode($_SERVER['REMOTE_ADDR'])
-         	.'||Referer=>'.json_encode(isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '')
+            .'||Referer=>'.json_encode(isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '')
             .'||Page.get=>'.json_encode($_PAGE['get'])
             .'||Page.request=>'.json_encode((array)@$_PAGE['request'])
             .'||GET=>'.json_encode((array)$_GET)
