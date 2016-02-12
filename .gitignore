@@ -21,7 +21,7 @@ local.properties
 .buildpath
 
 ###Esteren
-db.php
+config.php
 Maquettage/
 webroot/css/main.min.css
 webroot/css/pages/*.css
