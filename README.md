@@ -16,7 +16,7 @@ Ces contenus incluent tous les textes écrits dans chacune des 20 étapes de cr�
 
 Installez l'application sur votre serveur (local ou distant).
 
-Copiez et collez le fichier `db.php` à partir du fichier `db.php.dist` à la racine pour bien y marquer les données de connexion à votre base de données.
+Copiez et collez le fichier `config.php` à partir du fichier `config.php.dist` à la racine pour bien y marquer les données de connexion à votre base de données et d'autres infos relatives aux e-mails.
 
 Une fois fait, la structure de la base de données est située dans `files/install.sql`, vous devez importer manuellement ce fichier pour obtenir les données de base du générateur.
 
