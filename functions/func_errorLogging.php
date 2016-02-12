@@ -102,7 +102,7 @@ function error_logging($errno, $errstr, $errfile, $errline) {
         $msgEcho .= '<br /><br />'.tr('Veuillez envoyer ce message à l\'administrateur du site', true, array(), 'general');
         try {
             if ($_SERVER['REMOTE_ADDR'] !== '127.0.0.1') {
-		        send_mail('pierstoval+esterenErrors@gmail.com', 'Error !', $msgMail, 0, 'no-reply@pierstoval.com');
+		        send_mail(P_ERROR_MAIL_TO, 'Error !', $msgMail, 0, P_ERROR_MAIL_FROM);
             }
         } catch (Exception $e) {}
 		echo '<pre class="thrown_error '.$errclass.'">'.$msgEcho.'</pre>';

@@ -101,24 +101,24 @@ if (preg_match('#127\.0\.0\.1|localhost#isUu', $_SERVER['HTTP_HOST'])) {
     $_SERVER['HTTP_HOST'] = '127.0.0.1';//On définit le serveur local
 }
 ## Configuration de la base de données
-if (!FileAndDir::fexists(ROOT.DS.'db.php')) {
+if (!FileAndDir::fexists(ROOT.DS.'config.php')) {
     echo "Database not configured.";
     exit;
 }
-require ROOT.DS.'db.php';
+require ROOT.DS.'config.php';
 
 ## Création de la connexion à la BDD
 $db = new bdd(P_DB_HOST, P_DB_USER, P_DB_PWD, P_DB_DBNAME, P_DB_PREFIX);
 
 ## On charge tous les paramètres de base du site (variable $_PAGE, session, etc)
-require ROOT.DS.'config.php';
+require ROOT.DS.'bootstrap.php';
 
 ## Initialisation de l'utilisateur
 Users::init((int) Session::read('user'));
 define('P_LOGGED', Users::$id > 0);
 
 if (!defined('P_DEBUG')) {
-    define('P_DEBUG', Users::$id == 1);
+    define('P_DEBUG', Users::$id === 1);
 }
 
 ## On va créer la requête dans la variable $_PAGE
