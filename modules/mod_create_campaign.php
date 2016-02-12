@@ -11,6 +11,11 @@ $characters = $db->req('
 
 $users = array();
 
+if (!is_array($characters)) {
+    Session::setFlash('Erreur dans la liste des personnages...', 'error');
+    redirect(1);
+}
+
 foreach ($characters as $k => $v) {
 	if ($v['user_name'] && $v['char_status'] == 0) {
 		$users[$v['user_id']]['name'] = $v['user_name'];
