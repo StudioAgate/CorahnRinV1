@@ -91,8 +91,15 @@ function error_logging($errno, $errstr, $errfile, $errline) {
 
         $msgEcho = $humanType[$errno].' - <span class="underline">'.date(DATE_RFC822).'</span>';
         $trace = '<br />Message : <small>'.$errstr.'</small>';
-        $msgMail = $msgEcho.$trace;
-		if (Users::$acl <= 20) {
+        $msgMail = $msgEcho
+            .$trace
+            .'<br />Server request:<br /><pre style="font-size: 10px;">'
+            .print_r($_SERVER, true)
+            .'</pre><br />Backtrace:<br /><pre style="font-size: 10px;">'
+            .print_r(debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT), true)
+            .'</pre>';
+
+        if (Users::$acl <= 20) {
             $ref = new ReflectionClass('Users');
             $user = $ref->getStaticProperties();
             $p = $_PAGE;
