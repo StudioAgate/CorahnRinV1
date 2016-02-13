@@ -18,5 +18,21 @@
     {
         "source": "Corahn Rin",
         "trans": "Corahn Rin"
+    },
+    {
+        "source": "Créez un compte !",
+        "trans": "Créez un compte !"
+    },
+    {
+        "source": "Mot de passe oublié ?",
+        "trans": "Mot de passe oublié ?"
+    },
+    {
+        "source": "Réinitialiser mon mot de passe",
+        "trans": "Réinitialiser mon mot de passe"
+    },
+    {
+        "source": "Adresse email",
+        "trans": "Adresse email"
     }
 ]

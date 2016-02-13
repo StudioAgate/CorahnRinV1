@@ -6,5 +6,9 @@
     {
         "source": "Le personnage a été correctement modifié !",
         "trans": "Le personnage a été correctement modifié !"
+    },
+    {
+        "source": "Vous n'avez pas les droits pour accéder à cette page.",
+        "trans": "Vous n'avez pas les droits pour accéder à cette page."
     }
 ]
