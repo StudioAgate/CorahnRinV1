@@ -207,4 +207,3 @@ function is_ssl() {
     }
     return false;
 }
-

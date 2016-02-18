@@ -41,7 +41,11 @@ function p_dumpTxt($val = null) {
 	} elseif (is_object($val)) {
 		$final .= '<small><em>objet</em></small> <span style="color:'.P_DUMP_OBJECTCOLOR.';">';
 		ob_start();
-		var_dump($val);
+        if (function_exists('dump')) {
+		    dump($val);
+        } else {
+		    var_dump($val);
+        }
 		$c = ob_get_clean();
 		$final .= $c . '</span>';
 	} elseif (is_array($val)) {
