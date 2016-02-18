@@ -76,7 +76,7 @@ var $maxStrLenRead;
 
 	function getMetrics($file) {
 		$this->filename = $file;
-		$this->fh = fopen($file,'rb') or die('Can\'t open file ' . $file);
+		$this->fh = fopen($file,'rb') or trigger_error('Can\'t open file ' . $file, E_USER_ERROR);
 		$this->_pos = 0;
 		$this->charWidths = '';
 		$this->glyphPos = array();
@@ -88,11 +88,11 @@ var $maxStrLenRead;
 		$this->TTCFonts = array();
 		$this->version = $version = $this->read_ulong();
 		if ($version==0x4F54544F)
-			die("Postscript outlines are not supported");
+			trigger_error("Postscript outlines are not supported", E_USER_ERROR);
 		if ($version==0x74746366)
-			die("ERROR - TrueType Fonts Collections not supported");
+			trigger_error("ERROR - TrueType Fonts Collections not supported", E_USER_ERROR);
 		if (!in_array($version, array(0x00010000,0x74727565)))
-			die("Not a TrueType font: version=".$version);
+			trigger_error("Not a TrueType font: version=".$version, E_USER_ERROR);
 		$this->readTableDirectory();
 		$this->extractInfo();
 		fclose($this->fh);
@@ -249,7 +249,7 @@ var $maxStrLenRead;
 
 	function get_table($tag) {
 		list($pos, $length) = $this->get_table_pos($tag);
-		if ($length == 0) { die('Truetype font ('.$this->filename.'): error reading table: '.$tag); }
+		if ($length == 0) { trigger_error('Truetype font ('.$this->filename.'): error reading table: '.$tag, E_USER_ERROR); }
 		fseek($this->fh,$pos);
 		return (fread($this->fh,$length));
 	}
@@ -278,7 +278,7 @@ var $maxStrLenRead;
 			$name_offset = $this->seek_table("name");
 			$format = $this->read_ushort();
 			if ($format != 0)
-				die("Unknown name table format ".$format);
+				trigger_error("Unknown name table format ".$format, E_USER_ERROR);
 			$numRecords = $this->read_ushort();
 			$string_data_offset = $name_offset + $this->read_ushort();
 			$names = array(1=>'',2=>'',3=>'',4=>'',6=>'');
@@ -297,7 +297,7 @@ var $maxStrLenRead;
 					$opos = $this->_pos;
 					$this->seek($string_data_offset + $offset);
 					if ($length % 2 != 0)
-						die("PostScript name is UTF-16BE string of odd length");
+						trigger_error("PostScript name is UTF-16BE string of odd length", E_USER_ERROR);
 					$length /= 2;
 					$N = '';
 					while ($length > 0) {
@@ -329,7 +329,7 @@ var $maxStrLenRead;
 			else
 				$psName = '';
 			if (!$psName)
-				die("Could not find PostScript font name");
+				trigger_error("Could not find PostScript font name", E_USER_ERROR);
 			$this->name = $psName;
 			if ($names[1]) { $this->familyName = $names[1]; } else { $this->familyName = $psName; }
 			if ($names[2]) { $this->styleName = $names[2]; } else { $this->styleName = 'Regular'; }
@@ -354,7 +354,7 @@ var $maxStrLenRead;
 		$indexToLocFormat = $this->read_ushort();
 		$glyphDataFormat = $this->read_ushort();
 		if ($glyphDataFormat != 0)
-			die('Unknown glyph data format '.$glyphDataFormat);
+			trigger_error('Unknown glyph data format '.$glyphDataFormat, E_USER_ERROR);
 
 		///////////////////////////////////
 		// hhea metrics table
@@ -380,7 +380,7 @@ var $maxStrLenRead;
 			$this->skip(2);
 			$fsType = $this->read_ushort();
 			if ($fsType == 0x0002 || ($fsType & 0x0300) != 0) {
-				die('ERROR - Font file '.$this->filename.' cannot be embedded due to copyright restrictions.');
+				trigger_error('ERROR - Font file '.$this->filename.' cannot be embedded due to copyright restrictions.', E_USER_ERROR);
 				$this->restrictedUse = true;
 			}
 			$this->skip(20);
@@ -437,10 +437,10 @@ var $maxStrLenRead;
 		$this->skip(32);
 		$metricDataFormat = $this->read_ushort();
 		if ($metricDataFormat != 0)
-			die('Unknown horizontal metric data format '.$metricDataFormat);
+			trigger_error('Unknown horizontal metric data format '.$metricDataFormat, E_USER_ERROR);
 		$numberOfHMetrics = $this->read_ushort();
 		if ($numberOfHMetrics == 0)
-			die('Number of horizontal metrics is 0');
+			trigger_error('Number of horizontal metrics is 0', E_USER_ERROR);
 
 		///////////////////////////////////
 		// maxp - Maximum profile table
@@ -472,7 +472,7 @@ var $maxStrLenRead;
 			$this->seek($save_pos );
 		}
 		if (!$unicode_cmap_offset)
-			die('Font ('.$this->filename .') does not have cmap for Unicode (platform 3, encoding 1, format 4, or platform 0, any encoding, format 4)');
+			trigger_error('Font ('.$this->filename .') does not have cmap for Unicode (platform 3, encoding 1, format 4, or platform 0, any encoding, format 4)', E_USER_ERROR);
 
 
 		$glyphToChar = array();
@@ -493,7 +493,7 @@ var $maxStrLenRead;
 
 	function makeSubset($file, &$subset) {
 		$this->filename = $file;
-		$this->fh = fopen($file ,'rb') or die('Can\'t open file ' . $file);
+		$this->fh = fopen($file ,'rb') or trigger_error('Can\'t open file ' . $file, E_USER_ERROR);
 		$this->_pos = 0;
 		$this->charWidths = '';
 		$this->glyphPos = array();
@@ -554,7 +554,7 @@ var $maxStrLenRead;
 		}
 
 		if (!$unicode_cmap_offset)
-			die('Font ('.$this->filename .') does not have cmap for Unicode (platform 3, encoding 1, format 4, or platform 0, any encoding, format 4)');
+			trigger_error('Font ('.$this->filename .') does not have cmap for Unicode (platform 3, encoding 1, format 4, or platform 0, any encoding, format 4)', E_USER_ERROR);
 
 
 		$glyphToChar = array();
@@ -982,7 +982,7 @@ var $maxStrLenRead;
 			}
 		}
 		else
-			die('Unknown location table format '.$indexToLocFormat);
+			trigger_error('Unknown location table format '.$indexToLocFormat, E_USER_ERROR);
 	}
 
 
