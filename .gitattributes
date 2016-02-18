@@ -1,7 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=input
 
-*.ttf binary
 *.pdf binary
 
 # Standard to msysgit
