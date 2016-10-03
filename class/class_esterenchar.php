@@ -348,7 +348,7 @@ class EsterenChar {
             $azur = isset($argent['azur']) ? $argent['azur'] : 0;
             $givre = isset($argent['givre']) ? $argent['givre'] : 0;
         }
-        
+
 		return array(
 			'braise' => $braise,
 			'azur' => $azur,
@@ -1150,7 +1150,7 @@ class EsterenChar {
 
 		$baseExp = getXPFromAvtg($char['des_avtg'], 100);
 		$baseExp = getXPFromDoms($char['domaines_amelio'], $baseExp);
-		$baseExp = getXPFromDiscs($char['disciplines'], $baseExp);
+		$baseExp = getXPFromDiscs(isset($char['disciplines']) ? $char['disciplines'] : [], $baseExp);
 		foreach($this->get('arts_combat') as $v) { if (!empty($v)) { $baseExp -= 20; } }
 
 		if ($baseExp > 100) {
