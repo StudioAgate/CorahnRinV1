@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+    <version date="20161019" code="1.33.5">
+        <tasks>
+            <task type="function">
+                <element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+                <comment>Corrigé un bug mineur lorsque le personnage n'a pas d'améliorations de domaines</comment>
+            </task>
+        </tasks>
+    </version>
     <version date="20161003" code="1.33.4">
         <tasks>
             <task type="function">

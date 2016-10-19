@@ -58,8 +58,8 @@ function getXPFromDiscs($discs, $initexp = 100) {
 		if ($v < 5) { unset($totaldoms[$k]); }
 	}
 
-	$dom_ids = array_keys($totaldoms);
-	$domains = $db->req('SELECT %domain_id, %domain_name FROM %%domains WHERE %domain_id IN ('.implode(',',$dom_ids).') ORDER BY %domain_name ASC ');
+	$dom_ids = array_keys($totaldoms) ?: array();
+	$domains = $db->req('SELECT %domain_id, %domain_name FROM %%domains WHERE %domain_id IN ('.implode(',',$dom_ids).') ORDER BY %domain_name ASC ') ?: array();
 	$t = array();
 	foreach($domains as $k => $v) { $t[$v['domain_id']] = $v; }
 	$domains = $t; unset($t);
@@ -67,15 +67,15 @@ function getXPFromDiscs($discs, $initexp = 100) {
 		FROM %%discdoms
 		INNER JOIN %%disciplines ON %%disciplines.%disc_id = %%discdoms.%disc_id
 		WHERE %%disciplines.%disc_rang = "Professionnel"
-		AND %%discdoms.%domain_id IN ('.implode(',',$dom_ids).')');
+		AND %%discdoms.%domain_id IN ('.implode(',',$dom_ids).')') ?: array();
 	$mentor_disc_id = array();
 	foreach($disc as $k => $v) {
 		$domains[$v['domain_id']]['disciplines'][$v['disc_id']] = $v;
 		if ($v['domain_id'] == $mentor_domain_id) { $mentor_disc_id[$v['disc_id']] = $v['disc_id']; }//On détermine la liste des disciplines affectées par un potentiel mentor
 	}
 
-	$baseExp = getXPFromAvtg($_SESSION[$steps[11]['mod']], 100);
-	$baseExp = getXPFromDoms($_SESSION[$steps[14]['mod']], $baseExp);
+	$baseExp = getXPFromAvtg(isset($_SESSION[$steps[11]['mod']]) ? $_SESSION[$steps[11]['mod']] : array(), 100);
+	$baseExp = getXPFromDoms(isset($_SESSION[$steps[14]['mod']]) ? $_SESSION[$steps[14]['mod']] : array(), $baseExp);
 	$basePoints = $sess_bonus;
 	$points = $basePoints;
 	$exp = $baseExp;

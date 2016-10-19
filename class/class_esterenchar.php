@@ -1148,9 +1148,9 @@ class EsterenChar {
 			unset($id);
 		}
 
-		$baseExp = getXPFromAvtg($char['des_avtg'], 100);
-		$baseExp = getXPFromDoms($char['domaines_amelio'], $baseExp);
-		$baseExp = getXPFromDiscs(isset($char['disciplines']) ? $char['disciplines'] : [], $baseExp);
+		$baseExp = getXPFromAvtg(isset($char['des_avtg']) ? $char['des_avtg'] : array(), 100);
+		$baseExp = getXPFromDoms(isset($char['domaines_amelio']) ? $char['domaines_amelio'] : array(), $baseExp);
+		$baseExp = getXPFromDiscs(isset($char['disciplines']) ? $char['disciplines'] : array(), $baseExp);
 		foreach($this->get('arts_combat') as $v) { if (!empty($v)) { $baseExp -= 20; } }
 
 		if ($baseExp > 100) {
