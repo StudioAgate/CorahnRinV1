@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+    <version date="20170117" code="1.34">
+        <tasks>
+            <task type="page">
+                <element name="pages/mod_see_character" id="47"></element>
+                <comment>Ajouté les valeurs des domaines et voies dans la page d'un personnage</comment>
+            </task>
+        </tasks>
+    </version>
     <version date="20161019" code="1.33.5">
         <tasks>
             <task type="function">
