@@ -933,18 +933,30 @@ class FPDF
             $w = -96;
             $h = -96;
         }
+
+        $w = (int) $w;
+        $h = (int) $h;
+        $iw = (int) $info['w'];
+        $ih = (int) $info['h'];
+        $thisk = (int) $this->k;
+
         if ($w < 0) {
-            $w = -$info['w'] * 72 / $w / $this->k;
+            $w1 = round((-1 * $iw * 72) / $w);
+            $w1 = (int) round($w1 / $thisk);
+        } else {
+            $w1 = (int) round($h * $iw / $ih);
         }
+
+        $w = $w1;
+
         if ($h < 0) {
-            $h = -$info['h'] * 72 / $h / $this->k;
+            $h1 = round((-1 * $ih * 72) / $h);
+            $h1 = (int) round($h1 / $thisk);
+        } else {
+            $h1 = (int) round($w * $ih / $iw);
         }
-        if ($w === 0) {
-            $w = $h * $info['w'] / $info['h'];
-        }
-        if ($h === 0) {
-            $h = $w * $info['h'] / $info['w'];
-        }
+
+        $h = $h1;
 
         // Flowing mode
         if ($y === null) {
