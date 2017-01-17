@@ -12,7 +12,7 @@ class Session {
  * @version 0.2 - 31/07/2012 - Suppression de la récupération des données de la variable de session par un fichier
  * @version 0.3 - 09/11/2012 - Rajout du test pour savoir si les classes Inflector et Set sont chargées
  */
-	static function init() {
+	public static function init() {
 
 		if (!isset($_SESSION['nocache'])) {
 			header('Pragma: no-cache');
@@ -35,7 +35,7 @@ class Session {
         }
 	}
 
-    static function createToken() {
+    public static function createToken() {
         return sha1(uniqid('corahn_rin_token', true));
     }
 
@@ -51,7 +51,7 @@ class Session {
  * @version 0.1 - 30/12/2011
  * @see /Koezion/lib/set.php
  */
-	static function check($key) {
+	public static function check($key) {
 
 		if(empty($key)) { return false; } //Si la clée est vide
 		$result = Hash::get($_SESSION, $key); //On procède à l'extraction de la donnée
@@ -67,7 +67,7 @@ class Session {
  * @version 0.1 - 30/12/2011
  * @see /Koezion/lib/set.php
  */
-	static function write($key, $value) {
+	public static function write($key, $value) {
 
 		$session = Hash::insert($_SESSION, $key, $value); //On insère les données et on récupère la nouvelle variable de session
 		$_SESSION = $session; //On affecte les données à la variable de session
@@ -82,7 +82,7 @@ class Session {
  * @version 0.1 - 30/12/2011
  * @see /Koezion/lib/set.php
  */
-	static function read($key = null) {
+	public static function read($key = null) {
 
 		$result = Hash::get($_SESSION, $key);
 		if(!is_null($result)) { return $result; }
@@ -97,7 +97,7 @@ class Session {
  * @version 0.1 - 30/12/2011
  * @see /Koezion/lib/set.php
  */
-	static function delete($key) {
+	public static function delete($key) {
 
 		$_SESSION = Hash::remove($_SESSION, $key);
 		return (Session::check($key) == false);
@@ -109,7 +109,7 @@ class Session {
  * @version 0.1 - 20/04/2012
  * @see http://www.php.net/manual/fr/function.session-destroy.php
  */
-	static function destroy() {
+	public static function destroy() {
 
 		session_unset(); // Détruit toutes les données dans la variable de session
 
@@ -135,7 +135,7 @@ class Session {
  * @param string $type Type du message
  * @version 0.1 - 30/12/2011
  */
-	static function setFlash($message, $type = 'notif') {
+	public static function setFlash($message, $type = 'notif') {
 
 		$flashBag = Session::read('flash_bag');
 
@@ -164,7 +164,7 @@ class Session {
  * @return boolean
  */
 
-	static function isLogged() {
+	public static function isLogged() {
 
 		$session = Session::read('Backoffice');
 		return (isset($session) && !empty($session));
@@ -177,7 +177,7 @@ class Session {
  * @author	koéZionCMS
  * @version 0.1 - 02/03/2013 by FI
  */
-	static function getRole() {
+	public static function getRole() {
 
 		//Si session
 		if(Session::read('Backoffice.UsersGroup')) {

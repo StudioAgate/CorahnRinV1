@@ -9,26 +9,26 @@
 
 class TTFParser
 {
-	var $f;
-	var $tables;
-	var $unitsPerEm;
-	var $xMin, $yMin, $xMax, $yMax;
-	var $numberOfHMetrics;
-	var $numGlyphs;
-	var $widths;
-	var $chars;
-	var $postScriptName;
-	var $Embeddable;
-	var $Bold;
-	var $typoAscender;
-	var $typoDescender;
-	var $capHeight;
-	var $italicAngle;
-	var $underlinePosition;
-	var $underlineThickness;
-	var $isFixedPitch;
+	public $f;
+	public $tables;
+	public $unitsPerEm;
+	public public $xMin, $yMin, $xMax, $yMax;
+	public $numberOfHMetrics;
+	public $numGlyphs;
+	public $widths;
+	public $chars;
+	public $postScriptName;
+	public $Embeddable;
+	public $Bold;
+	public $typoAscender;
+	public $typoDescender;
+	public $capHeight;
+	public $italicAngle;
+	public $underlinePosition;
+	public $underlineThickness;
+	public $isFixedPitch;
 
-	function Parse($file) {
+	public function Parse($file) {
 		$this->f = fopen($file, 'rb');
 		if(!$this->f)
 			$this->Error('Can\'t open file: '.$file);
@@ -61,7 +61,7 @@ class TTFParser
 		fclose($this->f);
 	}
 
-	function ParseHead() {
+	public function ParseHead() {
 		$this->Seek('head');
 		$this->Skip(3*4); // version, fontRevision, checkSumAdjustment
 		$magicNumber = $this->ReadULong();
@@ -76,19 +76,19 @@ class TTFParser
 		$this->yMax = $this->ReadShort();
 	}
 
-	function ParseHhea() {
+	public function ParseHhea() {
 		$this->Seek('hhea');
 		$this->Skip(4+15*2);
 		$this->numberOfHMetrics = $this->ReadUShort();
 	}
 
-	function ParseMaxp() {
+	public function ParseMaxp() {
 		$this->Seek('maxp');
 		$this->Skip(4);
 		$this->numGlyphs = $this->ReadUShort();
 	}
 
-	function ParseHmtx() {
+	public function ParseHmtx() {
 		$this->Seek('hmtx');
 		$this->widths = array();
 		for($i=0;$i<$this->numberOfHMetrics;$i++) {
@@ -102,7 +102,7 @@ class TTFParser
 		}
 	}
 
-	function ParseCmap() {
+	public function ParseCmap() {
 		$this->Seek('cmap');
 		$this->Skip(2); // version
 		$numTables = $this->ReadUShort();
@@ -165,7 +165,7 @@ class TTFParser
 		}
 	}
 
-	function ParseName() {
+	public function ParseName() {
 		$this->Seek('name');
 		$tableOffset = ftell($this->f);
 		$this->postScriptName = '';
@@ -191,7 +191,7 @@ class TTFParser
 			$this->Error('PostScript name not found');
 	}
 
-	function ParseOS2() {
+	public function ParseOS2() {
 		$this->Seek('OS/2');
 		$version = $this->ReadUShort();
 		$this->Skip(3*2); // xAvgCharWidth, usWeightClass, usWidthClass
@@ -211,7 +211,7 @@ class TTFParser
 			$this->capHeight = 0;
 	}
 
-	function ParsePost() {
+	public function ParsePost() {
 		$this->Seek('post');
 		$this->Skip(4); // version
 		$this->italicAngle = $this->ReadShort();
@@ -221,33 +221,33 @@ class TTFParser
 		$this->isFixedPitch = ($this->ReadULong()!=0);
 	}
 
-	function Error($msg) {
+	public function Error($msg) {
 		if(PHP_SAPI=='cli')
 			die("Error: $msg\n");
 		else
 			die("<b>Error</b>: $msg");
 	}
 
-	function Seek($tag) {
+	public function Seek($tag) {
 		if(!isset($this->tables[$tag]))
 			$this->Error('Table not found: '.$tag);
 		fseek($this->f, $this->tables[$tag], SEEK_SET);
 	}
 
-	function Skip($n) {
+	public function Skip($n) {
 		fseek($this->f, $n, SEEK_CUR);
 	}
 
-	function Read($n) {
+	public function Read($n) {
 		return fread($this->f, $n);
 	}
 
-	function ReadUShort() {
+	public function ReadUShort() {
 		$a = unpack('nn', fread($this->f,2));
 		return $a['n'];
 	}
 
-	function ReadShort() {
+	public function ReadShort() {
 		$a = unpack('nn', fread($this->f,2));
 		$v = $a['n'];
 		if($v>=0x8000)
@@ -255,7 +255,7 @@ class TTFParser
 		return $v;
 	}
 
-	function ReadULong() {
+	public function ReadULong() {
 		$a = unpack('NN', fread($this->f,4));
 		return $a['N'];
 	}

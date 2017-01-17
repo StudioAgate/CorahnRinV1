@@ -76,7 +76,7 @@ function error_logging($errno, $errstr, $errfile, $errline) {
             FileAndDir::createPath(dirname($error_file));
             FileAndDir::put($error_file, '');
         }
-		$f = fopen($error_file, 'a');
+		$f = fopen($error_file, 'ab');
 		fwrite($f, $final);
 		fclose($f);
 		$errclass = '';

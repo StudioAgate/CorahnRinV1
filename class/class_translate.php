@@ -22,19 +22,19 @@ class Translate {
     public static $domain = null;
     public static $char_id = null;
 
-    function __construct(){}
+    public function __construct(){}
 
 	/**
 	 * Cette fonction initialise la classe et crée les variables disposant du contenu
 	 */
-	static function init() {
+	public static function init() {
         self::createTree();
 		self::get_words_fr();
 		self::get_words_en();
 //		self::get_propositions_en();
 	}
 
-    static function createTree() {
+    public static function createTree() {
         if (!is_dir(ROOT.DS.'translation'.DS.'fr'.DS)) {
             mkdir(ROOT.DS.'translation'.DS.'fr'.DS, 0775, true);
         }
@@ -54,7 +54,7 @@ class Translate {
      * @param null    $domain
      * @return mixed Le texte traduit si $return == true, sinon true après echo, sinon false
      */
-	static function translate($txt, $return = false, $params = array(), $domain = null) {
+	public static function translate($txt, $return = false, $params = array(), $domain = null) {
 
         if  ($return === null) {
             $return = false;
@@ -104,7 +104,7 @@ class Translate {
      * @param boolean $clean Utilise la fonction self::clean_word() si vrai
      * @return string
      */
-    static function check($txt, $source, $clean = true) {
+    public static function check($txt, $source, $clean = true) {
         if ($clean) {
             $txt = self::clean_word($txt);
         }
@@ -124,7 +124,7 @@ class Translate {
      * @param boolean $clean Utilise la fonction self::clean_word() si vrai
      * @return string
      */
-    static function search($txt, $source, $clean = true) {
+    public static function search($txt, $source, $clean = true) {
         if ($clean) {
             $txt = self::clean_word($txt);
         }
@@ -143,7 +143,7 @@ class Translate {
 	 * Cette fonction récupère les mots français du site
 	 * @return array Les mots en français
 	 */
-	static function get_words_fr() {
+	public static function get_words_fr() {
         $dir = ROOT.DS.'translation'.DS.'fr'.DS;
         $files = glob($dir.'*.json');
         foreach ($files as $file) {
@@ -169,7 +169,7 @@ class Translate {
 	 * Cette fonction récupère les traductions fr=>en
 	 * @return array
 	 */
-	static function get_words_en() {
+	public static function get_words_en() {
         $dir = ROOT.DS.'translation'.DS.'en'.DS;
         $files = glob($dir.'*.json');
         foreach ($files as $file) {
@@ -213,7 +213,7 @@ class Translate {
      * @param        $domain
      * @return boolean
      */
-	static function write_words_en($word_source, $trans, $domain) {
+	public static function write_words_en($word_source, $trans, $domain) {
         $word_source = self::clean_word($word_source);
 		$trans = self::clean_word($trans);
 
@@ -250,7 +250,7 @@ class Translate {
      * @param string $word Le mot ou l'expression à traduire
      * @return string L'état du mot. 'saved' s'il a été inséré, ou false sinon
      */
-	static function clean_word($word) {
+	public static function clean_word($word) {
 // 		$word = Encoding::toISO8859($word);
 // 		$word = Encoding::toUTF8($word);
  		$word = preg_replace('#\n|\r|\t#sUu', ' ', $word);
@@ -300,7 +300,7 @@ class Translate {
 	 * Cette fonction sert à écrire les mots français dans la liste
 	 * @return boolean Résultat de l'opération
 	 */
-	static function translate_writewords() {
+	public static function translate_writewords() {
 
         $octets = 0;
         $files = 0;

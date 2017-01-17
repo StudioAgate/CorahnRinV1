@@ -120,7 +120,7 @@ if (isset($_PAGE['more_css'])) {
 		<div style="display: none;"><?php
 			//Just for fun
 			$str = 'Decode this and mail me at pierstoval@gmail.com with this number : 300489';
-			for ($i = 0; $i < strlen($str); $i++) {
+			for ($i = 0, $l=strlen($str); $i < $l; $i++) {
 				$val = decbin(ord($str[$i]));
 				while (strlen($val) < 7) {
 					$val = '0'.$val;

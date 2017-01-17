@@ -7,7 +7,7 @@ class FileAndDir {
 /**
  * Crée une arborescence (vérifie son existence) en fonction du chemin indiqué
  */
-	static function createPath($path, $mod = 0777) {
+	public static function createPath($path, $mod = 0777) {
 		$path_pieces = explode(DS, $path);
 		$path = '';
 		while(!is_null($piece = array_shift($path_pieces))) {
@@ -21,7 +21,7 @@ class FileAndDir {
  * @param   string  $path    Dossier à créer.
  * @param   int     $mod     Nouveaux droits du fichier (en octal). Exemple : 0777
  */
-	static function createDirectory($path, $mod) {
+	public static function createDirectory($path, $mod) {
 		umask(0);
 		mkdir($path, $mod);
 	}
@@ -30,7 +30,7 @@ class FileAndDir {
  * Vérifie l'existence du fichier.
  * @return  bool Retourne true si le fichier existe, false le cas contraire.
  */
-	static function fexists($path) {
+	public static function fexists($path) {
 		clearstatcache();
 		return file_exists($path);
 	}
@@ -39,7 +39,7 @@ class FileAndDir {
  * Vérifie l'existence du dossier.
  * @return  bool Retourne true si le dossier existe, false le cas contraire.
  */
-	static function dexists($path) {
+	public static function dexists($path) {
 		clearstatcache();
 		return is_dir($path);
 	}
@@ -48,7 +48,7 @@ class FileAndDir {
  * Vérifie l'existence du dossier.
  * @return  bool Retourne true si le dossier existe, false le cas contraire.
  */
-	static function dwritable($path) {
+	public static function dwritable($path) {
 		clearstatcache();
 		return is_writable($path);
 	}
@@ -57,7 +57,7 @@ class FileAndDir {
  * Modifie les droits d'un fichier.
  * @param int $mod Nouveaux droits du fichier (en octal). Exemple : 0777
  */
-	static function chProperties($path, $mod) {
+	public static function chProperties($path, $mod) {
 		umask(0);
 		chmod($path, $mod);
 	}
@@ -66,12 +66,12 @@ class FileAndDir {
  * Supprime le fichier.
  * @return  bool Retourne true si le fichier a pu être supprimé, false sinon.
  */
-	static function remove($path) {
+	public static function remove($path) {
 		if(file_exists($path)) { return unlink($path); }
 		else { return false; }
 	}
 
-	static function fcopy($source, $dest) {
+	public static function fcopy($source, $dest) {
 		return copy($source, $dest);
 	}
 
@@ -80,7 +80,7 @@ class FileAndDir {
  * @param string $directory Le chemin à vérifier
  * @return array La liste des fichiers dans le dossier
  */
-	static function directoryContent($directory) {
+	public static function directoryContent($directory) {
 		$files = array();
 		$dir = opendir($directory);
 		while($file = readdir($dir)) {
@@ -97,7 +97,7 @@ class FileAndDir {
  * Supprime tous les fichiers et sous-dossiers du dossier concerné, ainsi que le dossier lui-même
  * @param string $chemin Le chemin à vérifier
  */
-	static function remove_directory($chemin) {
+	public static function remove_directory($chemin) {
 		// vérifie si le nom du repertoire contient "/" à la fin
 		if($chemin[strlen($chemin)-1] != DS) { $chemin .= DS; } // rajoute '/'
 		if(is_dir($chemin)) {
@@ -123,7 +123,7 @@ class FileAndDir {
  * Supprime tous les fichiers contenus dans le dossier, mais pas les sous-dossiers
  * @param string $dir Le chemin à vérifier
  */
-	static function delete_directory_file($dir) {
+	public static function delete_directory_file($dir) {
 		foreach(self::directoryContent($dir) as $file) { self::remove($dir.$file); } //On supprime le fichier
 	}
 
@@ -136,7 +136,7 @@ class FileAndDir {
 	 * @param   int       $maxlen   Taille maximale d'octets (facultatif).
 	 * @return  mixed               Contenu sous la forme du type passé en paramètre.
 	 */
-	static function get($filename, $type = 'string', $retour = '', $offset = null, $maxlen = null) {
+	public static function get($filename, $type = 'string', $retour = '', $offset = null, $maxlen = null) {
 		$contents = '';
 		if(file_exists($filename)) { $contents = file_get_contents($filename); }
 		return $contents;
@@ -149,7 +149,7 @@ class FileAndDir {
 	 * @param   int       $append     Précise si on écrase le fichier ou si on écrit à la fin (0 par défaut : écrase) (facultatif).
 	 * @return  bool                  Retourne true en cas de succès et false en cas d'échec.
 	 */
-	static function put($filename, $content, $append = 0) {
+	public static function put($filename, $content, $append = 0) {
 		try {
 			if (!file_put_contents($filename, $content, $append)) {
 				$message = error_get_last();

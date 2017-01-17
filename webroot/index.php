@@ -11,7 +11,7 @@ $time = microtime(true);
 date_default_timezone_set('Europe/Paris');
 
 try {
-    require '../app.php';
+    require __DIR__.'/../app.php';
 } catch (Exception $e) {
 ?>
 <!doctype html>
@@ -26,7 +26,7 @@ try {
     <pre>Exception !<br /></pre>
 <?php
     do {
-        echo "<pre>&gt; ".$e->getMessage().' ('.$e->getCode().')</pre>';
+        echo '<pre>&gt; ' .$e->getMessage().' ('.$e->getCode().')</pre>';
         if (P_DEBUG) {
             echo '<pre>'.$e->getTraceAsString().'</pre>';
             pr($e->getTrace());
@@ -34,7 +34,6 @@ try {
         $e = $e->getPrevious();
     } while ($e);
 ?>
-    </pre>
 </body>
 </html>
 <?php

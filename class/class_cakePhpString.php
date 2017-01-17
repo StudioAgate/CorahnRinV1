@@ -25,7 +25,7 @@
  * @package       cake
  * @subpackage    cake.cake.libs
  */
-class String {
+class CakePHPString {
 
 /**
  * Generate a random UUID
@@ -34,7 +34,7 @@ class String {
  * @return RFC 4122 UUID
  * @static
  */
-	static function uuid() {
+	public static function uuid() {
 		$node = env('SERVER_ADDR');
 		$pid = null;
 
@@ -114,7 +114,7 @@ class String {
  * @access public
  * @static
  */
-	static function tokenize($data, $separator = ',', $leftBound = '(', $rightBound = ')') {
+	public static function tokenize($data, $separator = ',', $leftBound = '(', $rightBound = ')') {
 		if (empty($data) || is_array($data)) {
 			return $data;
 		}
@@ -205,7 +205,7 @@ class String {
  * @access public
  * @static
  */
-	static function insert($str, $data, $options = array()) {
+	public static function insert($str, $data, $options = array()) {
 		$defaults = array(
 			'before' => ':', 'after' => null, 'escape' => '\\', 'format' => null, 'clean' => false
 		);
@@ -213,7 +213,7 @@ class String {
 		$format = $options['format'];
 		$data = (array)$data;
 		if (empty($data)) {
-			return ($options['clean']) ? String::cleanInsert($str, $options) : $str;
+			return ($options['clean']) ? static::cleanInsert($str, $options) : $str;
 		}
 
 		if (!isset($format)) {
@@ -232,7 +232,7 @@ class String {
 				$offset = $pos + strlen($val);
 				$str = substr_replace($str, $val, $pos, 1);
 			}
-			return ($options['clean']) ? String::cleanInsert($str, $options) : $str;
+			return ($options['clean']) ? static::cleanInsert($str, $options) : $str;
 		} else {
 			asort($data);
 
@@ -257,23 +257,23 @@ class String {
 		if (!isset($options['format']) && isset($options['before'])) {
 			$str = str_replace($options['escape'].$options['before'], $options['before'], $str);
 		}
-		return ($options['clean']) ? String::cleanInsert($str, $options) : $str;
+		return ($options['clean']) ? static::cleanInsert($str, $options) : $str;
 	}
 
 /**
- * Cleans up a String::insert() formated string with given $options depending on the 'clean' key in
+ * Cleans up a static::insert() formated string with given $options depending on the 'clean' key in
  * $options. The default method used is text but html is also available. The goal of this function
  * is to replace all whitespace and uneeded markup around placeholders that did not get replaced
- * by String::insert().
+ * by static::insert().
  *
  * @param string $str
  * @param string $options
  * @return string
  * @access public
  * @static
- * @see String::insert()
+ * @see static::insert()
  */
-	static function cleanInsert($str, $options) {
+	public static function cleanInsert($str, $options) {
 		$clean = $options['clean'];
 		if (!$clean) {
 			return $str;
@@ -300,7 +300,7 @@ class String {
 				$str = preg_replace($kleenex, $clean['replacement'], $str);
 				if ($clean['andText']) {
 					$options['clean'] = array('method' => 'text');
-					$str = String::cleanInsert($str, $options);
+					$str = static::cleanInsert($str, $options);
 				}
 				break;
 			case 'text':

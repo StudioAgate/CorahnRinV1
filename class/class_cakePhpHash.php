@@ -56,7 +56,7 @@ class Hash {
 	 * @access public
 	 * @static
 	 */
-	static function classicExtract($data, $path = null) {
+	public static function classicExtract($data, $path = null) {
 		if (empty($path)) {
 			return $data;
 		}
@@ -68,7 +68,7 @@ class Hash {
 		}
 
 		if (!is_array($path)) {
-			$path = String::tokenize($path, '.', '{', '}');
+			$path = CakePHPString::tokenize($path, '.', '{', '}');
 		}
 		$tmp = array();
 
@@ -173,7 +173,7 @@ class Hash {
 		if (strpos($path, '[') === false) {
 			$tokens = explode('.', $path);
 		} else {
-			$tokens = String::tokenize($path, '.', '[', ']');
+			$tokens = CakePHPString::tokenize($path, '.', '[', ']');
 		}
 
 		$_key = '__set_item__';
@@ -326,8 +326,8 @@ class Hash {
 		$count = count($path);
 		$last = $count - 1;
 		foreach ($path as $i => $key) {
-			if (is_numeric($key) && intval($key) > 0 || $key === '0') {
-				$key = intval($key);
+			if ((is_numeric($key) && ((int)$key) > 0) || $key === '0') {
+				$key = (int)$key;
 			}
 			if ($op === 'insert') {
 				if ($i === $last) {

@@ -20,7 +20,7 @@ class bdd {
     public $queriesRunnedCount = 0;
     public $queriesRunned = [];
 
-    function __construct($host = '127.0.0.1', $user = 'root', $pwd = '', $database = 'mydb', $tb_prefix = '', $db_type = 'mysql') {
+    public function __construct($host = '127.0.0.1', $user = 'root', $pwd = '', $database = 'mydb', $tb_prefix = '', $db_type = 'mysql') {
         $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
         self::$prefix = $tb_prefix;
         $dsn = $db_type.':host=' . $host . ';dbname=' . $database . '';
@@ -36,7 +36,7 @@ class bdd {
         $this->noRes('SET NAMES "utf8"');
     }
 
-    function __toString() {
+    public function __toString() {
         $ret = '';
         $ret .= p_dump(array(
             'database' => $this->dbname,
@@ -93,7 +93,7 @@ class bdd {
             FileAndDir::createPath(dirname($error_file));
             file_put_contents($error_file, '');
         }
-        $f = fopen($error_file, 'a');
+        $f = fopen($error_file, 'ab');
         fwrite($f, $final);
         fclose($f);
         echo '<pre>Une erreur MySQL est survenue...</pre>';

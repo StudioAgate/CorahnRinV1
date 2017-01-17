@@ -26,7 +26,7 @@ function print_r_to_array($str) {
 		$array_fields = explode("#!#", $array_contents);
 
 		//For each array-field, we need to explode on the delimiters I've set and make it look funny.
-		for($i = 0; $i < count($array_fields); $i++ ) {
+		for($i = 0, $c=count($array_fields); $i < $c; $i++ ) {
 
 			//First run is glitched, so let's pass on that one.
 			if( $i != 0 ) {

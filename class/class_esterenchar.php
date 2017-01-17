@@ -206,7 +206,7 @@ class EsterenChar {
 	 * @param array|int $char Variable qui contient le personnage généré
 	 * @param string $type Détermine si $char provient de la BDD. Si false, $char vient de la session
 	 */
-	function __construct($char = null, $type = 'db') {
+	public function __construct($char = null, $type = 'db') {
 		global $db;
 		$this->db = $db;
 		$method = '_make_char_from_'.$type;
@@ -240,7 +240,7 @@ class EsterenChar {
         }
     }
 
-    function __call($name, $arguments)
+    public function __call($name, $arguments)
     {
         if (strpos($name, 'get') === 0) {
             $path = lcfirst(preg_replace('~^get~', '', $name));
@@ -285,7 +285,7 @@ class EsterenChar {
 	 * @param string $char Le nom à encoder
 	 * @return string Le nom encodé
 	 */
-	function sget_url_charname($char = null) {
+	public function sget_url_charname($char = null) {
 		$hash = '';
 		if ($char) {
 			$hash = md5(json_encode($this->char));

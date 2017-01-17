@@ -45,7 +45,11 @@ $class_inc = array(
 foreach ($class_inc as $val) {
     $filename = ROOT.DS.'class'.DS.'class_'.$val.'.php';
     if (file_exists($filename)) {
-        require $filename;
+        try {
+            require_once $filename;
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+        }
     } else {
         echo 'Erreur dans le chargement de la classe '.$val;
         exit;
@@ -173,7 +177,7 @@ if (strpos($_LAYOUT, '{PAGE_TIME}') !== false) {
         touch($logfile);
     }
     if (!isset($_PAGE['dont_log'])) {
-        $f = fopen($logfile, 'a');##On stocke le temps d'exécution dans le fichier log
+        $f = fopen($logfile, 'ab');##On stocke le temps d'exécution dans le fichier log
         $final = "*|*|*Date=>".json_encode(date(DATE_RFC822))
             .'||Ip=>'.json_encode($_SERVER['REMOTE_ADDR'])
             .'||Referer=>'.json_encode(isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '')

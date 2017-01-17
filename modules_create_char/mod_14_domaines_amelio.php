@@ -64,7 +64,7 @@
 		if (!isset($v['primsec'])) { $p_stepval[$k]['primsec'] = 0; }
 		if (isset($v['curval'])) { $exp -= 10 * (int) $v['curval']; } else { $p_stepval[$k]['curval'] = 0; }
 	}
-	for ($i = 1; $i <= count($domains); $i++) {
+	for ($i = 1, $c=count($domains); $i <= $c; $i++) {
 		if (!isset($primsec[$i])) { $primsec[$i] = 0; }
 	}
 	?>
