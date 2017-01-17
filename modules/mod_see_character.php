@@ -73,6 +73,7 @@ if ($char_id) {
 	    load_module('character_list', 'module', [
 	        'characters' => $characters,
             'sort' => $sort,
+            'orderby' => $orderby,
             '_PAGE' => $_PAGE,
         ]);
 	}
