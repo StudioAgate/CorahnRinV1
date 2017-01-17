@@ -57,7 +57,7 @@ a.btn.btn-info {
 .ib.bot { vertical-align: bottom; }
 .ib.base { vertical-align: baseline; }
 .bl { display: block; }
-.center { text-align: center; }
+.center { text-align: center !important; }
 .txtleft { text-align: left; }
 .bl.mid {
 	margin-left: auto;
@@ -167,7 +167,7 @@ div.row-fluid div[class*="span"] {
 
 .w100 { width: 100px; }
 .w220 { width: 220px; }
-.pl15 { padding-left: 15px; }
+.pl15 { padding-left: 15px !important; }
 .pl20 { padding-left: 20px; }
 .m5 { margin: 5px; }
 .m10 { margin: 10px; }
@@ -217,6 +217,13 @@ span.progress_text {
 	position: absolute;
 	text-align: center;
 	width: 10%;
+}
+
+table tr.even td {
+	background-color: #eee;
+}
+table tr.odd td {
+	background-color: #fff;
 }
 
 .progress .bar-white {
