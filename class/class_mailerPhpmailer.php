@@ -713,7 +713,7 @@ class PHPMailer {
     }
     if ($kind != 'Reply-To') {
       if (!isset($this->all_recipients[strtolower($address)])) {
-        $this->$kind[] = array($address, $name);
+        array_push($this->$kind, array($address, $name));
         $this->all_recipients[strtolower($address)] = true;
         return true;
       }
