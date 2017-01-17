@@ -154,10 +154,10 @@ if ($char_id) {
 		<ul class="unstyled char_list bl mid"><?php
 
 		$tags_order = array(
-			'charname'	=>$orderby == 'name'		? ($sort == 'asc' ? '&#x25b2;' : '&#x25bc;') : '',
-			'charjob'	=>$orderby == 'jobname'	? ($sort == 'asc' ? '&#x25b2;' : '&#x25bc;') : '',
-			'charpeople'=>$orderby == 'people'	? ($sort == 'asc' ? '&#x25b2;' : '&#x25bc;') : '',
-			'charorigin'=>$orderby == 'origin'	? ($sort == 'asc' ? '&#x25b2;' : '&#x25bc;') : '',
+			'charname'	=>$orderby === 'name'		? ($sort === 'asc' ? '&#x25b2;' : '&#x25bc;') : '',
+			'charjob'	=>$orderby === 'jobname'	? ($sort === 'asc' ? '&#x25b2;' : '&#x25bc;') : '',
+			'charpeople'=>$orderby === 'people'	? ($sort === 'asc' ? '&#x25b2;' : '&#x25bc;') : '',
+			'charorigin'=>$orderby === 'origin'	? ($sort === 'asc' ? '&#x25b2;' : '&#x25bc;') : '',
 		);
 
 		$sort = isset($_PAGE['request']['sort']) ? ($sort == 'asc' ? 'desc' : 'asc') : 'asc';
