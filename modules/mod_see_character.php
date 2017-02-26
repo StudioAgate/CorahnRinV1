@@ -45,6 +45,7 @@ if ($char_id) {
 			%%characters.%char_job,
 			%%characters.%char_people,
 			%%characters.%char_origin,
+			%%characters.%char_content,
 			%%jobs.%job_name as %char_jobname
 		FROM %%characters
 		LEFT JOIN %%jobs
@@ -84,10 +85,11 @@ if ($char_id) {
 	<?php
 	buffWrite('css', <<<CSSFILE
 	.listlinks a { color: #0088CC; }
-	.charid { width: 6%; }
-	.charname { width: 27%; font-weight: bold; }
-	.charjob { width: 27%; }
-	.charpeople { width: 15%; }
+	.charid { width: 5%; }
+	.charname { width: 25%; font-weight: bold; }
+	.charjob { width: 25%; }
+	.charexp { width: 7%; }
+	.charpeople { width: 13%; }
 	.charorigin { width: 25%; }
 	ul.char_list { margin-top: 15px; width: 70%; }
 	ul.char_list li.bl.char a.bl {
