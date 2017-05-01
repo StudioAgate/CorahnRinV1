@@ -33,6 +33,7 @@ $request = preg_replace('#\?.*$#isUu', '', $request);
 $ext = pathinfo($request);
 $ext = isset($ext['extension']) ? strtolower($ext['extension']) : '';//On génère l'extension de l'url
 $request = preg_replace('#\.([a-zA-Z0-9]{1,6})$#isUu', '', $request);
+$request = preg_replace('~^/esteren~i', '', $request);
 
 if ($request) {
 	$request = preg_split('~/~', $request, null, PREG_SPLIT_NO_EMPTY);
