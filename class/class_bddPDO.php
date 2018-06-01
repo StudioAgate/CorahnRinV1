@@ -37,7 +37,7 @@ class bdd
             $this->db = new PDO($dsn, $user, $pwd, $pdo_options);
             $this->dbname = $database;
         } catch (Exception $e) {
-            $this->showErr($e, null, null, true);
+            $this->showErr($e, null);
 
             return;
         }
@@ -68,9 +68,9 @@ class bdd
      * @param boolean $err Affiche les erreurs ou non
      * @param string  $type Change le type d'erreur. Valeurs possible : 'fatal', 'warning', 'notice'
      */
-    public function initErr($err = false, $type = 'fatal')
+    public function initErr($err = false, $type = 'fatal'): void
     {
-        $this->show_err = $err == true ? true : false;
+        $this->show_err = (bool) $err;
         if ($type === 'warning') {
             $this->err_type = E_USER_WARNING;
         } elseif ($type === 'fatal') {
@@ -87,12 +87,11 @@ class bdd
      *
      * @param PDOException $e Utilisé en cas de throw exception sur une requête
      * @param string       $req_qry Utilisé pour afficher la requête en cas d'erreur, notamment sur les méthodes req(), row() et noRes()
-     * @param PDOStatement $req Contient la ressource PDOStatement permettant l'extraction d'erreurs
-     * @param boolean      $trigger Si true, on renvoie l'erreur. Sinon, on affiche simplement qu'une erreur est survenue. Cela permet, en cas de paramétrage d'erreurs "fatales", d'arrêter le script en cas de besoin
      */
-    public function showErr($e = null, $req_qry = null, $req = null, $trigger = false)
+    public function showErr($e = null, $req_qry = null): void
     {
         global $_PAGE;
+
         $final = '*|*|*Date=>'.json_encode(date(DATE_RFC822));
         $trace = is_object($e) ? $e->getTrace() : '';
         $final .= '||Erreur N°=>'.json_encode($e->errorInfo[0]);
@@ -116,10 +115,12 @@ class bdd
         $f = fopen($error_file, 'ab');
         fwrite($f, $final);
         fclose($f);
-        echo '<pre>Une erreur MySQL est survenue...</pre>';
+
         if (P_DEBUG) {
-            echo '<pre>', $e->getMessage(), '</pre>';
+            throw new RuntimeException('An SQL error has occured...', 1, $e);
         }
+
+        throw new RuntimeException('An SQL error has occured...', 1);
     }
 
     /**
@@ -130,9 +131,10 @@ class bdd
      *
      * @return string Requête formatée
      */
-    public static function sbuildReq($req_qry, $values = [])
+    public static function sbuildReq($req_qry, $values = []): string
     {
         $values = (array) $values;
+
         if (strpos($req_qry, '%%%fields') !== false) {//Transforme %%%Fields en une liste des champs à entrer
             $fields = [];
             foreach ($values as $field => $value) {
@@ -141,6 +143,7 @@ class bdd
             }
             $req_qry = str_replace('%%%fields', implode(', ', $fields), $req_qry);
         }
+
         if (strpos($req_qry, '%%%in') !== false) {//Transforme %%%Fields en une liste des champs à entrer
             if (empty($values)) {
                 $req_qry = str_replace('%%%in', '0', $req_qry);
@@ -149,38 +152,28 @@ class bdd
                 $req_qry = str_replace('%%%in', $str, $req_qry);
             }
         }
-        $req_qry = preg_replace(
-            '#%%([a-zA-Z0-9_]+)#',
-            ' `'.self::$prefix.'$1` ',
-            $req_qry
-        ); // Transforme %%table en `prefix_table`
-        $req_qry = preg_replace('#%([a-zA-Z0-9_]+)#', ' `$1` ', $req_qry); // Transforme %champ en `champ`
 
-        $t = [];
+        $req_qry = str_replace('%%', self::$prefix, $req_qry); // Transforme %%table en `prefix_table`
+        $req_qry = preg_replace('#%(\w+)#', ' `$1` ', $req_qry); // Transforme %champ en `champ`
+
         foreach ($values as $k => $v) {
-            if (!preg_match('#^:#isUu', $k) && !is_numeric($k)) {
+            if (!is_numeric($k) && strpos($k, ':') !== 0) {
                 unset($values[$k]);
                 $values[':'.$k] = $v;
             }
         }
-
-        $req_qry = str_replace("\n", ' ', $req_qry);
-        $req_qry = str_replace("\r", '', $req_qry);
-        $req_qry = str_replace("    ", '', $req_qry);
-        $req_qry = preg_replace('#\s\s+#Uu', ' ', $req_qry);
 
         return $req_qry;
     }
 
     public function last_id()
     {
-        $last_id = 0;
         try {
             $last_id = $this->db->lastInsertId();
             $last_id = (int) $last_id;
         } catch (Exception $e) {
             $last_id = false;
-            $this->showErr($e, '', $last_id, true);
+            $this->showErr($e, '');
         }
 
         return $last_id;
@@ -194,7 +187,7 @@ class bdd
      *
      * @return array Un tableau avec une entrée pour chaque élément trouvé dans la BDD, false
      */
-    public function req($req_qry, $values = [])
+    public function req($req_qry, $values = []): array
     {
         $values = (array) $values;
         $req_qry = $this->buildReq($req_qry, $values);
@@ -232,13 +225,15 @@ class bdd
      *
      * @return array à 1 entrée, false sinon
      */
-    public function row($req_qry, $values = [])
+    public function row($req_qry, $values = []): array
     {
         $values = (array) $values;
         $req_qry = $this->buildReq($req_qry, $values);
-        if (!preg_match('#LIMIT +[0-9]+( *, *[0-9]+)?#isU', $req_qry)) {
+
+        if (!preg_match('#LIMIT +\d+( *, *\d+)?#iU', $req_qry)) {
             $req_qry .= ' LIMIT 0,1';
         }
+
         $result = $this->runReq($req_qry, $values);
         if (is_object($result) && $result->rowCount() > 0) {
             $contents = $result->fetch();
@@ -271,7 +266,7 @@ class bdd
      *
      * @return true si la requête est excéutée, false sinon
      */
-    public function noRes($req_qry, $values = [])
+    public function noRes($req_qry, $values = []): bool
     {
         $values = (array) $values;
         $req_qry = $this->buildReq($req_qry, $values);
@@ -299,7 +294,7 @@ class bdd
      *
      * @return string Requête formatée
      */
-    private function buildReq($req_qry, $values = [])
+    private function buildReq($req_qry, $values = []): string
     {
         $req_qry = self::sbuildReq($req_qry, $values);
         $this->last_query = $req_qry;
@@ -324,7 +319,7 @@ class bdd
             $result->execute($values);
         } catch (Exception $e) {
             $result = false;
-            $this->showErr($e, $req_qry, $result, true);
+            $this->showErr($e, $req_qry);
         }
         $this->queriesRunnedCount++;
         $this->queriesRunned[] = $req_qry.' ['.implode(',', $values).']';
