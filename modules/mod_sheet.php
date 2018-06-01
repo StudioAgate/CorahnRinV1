@@ -1,5 +1,8 @@
 <?php
 
+use App\EsterenChar;
+use App\Translate;
+
 if (empty($_PAGE['request'])) {
 	redirect(array('val'=>47), 'Vous devez sélectionner un personnage', 'warning');
 }
@@ -10,13 +13,6 @@ $printer_friendly =	isset($_PAGE['request']['print']) ? true : false;
 $sheet_style =		isset($_PAGE['request']['sheet']) ? $_PAGE['request']['sheet'] : 'original';
 $zip =				isset($_PAGE['request']['zip']) ? true : false;
 $pdf =				isset($_PAGE['request']['pdf']) ? true : false;
-
-//MakeFont::MakeFont(ROOT.DS.'webroot'.DS.'css'.DS.'fonts'.DS.'LettrinEsteren-Regular.ttf', 'cp1252');
-//MakeFont::MakeFont(ROOT.DS.'webroot'.DS.'css'.DS.'fonts'.DS.'carolingia.ttf', 'cp1252');
-//MakeFont::MakeFont(ROOT.DS.'webroot'.DS.'css'.DS.'fonts'.DS.'carolingia_old.ttf', 'cp1252');
-//MakeFont::MakeFont(ROOT.DS.'webroot'.DS.'css'.DS.'fonts'.DS.'times.ttf', 'cp1252');
-//MakeFont::MakeFont(ROOT.DS.'webroot'.DS.'css'.DS.'fonts'.DS.'UnZialish.ttf', 'cp1252');
-//MakeFont::MakeFont(ROOT.DS.'webroot'.DS.'css'.DS.'fonts'.DS.'arial.ttf', 'cp1252');
 
 Translate::$char_id = $char_id;
 

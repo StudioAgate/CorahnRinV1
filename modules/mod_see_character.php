@@ -1,11 +1,12 @@
 <?php
 
+use App\EsterenChar;
+
 $folder = ROOT.DS.'webroot'.DS.'files'.DS.'characters_export';
 
 $char_id = isset($_PAGE['request'][0]) ? $_PAGE['request'][0] : 0;
 
-$ymlDumper = new Symfony\Component\Yaml\Dumper();
-$ymlDumper->setIndentation(2);
+$ymlDumper = new Symfony\Component\Yaml\Dumper(2);
 
 /** @var EsterenChar $charObj */
 $orderby = $sort = $char = $charObj = $characters = $modifications = $users = null;

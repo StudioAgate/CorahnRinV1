@@ -53,7 +53,11 @@ if (!empty($_POST)) {
 	}
 
 	// Création de la variable si elle existe dans POST ou dans SESSION
-	$_SESSION[$stepname] = isset($_POST[$stepname]) ? $_POST[$stepname] : (isset($_SESSION[$stepname]) ? $_SESSION[$stepname] : '');
+    if (isset($_SESSION[$stepname])) {
+        $_SESSION[$stepname] = isset($_POST[$stepname]) ? $_POST[$stepname] : $_SESSION[$stepname];
+    } else {
+        $_SESSION[$stepname] = isset($_POST[$stepname]) ? $_POST[$stepname] : '';
+    }
 
 	if (is_numeric($_SESSION[$stepname])) {
 		$_SESSION[$stepname] = (int) $_SESSION[$stepname];
@@ -67,7 +71,7 @@ if (!empty($_POST)) {
 
 	if (strpos($stepname, 'peuple') !== false) {
 		$val = array('Tarish', 'Osag', 'Continent', 'Tri-Kazel');
-		if (!in_array($_SESSION[$stepname], $val)) {
+		if (!in_array($_SESSION[$stepname], $val, true)) {
 			unset($_SESSION[$stepname]);
 			$_SESSION['etape']--;
 		}
@@ -87,7 +91,7 @@ if (!empty($_POST)) {
 		}
 	}
 	if (strpos($stepname, 'naissance') !== false
-	|| strpos($stepname, 'sante_mentale' !== false)) {
+	|| strpos($stepname, 'sante_mentale') !== false) {
 		$_SESSION[$stepname] = (int) $_SESSION[$stepname];
 		if (!$_SESSION[$stepname]) {
 			unset($_SESSION[$stepname]);
@@ -103,7 +107,7 @@ if (!empty($_POST)) {
 	}
 	if (strpos($stepname, 'geo') !== false) {
 		$val = array('Rural', 'Urbain');
-		if (!in_array($_SESSION[$stepname], $val)) {
+		if (!in_array($_SESSION[$stepname], $val, true)) {
 			unset($_SESSION[$stepname]);
 			$_SESSION['etape']--;
 		}
@@ -113,7 +117,7 @@ if (!empty($_POST)) {
 		$val = array('Artisan', 'Bourgeois', 'Paysan', 'Clerge', 'Noblesse');
         if (isset($_SESSION[$stepname]['classe'])) {
             if (
-                !in_array($_SESSION[$stepname]['classe'], $val)
+                !in_array($_SESSION[$stepname]['classe'], $val, true)
                 || !is_numeric($_SESSION[$stepname]['dom1'])
                 || !is_numeric($_SESSION[$stepname]['dom2'])
                 ) {
@@ -222,7 +226,7 @@ if (!empty($_POST)) {
 
 	if (strpos($stepname, 'orientation') !== false) {
 		$val = array('Rationnelle', 'Instinctive');
-		if (!in_array($_SESSION[$stepname], $val)) {
+		if (!in_array($_SESSION[$stepname], $val, true)) {
 			unset($_SESSION[$stepname]);
 			$_SESSION['etape']--;
 		}

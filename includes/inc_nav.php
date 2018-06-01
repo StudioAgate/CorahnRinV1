@@ -1,6 +1,9 @@
 <?php
 
-	if (isset($_SESSION['etape'])) {
+use App\Session;
+use App\Translate;
+
+if (isset($_SESSION['etape'])) {
 		$etape = (int) $_SESSION['etape'];
 	} else {
 		$etape = 1;

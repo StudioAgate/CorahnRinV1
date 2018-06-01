@@ -1,4 +1,7 @@
 <?php
+
+namespace App;
+
 /*
  * ntlm_sasl_client.php
  *

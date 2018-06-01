@@ -1,4 +1,7 @@
 <?php
+
+namespace App;
+
 /**
  * String handling methods.
  *
@@ -28,85 +31,10 @@
 class CakePHPString {
 
 /**
- * Generate a random UUID
- *
- * @see http://www.ietf.org/rfc/rfc4122.txt
- * @return RFC 4122 UUID
- * @static
- */
-	public static function uuid() {
-		$node = env('SERVER_ADDR');
-		$pid = null;
-
-		if (strpos($node, ':') !== false) {
-			if (substr_count($node, '::')) {
-				$node = str_replace(
-					'::', str_repeat(':0000', 8 - substr_count($node, ':')) . ':', $node
-				);
-			}
-			$node = explode(':', $node) ;
-			$ipv6 = '' ;
-
-			foreach ($node as $id) {
-				$ipv6 .= str_pad(base_convert($id, 16, 2), 16, 0, STR_PAD_LEFT);
-			}
-			$node =  base_convert($ipv6, 2, 10);
-
-			if (strlen($node) < 38) {
-				$node = null;
-			} else {
-				$node = crc32($node);
-			}
-		} elseif (empty($node)) {
-			$host = env('HOSTNAME');
-
-			if (empty($host)) {
-				$host = env('HOST');
-			}
-
-			if (!empty($host)) {
-				$ip = gethostbyname($host);
-
-				if ($ip === $host) {
-					$node = crc32($host);
-				} else {
-					$node = ip2long($ip);
-				}
-			}
-		} elseif ($node !== '127.0.0.1') {
-			$node = ip2long($node);
-		} else {
-			$node = null;
-		}
-
-		if (empty($node)) {
-			$node = crc32(Configure::read('Security.salt'));
-		}
-
-		if (function_exists('zend_thread_id')) {
-			$pid = zend_thread_id();
-		} else {
-			$pid = getmypid();
-		}
-
-		if (!$pid || $pid > 65535) {
-			$pid = mt_rand(0, 0xfff) | 0x4000;
-		}
-
-		list($timeMid, $timeLow) = explode(' ', microtime());
-		$uuid = sprintf(
-			"%08x-%04x-%04x-%02x%02x-%04x%08x", (int)$timeLow, (int)substr($timeMid, 2) & 0xffff,
-			mt_rand(0, 0xfff) | 0x4000, mt_rand(0, 0x3f) | 0x80, mt_rand(0, 0xff), $pid, $node
-		);
-
-		return $uuid;
-	}
-
-/**
  * Tokenizes a string using $separator, ignoring any instance of $separator that appears between
  * $leftBound and $rightBound
  *
- * @param string $data The data to tokenize
+ * @param string|array $data The data to tokenize
  * @param string $separator The token to split the data on.
  * @param string $leftBound The left boundary to ignore separators in.
  * @param string $rightBound The right boundary to ignore separators in.
@@ -134,36 +62,34 @@ class CakePHPString {
 				strpos($data, $rightBound, $offset)
 			);
 			for ($i = 0; $i < 3; $i++) {
-				if ($offsets[$i] !== false && ($offsets[$i] < $tmpOffset || $tmpOffset == -1)) {
+				if ($offsets[$i] !== false && ($offsets[$i] < $tmpOffset || $tmpOffset === -1)) {
 					$tmpOffset = $offsets[$i];
 				}
 			}
 			if ($tmpOffset !== -1) {
-				$buffer .= substr($data, $offset, ($tmpOffset - $offset));
-				if ($data{$tmpOffset} == $separator && $depth == 0) {
+				$buffer .= substr($data, $offset, $tmpOffset - $offset);
+				if (!$depth && $data{$tmpOffset} === $separator) {
 					$results[] = $buffer;
 					$buffer = '';
 				} else {
 					$buffer .= $data{$tmpOffset};
 				}
-				if ($leftBound != $rightBound) {
-					if ($data{$tmpOffset} == $leftBound) {
+				if ($leftBound !== $rightBound) {
+					if ($data{$tmpOffset} === $leftBound) {
 						$depth++;
 					}
-					if ($data{$tmpOffset} == $rightBound) {
+					if ($data{$tmpOffset} === $rightBound) {
 						$depth--;
 					}
-				} else {
-					if ($data{$tmpOffset} == $leftBound) {
-						if (!$open) {
-							$depth++;
-							$open = true;
-						} else {
-							$depth--;
-							$open = false;
-						}
-					}
-				}
+				} elseif ($data{$tmpOffset} === $leftBound) {
+                    if (!$open) {
+                        $depth++;
+                        $open = true;
+                    } else {
+                        $depth--;
+                        $open = false;
+                    }
+                }
 				$offset = ++$tmpOffset;
 			} else {
 				$results[] = $buffer . substr($data, $offset);
@@ -198,7 +124,7 @@ class CakePHPString {
  * - clean: A boolean or array with instructions for String::cleanInsert
  *
  * @param string $str A string containing variable placeholders
- * @param string $data A key => val array where each key stands for a placeholder variable name
+ * @param string|array  $data A key => val array where each key stands for a placeholder variable name
  *     to be replaced with val
  * @param string $options An array of options, see description above
  * @return string
@@ -213,7 +139,7 @@ class CakePHPString {
 		$format = $options['format'];
 		$data = (array)$data;
 		if (empty($data)) {
-			return ($options['clean']) ? static::cleanInsert($str, $options) : $str;
+			return $options['clean'] ? static::cleanInsert($str, $options) : $str;
 		}
 
 		if (!isset($format)) {
@@ -232,32 +158,31 @@ class CakePHPString {
 				$offset = $pos + strlen($val);
 				$str = substr_replace($str, $val, $pos, 1);
 			}
-			return ($options['clean']) ? static::cleanInsert($str, $options) : $str;
-		} else {
-			asort($data);
-
-			$hashKeys = array();
-			foreach ($data as $key => $value) {
-				$hashKeys[] = crc32($key);
-			}
-
-			$tempData = array_combine(array_keys($data), array_values($hashKeys));
-			krsort($tempData);
-			foreach ($tempData as $key => $hashVal) {
-				$key = sprintf($format, preg_quote($key, '/'));
-				$str = preg_replace($key, $hashVal, $str);
-			}
-			$dataReplacements = array_combine($hashKeys, array_values($data));
-			foreach ($dataReplacements as $tmpHash => $tmpValue) {
-				$tmpValue = (is_array($tmpValue)) ? '' : $tmpValue;
-				$str = str_replace($tmpHash, $tmpValue, $str);
-			}
+			return $options['clean'] ? static::cleanInsert($str, $options) : $str;
 		}
 
-		if (!isset($options['format']) && isset($options['before'])) {
+        asort($data);
+
+        $hashKeys = array();
+        foreach ($data as $key => $value) {
+            $hashKeys[] = crc32($key);
+        }
+
+        $tempData = array_combine(array_keys($data), array_values($hashKeys));
+        krsort($tempData);
+        foreach ($tempData as $key => $hashVal) {
+            $key = sprintf($format, preg_quote($key, '/'));
+            $str = preg_replace($key, $hashVal, $str);
+        }
+        foreach (array_combine($hashKeys, array_values($data)) as $tmpHash => $tmpValue) {
+            $tmpValue = is_array($tmpValue) ? '' : $tmpValue;
+            $str = str_replace($tmpHash, $tmpValue, $str);
+        }
+
+        if (!isset($options['format']) && isset($options['before'])) {
 			$str = str_replace($options['escape'].$options['before'], $options['before'], $str);
 		}
-		return ($options['clean']) ? static::cleanInsert($str, $options) : $str;
+		return $options['clean'] ? static::cleanInsert($str, $options) : $str;
 	}
 
 /**
@@ -267,7 +192,7 @@ class CakePHPString {
  * by static::insert().
  *
  * @param string $str
- * @param string $options
+ * @param array $options
  * @return string
  * @access public
  * @static

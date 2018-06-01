@@ -1,5 +1,8 @@
 <?php
 
+use App\FileAndDir;
+use App\Session;
+
 $char_name = $character->get('details_personnage.name');
 $char_name = clean_word($char_name);
 $zip_dest_name = CHAR_EXPORT.DS.$char_id.DS.$char_name.'_'.P_LANG.'.zip';

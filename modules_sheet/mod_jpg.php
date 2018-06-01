@@ -1,4 +1,8 @@
 <?php
+
+use App\FileAndDir;
+use App\Session;
+
 $char_name_dest = clean_word($character->get('details_personnage.name'));
 
 $filename = CHAR_EXPORT.DS.$character->id().DS.$char_name_dest.'_original'.$sheet_page.($printer_friendly === true ? '-print' : '').'_'.P_LANG.'.jpg';

@@ -1,5 +1,7 @@
 <?php
 
+use App\Translate;
+
 $changed = false;
 foreach (Translate::$words_fr as $domain => $words) {
     foreach ($words as $word) {

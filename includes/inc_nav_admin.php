@@ -1,5 +1,7 @@
 <?php
 ##Menu du mode debug
+use App\Users;
+
 if (P_LOGGED === true) { ?>
 
 			<div class="navbar">

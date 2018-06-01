@@ -13,10 +13,10 @@ if (empty($user)) {
 } elseif (!$user['user_status']) {
 	$dest = array('name' => $user['user_name'], 'mail' => $user['user_email']);
 	$mail_msg = $db->row('SELECT %mail_id, %mail_contents, %mail_subject FROM %%mails WHERE %mail_code = ?', 'register');
-	if (isset($mail_msg['mail_contents']) && isset($mail_msg['mail_subject'])) {
+	if (isset($mail_msg['mail_contents'], $mail_msg['mail_subject'])) {
         $subj = tr($mail_msg['mail_subject'], true, null, 'mails');
         $txt = tr($mail_msg['mail_contents'], true, array(
-            '{name}' => htmlspecialchars($user['user_name']),
+            '{name}' => htmlspecialchars($user['user_name'], ENT_QUOTES | ENT_HTML5),
             '{link}' => mkurl(array('val'=>64,'type'=>'tag','anchor'=>tr('Confirmer l\'adresse mail', true),'params'=>array('confirm_register', $hash))),
         ), 'mails');
 		if (send_mail($dest, $subj, $txt, $mail_msg['mail_id'])) {

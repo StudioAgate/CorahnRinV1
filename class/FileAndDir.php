@@ -1,4 +1,9 @@
 <?php
+
+namespace App;
+
+use Exception;
+
 /**
  * Classe de gestion de fichiers locaux et distants.
  */

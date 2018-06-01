@@ -1,4 +1,7 @@
 <?php
+
+namespace App;
+
 /**
  * Classe statique permettant la gestion des variables de session
  *

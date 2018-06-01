@@ -1,5 +1,7 @@
 <?php
 
+use App\Session;
+
 if (P_LOGGED === false) {
 	Session::setFlash('Vous n\'avez pas les droits pour accéder à cette page.', 'error');
 	header('Location:'.mkurl(array('val'=>1)));

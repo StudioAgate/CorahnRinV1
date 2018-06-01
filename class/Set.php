@@ -1,4 +1,7 @@
 <?php
+
+namespace App;
+
 /**
  * Library of array functions for Cake.
  *
@@ -17,6 +20,8 @@
  * @since         CakePHP(tm) v 1.2.0
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
+
+use stdClass;
 
 /**
  * Class used for manipulation of arrays.
@@ -443,9 +448,9 @@ class Set {
 						}
 					}
 
-					foreach ($items as $key => $item) {
+					foreach ($items as $k2 => $item) {
 						$ctext = array($context['key']);
-						if (!is_numeric($key)) {
+						if (!is_numeric($k2)) {
 							$ctext[] = $token;
 							$tok = array_shift($tokens);
 							if (isset($items[$tok])) {
@@ -461,12 +466,12 @@ class Set {
 								array_unshift($tokens, $tok);
 							}
 						} else {
-							$key = $token;
+							$k2 = $token;
 						}
 
 						$matches[] = array(
 							'trace' => array_merge($context['trace'], $ctext),
-							'key' => $key,
+							'key' => $k2,
 							'item' => $item,
 						);
 					}

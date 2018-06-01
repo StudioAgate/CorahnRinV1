@@ -1,5 +1,8 @@
 <?php
 /** @var int $char_id */
+
+use App\EsterenChar;
+
 /** @var array $modifications */
 /** @var \Symfony\Component\Yaml\Dumper $ymlDumper */
 

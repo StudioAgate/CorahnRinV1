@@ -1,5 +1,7 @@
 <?php
 
+use App\PHPMailer;
+
 /**
  * Envoie un mail structuré en utilisant la fonction mail() de PHP
  *

@@ -2,7 +2,10 @@
 <div class="container">
 	<?php
 
-	$page_mod = isset($_PAGE['request'][0]) ? $_PAGE['request'][0] : '';
+    use App\FileAndDir;
+    use App\Session;
+
+    $page_mod = isset($_PAGE['request'][0]) ? $_PAGE['request'][0] : '';
 	$t = $db->req('SELECT %gen_step,%gen_mod,%gen_anchor,%gen_id FROM %%steps ORDER BY %gen_step ASC');//On génère la liste des étapes
 	$steps = array();
 	$page_step = 0;

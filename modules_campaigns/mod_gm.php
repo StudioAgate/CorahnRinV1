@@ -1,5 +1,9 @@
 <?php
 
+use App\EsterenChar;
+use App\Session;
+use App\Users;
+
 $game_id = isset($_PAGE['request'][0]) ? (int) $_PAGE['request'][0] : 0;
 
 $invite = isset($_PAGE['request'][1]) && $_PAGE['request'][1] === 'invite_char' ? $_PAGE['request'][1] : '';

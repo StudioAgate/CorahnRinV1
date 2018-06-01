@@ -1,5 +1,9 @@
 <?php
 
+use App\FileAndDir;
+use App\Hash;
+use App\Session;
+
 $err_type = isset($_PAGE['request'][0]) ? $_PAGE['request'][0] : '';
 $err_file = isset($_PAGE['request'][1]) ? $_PAGE['request'][1] : '';
 
@@ -14,7 +18,7 @@ $types_ok = array(
 
 $arr = array();
 foreach ($types_ok as $v => $k) {
-	$arr[$v] = scandir(ROOT.DS.'logs'.DS.$v.DS);
+	$arr[$v] = scandir(ROOT.DS.'logs'.DS.$v.DS, SCANDIR_SORT_DESCENDING);
 }
 
 ?>

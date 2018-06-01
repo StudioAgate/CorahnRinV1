@@ -1,5 +1,9 @@
 <?php
 
+namespace App;
+
+/** @var bdd $db */
+
 class Users {
 
 	public static $id = 0;
@@ -28,7 +32,8 @@ class Users {
 				}
 			}
 		} elseif (is_numeric($db_datas) && (int) $db_datas) {
-			global $db;
+            /** @var bdd $db */
+            global $db;
 			$res = $db->row('SELECT * FROM %%users WHERE %user_id = ?', array($db_datas));
 			if (!$res) {
 				Session::setFlash('Utilisateur incorrect... #001', 'error');
@@ -53,18 +58,19 @@ class Users {
 	}
 
 	public static function create($datas = array()) {
-		global $db;
+        /** @var bdd $db */
+        global $db;
 		if (
 			isset($datas['name']) &
 			isset($datas['email']) &&
 			isset($datas['password'])
 		) {
 			unset($datas['associate'], $datas['user']);
-			if (strlen($datas['password']) < 5 || !preg_match('#[a-zA-Z]#isUu', $datas['password']) || !preg_match('#[0-9]#isUu', $datas['password'])) {
+			if (strlen($datas['password']) < 5 || !preg_match('#[a-zA-Z]#iUu', $datas['password']) || !preg_match('#\d#U', $datas['password'])) {
 				Session::setFlash('Le mot de passe doit comporter au moins 5 caractères, ainsi qu\'au moins une lettre et un chiffre.', 'error');
 				return false;
 			}
-			$datas['password'] = Users::pwd($datas['password']);
+			$datas['password'] = self::pwd($datas['password']);
 			$users = $db->req('SELECT COUNT(*) as %nb_users FROM %%users WHERE %user_name = ? OR %user_email = ?', array($datas['name'], $datas['email']));
 			if ($users && isset($users[0]['nb_users']) && $users[0]['nb_users'] > 0) {
 				Session::setFlash('Le nom d\'utilisateur ou l\'adresse mail est déjà utilisé', 'error');
@@ -83,7 +89,7 @@ class Users {
 				'user_email' => $datas['email'],
 				'user_password' => $datas['password'],
 				'user_status' => 0,
-				'user_confirm' => md5($datas['name'].rand(1,10000)),
+				'user_confirm' => md5($datas['name'].mt_rand(1,10000)),
 			);
 			$db->noRes('INSERT INTO %%users SET %%%fields ', $datas);
 			$user = $db->row('SELECT %user_id,%user_name,%user_email,%user_confirm FROM %%users WHERE %user_name = ? AND %user_email = ?', array($datas['user_name'], $datas['user_email']));
@@ -92,10 +98,10 @@ class Users {
 				//self::init($user);
 				$dest = array('name' => $user['user_name'], 'mail' => $user['user_email']);
 				$mail_msg = $db->row('SELECT %mail_id, %mail_contents, %mail_subject FROM %%mails WHERE %mail_code = ?', 'register');
-				if (isset($mail_msg['mail_contents']) && isset($mail_msg['mail_subject'])) {
+				if (isset($mail_msg['mail_contents'], $mail_msg['mail_subject'])) {
 					$subj = tr($mail_msg['mail_subject'], true, null, 'mails');
 					$txt = tr($mail_msg['mail_contents'], true, array(
-                        '{name}' => htmlspecialchars($user['user_name']),
+                        '{name}' => htmlspecialchars($user['user_name'], ENT_QUOTES | ENT_HTML5),
                         '{link}' => mkurl(array('val'=>64,'type'=>'tag','anchor'=>tr('Confirmer l\'adresse mail', true),'params'=>array('confirm_register', $user['user_confirm']))),
                     ), 'mails');
 					if (send_mail($dest, $subj, $txt, $mail_msg['mail_id'])) {

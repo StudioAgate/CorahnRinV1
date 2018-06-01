@@ -4,8 +4,8 @@ if ($_PAGE['extension'] !== 'xml') {
 }
 
 $cacheFile = ROOT.DS.'tmp'.DS.'modsitemap.xml';
-if (file_exists($cacheFile) && filemtime($cacheFile) >= (time() - 86400) && file_get_contents($cacheFile)) {
-	echo file_get_contents($cacheFile);
+if (file_exists($cacheFile) && filemtime($cacheFile) >= (time() - 86400) && $cnt = file_get_contents($cacheFile)) {
+	echo $cnt;
 	return;
 }
 

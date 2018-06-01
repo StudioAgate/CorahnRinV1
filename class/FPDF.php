@@ -1,4 +1,7 @@
 <?php
+
+namespace App;
+
 /*******************************************************************************
  * FPDF                                                                         *
  *                                                                              *
@@ -6,6 +9,8 @@
  * Date:    2011-06-18                                                          *
  * Author:  Olivier PLATHEY                                                     *
  *******************************************************************************/
+
+use RuntimeException;
 
 define('P_FPDF_VERSION', '1.7');
 
@@ -107,8 +112,8 @@ class FPDF
             if (substr($this->fontpath, -1) !== DS) {
                 $this->fontpath .= DS;
             }
-        } elseif (is_dir(dirname(__FILE__) . DS . 'font')) {
-            $this->fontpath = dirname(__FILE__) . DS . 'font' . DS;
+        } elseif (is_dir(__DIR__. DS . 'font')) {
+            $this->fontpath = __DIR__. DS . 'font' . DS;
         } else {
             $this->fontpath = '';
         }
@@ -1639,8 +1644,8 @@ class FPDF
                 // Descriptor
                 $this->_newobj();
                 $s = '<</Type /FontDescriptor /FontName /' . $name;
-                foreach ($font['desc'] as $k => $v) {
-                    $s .= ' /' . $k . ' ' . $v;
+                foreach ($font['desc'] as $k2 => $v) {
+                    $s .= ' /' . $k2 . ' ' . $v;
                 }
                 if (!empty($font['file'])) {
                     $s .= ' /FontFile' . ($type === 'Type1' ? '' : '2') . ' ' . $this->FontFiles[$font['file']]['n'] . ' 0 R';
@@ -1692,7 +1697,8 @@ class FPDF
         }
         if (isset($info['trns']) && is_array($info['trns'])) {
             $trns = '';
-            for ($i = 0; $i < count($info['trns']); $i++) {
+            $cntTrns = count($info['trns']);
+            for ($i = 0; $i < $cntTrns; $i++) {
                 $trns .= $info['trns'][$i] . ' ' . $info['trns'][$i] . ' ';
             }
             $this->_out('/Mask [' . $trns . ']');
@@ -1962,9 +1968,3 @@ class FPDF
     }
 // End of class
 }
-
-// // Handle special IE contype request
-// if(isset($_SERVER['HTTP_USER_AGENT']) && $_SERVER['HTTP_USER_AGENT']=='contype') {
-// 	header('Content-Type: application/pdf');
-// 	exit;
-// }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Hash;
+
 /**
  * "gv" for "get value"
  * Workaround to get values from "before" and "after" arrays.

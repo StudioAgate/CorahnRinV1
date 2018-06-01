@@ -1,5 +1,7 @@
 <?php
 
+use App\Hash;
+
 $tab = $char->get();
 
 $doms = (array) Hash::extract($tab, 'domaines.{n}');

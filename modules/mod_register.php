@@ -1,5 +1,8 @@
 <?php
 
+use App\Session;
+use App\Users;
+
 if (!empty($_POST) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])) {
 
     if (Session::read('_token') !== Session::read('tokenToCheck') || $_PAGE['referer']['id'] !== $_PAGE['id']) {

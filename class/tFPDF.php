@@ -1,4 +1,7 @@
 <?php
+
+namespace App;
+
 /*******************************************************************************
  * tFPDF (based on FPDF 1.7)                                                    *
  *                                                                              *
@@ -14,62 +17,6 @@ class tFPDF extends FPDF
 {
 
     public $unifontSubset;
-    public $page;               // current page number
-    public $n;                  // current object number
-    public $offsets;            // array of object offsets
-    public $buffer;             // buffer holding in-memory PDF
-    public $pages;              // array containing pages
-    public $state;              // current document state
-    public $compress;           // compression flag
-    public $k;                  // scale factor (number of points in user unit)
-    public $DefOrientation;     // default orientation
-    public $CurOrientation;     // current orientation
-    public $StdPageSizes;       // standard page sizes
-    public $DefPageSize;        // default page size
-    public $CurPageSize;        // current page size
-    public $PageSizes;          // used for pages with non default sizes or orientations
-    public $wPt, $hPt;          // dimensions of current page in points
-    public $w, $h;              // dimensions of current page in user unit
-    public $lMargin;            // left margin
-    public $tMargin;            // top margin
-    public $rMargin;            // right margin
-    public $bMargin;            // page break margin
-    public $cMargin;            // cell margin
-    public $x, $y;              // current position in user unit
-    public $lasth;              // height of last printed cell
-    public $LineWidth;          // line width in user unit
-    public $fontpath;           // path containing fonts
-    public $CoreFonts;          // array of core font names
-    public $fonts;              // array of used fonts
-    public $FontFiles;          // array of font files
-    public $diffs;              // array of encoding differences
-    public $FontFamily;         // current font family
-    public $FontStyle;          // current font style
-    public $underline;          // underlining flag
-    public $CurrentFont;        // current font info
-    public $FontSizePt;         // current font size in points
-    public $FontSize;           // current font size in user unit
-    public $DrawColor;          // commands for drawing color
-    public $FillColor;          // commands for filling color
-    public $TextColor;          // commands for text color
-    public $ColorFlag;          // indicates whether fill and text colors are different
-    public $ws;                 // word spacing
-    public $images;             // array of used images
-    public $PageLinks;          // array of links in pages
-    public $links;              // array of internal links
-    public $AutoPageBreak;      // automatic page breaking
-    public $PageBreakTrigger;   // threshold used to trigger page breaks
-    public $InHeader;           // flag set when processing header
-    public $InFooter;           // flag set when processing footer
-    public $ZoomMode;           // zoom display mode
-    public $LayoutMode;         // layout display mode
-    public $title;              // title
-    public $subject;            // subject
-    public $author;             // author
-    public $keywords;           // keywords
-    public $creator;            // creator
-    public $AliasNbPages;       // alias for total number of pages
-    public $PDFVersion;         // PDF version number
 
     /*******************************************************************************
      *                                                                              *
@@ -1337,7 +1284,6 @@ class tFPDF extends FPDF
 
                     // Embed CIDToGIDMap
                     // A specification of the mapping from CIDs to glyph indices
-                    $cidtogidmap = '';
                     $cidtogidmap = str_pad('', 256 * 256 * 2, "\x00");
                     foreach ($codeToGlyph as $cc => $glyph) {
                         $cidtogidmap[$cc * 2] = chr($glyph >> 8);

@@ -1,5 +1,9 @@
 <?php
 
+use App\EsterenChar;
+use App\FileAndDir;
+use App\Users;
+
 $char_id = isset($_PAGE['request'][0]) ? (int) $_PAGE['request'][0] : 0;
 if (!$char_id) {
 	redirect(array('val'=>58), 'Vous devez sélectionner un personnage', 'warning');

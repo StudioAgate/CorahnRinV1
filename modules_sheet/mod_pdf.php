@@ -1,4 +1,7 @@
 <?php
+
+use App\tFPDF;
+
 $char_name = $character->get('details_personnage.name');
 $char_name = clean_word($char_name);
 

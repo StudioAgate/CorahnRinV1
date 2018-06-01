@@ -4,16 +4,20 @@
 // $_POST = get_post_datas();
 
 ## Définition de la constante BASE_URL. Source : http://www.koezion-cms.com/
+use App\FileAndDir;
+use App\Session;
+use App\Users;
+
 if (isset($_SERVER['BASE'])) {
     $baseUrl = $_SERVER['BASE'];
 } else {
     $baseUrl = '';
-    $scriptPath = preg_split("#[\\\\/]#", dirname(__FILE__), -1, PREG_SPLIT_NO_EMPTY);
+    $scriptPath = preg_split("#[\\\\/]#", __DIR__, -1, PREG_SPLIT_NO_EMPTY);
     $urlPath = preg_split("#[\\\\/]#", $_SERVER['REQUEST_URI'], -1, PREG_SPLIT_NO_EMPTY);
     foreach($urlPath as $k => $v) {
-        $key = array_search($v, $scriptPath);
+        $key = array_search($v, $scriptPath, true);
         if($key !== false) {
-            $baseUrl .= "/".$v;
+            $baseUrl .= '/'.$v;
         } else {
             break;
         }
@@ -29,10 +33,10 @@ $request = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
 if (isset($_SERVER['BASE'])) {
     $request = str_replace($_SERVER['BASE'], '', $request);
 }
-$request = preg_replace('#\?.*$#isUu', '', $request);
+$request = preg_replace('#\?.*$#Uu', '', $request);
 $ext = pathinfo($request);
 $ext = isset($ext['extension']) ? strtolower($ext['extension']) : '';//On génère l'extension de l'url
-$request = preg_replace('#\.([a-zA-Z0-9]{1,6})$#isUu', '', $request);
+$request = preg_replace('#\.([a-zA-Z0-9]{1,6})$#iUu', '', $request);
 $request = preg_replace('~^/esteren~i', '', $request);
 
 if ($request) {
@@ -57,7 +61,7 @@ if ($lang !== 'fr' && $lang !== 'en') {
 $t = array();
 if ($ext === $getmod) { $ext = ''; }
 foreach($request as $v) {
-	if (preg_match('#:#isUu', $v)) {
+	if (strpos($v, ':') !== false) {
 		$v = explode(':', $v, 2);
         if ($v[1]) {
 		    $t[$v[0]] = $v[1];
@@ -72,8 +76,8 @@ $request = $t;
  * On crée la variable $_GET pour obtenir les informations en GET
  */
 $get_parameters = $_SERVER['REQUEST_URI'];
-if (preg_match('#\?#isUu', $get_parameters)) {
-	$get_parameters = preg_replace('#^[^\?]*\?#isUu', '', $get_parameters);
+if (false !== strpos($get_parameters, "\?")) {
+	$get_parameters = preg_replace('#^[^?]*\?#Uu', '', $get_parameters);
 	$get_parameters = explode('&', $get_parameters);
 	$t = array();
 	foreach($get_parameters as $k => $v) {
@@ -184,7 +188,7 @@ unset($getmod);
 ##On définit le referer en fonction de ce que l'on a dans HTTP_REFERER.
 ##Si celui-ci est sur ce site, on récupère ses paramètres dans $_PAGE. Sinon, uniquement son url.
 if (isset($_SERVER['HTTP_REFERER']) && !isset($_PAGE['referer'])) {
-	if ($_SERVER['HTTP_REFERER'] == BASE_URL.'/') {
+	if ($_SERVER['HTTP_REFERER'] === BASE_URL.'/') {
 		$_PAGE['referer'] = array(
 			'id' => 1,
 			'getmod' => $_PAGE['list'][1]['page_getmod'],
@@ -204,16 +208,16 @@ if (isset($_SERVER['HTTP_REFERER']) && !isset($_PAGE['referer'])) {
             FileAndDir::createPath(dirname($logfile));
             FileAndDir::put($logfile, '');
         }
-		$f = fopen($logfile, 'a');##On stocke le temps d'exécution dans le fichier log
-		$final = "*|*|*Date=>".json_encode(date(DATE_RFC822))
+		$f = fopen($logfile, 'ab');##On stocke le temps d'exécution dans le fichier log
+		$final = '*|*|*Date=>'.json_encode(date(DATE_RFC822))
 		.'||Ip=>'.json_encode($_SERVER['REMOTE_ADDR'])
-		.'||Referer=>'.json_encode($_SERVER['HTTP_REFERER'] ? $_SERVER['HTTP_REFERER'] : 'Accès direct au site')
+		.'||Referer=>'.json_encode($_SERVER['HTTP_REFERER'] ?: 'Accès direct au site')
 		.'||Page.get=>'.json_encode($_PAGE['get'])
-		.'||Page.request=>'.json_encode((array)@$_PAGE['request'])
-		.'||Page.get_params=>'.json_encode((array)$_GET)
+		.'||Page.request=>'.json_encode(@$_PAGE['request'])
+		.'||Page.get_params=>'.json_encode($_GET)
 		.'||User.id=>'.json_encode(Users::$id);
-		$final = preg_replace('#\n|\r|\t#isU', '', $final);
-		$final = preg_replace('#\s\s+#isUu', ' ', $final);
+		$final = str_replace(["\n", "\r", "\t"], '', $final);
+		$final = preg_replace('#\s\s+#Uu', ' ', $final);
 		fwrite($f, $final);
 		fclose($f);
 		unset($f, $final);

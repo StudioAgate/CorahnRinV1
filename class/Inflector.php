@@ -1,4 +1,7 @@
 <?php
+
+namespace App;
+
 /**
  * Pluralize and singularize English words.
  *

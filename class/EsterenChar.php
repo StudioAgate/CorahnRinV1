@@ -1,5 +1,11 @@
 <?php
 
+namespace App;
+
+use RuntimeException;
+
+/** @var bdd $db */
+
 /**
  * Class EsterenChar
  * @method getVoies
@@ -85,88 +91,88 @@
  * @method getExperienceTotal
  * @method getExperienceReste
  *
- * @method setVoies
- * @method setMetier
- * @method setMetierId
- * @method setMetierName
- * @method setMetierDescription
- * @method setRegion_naissance
- * @method setRegion_naissanceId
- * @method setRegion_naissanceName
- * @method setRegion_naissanceRoyaume
- * @method setRegion_naissanceDescription
- * @method setTraits_caractere
- * @method setTraits_caractereDefaut
- * @method setTraits_caractereQualite
- * @method setDomaines
- * @method setAvantages
- * @method setDesavantages
- * @method setRevers
- * @method setDesordre_mental
- * @method setDesordre_mentalId
- * @method setDesordre_mentalName
- * @method setDetails_personnage
- * @method setDetails_personnageName
- * @method setDetails_personnageSexe
- * @method setDetails_personnageJoueur
- * @method setDetails_personnageHistoire
- * @method setDetails_personnageFaits
- * @method setDetails_personnageDescription
- * @method setInventaire
- * @method setInventaireArmes
- * @method setInventaireArmures
- * @method setInventairePossessions
- * @method setInventaireArgent
- * @method setInventaireObjets_precieux
- * @method setInventaireOgham
- * @method setInventaireArtefacts
- * @method setInventaireMiracles
- * @method setOrientation
- * @method setOrientationName
- * @method setOrientationInstinct
- * @method setOrientationConscience
- * @method setResidence_geographique
- * @method setClasse_sociale
- * @method setAge
- * @method setPotentiel
- * @method setPeuple
- * @method setResistance_mentale
- * @method setResistance_mentaleVal
- * @method setResistance_mentaleExp
- * @method setSante
- * @method setVigueur
- * @method setDefense
- * @method setDefenseBase
- * @method setDefenseAmelioration
- * @method setSurvie
- * @method setRapidite
- * @method setRapiditeBase
- * @method setRapiditeAmelioration
- * @method setTraumatismes
- * @method setTraumatismesPermanents
- * @method setTraumatismesCurables
- * @method setRindath
- * @method setRindathVal
- * @method setRindathMax
- * @method setExaltation
- * @method setExaltationVal
- * @method setExaltationMax
- * @method setOgham
- * @method setMiracles
- * @method setMiraclesMajeurs
- * @method setMiraclesMineurs
- * @method setMiraclesMin
- * @method setMiraclesMaj
- * @method setArtefacts
- * @method setFlux
- * @method setFluxMineral
- * @method setFluxVegetal
- * @method setFluxOrganique
- * @method setFluxFossile
- * @method setArts_combat
- * @method setExperience
- * @method setExperienceTotal
- * @method setExperienceReste
+ * @method setVoies($value)
+ * @method setMetier($value)
+ * @method setMetierId($value)
+ * @method setMetierName($value)
+ * @method setMetierDescription($value)
+ * @method setRegion_naissance($value)
+ * @method setRegion_naissanceId($value)
+ * @method setRegion_naissanceName($value)
+ * @method setRegion_naissanceRoyaume($value)
+ * @method setRegion_naissanceDescription($value)
+ * @method setTraits_caractere($value)
+ * @method setTraits_caractereDefaut($value)
+ * @method setTraits_caractereQualite($value)
+ * @method setDomaines($value)
+ * @method setAvantages($value)
+ * @method setDesavantages($value)
+ * @method setRevers($value)
+ * @method setDesordre_mental($value)
+ * @method setDesordre_mentalId($value)
+ * @method setDesordre_mentalName($value)
+ * @method setDetails_personnage($value)
+ * @method setDetails_personnageName($value)
+ * @method setDetails_personnageSexe($value)
+ * @method setDetails_personnageJoueur($value)
+ * @method setDetails_personnageHistoire($value)
+ * @method setDetails_personnageFaits($value)
+ * @method setDetails_personnageDescription($value)
+ * @method setInventaire($value)
+ * @method setInventaireArmes($value)
+ * @method setInventaireArmures($value)
+ * @method setInventairePossessions($value)
+ * @method setInventaireArgent($value)
+ * @method setInventaireObjets_precieux($value)
+ * @method setInventaireOgham($value)
+ * @method setInventaireArtefacts($value)
+ * @method setInventaireMiracles($value)
+ * @method setOrientation($value)
+ * @method setOrientationName($value)
+ * @method setOrientationInstinct($value)
+ * @method setOrientationConscience($value)
+ * @method setResidence_geographique($value)
+ * @method setClasse_sociale($value)
+ * @method setAge($value)
+ * @method setPotentiel($value)
+ * @method setPeuple($value)
+ * @method setResistance_mentale($value)
+ * @method setResistance_mentaleVal($value)
+ * @method setResistance_mentaleExp($value)
+ * @method setSante($value)
+ * @method setVigueur($value)
+ * @method setDefense($value)
+ * @method setDefenseBase($value)
+ * @method setDefenseAmelioration($value)
+ * @method setSurvie($value)
+ * @method setRapidite($value)
+ * @method setRapiditeBase($value)
+ * @method setRapiditeAmelioration($value)
+ * @method setTraumatismes($value)
+ * @method setTraumatismesPermanents($value)
+ * @method setTraumatismesCurables($value)
+ * @method setRindath($value)
+ * @method setRindathVal($value)
+ * @method setRindathMax($value)
+ * @method setExaltation($value)
+ * @method setExaltationVal($value)
+ * @method setExaltationMax($value)
+ * @method setOgham($value)
+ * @method setMiracles($value)
+ * @method setMiraclesMajeurs($value)
+ * @method setMiraclesMineurs($value)
+ * @method setMiraclesMin($value)
+ * @method setMiraclesMaj($value)
+ * @method setArtefacts($value)
+ * @method setFlux($value)
+ * @method setFluxMineral($value)
+ * @method setFluxVegetal($value)
+ * @method setFluxOrganique($value)
+ * @method setFluxFossile($value)
+ * @method setArts_combat($value)
+ * @method setExperience($value)
+ * @method setExperienceTotal($value)
+ * @method setExperienceReste($value)
  */
 class EsterenChar {
 
@@ -177,7 +183,7 @@ class EsterenChar {
 
 	/**
 	 * L'objet de la classe bdd
-	 * @var array
+	 * @var bdd
 	 */
 	private $db;
 
@@ -209,11 +215,14 @@ class EsterenChar {
 	public function __construct($char = null, $type = 'db') {
 		global $db;
 		$this->db = $db;
-		$method = '_make_char_from_'.$type;
-		$ret = false;
-		if (method_exists(__CLASS__, $method)) {
-			$ret = $this->$method($char);
-		}
+        $ret = false;
+		if ('session' === $type) {
+            $ret = $this->_make_char_from_session($char);
+        }
+		if ('db' === $type) {
+            $ret = $this->_make_char_from_db($char);
+        }
+
 		if ($ret === true && $this->id > 0 && !FileAndDir::dexists(CHAR_EXPORT.DS.$this->id)) {
 			FileAndDir::createPath(CHAR_EXPORT.DS.$this->id);
 		}
@@ -259,12 +268,13 @@ class EsterenChar {
                 return $value;
             }
         }
-        throw new \Exception('Undefined method "'.$name.'" in '.__CLASS__);
+        throw new RuntimeException('Undefined method "'.$name.'" in '.__CLASS__);
     }
 
 	public static function session_clear() {
-		global $db;
-		$t = $db->req('SELECT %gen_step,%gen_mod,%gen_anchor FROM %%steps ORDER BY %gen_step ASC');//On génère la liste des étapes
+        /** @var \App\bdd $db */
+        global $db;
+        $t = $db->req('SELECT %gen_step,%gen_mod,%gen_anchor FROM %%steps ORDER BY %gen_step ASC');//On génère la liste des étapes
 		$steps = array();
 		foreach ($t as $v) {//On formate la liste des étapes
 			$steps[$v['gen_step']] = array(
@@ -333,14 +343,14 @@ class EsterenChar {
             $braise = $azur = $givre = 0;
             do {
                 if ($argent >= 100) {
-                    $givre += 1;
+                    ++$givre;
                     $argent -= 100;
                 } elseif ($argent >= 10) {
-                    $azur += 1;
+                    ++$azur;
                     $argent -= 10;
                 } elseif ($argent > 0) {
-                    $braise += 1;
-                    $argent -= 1;
+                    ++$braise;
+                    --$argent;
                 }
             } while ($argent > 1);
         } else {
@@ -403,12 +413,17 @@ class EsterenChar {
 	public function export_to_img($img_type = 'original', $printer_friendly = false, $pages = array(1,2,3)) {
 
 		$method = '_make_sheet_from_'.$img_type;
-		if (method_exists(__CLASS__, $method)) {
+
+        if ('original' === $img_type) {
+            return $this->_make_sheet_from_original($printer_friendly);
+        }
+
+        if (method_exists(__CLASS__, $method)) {
 			return $this->$method($pages, $printer_friendly);
-		} else {
-			return false;
 		}
-	}
+
+        return false;
+    }
 
 	/**
 	 * Cette fonction est utilisée pour pouvoir générer les feuilles de personnage au format PDF à partir d'une instance existante
@@ -419,12 +434,17 @@ class EsterenChar {
 	 */
 	public function export_to_pdf($sheet_style = 'original', $printer_friendly = false) {
 		$method = '_make_pdf_from_'.$sheet_style;
+
+		if ('original' === $sheet_style) {
+		    return $this->_make_pdf_from_original($printer_friendly);
+        }
+
 		if (method_exists(__CLASS__, $method)) {
 			return $this->$method($printer_friendly);
-		} else {
-			return false;
 		}
-	}
+
+        return false;
+    }
 
 	/**
 	 * Crée le personnage dans la base de données
@@ -446,7 +466,7 @@ class EsterenChar {
 		$datas = array(
 			'user_id' => $user_id,
 			'char_name' => $this->get('details_personnage.name'),
-			'char_job' => $this->get('metier.id') ? $this->get('metier.id') : $this->get('metier.name'),
+			'char_job' => $this->get('metier.id') ?: $this->get('metier.name'),
 			'char_origin' => $this->get('region_naissance.id'),
 			'char_people' => $this->get('peuple'),
 			'char_content' => $this->_encrypt(),
@@ -487,7 +507,7 @@ class EsterenChar {
 
 		$datas = array(
 			'char_name' => $this->get('details_personnage.name'),
-			'char_job' => $this->get('metier.id') ? $this->get('metier.id') : $this->get('metier.name'),
+			'char_job' => $this->get('metier.id') ?: $this->get('metier.name'),
 			'char_origin' => $this->get('region_naissance.id'),
 			'char_people' => $this->get('peuple'),
 			'char_content' => $this->_encrypt(),
@@ -517,26 +537,30 @@ class EsterenChar {
 
 		$req = $this->db->row('SELECT %char_id, %char_name FROM %%characters WHERE %char_id = ?', array($this->id));
 
-		if ($req === false) {
-			Session::setFlash('Le personnage n\'a pas été trouvé dans la base de données, il a peut-être déjà été supprimé.', 'warning');
-			return false;
-		} elseif ($req && isset($req['char_id']) && isset($req['char_name'])) {
-			$this->char = array();
-			if ($this->update_to_db(false)) {
-				$ret = $this->db->noRes('DELETE FROM %%characters WHERE %char_id = ?', array($req['char_id']));
-				if (!$ret) {
-					Session::setFlash('Une erreur est survenue lors de la suppression du personnage. #001', 'error');
-				}
-				return $ret;
-			} else {
-				Session::setFlash('Erreur lors de la mise à jour du personnage', 'error');
-				return false;
-			}
-		} else {
-			Session::setFlash('Une erreur inconnue est survenue lors de la suppression du personnage. #002', 'error');
-			return false;
-		}
-	}
+        if ($req === false) {
+            Session::setFlash('Le personnage n\'a pas été trouvé dans la base de données, il a peut-être déjà été supprimé.', 'warning');
+            return false;
+        }
+
+        if ($req && isset($req['char_id'], $req['char_name'])) {
+            $this->char = array();
+            if ($this->update_to_db(false)) {
+                $ret = $this->db->noRes('DELETE FROM %%characters WHERE %char_id = ?', array($req['char_id']));
+                if (!$ret) {
+                    Session::setFlash('Une erreur est survenue lors de la suppression du personnage. #001', 'error');
+                }
+                return $ret;
+            }
+
+            Session::setFlash('Erreur lors de la mise à jour du personnage', 'error');
+
+            return false;
+        }
+
+        Session::setFlash('Une erreur inconnue est survenue lors de la suppression du personnage. #002', 'error');
+
+        return false;
+    }
 
 	/**
 	 * Réinitialise les valeurs du personnage pour mettre à jour les éléments en fonction de la BDD
@@ -554,21 +578,23 @@ class EsterenChar {
 	 * @return boolean True si réussi, False sinon
 	 */
 	public function set($path = null, $value = null) {
-		$get_value = Hash::get((array)$this->char, $path);
+		$get_value = Hash::get($this->char, $path);
 
-		if (is_string($value) && strpos($value, '+=') === 0) {
+		$isString = is_string($value);
+
+		if ($isString && strpos($value, '+=') === 0) {
 			$value = str_replace('+=', '', $value);
 			$get_value += $value;
-		} elseif (is_string($value) && strpos($value, '-=') === 0) {
+		} elseif ($isString && strpos($value, '-=') === 0) {
 			$value = str_replace('-=', '', $value);
 			$get_value += $value;
 		} else {
 			$get_value = $value;
 		}
 
-		$char = Hash::insert((array)$this->char, $path, $get_value); //On insère les données et on récupère la nouvelle variable
+		$char = Hash::insert($this->char, $path, $get_value); //On insère les données et on récupère la nouvelle variable
 		$this->char = $char; //On affecte les données à la variable
-		return (Hash::get((array)$this->char, $path) === $get_value); //On retourne le résultat de la fonction
+		return (Hash::get($this->char, $path) === $get_value); //On retourne le résultat de la fonction
 	}
 
     /**
@@ -579,27 +605,27 @@ class EsterenChar {
 	public function get($path = null, $defaultValue = null) {
 		if ($path === '' || $path === null) {
 			return $this->char;
-		} else {
-			$element = Hash::get($this->char, $path);
-			//$element = isset($element[0]) ? $element[0] : '';
-			return $element !== null ? $element : $defaultValue; //On récupère un élément du personnage en fonction du chemin donné
 		}
-	}
+
+        $element = Hash::get($this->char, $path);
+
+        //$element = isset($element[0]) ? $element[0] : '';
+        return $element !== null ? $element : $defaultValue; //On récupère un élément du personnage en fonction du chemin donné
+    }
 
 	/**
 	 * Récupère une information du personnage avec Hash::extract (pour utiliser les chemins plus précis)
-	 *
-	 * @return boolean True si réussi, False sinon
 	 */
 	public function extract($path = null) {
 		if ($path === '' || $path === null) {
 			return $this->char;
-		} else {
-			$element = Hash::extract($this->char, $path);
-			$element = isset($element[0]) ? $element[0] : '';
-			return $element; //On récupère un élément du personnage en fonction du chemin donné
 		}
-	}
+
+        $element = Hash::extract($this->char, $path);
+        $element = isset($element[0]) ? $element[0] : '';
+
+        return $element; //On récupère un élément du personnage en fonction du chemin donné
+    }
 
 	/**
 	 * Cette fonction permet de décoder le contenu en paramètre, normalement issu du personnage
@@ -624,15 +650,17 @@ class EsterenChar {
 				$this->char = $cnt;
 				$this->base_char = $cnt;
 				return true;
-			} else {
-				echo '<div class="container error">Le contenu du personnage est incorrect. #001</div>';
-				return false;
 			}
-		} else {
-			echo '<div class="container error">Le contenu du personnage a été mal récupéré. #002</div>';
-			return false;
-		}
-	}
+
+            echo '<div class="container error">Le contenu du personnage est incorrect. #001</div>';
+
+            return false;
+        }
+
+        echo '<div class="container error">Le contenu du personnage a été mal récupéré. #002</div>';
+
+        return false;
+    }
 
 	/**
 	 * Cette fonction est utilisée pour générer un export de $this->char
@@ -651,7 +679,7 @@ class EsterenChar {
 	 * Cette fonction crée un personnage à partir des variables de session
 	 *
 	 * @param array $char Variable qui contient le personnage généré
-	 * @return array
+	 * @return array|bool
 	 */
 	private function _make_char_from_session($char) {
 		$err = array();
@@ -661,7 +689,7 @@ class EsterenChar {
 		$t = array();
 		unset($char['bonusdom']);
 		foreach($char as $k => $v) {
-			$k = preg_replace('#^[0-9]+_#isU', '', $k);
+			$k = preg_replace('#^\d+_#U', '', $k);
 			$t[$k] = $v;
 		}
 		$char = $t;//On définit la variable $char qui sera à la fin envoyé à $this->char
@@ -736,7 +764,7 @@ class EsterenChar {
 			$t = $this->db->req('SELECT %trait_name,%trait_name_female,%trait_id,%trait_qd FROM %%traitscaractere WHERE %trait_id IN ('.implode(',', $char['traits']).')');
 			$traits = array();
 			foreach($t as $v) {
-				if ($v['trait_qd'] == 'q') {
+				if ($v['trait_qd'] === 'q') {
 					$traits['qualite'] = array(
 						'id' => (int) $v['trait_id'],
 						'name' => (isset($char['description_histoire']['sex']) && $char['description_histoire']['sex'] === 'Femme') ? $v['trait_name_female'] : $v['trait_name'],
@@ -756,10 +784,7 @@ class EsterenChar {
 
 		/*------------DOMAINES------------*/
 		if (
-			isset($char['domaines_primsec']) && !empty($char['domaines_primsec'])
-			&& isset($char['domaines_amelio'])
-			&& isset($char['bonusdom'])
-			&& isset($char['disciplines'])
+            !empty($char['domaines_primsec']) && isset($char['domaines_primsec'], $char['domaines_amelio'], $char['bonusdom'], $char['disciplines'])
 		) {
 			$t = $this->db->req('SELECT %domain_id,%domain_name,%domain_desc FROM %%domains');
 
@@ -776,7 +801,7 @@ class EsterenChar {
 				if (isset($amelio[$id]))	{ $v['val'] += (int) $amelio[$id]['primsec'] + (int) $amelio[$id]['curval']; }
 				if (isset($bonusdom[$id]))	{ $v['val'] += (int) $bonusdom[$id]; }
 				$domaines[$id] = array(
-					'id' => (int) $v['domain_id'],
+					'id' => $v['domain_id'],
 					'name' => $v['domain_name'],
 					'description' => $v['domain_desc'],
 					'val' => $v['val'],
@@ -806,29 +831,29 @@ class EsterenChar {
 					$bonuses = $v['avdesv_bonusdisc'];
 					$bonuses = explode(',', $bonuses);
 					foreach($bonuses as $bonus) {
-						if (preg_match('#^[0-9]+[abg]$#isU', $bonus)) {//Bonus lié aux daols
-							$daol = preg_replace('#^[0-9]+([abg])$#isU', '$1', $bonus);
-							$bonus = (int) preg_replace('#^([0-9]+)[abg]$#isU', '$1', $bonus);
-							if ($daol == 'b') {//daols de braise
+						if (preg_match('#^\d+[abg]$#iU', $bonus)) {//Bonus lié aux daols
+							$daol = preg_replace('#^\d+([abg])$#iU', '$1', $bonus);
+							$bonus = (int) preg_replace('#^(\d+)[abg]$#iU', '$1', $bonus);
+							if ($daol === 'b') {//daols de braise
 								$argent += $bonus;
-							} elseif ($daol == 'a') {//Daols d'azur
+							} elseif ($daol === 'a') {//Daols d'azur
 								$argent += $bonus*10;
-							} elseif ($daol == 'g') {//Daols de givre
+							} elseif ($daol === 'g') {//Daols de givre
 								$argent += $bonus*100;
 							}
-						} elseif ($bonus == 'resm') {//Bonus à la résistance mentale
+						} elseif ($bonus === 'resm') {//Bonus à la résistance mentale
 							$resist_mentale += $val;
-						} elseif ($bonus == 'vig') {//Bonus à la vigueur
+						} elseif ($bonus === 'vig') {//Bonus à la vigueur
 							$vigueur += $val;
-						} elseif ($bonus == 'rap') {//Bonus à la rapidité
+						} elseif ($bonus === 'rap') {//Bonus à la rapidité
 							$rapidite += $val;
-						} elseif ($bonus == 'sur') {//Bonus à la survie
+						} elseif ($bonus === 'sur') {//Bonus à la survie
 							$survie += $val;
-						} elseif ($bonus == 'def') {//Bonus à la défense
+						} elseif ($bonus === 'def') {//Bonus à la défense
 							$defense += $val;
-						} elseif ($bonus == 'bless') {//Bonus à la santé
+						} elseif ($bonus === 'bless') {//Bonus à la santé
 							$sante += $val;
-						} elseif ($bonus == 'trau') {//Malus au traumatisme
+						} elseif ($bonus === 'trau') {//Malus au traumatisme
 							$trauma -= $val;
 						} elseif (is_numeric($bonus)) {
 							$bonus = (int) $bonus;
@@ -861,7 +886,7 @@ class EsterenChar {
 					$bonuses = $v['avdesv_bonusdisc'];
 					$bonuses = explode(',', $bonuses);
 					foreach($bonuses as $bonus) {
-						if (preg_match('#^[0-9]+[abg]$#isU', $bonus)) {//Bonus lié aux daols
+						if (preg_match('#^\d+[abg]$#iU', $bonus)) {//Bonus lié aux daols
 							if (strpos($bonus, 'b') !== false) {//daols de braise
 								$argent -= $val;
 							} elseif (strpos($bonus, 'a') !== false) {//Daols d'azur
@@ -869,19 +894,19 @@ class EsterenChar {
 							} elseif (strpos($bonus, 'g') !== false) {//Daols de givre
 								$argent -= $val*100;
 							}
-						} elseif ($bonus == 'resm') {//Malus à la résistance mentale
+						} elseif ($bonus === 'resm') {//Malus à la résistance mentale
 							$resist_mentale -= $val;
-						} elseif ($bonus == 'vig') {//Malus à la vigueur
+						} elseif ($bonus === 'vig') {//Malus à la vigueur
 							$vigueur -= $val;
-						} elseif ($bonus == 'rap') {//Malus à la rapidité
+						} elseif ($bonus === 'rap') {//Malus à la rapidité
 							$rapidite -= $val;
-						} elseif ($bonus == 'sur') {//Malus à la survie
+						} elseif ($bonus === 'sur') {//Malus à la survie
 							$survie -= $val;
-						} elseif ($bonus == 'def') {//Malus à la défense
+						} elseif ($bonus === 'def') {//Malus à la défense
 							$defense -= $val;
-						} elseif ($bonus == 'bless') {//Malus à la santé
+						} elseif ($bonus === 'bless') {//Malus à la santé
 							$sante -= $val;
-						} elseif ($bonus == 'trau') {//Bonus à la santé
+						} elseif ($bonus === 'trau') {//Bonus à la santé
 							$trauma += $val;
 						} elseif (is_numeric($bonus)) {
 							$bonus = (int) $bonus;
@@ -903,7 +928,7 @@ class EsterenChar {
 
 		/*------------REVERS------------*/
 		if (isset($char['revers'])) {
-			if (is_array($char['revers']) && !empty($char['revers']) && $char['revers'] != array(0=>'0')) {
+			if (is_array($char['revers']) && !empty($char['revers']) && $char['revers'] !== array(0=>'0')) {
 				$char['revers'] = array_map('intval', $char['revers']);
 				$t = $this->db->req('SELECT %rev_id,%rev_name,%rev_desc,%rev_malus FROM %%revers WHERE %rev_id IN ('.implode(',', $char['revers']).')');
 				$revers = array();
@@ -913,11 +938,11 @@ class EsterenChar {
 						'name' => $v['rev_name'],
 						'description' => $v['rev_desc']
 					);
-					if ($v['rev_malus'] == 'vig') {
-						$vigueur -= 1;
-					} elseif ($v['rev_malus'] == 'trauma') {
-						$trauma += 1;
-					} elseif ($v['rev_malus'] == '0g') {
+					if ($v['rev_malus'] === 'vig') {
+						--$vigueur;
+					} elseif ($v['rev_malus'] === 'trauma') {
+						++$trauma;
+					} elseif ($v['rev_malus'] === '0g') {
 						$argent = 0;
 					}
 				}
@@ -941,14 +966,17 @@ class EsterenChar {
 		}
 
 		/*------------DESCRIPTION------------*/
-		if (isset($char['description_histoire'])
-		&& !empty($char['description_histoire'])
-		&& isset($char['description_histoire']['sex'])
-		&& ($char['description_histoire']['sex'] == 'Homme' || $char['description_histoire']['sex'] == 'Femme')
-		&& isset($char['description_histoire']['name'])
-		&& isset($char['description_histoire']['player'])
-		&& isset($char['description_histoire']['histoire'])
-		&& isset($char['description_histoire']['description'])
+		if (
+		    \in_array(
+                isset($char['description_histoire']['sex']) ? $char['description_histoire']['sex'] : '',
+                ['Homme', 'Femme'],
+                true
+            ) && isset(
+                $char['description_histoire']['name'],
+                $char['description_histoire']['player'],
+                $char['description_histoire']['histoire'],
+                $char['description_histoire']['description']
+            )
 		) {
 			$this->set('details_personnage', array(
 				'name' => $char['description_histoire']['name'],
@@ -963,12 +991,11 @@ class EsterenChar {
 		}
 
 		/*------------ÉQUIPEMENTS------------*/
-		if (isset($char['equipements'])
-		&& !empty($char['equipements'])
-		&& isset($char['equipements']['arme'])
-		&& isset($char['equipements']['armure'])
-		&& isset($char['equipements']['autre_equip'])
-		) {
+		if (isset(
+            $char['equipements']['arme'],
+            $char['equipements']['armure'],
+            $char['equipements']['autre_equip']
+        )) {
 			if ($char['equipements']['arme']) {
 				$arme = $this->db->req('SELECT %arme_id,%arme_name,%arme_dmg,%arme_domain FROM %%armes WHERE %arme_id IN ('.implode(',', $char['equipements']['arme']).')');
 				$armes = array();
@@ -1000,7 +1027,7 @@ class EsterenChar {
 				$armures = array();
 			}
 			$poss = $char['equipements']['autre_equip'];
-			$poss = preg_split('#\n#', $poss);
+			$poss = explode("\n", $poss);
 			foreach($poss as $k => $v) { if (!$v) { unset($poss[$k]); } }
 			$this->set('inventaire', array(
 				'armes' => $armes,
@@ -1026,8 +1053,8 @@ class EsterenChar {
 					WHERE %%disciplines.%disc_id IN ('.implode(',',$ids).')
 					AND %%discdoms.%domain_id IN ('.implode(',',$doms).')');
 				foreach($discs as $d) {
-					if ($d['disc_id'] == 95) { $rindath += 5; }
-					if ($d['disc_id'] == 74) { $exaltation += 5; }
+					if (((int) $d['disc_id']) === 95) { $rindath += 5; }
+					if (((int) $d['disc_id']) === 74) { $exaltation += 5; }
 					$this->set('domaines.'.$d['domain_id'].'.disciplines.'.$d['disc_id'], array(
 						'id' => $d['disc_id'],
 						'name' => $d['disc_name'],
@@ -1057,7 +1084,7 @@ class EsterenChar {
 		}
 
 		/*------------CLASSE SOCIALE------------*/
-		if (isset($char['classe']) && !empty($char['classe']) && isset($char['classe']['classe']) && !empty($char['classe']['classe'])) {
+		if (isset($char['classe']['classe']) && !empty($char['classe']['classe'])) {
 			$this->set('classe_sociale', $char['classe']['classe']);
 		} else {
 			$err[] = 'Classe sociale';
@@ -1071,11 +1098,11 @@ class EsterenChar {
 		}
 
 		/*------------POTENTIEL------------*/
-		if ($this->get('voies.2.val') == 1) {
+		if ((int) $this->get('voies.2.val') === 1) {
 			$this->set('potentiel', 1);
-		} elseif ($this->get('voies.2.val') >= 2 && $this->get('voies.2.val') <= 4) {
+		} elseif ((int) $this->get('voies.2.val') >= 2 && $this->get('voies.2.val') <= 4) {
 			$this->set('potentiel', 2);
-		} elseif ($this->get('voies.2.val') == 5) {
+		} elseif ((int) $this->get('voies.2.val') === 5) {
 			$this->set('potentiel', 3);
 		} else {
 			$err[] = 'Potentiel :';
@@ -1135,14 +1162,14 @@ class EsterenChar {
 		));
 
 		$this->set('arts_combat', array());
-		if (isset($char['arts_combat']) && !empty($char['arts_combat']) && $char['arts_combat'] != array(0=>0) && is_array($char['arts_combat'])) {
+		if (isset($char['arts_combat']) && !empty($char['arts_combat']) && $char['arts_combat'] !== array(0=>0) && is_array($char['arts_combat'])) {
 			$arts_ids = array_keys($char['arts_combat']);
 			$arts = $this->db->req('SELECT %avdesv_name,%avdesv_id FROM %%avdesv WHERE %avdesv_id IN ('.implode(',', $arts_ids).')');
 			foreach($arts as $v) {
 				$id = $v['avdesv_id'];
 				$this->set('arts_combat.'.$id, array(
 					'id' => $id,
-					'name' => preg_replace('#Arts? de combat \(([^)]+)\)#isU', '$1', $v['avdesv_name']),
+					'name' => preg_replace('#Arts? de combat \(([^)]+)\)#iU', '$1', $v['avdesv_name']),
 				));
 			}
 			unset($id);
@@ -1178,7 +1205,7 @@ class EsterenChar {
 	 * Cette fonction se charge de créer le personnage à partir de la BDD
 	 *
 	 * @param int $id Contient l'identifiant du personnage dans la BDD
-	 * @return array
+	 * @return bool
 	 */
 	private function _make_char_from_db($id = 0) {
 		if ($id) {
@@ -1187,16 +1214,18 @@ class EsterenChar {
 				$this->user_id = $char_content['user_id'];
 				$this->id = $id;
 				return $this->_decode_char($char_content['char_content']);
-			} else {
-				echo '<div class="container error">Aucun personnage trouvé.</div>';
-				if (P_DEBUG === true) { pr('Id recherché : '.$id); }
-				return false;
 			}
-		} else {
-			echo '<div class="container error">Une erreur est survenue pendant la récupération du personnage dans la base de données. #001</div>';
-			return false;
-		}
-	}
+
+            echo '<div class="container error">Aucun personnage trouvé.</div>';
+            if (P_DEBUG === true) { pr('Id recherché : '.$id); }
+
+            return false;
+        }
+
+        echo '<div class="container error">Une erreur est survenue pendant la récupération du personnage dans la base de données. #001</div>';
+
+        return false;
+    }
 
 	/**
 	 * Cette fonction se charge de créer le personnage à partir du contenu
@@ -1229,7 +1258,7 @@ class EsterenChar {
 	/**
 	 * Cette fonction se charge de générer les feuilles de personnage au format PDF selon la feuille originale des Ombres d'Esteren
 	 *
-	 * @return boolean True si réussi, False sinon
+	 * @return tFPDF|boolean True si réussi, False sinon
 	 */
 	private function _make_pdf_from_original($printer_friendly = false) {
 
@@ -1281,7 +1310,7 @@ class EsterenChar {
 
 		$pdf->textbox($this->get('details_personnage.joueur'), 880, 280, $p['lettrine'], 21, 230);
 
-		$pdf->textline(substr(tr($this->get('details_personnage.sexe'), true), 0, 1), 215, 322, $p['times'], 18);
+		$pdf->textline(tr($this->get('details_personnage.sexe'), true)[0], 215, 322, $p['times'], 18);
 		$pdf->textline(substr($this->get('age'), 0, 3), 343, 322, $p['caro'], 18);
 
         $description = tr($this->get('details_personnage.description'), true, null, 'characters.'.$this->id);
@@ -1449,9 +1478,8 @@ class EsterenChar {
 			$i = 0;
 			foreach ($arr as $k => $v) {
 				if ($i > 3) { break; }
-				$v = str_replace("\r", '', $v);
-				$v = str_replace("\n", '', $v);
-				$str = tr($v['name'], true, null, 'create_char').' ('.$v['protection'].')';
+                $v = str_replace(["\r", "\n"], '', $v);
+                $str = tr($v['name'], true, null, 'create_char').' ('.$v['protection'].')';
 				$pdf->textline($str, 750, 277+($i*31), $p['times'], 14);
 				$i++;
 			}
@@ -1470,9 +1498,8 @@ class EsterenChar {
 
 		$arr = (array) $this->get('inventaire.artefacts');
 		foreach ($arr as $k => $v) {
-			$v = str_replace("\r", '', $v);
-			$v = str_replace("\n", '', $v);
-			if ($v) { $arr[$k] = $v; } else { unset($arr[$k]); }
+			$v = str_replace(array("\r", "\n"), '', $v);
+            if ($v) { $arr[$k] = $v; } else { unset($arr[$k]); }
 		}
 		$str = implode(', ', $arr);
 		$pdf->multiple_lines($str, 92, 1028, $p['times'], 14, 300, 3, 43);
@@ -1481,9 +1508,8 @@ class EsterenChar {
 
 		$arr = (array) $this->get('inventaire.objets_precieux');
 		foreach ($arr as $k => $v) {
-			$v = str_replace("\r", '', $v);
-			$v = str_replace("\n", '', $v);
-			if ($v) { $arr[$k] = $v; } else { unset($arr[$k]); }
+			$v = str_replace(array("\r", "\n"), '', $v);
+            if ($v) { $arr[$k] = $v; } else { unset($arr[$k]); }
 		}
 		$str = implode(', ', $arr);
 		$pdf->multiple_lines($str, 800, 790, $p['times'], 14, 300, 3, 43);
@@ -1567,7 +1593,7 @@ class EsterenChar {
 			} else {
 				$pdf->SetTextColor(0x88, 0x6F, 0x4B);
 			}
-			if (($i - 1) % 5 == 0) { $off += 12; }
+			if (($i - 1) % 5 === 0) { $off += 12; }
 			$pdf->textline('●', 219+($i-1)*27.75+$off, 595, $p['arial'], 32);
 		}
 		unset($i, $trauma, $off);
@@ -1583,7 +1609,7 @@ class EsterenChar {
 				$pdf->SetTextColor(0x22, 0x11, 0x4);
 			}
 			for ($i = 1; $i <= $endurcissement; $i++) {
-				if (($i-1) % 5 == 0) { $off += 12; }
+				if (($i-1) % 5 === 0) { $off += 12; }
 				$pdf->textline('●', 219+($i-1)*27.75+$off, 631, $p['arial'], 32);
 			}
 		}
@@ -1607,7 +1633,7 @@ class EsterenChar {
 
 
 		if ($this->get('details_personnage.faits')) {
-			$str = preg_replace('#\n|\r#isU', '', tr($this->get('details_personnage.faits'), true, null, 'characters.'.$this->id));
+			$str = str_replace(["\n", "\r"], '', tr($this->get('details_personnage.faits'), true, null, 'characters.'.$this->id));
 			$taille_du_texte = 14;
 			$police_du_texte = $p['times'];
 			$desc = array(0 => '');
@@ -1616,29 +1642,29 @@ class EsterenChar {
 			foreach ( $arr as $word ){
 				$teststring = $desc[$line].' '.$word;
 				$testbox = imagettfbbox($taille_du_texte, 0, $police_du_texte['file'], $teststring);
-				if ($line == 0) { $larg = 729;
-				} elseif ($line == 1) { $larg = 929;
-				} elseif ($line == 2) { $larg = 908;
-				} elseif ($line == 3) { $larg = 898;
-				} elseif ($line == 4) { $larg = 878;
+				if ($line === 0) { $larg = 729;
+				} elseif ($line === 1) { $larg = 929;
+				} elseif ($line === 2) { $larg = 908;
+				} elseif ($line === 3) { $larg = 898;
+				} elseif ($line === 4) { $larg = 878;
 				} elseif ($line > 4) { $larg = 856;
                 } else { $larg = INF; }// Théoriquement impossible
 				if ($testbox[2] > $larg) {
-					if ($desc[$line] == "") { $desc[$line] .= $word;
+					if ($desc[$line] === '') { $desc[$line] .= $word;
 					} else { $line++; $desc[$line] = $word; }
-				} else { $desc[$line] .= ($desc[$line] == "" ? "" : " " ) . $word; }
+				} else { $desc[$line] .= ($desc[$line] === '' ? '' : ' ') . $word; }
 			}
 
 			foreach($desc as $i => $v) {
 				$offset = 0;
-				if ($i == 0) { $offset = 197;
-				} elseif ($i == 2) { $offset = 18;
-				} elseif ($i == 3) { $offset = 32;
-				} elseif ($i == 4) { $offset = 52;
-				} elseif ($i == 5) { $offset = 74; }
+				if ($i === 0) { $offset = 197;
+				} elseif ($i === 2) { $offset = 18;
+				} elseif ($i === 3) { $offset = 32;
+				} elseif ($i === 4) { $offset = 52;
+				} elseif ($i === 5) { $offset = 74; }
 				if ($i < 5) {
 					$pdf->textline($v, 176 + $offset, 1388+$i*43, $police_du_texte, $taille_du_texte);
-				} elseif ($i == 5) {
+				} elseif ($i === 5) {
 					$pdf->textline($v.'(...)', 176 + $offset, 1388+$i*43, $police_du_texte, $taille_du_texte);
 				} else {
 					break;
@@ -1654,7 +1680,8 @@ class EsterenChar {
      *
      * @param array $pages Les pages à créer
      * @param bool $printer_friendly
-     * @return boolean True si réussi, False sinon
+     *
+     * @return array|bool
      */
 	private function _make_sheet_from_original($pages = null, $printer_friendly = false) {
 		Translate::$domain = 'character_sheet';
@@ -1682,11 +1709,9 @@ class EsterenChar {
 		//Polices de caractère
 		$unzialish			= P_FONTS.DS.'UnZialish.ttf';
 		$arial				= P_FONTS.DS.'arial.ttf';
-		$arial				= P_FONTS.DS.'arial.ttf';
 		$carolingia			= P_FONTS.DS.'carolingia.ttf';
 		$carolingia_bold	= P_FONTS.DS.'carolingia_old.ttf';
 		$lettrine			= P_FONTS.DS.'LettrinEsteren-Regular.ttf';
-		$ubuntu				= P_FONTS.DS.'Ubuntu-R_0.ttf';
 		$times				= P_FONTS.DS.'times.ttf';
 
 		$ret = array();
@@ -1694,7 +1719,7 @@ class EsterenChar {
 		/*--------------------------------*/
 		/*---------PREMIÈRE FICHE---------*/
 		/*--------------------------------*/
-		if (in_array(1,$pages)) {
+		if (in_array(1, $pages, true)) {
 			$fiche = ROOT.DS.'webroot'.DS.'files'.DS.'sheets'.DS.'esteren1'.($printer_friendly === true?'-pf':'').'_'.P_LANG.'.jpg';
 			$img = imagecreatefromjpeg($fiche);
 
@@ -1733,28 +1758,28 @@ class EsterenChar {
 			imagettftext($nimg, 21, 0, 880, 280, $grey, $lettrine, $player_name);
 			unset($taille_du_texte, $police_du_texte, $char_name, $arr, $player_name);
 
-			imagettftext($nimg, 18, 0, 215, 322, $grey, $times, substr(tr($this->get('details_personnage.sexe'), true), 0, 1));
+			imagettftext($nimg, 18, 0, 215, 322, $grey, $times, tr($this->get('details_personnage.sexe'), true)[0]);
 			imagettftext($nimg, 20, 0, 343, 322, $grey, $carolingia_bold, substr($this->get('age'), 0, 3));
 
 			$taille_du_texte = 17;
 			$police_du_texte = $carolingia;
-			$desc = "";
+			$desc = '';
 			$arr = explode(' ', tr($this->get('details_personnage.description'), true, array(), 'characters.'.$this->id), 100);
 			foreach ( $arr as $word ){
 
 				$teststring = $desc.' '.$word;
 				$testbox = imagettfbbox($taille_du_texte, 0, $police_du_texte, $teststring);
 				if ( $testbox[2] > 824 ){
-					$desc.=($desc==""?"":"\n").$word;
+					$desc.=($desc=== '' ? '' :"\n").$word;
 				} else {
-					$desc.=($desc==""?"":' ').$word;
+					$desc.=($desc=== '' ? '' :' ').$word;
 				}
 			}
 			$desc = explode("\n", $desc);
 			foreach($desc as $i => $v) {
-				if ($i == 0) {
+				if ($i === 0) {
 					imagettftext($nimg, $taille_du_texte, 0, 295, 365, $grey, $police_du_texte, $v);
-				} elseif ($i == 1) {
+				} elseif ($i === 1) {
 					imagettftext($nimg, $taille_du_texte, 0, 1115, 365, $grey, $police_du_texte, '(...)');
 				} else {
 					break;
@@ -1794,12 +1819,12 @@ class EsterenChar {
 			imagettftext($nimg, 22, 0, 1065, 1502, $grey, $unzialish, $this->get('voies.3.val'));
 
 			// Avantages et désavantages
-			$av = array(); foreach(($this->get('avantages') ? $this->get('avantages') : array()) as $v) { $av[] = tr($v['name'], true, null, 'create_char').($v['val']>1 ? '    x'.$v['val'] : ''); }
+			$av = array(); foreach($this->get('avantages') ?: array() as $v) { $av[] = tr($v['name'], true, null, 'create_char').($v['val']>1 ? '    x'.$v['val'] : ''); }
 			if (isset($av[0])) { imagettftext($nimg, 18, 0, 430, 500, $grey, $carolingia, substr($av[0], 0, 25)); }
 			if (isset($av[1])) { imagettftext($nimg, 18, 0, 430, 540, $grey, $carolingia, substr($av[1], 0, 25)); }
 			if (isset($av[2])) { imagettftext($nimg, 18, 0, 430, 580, $grey, $carolingia, substr($av[2], 0, 25)); }
 			if (isset($av[3])) { imagettftext($nimg, 18, 0, 430, 620, $grey, $carolingia, substr($av[3], 0, 25)); }
-			$dv = array(); foreach(($this->get('desavantages') ? $this->get('desavantages') : array()) as $v) { $dv[] = tr($v['name'], true, null, 'create_char').($v['val']>1 ? '    x'.$v['val'] : ''); }
+			$dv = array(); foreach($this->get('desavantages') ?: array() as $v) { $dv[] = tr($v['name'], true, null, 'create_char').($v['val']>1 ? '    x'.$v['val'] : ''); }
 			if (isset($dv[0])) { imagettftext($nimg, 18, 0, 430, 685, $grey, $carolingia, substr($dv[0], 0, 25)); }
 			if (isset($dv[1])) { imagettftext($nimg, 18, 0, 430, 725, $grey, $carolingia, substr($dv[1], 0, 25)); }
 			if (isset($dv[2])) { imagettftext($nimg, 18, 0, 430, 765, $grey, $carolingia, substr($dv[2], 0, 25)); }
@@ -1826,7 +1851,7 @@ class EsterenChar {
 			$y_arr = array(0, 988, 1165, 1331, 988, 1165, 1333, 1499, 988, 1165, 1331, 1499, 988, 1165, 1331, 1499, 1499);
 			$j = 0;
 			foreach((array) $this->get('domaines') as $val) {
-				if (is_array($val) && isset($val['name']) && isset($val['val']) && isset($val['bonus']) && isset($val['malus'])) {
+				if (isset($val['name'], $val['val'], $val['bonus'], $val['malus'])) {
 					$score = $val['val'];
 					$j++;
 					if ($score >= 0) {
@@ -1859,7 +1884,7 @@ class EsterenChar {
 		/*--------------------------------*/
 		/*---------DEUXIÈME FICHE---------*/
 		/*--------------------------------*/
-		if (in_array(2,$pages)) {
+		if (in_array(2, $pages, true)) {
 
 			$fiche = ROOT.DS.'webroot'.DS.'files'.DS.'sheets'.DS.'esteren2'.($printer_friendly === true?'-pf':'').'_'.P_LANG.'.jpg';
 			$img = imagecreatefromjpeg($fiche);
@@ -1875,7 +1900,7 @@ class EsterenChar {
 
 			$i = 0;
 			foreach((array) $this->get('inventaire.armes') as $v) {
-				if (!is_array($v) && isset($v['name']) && isset($v['degats'])) {
+				if (isset($v['name'], $v['degats'])) {
 					if ($i > 4) { break; }
 					imagettftext($nimg, 14, 0, 123, 151+$i*43, $grey, $times, tr($v['name'], true, null, 'create_char'));//Affichage de l'arme
 					imagettftext($nimg, 20, 0, 370, 157+$i*43-2, $grey, $carolingia, $v['degats']);
@@ -1923,9 +1948,8 @@ class EsterenChar {
 				$i = 0;
 				foreach ($arr as $v) {
 					if ($i > 3) { break; }
-					$v = str_replace("\r", '', $v);
-					$v = str_replace("\n", '', $v);
-					$str = tr($v['name'], true, null, 'create_char').' ('.$v['protection'].')';
+                    $v = str_replace(array("\r", "\n"), '', $v);
+                    $str = tr($v['name'], true, null, 'create_char').' ('.$v['protection'].')';
 					imagettftext($nimg, 14, 0, 750, 277+($i*31), $grey, $times, $str);
 					$i++;
 				}
@@ -1943,13 +1967,12 @@ class EsterenChar {
 			if ($this->get('inventaire.artefacts')) {
 				$arr = $this->get('inventaire.artefacts');
 				foreach ($arr as $k => $v) {
-					$v = str_replace("\r", '', $v);
-					$v = str_replace("\n", '', $v);
-					if ($v) { $arr[$k] = $v; } else { unset($arr[$k]); }
+                    $v = str_replace(array("\r", "\n"), '', $v);
+                    if ($v) { $arr[$k] = $v; } else { unset($arr[$k]); }
 				}
 				$taille_du_texte = 14;
 				$police_du_texte = $times;
-				$story = "";
+				$story = '';
 				$str = implode(' – ', $arr);
 				$arr = explode(' ', $str, 250);
 				foreach ( $arr as $word ){
@@ -1957,9 +1980,9 @@ class EsterenChar {
 					$teststring = $story.' '.$word;
 					$testbox = imagettfbbox($taille_du_texte, 0, $police_du_texte, $teststring);
 					if ( $testbox[2] > 300 ){
-						$story.=($story==""?"":"\n").$word;
+						$story.=($story=== '' ? '' :"\n").$word;
 					} else {
-						$story.=($story==""?"":' ').$word;
+						$story.=($story=== '' ? '' :' ').$word;
 					}
 				}
 				$story = explode("\n", $story);
@@ -1967,7 +1990,7 @@ class EsterenChar {
 				foreach($story as $i => $v) {
 					if ($i <= 2) {
 						imagettftext($nimg, $taille_du_texte, 0, 92, 1028+$i*43, $grey, $police_du_texte, $v);
-					} elseif ($i == 3) {
+					} elseif ($i === 3) {
 						imagettftext($nimg, $taille_du_texte, 0, 390, 1115, $grey, $police_du_texte, '(...)');
 					} else {
 						break;
@@ -1978,13 +2001,12 @@ class EsterenChar {
 			if ($this->get('inventaire.objets_precieux')) {
 				$arr = (array)$this->get('inventaire.objets_precieux');
 				foreach ($arr as $k => $v) {
-					$v = str_replace("\r", '', $v);
-					$v = str_replace("\n", '', $v);
-					if ($v) { $arr[$k] = $v; } else { unset($arr[$k]); }
+                    $v = str_replace(array("\r", "\n"), '', $v);
+                    if ($v) { $arr[$k] = $v; } else { unset($arr[$k]); }
 				}
 				$taille_du_texte = 14;
 				$police_du_texte = $times;
-				$story = "";
+				$story = '';
 				$str = implode(' – ', $arr);
 				$arr = explode(' ', $str, 250);
 				foreach ( $arr as $word ){
@@ -1992,9 +2014,9 @@ class EsterenChar {
 					$teststring = $story.' '.$word;
 					$testbox = imagettfbbox($taille_du_texte, 0, $police_du_texte, $teststring);
 					if ( $testbox[2] > 310 ){
-						$story.=($story==""?"":"\n").$word;
+						$story.=($story=== '' ? '' :"\n").$word;
 					} else {
-						$story.=($story==""?"":' ').$word;
+						$story.=($story=== '' ? '' :' ').$word;
 					}
 				}
 				$story = explode("\n", $story);
@@ -2002,7 +2024,7 @@ class EsterenChar {
 				foreach($story as $i => $v) {
 					if ($i <= 2) {
 						imagettftext($nimg, $taille_du_texte, 0, 800, 790+$i*43, $grey, $police_du_texte, $v);
-					} elseif ($i == 3) {
+					} elseif ($i === 3) {
 						imagettftext($nimg, $taille_du_texte, 0, 1105, 876, $grey, $police_du_texte, '(...)');
 					} else {
 						break;
@@ -2016,7 +2038,7 @@ class EsterenChar {
 				$x_offset = 85;
 				$word_offset = 0;
 				foreach($this->get('inventaire.possessions') as $v) {
-					if ($i == 10) {
+					if ($i === 10) {
 						if ($word_offset > 0) { break; }
 						$x_offset = 445; $word_offset = 20; $i = 0;
 					}
@@ -2052,11 +2074,10 @@ class EsterenChar {
 			}
 
 			if ($this->get('miracles')) {
-				$miracles = $this->get('miracles');
-				foreach ($miracles as $k => $v) {
+                foreach ($this->get('miracles') as $k => $v) {
 					$taille_du_texte = 18;
 					$police_du_texte = $carolingia_bold;
-					$story = "";
+					$story = '';
 					$offset = 0;
 					if ($k === 'min') { $offset = 171; }
 					$str = implode(' – ', $v);
@@ -2066,16 +2087,16 @@ class EsterenChar {
 						$teststring = $story.' '.$word;
 						$testbox = imagettfbbox($taille_du_texte, 0, $police_du_texte, $teststring);
 						if ( $testbox[2] > 290 ){
-							$story.=($story==""?"":"\n").$word;
+							$story.=($story=== '' ? '' :"\n").$word;
 						} else {
-							$story.=($story==""?"":' ').$word;
+							$story.=($story=== '' ? '' :' ').$word;
 						}
 					}
 					$story = explode("\n", $story);
 					foreach($story as $i => $vv) {
 						if ($i <= 2) {
 							imagettftext($nimg, $taille_du_texte, 0, 457, 1341+$i*43+$offset, $grey, $police_du_texte, $vv);
-						} elseif ($i == 3) {
+						} elseif ($i === 3) {
 							imagettftext($nimg, $taille_du_texte, 0, 750, 1426+$offset, $grey, $police_du_texte, '(...)');
 						} else {
 							break;
@@ -2104,7 +2125,7 @@ class EsterenChar {
 		/*---------------------------------*/
 		/*---------TROISIÈME FICHE---------*/
 		/*---------------------------------*/
-		if (in_array(3,$pages)) {
+		if (in_array(3, $pages, true)) {
 			$fiche = ROOT.DS.'webroot'.DS.'files'.DS.'sheets'.DS.'esteren3'.($printer_friendly === true?'-pf':'').'_'.P_LANG.'.jpg';
 			$img = imagecreatefromjpeg($fiche);
 
@@ -2130,16 +2151,16 @@ class EsterenChar {
 			if ($this->get('details_personnage.histoire')) {
 				$taille_du_texte = 14;
 				$police_du_texte = $times;
-				$story = "";
+				$story = '';
 				$arr = explode(' ', tr($this->get('details_personnage.histoire'), true, array(), 'characters.'.$this->id), 250);
 				foreach ( $arr as $word ){
 
 					$teststring = $story.' '.$word;
 					$testbox = imagettfbbox($taille_du_texte, 0, $police_du_texte, $teststring);
 					if ( $testbox[2] > 1015 ){
-						$story.=($story==""?"":"\n").$word;
+						$story.=($story=== '' ? '' :"\n").$word;
 					} else {
-						$story.=($story==""?"":' ').$word;
+						$story.=($story=== '' ? '' :' ').$word;
 					}
 				}
 				$story = explode("\n", $story);
@@ -2147,7 +2168,7 @@ class EsterenChar {
 				foreach($story as $i => $v) {
 					if ($i <= 5) {
 						imagettftext($nimg, $taille_du_texte, 0, 90, 173+$i*43, $grey, $police_du_texte, $v);
-					} elseif ($i == 6) {
+					} elseif ($i === 6) {
 						imagettftext($nimg, $taille_du_texte, 0, 1100, 173+($i-1)*43, $grey, $police_du_texte, '(...)');
 					} else {
 						break;
@@ -2174,7 +2195,7 @@ class EsterenChar {
 				} else {
 					$color = $lightgrey;
 				}
-				if (($i - 1) % 5 == 0) { $off += 12; }
+				if (($i - 1) % 5 === 0) { $off += 12; }
 				imagettftext($nimg, 32, 0, 219+($i-1)*27.75+$off, 595, $color, $arial, '●');
 			}
 
@@ -2183,7 +2204,7 @@ class EsterenChar {
 				$endurcissement = $this->get('endurcissement');
 				$off = 0;
 				for ($i = 1; $i <= $endurcissement; $i++) {
-					if (($i-1) % 5 == 0) { $off += 12; }
+					if (($i-1) % 5 === 0) { $off += 12; }
 					imagettftext($nimg, 32, 0, 219+($i-1)*27.75+$off, 631, ($printer_friendly === true ? $darkgrey : $brown), $arial, '●');
 				}
 			}
@@ -2206,7 +2227,7 @@ class EsterenChar {
 
 			//Faits marquants
 			if ($this->get('details_personnage.faits')) {
-				$this->set('details_personnage.faits', preg_replace('#\n|\r#isU', '', tr($this->get('details_personnage.faits'), true, null, 'characters.'.$this->id)));
+				$this->set('details_personnage.faits', str_replace(["\n", "\r"], '', tr($this->get('details_personnage.faits'), true, null, 'characters.'.$this->id)));
 				$taille_du_texte = 14;
 				$police_du_texte = $times;
 				$desc = array(0 => '');
@@ -2215,15 +2236,15 @@ class EsterenChar {
 				foreach ( $arr as $word ){
 					$teststring = $desc[$line].' '.$word;
 					$testbox = imagettfbbox($taille_du_texte, 0, $police_du_texte, $teststring);
-					if ($line == 0) {
+					if ($line === 0) {
 						$larg = 729;
-					} elseif ($line == 1) {
+					} elseif ($line === 1) {
 						$larg = 929;
-					} elseif ($line == 2) {
+					} elseif ($line === 2) {
 						$larg = 908;
-					} elseif ($line == 3) {
+					} elseif ($line === 3) {
 						$larg = 898;
-					} elseif ($line == 4) {
+					} elseif ($line === 4) {
 						$larg = 878;
 					} elseif ($line > 4) {
 						$larg = 856;
@@ -2231,33 +2252,33 @@ class EsterenChar {
                         $larg = INF;// Théoriquement impossible
                     }
 					if ($testbox[2] > $larg) {
-						if ($desc[$line] == "") {
+						if ($desc[$line] === '') {
 							$desc[$line] .= $word;
 						} else {
 							$line++;
 							$desc[$line] = $word;
 						}
 					} else {
-						$desc[$line] .= ($desc[$line] == "" ? "" : " " ) . $word;
+						$desc[$line] .= ($desc[$line] === '' ? '' : ' ') . $word;
 					}
 				}
 
 				foreach($desc as $i => $v) {
 					if ($i <= 5) {
 						$offset = 0;
-						if ($i == 0) {
+						if ($i === 0) {
 							$offset = 197;
-						} elseif ($i == 2) {
+						} elseif ($i === 2) {
 							$offset = 18;
-						} elseif ($i == 3) {
+						} elseif ($i === 3) {
 							$offset = 32;
-						} elseif ($i == 4) {
+						} elseif ($i === 4) {
 							$offset = 52;
-						} elseif ($i == 5) {
+						} elseif ($i === 5) {
 							$offset = 74;
 						}
 						imagettftext($nimg, $taille_du_texte, 0, 176 + $offset, 1388+$i*43, $grey, $police_du_texte, $v);
-					} elseif ($i == 6) {
+					} elseif ($i === 6) {
 						imagettftext($nimg, $taille_du_texte, 0, 1102, 1388+($i-1)*43, $grey, $police_du_texte, '(...)');
 					} else {
 						break;
@@ -2265,7 +2286,7 @@ class EsterenChar {
 				}
 			}
 
-			$exp = imagejpeg($nimg, $ret_names[2], $printer_friendly === true?100:80);;
+			$exp = imagejpeg($nimg, $ret_names[2], $printer_friendly === true?100:80);
 			unset($fiche,$img,$nimg);
 
 			if ($exp) {

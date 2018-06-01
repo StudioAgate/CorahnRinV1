@@ -1,5 +1,8 @@
 <?php
 
+use App\FileAndDir;
+use App\Users;
+
 /**
  * Loggue les erreurs dans un fichier de traçage daté
  *
@@ -70,8 +73,8 @@ function error_logging($errno, $errstr, $errfile, $errline) {
 			.'||Page.request=>'.json_encode(@$_PAGE['request'])
 			.'||Page.get_params=>'.json_encode(@urldecode($_GET))
 			.'||User.id=>'.json_encode(Users::$id);
-		$final = preg_replace('#\n|\r|\t#isUu', '', $final);
-		$final = preg_replace('#\s\s+#isUu', ' ', $final);
+		$final = preg_replace('#\n|\r|\t#iUu', '', $final);
+		$final = preg_replace('#\s\s+#iUu', ' ', $final);
         if (!is_dir(dirname($error_file))) {
             FileAndDir::createPath(dirname($error_file));
             FileAndDir::put($error_file, '');
@@ -87,27 +90,27 @@ function error_logging($errno, $errstr, $errfile, $errline) {
 		} elseif ($errno & (E_NOTICE | E_USER_NOTICE | E_PARSE | E_USER_DEPRECATED | E_DEPRECATED | E_STRICT)) {
 			$errclass = 'notif';
 		}
-		if (preg_match('#127\.0\.0\.1#', $_SERVER['HTTP_HOST']) || (defined('P_DEBUG') && P_DEBUG === true)) { $errstr .= ' in file : <strong>'.$errfile.'</strong> on line <strong><span class="underline">'.$errline.'</span></strong>'; }
+		if (strpos($_SERVER['HTTP_HOST'], '127\.0\.0\.1') !== false || (defined('P_DEBUG') && P_DEBUG === true)) { $errstr .= ' in file : <strong>'.$errfile.'</strong> on line <strong><span class="underline">'.$errline.'</span></strong>'; }
 
         $msgEcho = $humanType[$errno].' - <span class="underline">'.date(DATE_RFC822).'</span>';
         $trace = '<br />Message : <small>'.$errstr.'</small>';
         $msgMail = $msgEcho
             .$trace
             .'<br />Server request:<br /><pre style="font-size: 10px;">'
-            .print_r($_SERVER, true)
+            .dump($_SERVER, true)
             .'</pre><br />Backtrace:<br /><pre style="font-size: 10px;">'
-            .print_r(debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT), true)
+            .dump(debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT), true)
             .'</pre>';
 
-        if (Users::$acl <= 20) {
-            $ref = new ReflectionClass('Users');
-            $user = $ref->getStaticProperties();
-            $p = $_PAGE;
-            unset($p['list']);
-            $msgEcho .= $trace."<br />\n".print_r(array('_PAGE' => $p, '_SERVER' => $_SERVER, 'User' => $user));
-        }
-        $msgEcho .= '<br /><br />'.tr('Veuillez envoyer ce message à l\'administrateur du site', true, array(), 'general');
         try {
+            if (Users::$acl <= 20) {
+                $ref = new ReflectionClass(Users::class);
+                $user = $ref->getStaticProperties();
+                $p = $_PAGE;
+                unset($p['list']);
+                $msgEcho .= $trace."<br />\n".pr(array('_PAGE' => $p, '_SERVER' => $_SERVER, 'User' => $user), true);
+            }
+            $msgEcho .= '<br /><br />'.tr('Veuillez envoyer ce message à l\'administrateur du site', true, array(), 'general');
             if ($_SERVER['REMOTE_ADDR'] !== '127.0.0.1') {
 		        send_mail(P_ERROR_MAIL_TO, 'Error !', $msgMail, 0, P_ERROR_MAIL_FROM);
             }

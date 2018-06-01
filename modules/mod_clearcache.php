@@ -1,5 +1,7 @@
 <?php
 
+use App\FileAndDir;
+
 $_PAGE['layout'] = 'ajax';
 
 //Suppression des CSS

@@ -1,5 +1,7 @@
 <?php
 
+use App\Users;
+
 $characters = $db->req('SELECT %char_name,%char_id FROM %%characters WHERE %user_id = ?', array(Users::$id));
 
 if (is_array($characters) && !empty($characters)) { ?>

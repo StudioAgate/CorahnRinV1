@@ -1,5 +1,7 @@
 <?php
 
+use App\Session;
+
 $game_player = isset($_PAGE['request']['player']) ? (int) $_PAGE['request']['player'] : 0;
 
 if (!$game_player) {

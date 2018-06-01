@@ -1,4 +1,8 @@
 <?php
+
+use App\EsterenChar;
+use App\Session;
+
 $_PAGE['layout'] = 'ajax';
 
 Esterenchar::session_clear();

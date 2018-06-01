@@ -1,5 +1,11 @@
 <?php
 
+/** @var array $_PAGE */
+
+use App\EsterenChar;
+use App\Session;
+use App\Users;
+
 $_PAGE['dont_log'] = true;
 
 $char = new Esterenchar($_SESSION, 'session');

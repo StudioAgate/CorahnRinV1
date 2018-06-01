@@ -1,5 +1,7 @@
 <?php
 
+use App\Users;
+
 if (Users::$acl === 0) {
 	$orderby = isset($_PAGE['request']['orderby']) ? $_PAGE['request']['orderby'] : '';
 	switch($orderby) {

@@ -2,7 +2,9 @@
 <div class="container">
 
 	<p class="info">
-		<?php tr('Faites vos propositions !'); ?>
+		<?php use App\Session;
+
+        tr('Faites vos propositions !'); ?>
 		<br />
 		<?php tr('Si vous souhaitez contribuer à Corahn-Rin, n\'hésitez pas et postez vos rapports de bug ou vos propositions d\'amélioration sur la page "Redmine" du générateur :'); ?>
 		<br />

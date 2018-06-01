@@ -1,5 +1,9 @@
 <?php
 
+use App\FileAndDir;
+use App\Hash;
+use App\Session;
+
 /**
  * Charge un élément spécifique
  *

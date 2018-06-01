@@ -1,6 +1,7 @@
 <?php
 
 //use JShrink\Minifier;
+use App\FileAndDir;
 
 /**
  * Cette fonction permet d'écrire le contenu des fichiers CSS et JS compris dans chaque module.

@@ -1,5 +1,8 @@
 <?php
 
+use App\Session;
+use App\Users;
+
 $resetPassword = isset($_GET['reset_token']) ? $_GET['reset_token'] : null;
 
 ## Déconnexion

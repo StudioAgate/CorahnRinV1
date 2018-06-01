@@ -1,6 +1,8 @@
 <?php
 
 ## Récupération de $_POST à partir des réelles données POST, pour obtenir les bons noms de variable entrées en paramètre,
+use App\Session;
+
 $post = get_post_datas();
 
 foreach ($post['arme'] as $k => $v) {

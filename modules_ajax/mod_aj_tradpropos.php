@@ -1,4 +1,7 @@
 <?php
+
+use App\Translate;
+
 if (isset($_POST['propos']) && isset($_POST['trad']) && !empty($_POST['propos']) && !empty($_POST['trad'])) {
 
 	Translate::write_propos_en($_POST['propos'], $_POST['trad']);

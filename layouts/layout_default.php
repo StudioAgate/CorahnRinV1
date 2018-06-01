@@ -1,4 +1,9 @@
 <?php
+use App\FileAndDir;
+use App\Session;
+use App\Translate;
+use App\Users;
+
 unset($filename);
 
 // On minimise les css et js de base

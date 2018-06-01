@@ -6,6 +6,11 @@
  * Créées par Alexandre Ancelet - Pierstoval
  * 2012-2013
  */
+
+use App\FileAndDir;
+use App\Session;
+use App\Translate;
+
 setlocale(LC_TIME, array('fr_FR', 'fr_FR.UTF-8'));
 
 ## Réécriture d'url active ou non, permet de créer des liens cohérents);
@@ -23,19 +28,6 @@ define('P_META_GENERATOR', 'Corahn Rin {version} - Automatic character creation 
 ## Constantes liées à FPDF pour les fichiers externes
 define('P_FPDF_FONTPATH', ROOT.DS.'files'.DS.'fpdf'.DS.'fonts');
 define('P_FPDF_SYSTEM_TTF_FONTS', ROOT.DS.'files'.DS.'fpdf'.DS.'fonts');
-
-## Couleur des différents types de variables pour les fonctions p_dump et p_dumpTxt
-define('P_DUMP_INTCOLOR', 'blue');
-define('P_DUMP_FLOATCOLOR', 'darkblue');
-define('P_DUMP_NUMSTRINGCOLOR', '#c0c');
-define('P_DUMP_STRINGCOLOR', 'darkgreen');
-define('P_DUMP_RESSCOLOR', '#aa0');
-define('P_DUMP_NULLCOLOR', '#aaa');
-define('P_DUMP_BOOLTRUECOLOR', '#0c0');
-define('P_DUMP_BOOLFALSECOLOR', 'red');
-define('P_DUMP_OBJECTCOLOR', 'pink');
-define('P_DUMP_PADDINGLEFT', '25px');
-define('P_DUMP_WIDTH', '');
 
 ## Générer les fichiers css et js des pages à chaque chargement via la fonction buffWrite(). Permet de réinitialiser une partie cache en local ou lorsque le superadmin est connecté
 define('P_GEN_FILES_ONLOAD', ($_SERVER['HTTP_HOST'] === '127.0.0.1' ? true : false));

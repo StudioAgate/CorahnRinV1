@@ -1,4 +1,7 @@
 <?php
+
+namespace App;
+
 /*~ class.smtp.php
 .---------------------------------------------------------------------------.
 |  Software: PHPMailer - PHP email class                                    |
@@ -34,6 +37,8 @@
  * @copyright 2010 - 2012 Jim Jagielski
  * @license http://www.gnu.org/copyleft/lesser.html Distributed under the Lesser General Public License (LGPL)
  */
+
+use stdClass;
 
 /**
  * PHP RFC821 SMTP client
@@ -651,7 +656,7 @@ class SMTP {
       while(list(, $line_out) = @each($lines_out)) {
         if(strlen($line_out) > 0)
         {
-          if(substr($line_out, 0, 1) == '.') {
+          if(substr($line_out, 0, 1) === '.') {
             $line_out = '.' . $line_out;
           }
         }
@@ -1067,7 +1072,7 @@ class SMTP {
         $this->edebug("SMTP -> get_lines(): \$data is \"$data\"");
       }
       // if 4th character is a space, we are done reading, break the loop
-      if(substr($str, 3, 1) == ' ') { break; }
+      if(substr($str, 3, 1) === ' ') { break; }
       // Timed-out? Log and break
       $info = stream_get_meta_data($this->smtp_conn);
       if ($info['timed_out']) {

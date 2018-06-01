@@ -55,7 +55,7 @@ function httpCode($code = null) {
             case 505: $text = 'HTTP Version not supported'; break;
 
             default:
-                exit('Unknown http status code "' . htmlentities($code) . '"');
+                exit('Unknown http status code "' .htmlentities($code, ENT_QUOTES | ENT_HTML5). '"');
                 break;
         }
 

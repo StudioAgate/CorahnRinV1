@@ -1,6 +1,8 @@
 <?php
 
-redirect(array('val'=>1), 'Module indisponible', 'error');
+use App\Translate;
+
+redirect(array('val' =>1), 'Module indisponible', 'error');
 
 $propositions_en = Translate::get_propositions_en();
 $words_fr = Translate::get_words_fr();
@@ -29,7 +31,7 @@ foreach($words_fr as $word) {//Boucle sur les mots récupérés par la fonction 
 	<?php
 		foreach($list as $i => $word) { ?>
 			<div class="row-fluid wordproposition">
-				<div class="span6"><label for="Word<?php echo $i; ?>"><?php echo htmlspecialchars($word); ?></label></div>
+				<div class="span6"><label for="Word<?php echo $i; ?>"><?php echo htmlspecialchars($word, ENT_QUOTES | ENT_HTML5); ?></label></div>
 				<div class="span5"><textarea rows="2" cols="50" name="words[<?php echo $i; ?>]" id="Word<?php echo $i; ?>"></textarea></div>
 				<div class="span1"><button data-wordid="Word<?php echo $i; ?>" class="submitpropos btn btn-small">Soumettre</button></div>
 			</div>

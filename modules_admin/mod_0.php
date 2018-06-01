@@ -1,4 +1,8 @@
 <?php
+
+use App\Session;
+use App\Users;
+
 $users = $db->req('SELECT %user_id, %user_name FROM %%users');
 
 if (!empty($_POST)) {

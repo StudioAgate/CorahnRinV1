@@ -1,4 +1,7 @@
 <?php
+
+use App\FileAndDir;
+
 unset($filename);
 if (isset($_PAGE['file_to_download'])) {
 

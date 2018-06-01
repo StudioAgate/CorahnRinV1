@@ -1,5 +1,7 @@
 <?php
 
+use App\Users;
+
 $games_mj = $db->req('
 	SELECT %%games.%game_name, %%games.%game_id, %%characters.%char_id, %%characters.%char_name
 	FROM %%games

@@ -1,6 +1,8 @@
 <?php
 
-    $t = $db->req('SELECT %rev_id,%rev_name,%rev_desc FROM %%revers ORDER BY %rev_id ASC');
+use App\Session;
+
+$t = $db->req('SELECT %rev_id,%rev_name,%rev_desc FROM %%revers ORDER BY %rev_id ASC');
     $revers = array();
     foreach ($t as $k => $v) {
         $revers[$v['rev_id']] = $v;
@@ -36,27 +38,27 @@
                 if ($_GET['manually'] === 'false') {
                     // Calcul automatique
                     $dice = array();
-                    $dice[0] = rand(1,10);
+                    $dice[0] = mt_rand(1,10);
                     if ($dice[0] == 10) {
-                        $dice[1] = rand(2, 9);
+                        $dice[1] = mt_rand(2, 9);
                     } elseif ($dice[0] == 1) {
                         $poisse = true;
-                        $dice[0] = rand(2, 9);
-                        $dice[1] = rand(2, 9);
+                        $dice[0] = mt_rand(2, 9);
+                        $dice[1] = mt_rand(2, 9);
                         do {
-                            $dice[1] = rand(2,9);
+                            $dice[1] = mt_rand(2,9);
                         } while ($dice[1] == $dice[0]);
                     }
 
                     if ($age >= 26) {
                         do {
-                            $act = rand(2,9);
+                            $act = mt_rand(2,9);
                         } while (in_array($act, $dice));
                         $dice[2] = $act;
                     }
                     if ($age >= 31) {
                         do {
-                            $act = rand(2,9);
+                            $act = mt_rand(2,9);
                         } while (in_array($act, $dice));
                         $dice[3] = $act;
                     }

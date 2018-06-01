@@ -14,8 +14,8 @@ $updates = array();
 $total_maj = 0;
 
 $cacheFile = ROOT.DS.'tmp'.DS.'modversions.html';
-if (file_exists($cacheFile) && filemtime($cacheFile) >= (time() - 86400) && file_get_contents($cacheFile)) {
-	echo file_get_contents($cacheFile);
+if (file_exists($cacheFile) && filemtime($cacheFile) >= (time() - 86400) && $cnt = file_get_contents($cacheFile)) {
+	echo $cnt;
 	return;
 }
 
@@ -28,9 +28,9 @@ foreach ($t as $v) {//On formate la liste des étapes
 }
 
 foreach ($versions->version as $v) {
-	$day	= preg_replace('#^([0-9]{4})([0-9]{2})([0-9]{2})$#isU', '$3', (string)$v['date']);
-	$month	= preg_replace('#^([0-9]{4})([0-9]{2})([0-9]{2})$#isU', '$2', (string)$v['date']);
-	$year	= preg_replace('#^([0-9]{4})([0-9]{2})([0-9]{2})$#isU', '$1', (string)$v['date']);
+	$day	= preg_replace('#^(\d{4})(\d{2})(\d{2})$#iU', '$3', (string)$v['date']);
+	$month	= preg_replace('#^(\d{4})(\d{2})(\d{2})$#iU', '$2', (string)$v['date']);
+	$year	= preg_replace('#^(\d{4})(\d{2})(\d{2})$#iU', '$1', (string)$v['date']);
 	$date = $day.'/'.$month.'/'.$year;
 	$code = (string) $v['code'];
 	$updates[$code] = array(
@@ -48,7 +48,7 @@ foreach ($versions->version as $v) {
 		);
 		foreach ($task->comment as $comment) {
             if (strpos($comment, 'redmine#') !== false) {
-                $comment = preg_replace('~redmine\#([0-9]+)~', '<a href="http://redmine.pierstoval.com/issues/$1">#$1</a>', $comment);
+                $comment = preg_replace('~redmine#(\d+)~', '<a href="http://redmine.pierstoval.com/issues/$1">#$1</a>', $comment);
             }
 			$element['comments'][] = (string) $comment;
 			$i++;

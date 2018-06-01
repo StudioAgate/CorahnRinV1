@@ -1,5 +1,10 @@
 <?php
 
+use App\EsterenChar;
+use App\FileAndDir;
+use App\Session;
+use App\Users;
+
 $character = new Esterenchar($char_id, 'db');
 if ($character->user_id() !== Users::$id) {
 	Session::setFlash('Vous n\'avez pas le droit de consulter ce personnage', 'error');

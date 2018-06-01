@@ -1,5 +1,7 @@
 <?php
 
+use App\Users;
+
 $admin_module = isset($_PAGE['request'][0]) ? $_PAGE['request'][0] : '';
 
 

@@ -1,5 +1,9 @@
 <?php
 
+use App\FileAndDir;
+use App\Session;
+use App\Translate;
+
 /**
  * Exécute une redirection vers la page 404 et stocke l'erreur dans le fichier log
  * @author Pierstoval 13/05/2013

@@ -1,5 +1,7 @@
 <?php
 
+use App\Translate;
+
 $propositions_en = Translate::get_propositions_en();
 $words_en = Translate::get_words_en();
 
@@ -17,17 +19,13 @@ ksort($list);
 	<?php
 		$i = 0;
 		foreach($list as $word => $trans) {
-			$word = trim(preg_replace('/\s\s+/sUu', ' ', $word));
-			$word = str_replace("\n", "", $word);
-			$trans = trim(preg_replace('/\s\s+/sUu', ' ', $trans));
-			$trans = preg_replace('#\n#sUu', "", $trans);
-			$trans = str_replace('[b]', '<strong>', $trans);
-			$trans = str_replace('[/b]', '</strong>', $trans);
-			$trans = str_replace('[u]', '<span class="underline">', $trans);
-			$trans = str_replace('[/u]', '</span>', $trans);
-			?>
+			$word = trim(preg_replace('/\s\s+/Uu', ' ', $word));
+			$word = str_replace("\n", '', $word);
+			$trans = trim(preg_replace('/\s\s+/Uu', ' ', $trans));
+            $trans = str_replace(['[b]', '[/b]', '[u]', '[/u]'], array('<strong>', '</strong>', '<span class="underline">', '</span>'), $trans);
+            ?>
 			<div class="row-fluid wordproposition">
-				<div class="span6"><label for="Word<?php echo $i; ?>"><?php echo htmlspecialchars($word); ?></label></div>
+				<div class="span6"><label for="Word<?php echo $i; ?>"><?php echo htmlspecialchars($word, ENT_QUOTES | ENT_HTML5); ?></label></div>
 				<div class="span5"><textarea rows="2" cols="50" name="words[<?php echo $i; ?>]" id="Word<?php echo $i; ?>"><?php echo $trans; ?></textarea></div>
 				<div class="span1">
 					<button data-wordid="Word<?php echo $i; ?>" data-yesno="yes" class="submitpropos btn btn-block btn-primary btn-small">Oui</button>

@@ -1,5 +1,10 @@
 <?php
 
+use App\EsterenChar;
+use App\FileAndDir;
+use App\Session;
+use App\Users;
+
 $game_id = isset($_PAGE['request'][0]) ? (int) $_PAGE['request'][0] : 0;
 
 if (!$game_id) {

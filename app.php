@@ -5,6 +5,12 @@
  * Effectue le chargement des modules du site en fonction de l'url
  */
 
+use App\bdd;
+use App\FileAndDir;
+use App\Session;
+use App\Translate;
+use App\Users;
+
 require __DIR__.'/vendor/autoload.php';
 
 define('ROOT', __DIR__); //Chemin vers le dossier racine
@@ -15,47 +21,6 @@ define('P_FONTS',     WEBROOT.DS.'css'.DS.'fonts');
 define('P_CSS',       WEBROOT.DS.'css');
 define('P_JS',        WEBROOT.DS.'js');
 define('CHAR_EXPORT', WEBROOT.DS.'files'.DS.'characters_export');
-
-## Chargement des classes
-$class_inc = array(
-    'bddPDO',
-    'encoding',
-    'esterenchar',
-    'minifier',
-    'translate',
-    'users',
-    'fpdf',
-    //'fpdfMakefont',
-    //'fpdfTTFparser',
-    'tfpdf',
-    'tfpdfTTFonts',
-    'mailerEasyPeasyICS',
-    'mailerHtml2text',
-    'mailerNtlm_sasl_client',
-    'mailerPhpmailer',
-    'mailerPop3',
-    'mailerSmtp',
-    'cakePhpFileAndDir',
-    'cakePhpInflector',
-    'cakePhpHash',
-    'cakePhpSession',
-    'cakePhpSet',
-    'cakePhpString',
-);
-foreach ($class_inc as $val) {
-    $filename = ROOT.DS.'class'.DS.'class_'.$val.'.php';
-    if (file_exists($filename)) {
-        try {
-            require_once $filename;
-        } catch (\Exception $e) {
-            echo $e->getMessage();
-        }
-    } else {
-        echo 'Erreur dans le chargement de la classe '.$val;
-        exit;
-    }
-}
-unset($class_inc);
 
 ## Chargement des fonctions
 $function_inc = array(
@@ -69,6 +34,7 @@ $function_inc = array(
     'errorLogging',
     'goto404',
     'gv',
+    'tr',
     'httpCode',
     'isBlacklisted',
     'minify',
@@ -106,7 +72,7 @@ if (preg_match('#127\.0\.0\.1|localhost#isUu', $_SERVER['HTTP_HOST'])) {
 }
 ## Configuration de la base de données
 if (!FileAndDir::fexists(ROOT.DS.'config.php')) {
-    echo "Database not configured.";
+    echo 'Database not configured.';
     exit;
 }
 require ROOT.DS.'config.php';
@@ -178,7 +144,7 @@ if (strpos($_LAYOUT, '{PAGE_TIME}') !== false) {
     }
     if (!isset($_PAGE['dont_log'])) {
         $f = fopen($logfile, 'ab');##On stocke le temps d'exécution dans le fichier log
-        $final = "*|*|*Date=>".json_encode(date(DATE_RFC822))
+        $final = '*|*|*Date=>'.json_encode(date(DATE_RFC822))
             .'||Ip=>'.json_encode($_SERVER['REMOTE_ADDR'])
             .'||Referer=>'.json_encode(isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '')
             .'||Page.get=>'.json_encode($_PAGE['get'])

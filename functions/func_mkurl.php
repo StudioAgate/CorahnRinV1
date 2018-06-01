@@ -3,8 +3,6 @@
 /**
  * Fonction mkurl()
  *
- * @name mkurl
- *
  * @param array $base_params Le contenu à noter.<br />
  *    Attributs :<br />
  * &nbsp; &nbsp;val = $_PAGE['id'] &nbsp; &nbsp; La valeur à rechercher dans la liste.<br />

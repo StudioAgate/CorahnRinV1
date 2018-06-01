@@ -80,7 +80,7 @@
 		<p><?php tr("Choisissez des domaines primaires et secondaires pour votre personnage"); ?>.</p>
 		<p><?php tr("Pour <strong>déselectionner</strong> un élément, cliquez sur ce bouton"); ?> : <span class="btn btn-mini"><span class="icon-star-empty"></span></span></p>
 		<p><?php tr('Vous devez sélectionner <span class="underline"><strong>deux fois <span class="progress1">&#9733;</span> et <span class="progress2">&#9733;&#9733;</span></strong></span>, et <span class="underline"><strong>une seule fois <span class="progress3">&#9733;&#9733;&#9733;</span> et <span class="progress5">&#9733;&#9733;&#9733;&#9733;&#9733;</span></strong></span>.'); ?></p>
-		<?php if ($persojob === false || true) {
+		<?php if ($persojob === true) {
 			?><p><?php tr('Vous avez choisi un métier prédéfini, c\'est pourquoi certains domaines ne peuvent pas bénéficier de <span class="progress3">&#9733;&#9733;&#9733;</span> ou <span class="progress5">&#9733;&#9733;&#9733;&#9733;&#9733;</span>.'); ?></p><?php
 		}
 		if ($lettre === true) {

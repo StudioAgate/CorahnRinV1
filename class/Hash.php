@@ -1,5 +1,7 @@
 <?php
 
+namespace App;
+
 /**
  * Library of array functions for manipulating and extracting data
  * from arrays or 'sets' of data.

@@ -1,4 +1,7 @@
 <?php
+
+namespace App;
+
 /**
  * JShrink
  *
@@ -44,7 +47,9 @@
 
  namespace JShrink;
 
-/**
+ use Exception;
+
+ /**
  * Minifier
  *
  * Usage - Minifier::minify($js);
@@ -122,21 +127,23 @@ class Minifier
      * unneeded characters in order to shrink the code without altering it's
      * functionality.
 	 */
-	static public function minify($js, $options = array())
+	public static function minify($js, $options = array())
 	{
 		try{
 			ob_start();
 			$currentOptions = array_merge(self::$defaultOptions, $options);
 
-			if(!isset(self::$jshrink))
-				self::$jshrink = new Minifier();
+			if(!isset(self::$jshrink)) {
+                self::$jshrink = new self();
+            }
 
 			self::$jshrink->breakdownScript($js, $currentOptions);
 			return ob_get_clean();
 
 		}catch(Exception $e){
-			if(isset(self::$jshrink))
-				self::$jshrink->clean();
+			if(isset(self::$jshrink)) {
+                self::$jshrink->clean();
+            }
 
 			ob_end_clean();
 			throw $e;
@@ -174,7 +181,7 @@ class Minifier
 
 		$this->b = $this->getReal();
 
-		while($this->a !== false && !is_null($this->a) && $this->a !== '')
+		while($this->a !== false && null !== $this->a && $this->a !== '')
 		{
 
 			// now we give $b the same check for conditional comments we gave $a
@@ -201,14 +208,16 @@ class Minifier
 					}
 
 					// if its a space we move down to the string test below
-					if($this->b === ' ')
-						break;
+					if($this->b === ' ') {
+                        break;
+                    }
 
 					// otherwise we treat the newline like a space
 
 				case ' ':
-					if(self::isAlphaNumeric($this->b))
-						echo $this->a;
+					if(self::isAlphaNumeric($this->b)) {
+                        echo $this->a;
+                    }
 
 					$this->saveString();
 					break;
@@ -222,25 +231,26 @@ class Minifier
 								echo $this->a;
 								$this->saveString();
 								break;
-							}else{
-								if(self::isAlphaNumeric($this->a))
-								{
-									echo $this->a;
-									$this->saveString();
-								}
 							}
-							break;
+
+                            if(self::isAlphaNumeric($this->a))
+                            {
+                                echo $this->a;
+                                $this->saveString();
+                            }
+                            break;
 
 						case ' ':
-							if(!self::isAlphaNumeric($this->a))
-								break;
+							if(!self::isAlphaNumeric($this->a)) {
+                                break;
+                            }
 
 						default:
 							// check for some regex that breaks stuff
-							if($this->a == '/' && ($this->b == '\'' || $this->b == '"'))
+							if($this->a === '/' && ($this->b === '\'' || $this->b === '"'))
 							{
 								$this->saveRegex();
-								continue;
+								break;
 							}
 
 							echo $this->a;
@@ -252,8 +262,9 @@ class Minifier
 			// do reg check of doom
 			$this->b = $this->getReal();
 
-			if(($this->b == '/' && strpos('(,=:[!&|?', $this->a) !== false))
-				$this->saveRegex();
+			if($this->b === '/' && strpos('(,=:[!&|?', $this->a) !== false) {
+                $this->saveRegex();
+            }
 		}
 		$this->clean();
 	}
@@ -270,7 +281,7 @@ class Minifier
 			$char = $this->c;
 			unset($this->c);
 		}else{
-			$tchar = substr($this->input, $this->index, 1);
+			$tchar = $this->input[$this->index];
 			if(isset($tchar) && $tchar !== false)
 			{
 				$char = $tchar;
@@ -280,8 +291,9 @@ class Minifier
 			}
 		}
 
-		if($char !== "\n" && ord($char) < 32)
-			return ' ';
+		if($char !== "\n" && ord($char) < 32) {
+            return ' ';
+        }
 
 		return $char;
 	}
@@ -299,67 +311,70 @@ class Minifier
 		$startIndex = $this->index;
 		$char = $this->getChar();
 
-		if($char == '/')
+		if($char === '/')
 		{
 			$this->c = $this->getChar();
 
-			if($this->c == '/')
+			if($this->c === '/')
 			{
-				$thirdCommentString = substr($this->input, $this->index, 1);
+				$thirdCommentString = $this->input[$this->index];
 
 				// kill rest of line
-				$char = $this->getNext("\n");
+				$this->getNext("\n");
 
-				if($thirdCommentString == '@')
+				if($thirdCommentString === '@')
 				{
-					$endPoint = ($this->index) - $startIndex;
+					$endPoint = $this->index - $startIndex;
 					unset($this->c);
 					$char = "\n" . substr($this->input, $startIndex, $endPoint);
 				}else{
-					$char = $this->getChar();
+					$this->getChar();
 					$char = $this->getChar();
 				}
 
-			}elseif($this->c == '*'){
+			}elseif($this->c === '*'){
 
 				$this->getChar(); // current C
 				$thirdCommentString = $this->getChar();
 
-				if($thirdCommentString == '@')
-				{
-					// conditional comment
+                if ($thirdCommentString === '@') {
+                    // conditional comment
 
-					// we're gonna back up a bit and and send the comment back,
-                    // where the first char will be echoed and the rest will be
-                    // treated like a string
-					$this->index = $this->index-2;
-					return '/';
+                    // we're gonna back up a bit and and send the comment back,
+// where the first char will be echoed and the rest will be
+// treated like a string
+                    $this->index -= 2;
+                    return '/';
 
-				}elseif($this->getNext('*/')){
-				// kill everything up to the next */
+                }
 
-					$this->getChar(); // get *
-					$this->getChar(); // get /
+                if($this->getNext('*/')) {
+                // kill everything up to the next */
 
-					$char = $this->getChar(); // get next real character
+                    $this->getChar(); // get *
+                    $this->getChar(); // get /
 
-					// if YUI-style comments are enabled we reinsert it into the stream
-					if($this->options['flaggedComments'] && $thirdCommentString == '!')
-					{
-						$endPoint = ($this->index - 1) - $startIndex;
-						echo "\n" . substr($this->input, $startIndex, $endPoint) . "\n";
-					}
+                    $char = $this->getChar(); // get next real character
 
-				}else{
-					$char = false;
-				}
+                    // if YUI-style comments are enabled we reinsert it into the stream
+                    if($thirdCommentString === '!' && $this->options['flaggedComments'])
+                    {
+                        $endPoint = ($this->index - 1) - $startIndex;
+                        echo "\n" . substr($this->input, $startIndex, $endPoint) . "\n";
+                    }
 
-				if($char === false)
-					throw new \RuntimeException('Stray comment. ' . $this->index);
+                } else{
+                    $char = false;
+                }
+
+                if($char === false) {
+                    throw new \RuntimeException('Stray comment. '.$this->index);
+                }
 
 				// if we're here c is part of the comment and therefore tossed
-				if(isset($this->c))
-					unset($this->c);
+				if(isset($this->c)) {
+                    unset($this->c);
+                }
 			}
 		}
 		return $char;
@@ -375,11 +390,12 @@ class Minifier
 	{
 		$pos = strpos($this->input, $string, $this->index);
 
-		if($pos === false)
-			return false;
+		if($pos === false) {
+            return false;
+        }
 
 		$this->index = $pos;
-		return substr($this->input, $this->index, 1);
+		return $this->input[$this->index];
 	}
 
 	/**
@@ -390,7 +406,7 @@ class Minifier
 	protected function saveString()
 	{
 		$this->a = $this->b;
-		if($this->a == "'" || $this->a == '"') // is the character a quote
+		if($this->a === "'" || $this->a === '"') // is the character a quote
 		{
 			// save literal string
 			$stringType = $this->a;
@@ -427,17 +443,19 @@ class Minifier
 
 		while(($this->a = $this->getChar()) !== false)
 		{
-			if($this->a == '/')
-				break;
+			if($this->a === '/') {
+                break;
+            }
 
-			if($this->a == '\\')
+			if($this->a === '\\')
 			{
 				echo $this->a;
 				$this->a = $this->getChar();
 			}
 
-			if($this->a == "\n")
-				throw new \RuntimeException('Stray regex pattern. ' . $this->index);
+			if($this->a === "\n") {
+                throw new \RuntimeException('Stray regex pattern. '.$this->index);
+            }
 
 			echo $this->a;
 		}
@@ -453,18 +471,17 @@ class Minifier
 		unset($this->input);
 		$this->index = 0;
 		$this->a = $this->b = '';
-		unset($this->c);
-		unset($this->options);
-	}
+        unset($this->c, $this->options);
+    }
 
 	/**
 	 * Checks to see if a character is alphanumeric.
 	 *
 	 * @return bool
 	 */
-	static protected function isAlphaNumeric($char)
+	protected static function isAlphaNumeric($char)
 	{
-		return preg_match('/^[\w\$]$/', $char) === 1 || $char == '/';
+		return preg_match('/^[\w$]$/', $char) === 1 || $char === '/';
 	}
 
 }

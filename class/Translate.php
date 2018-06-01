@@ -1,13 +1,6 @@
 <?php
 
-/**
- * Alias de confort pour la fonction Translate::translate()
- *
- * @see Translate::translate
- */
-function tr($word, $return = false, $params = array(), $domain = null) {
-	return Translate::translate($word, $return, $params, $domain);
-}
+namespace App;
 
 class Translate {
 	public static $words_fr = array();
@@ -19,8 +12,8 @@ class Translate {
     public static $write_en = false;
 
     public static $_PAGE;
-    public static $domain = null;
-    public static $char_id = null;
+    public static $domain;
+    public static $char_id;
 
     public function __construct(){}
 
@@ -49,7 +42,7 @@ class Translate {
     /**
      * Cette fonction sert à traduire le texte. Si le mot n'est pas traduit, on l'ajoute à la liste pour qu'il le soit plus tard.
      * @param string  $txt    Le texte à traduire
-     * @param boolean $return Si false, on fait un echo du texte. Si true, on le retourne.
+     * @param boolean|null $return Si false, on fait un echo du texte. Si true, on le retourne.
      * @param array   $params Les paramètres de texte à ajouter
      * @param null    $domain
      * @return mixed Le texte traduit si $return == true, sinon true après echo, sinon false
@@ -66,7 +59,15 @@ class Translate {
 
 		if (!$txt) { return ''; }
 
-        $domain = $domain ?: (self::$domain ?: (self::$char_id ? 'characters.'.self::$char_id : (self::$_PAGE['get'] ?: 'general')));
+        if (self::$domain) {
+            $domain = $domain ?: self::$domain;
+        } elseif (self::$char_id) {
+            $domain = $domain ?: ('characters.'.self::$char_id);
+        } elseif (self::$_PAGE['get']) {
+            $domain = $domain ?: self::$_PAGE['get'];
+        } else {
+            $domain = $domain ?: 'general';
+        }
 
         if (!isset(self::$words_fr[$domain])) {
             self::$words_fr[$domain] = array();
@@ -87,16 +88,16 @@ class Translate {
 
         // Change les éventuels paramètres de remplacement à la chaîne de caractères
         if ($params) {
-            $txt = str_replace(array_keys($params), array_values($params), $txt);
+            $txt = str_replace(array_keys($params), $params, $txt);
         }
 
 		if ($return === false) {
 			echo $txt;
 			return null;
-		} else {
-			return $txt;
 		}
-	}
+
+        return $txt;
+    }
 
     /**
      * @param string $txt La chaîne à chercher
@@ -110,7 +111,7 @@ class Translate {
         }
         $found = false;
         $result = array_filter($source, function($element) use ($txt) {
-            return $element['source'] == $txt;
+            return $element['source'] === $txt;
         });
         if (count($result)){
             $found = true;
@@ -128,9 +129,9 @@ class Translate {
         if ($clean) {
             $txt = self::clean_word($txt);
         }
-        $result = array_filter($source, function($element) use ($txt) {
-            return self::clean_word($element['source']) == $txt;
-        });
+        $result = array_values(array_filter($source, function($element) use ($txt) {
+            return self::clean_word($element['source']) === $txt;
+        }));
         if (count($result)){
             sort($result);
             $txt = $result[0]['trans'];
@@ -224,7 +225,7 @@ class Translate {
         }
 
         foreach  (self::$words_en[$domain] as $k => $word) {
-            if ($word['source'] == $word_source) {
+            if ($word['source'] === $word_source) {
                 self::$words_en[$domain][$k]['trans'] = $trans;
                 $changed = true;
             }
@@ -251,19 +252,14 @@ class Translate {
      * @return string L'état du mot. 'saved' s'il a été inséré, ou false sinon
      */
 	public static function clean_word($word) {
-// 		$word = Encoding::toISO8859($word);
-// 		$word = Encoding::toUTF8($word);
- 		$word = preg_replace('#\n|\r|\t#sUu', ' ', $word);
-		$word = preg_replace('#\s\s+#sUu', ' ', $word);
-		$word = str_replace('’', "'", $word);
-		$word = str_replace('\\\'', "'", $word);
-		$word = str_replace('★', '&#9733;', $word);
-		$word = trim($word);
-		return $word;
-	}
+        $word = str_replace(["\n", "\r", "\t", '’', '\\\'', '★'], [' ', ' ', ' ', "'", "'", '&#9733;'], $word);
+        $word = trim(preg_replace('#\s\s+#Uu', ' ', $word));
 
-	/**
-	 * Cette fonction sert à ajouter une proposition de traduction
+        return $word;
+    }
+
+    /**
+     * Cette fonction sert à ajouter une proposition de traduction
 	 * @param string $word Le mot ou l'expression à traduire
 	 * @param string $trans La traduction proposée
 	 * @return mixed L'état de l'insertion
@@ -298,7 +294,7 @@ class Translate {
 
 	/**
 	 * Cette fonction sert à écrire les mots français dans la liste
-	 * @return boolean Résultat de l'opération
+	 * @return array
 	 */
 	public static function translate_writewords() {
 

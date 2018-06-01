@@ -1,5 +1,12 @@
 <?php
 
+namespace App;
+
+use Exception;
+use PDO;
+use PDOException;
+use RuntimeException;
+
 /**
  * Classe de connexion à la base de données
  * Permet la gestion de l'affichage des erreurs
@@ -12,7 +19,6 @@ class bdd
     public static $prefix;
     private $db;
     private $dbname;
-    private $e;
     private $show_err;
     private $err_type;
     private $last_query;
@@ -68,7 +74,7 @@ class bdd
      * @param boolean $err Affiche les erreurs ou non
      * @param string  $type Change le type d'erreur. Valeurs possible : 'fatal', 'warning', 'notice'
      */
-    public function initErr($err = false, $type = 'fatal'): void
+    public function initErr($err = false, $type = 'fatal')
     {
         $this->show_err = (bool) $err;
         if ($type === 'warning') {
@@ -88,7 +94,7 @@ class bdd
      * @param PDOException $e Utilisé en cas de throw exception sur une requête
      * @param string       $req_qry Utilisé pour afficher la requête en cas d'erreur, notamment sur les méthodes req(), row() et noRes()
      */
-    public function showErr($e = null, $req_qry = null): void
+    public function showErr($e = null, $req_qry = null)
     {
         global $_PAGE;
 
@@ -131,7 +137,7 @@ class bdd
      *
      * @return string Requête formatée
      */
-    public static function sbuildReq($req_qry, $values = []): string
+    public static function sbuildReq($req_qry, $values = [])
     {
         $values = (array) $values;
 
@@ -187,7 +193,7 @@ class bdd
      *
      * @return array Un tableau avec une entrée pour chaque élément trouvé dans la BDD, false
      */
-    public function req($req_qry, $values = []): array
+    public function req($req_qry, $values = [])
     {
         $values = (array) $values;
         $req_qry = $this->buildReq($req_qry, $values);
@@ -225,7 +231,7 @@ class bdd
      *
      * @return array à 1 entrée, false sinon
      */
-    public function row($req_qry, $values = []): array
+    public function row($req_qry, $values = [])
     {
         $values = (array) $values;
         $req_qry = $this->buildReq($req_qry, $values);
@@ -266,7 +272,7 @@ class bdd
      *
      * @return true si la requête est excéutée, false sinon
      */
-    public function noRes($req_qry, $values = []): bool
+    public function noRes($req_qry, $values = [])
     {
         $values = (array) $values;
         $req_qry = $this->buildReq($req_qry, $values);
@@ -294,7 +300,7 @@ class bdd
      *
      * @return string Requête formatée
      */
-    private function buildReq($req_qry, $values = []): string
+    private function buildReq($req_qry, $values = [])
     {
         $req_qry = self::sbuildReq($req_qry, $values);
         $this->last_query = $req_qry;

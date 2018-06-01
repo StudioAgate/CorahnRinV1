@@ -1,5 +1,8 @@
 <?php
 
+use App\Session;
+use App\Users;
+
 $characters = $db->req('
 	SELECT %%characters.%char_id, %%characters.%char_name, %%characters.%user_id, %%characters.%char_status,
 		%%users.%user_name

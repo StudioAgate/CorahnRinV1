@@ -1,8 +1,10 @@
 <?php
 
+use App\Session;
+
 /**
  * Redirige vers une page demandée
- * @param array $mkurl Un tableau à placer dans la fonction mkurl()
+ * @param array|string $mkurl Un tableau à placer dans la fonction mkurl()
  * @param string $setflash Une chaîne de caractères à envoyer à Session::setFlash()
  * @param string $flashtype Le type de message flash à afficher. Par défaut "success"
  * @param bool $bypass_get_redirect
@@ -32,7 +34,7 @@ function redirect($mkurl, $setflash = '', $flashtype = 'success', $bypass_get_re
 		$redir = $mkurl;
 	}
 
-    if (in_array(httpCode(), array(302, 307))) {
+    if (in_array(httpCode(), [302, 307], true)) {
         // Force le navigateur à ne pas mettre en cache une redirection
         header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
         header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');

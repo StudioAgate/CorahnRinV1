@@ -1,4 +1,7 @@
 <?php
+
+namespace App;
+
 /*************************************************************************
  *                                                                       *
  * Converts HTML to formatted plain text                                 *
@@ -379,7 +382,7 @@ class html2text
         } else {
             // Strip any trailing slashes for consistency (relative
             // URLs may already start with a slash like "/file.html")
-            if ( substr($url, -1) == '/' ) {
+            if ( substr($url, -1) === '/' ) {
                 $url = substr($url, 0, -1);
             }
             $this->url = $url;
@@ -489,7 +492,7 @@ class html2text
     private function _build_link_list( $link, $display, $link_override = null)
     {
         $link_method = ($link_override) ? $link_override : $this->_options['do_links'];
-        if ($link_method == 'none')
+        if ($link_method === 'none')
             return $display;
 
 
@@ -508,7 +511,7 @@ class html2text
             $url .= "$link";
         }
 
-        if ($link_method == 'table')
+        if ($link_method === 'table')
         {
             if (($index = array_search($url, $this->_link_list)) === false) {
                 $index = count($this->_link_list);
@@ -517,7 +520,7 @@ class html2text
 
             return $display . ' [' . ($index+1) . ']';
         }
-        elseif ($link_method == 'nextline')
+        elseif ($link_method === 'nextline')
         {
             return $display . "\n[" . $url . ']';
         }
@@ -569,7 +572,7 @@ class html2text
             $start = 0;
             $taglen = 0;
             foreach ($matches[0] as $m) {
-                if ($m[0][0] == '<' && $m[0][1] == '/') {
+                if ($m[0][0] === '<' && $m[0][1] === '/') {
                     $level--;
                     if ($level < 0) {
                         $level = 0; // malformed HTML: go to next blockquote
@@ -591,7 +594,7 @@ class html2text
                         $this->_converter($body);
                         // Add citation markers and create PRE block
                         $body = preg_replace('/((^|\n)>*)/', '\\1> ', trim($body));
-                        $body = '<pre>' . htmlspecialchars($body) . '</pre>';
+                        $body = '<pre>' .htmlspecialchars($body, ENT_QUOTES | ENT_HTML5). '</pre>';
                         // Re-set text width
                         $this->_options['width'] = $p_width;
                         // Replace content
