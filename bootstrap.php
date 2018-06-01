@@ -30,7 +30,7 @@ define('P_FPDF_FONTPATH', ROOT.DS.'files'.DS.'fpdf'.DS.'fonts');
 define('P_FPDF_SYSTEM_TTF_FONTS', ROOT.DS.'files'.DS.'fpdf'.DS.'fonts');
 
 ## Générer les fichiers css et js des pages à chaque chargement via la fonction buffWrite(). Permet de réinitialiser une partie cache en local ou lorsque le superadmin est connecté
-define('P_GEN_FILES_ONLOAD', ($_SERVER['HTTP_HOST'] === '127.0.0.1' ? true : false));
+define('P_GEN_FILES_ONLOAD', $_SERVER['HTTP_HOST'] === '127.0.0.1');
 
 
 ## Extensions de fichiers qu'il est possible de créer à chaque chargement via la fonction buffWrite(). Par défaut CSS et JS

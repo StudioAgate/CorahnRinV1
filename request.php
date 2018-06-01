@@ -126,33 +126,46 @@ $_PAGE['extension'] = $ext;
 $_PAGE['style'] = 'corahn_rin';//id CSS de la balise body
 $_PAGE['anchor'] = '';
 $_PAGE['list'] = array();
-$result = $db->req('SELECT * FROM %%pages ORDER BY %page_anchor ASC');
 
-if ($result) {
-	foreach ($result as $data) {
-		$_PAGE['list'][$data['page_id']] = $data;
-		if ($_PAGE['get'] === $data['page_getmod'] || $_PAGE['id'] === $data['page_id']) {
-			if (Users::$acl > $data['page_acl'] || (P_LOGGED === false && $data['page_require_login'] === 1)) {
-				Session::setFlash("Vous n'avez pas les droits pour accéder à cette page.", 'error');
-				header('Location:'.mkurl(array('val'=>1)));
-				exit;
-			}
-			$_PAGE['id'] = (int) $data['page_id'];
-			$_PAGE['anchor'] = $data['page_anchor'];
-			$_PAGE['acl'] = (int) $data['page_acl'];
-		}
-		if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], $data['page_getmod']) !== false) {
-			$_PAGE['referer'] = array(
-				'id' => (int) $data['page_id'],
-				'getmod' => $data['page_getmod'],
-				'anchor' => $data['page_anchor'],
-				'full_url' => $_SERVER['HTTP_REFERER'],
-			);
-		}
-	}
-	unset($result);
+$cacheFile = ROOT.DS.'tmp'.DS.'requestlist.php';
+if (file_exists($cacheFile) && filemtime($cacheFile) >= (time() - 864000) && $cnt = file_get_contents($cacheFile)) {
+    $page = require $cacheFile;
+
+    $_PAGE = array_merge($_PAGE, $page);
+} else {
+    $result = $db->req('SELECT  %page_id, %page_show_in_menu, %page_show_in_debug, %page_getmod, %page_anchor, %page_acl, %page_require_login FROM %%pages ORDER BY %page_anchor ASC');
+
+    if ($result) {
+        foreach ($result as $data) {
+            $_PAGE['list'][$data['page_id']] = $data;
+            if ($_PAGE['get'] === $data['page_getmod'] || $_PAGE['id'] === $data['page_id']) {
+                if (Users::$acl > $data['page_acl'] || (P_LOGGED === false && $data['page_require_login'] === 1)) {
+                    Session::setFlash("Vous n'avez pas les droits pour accéder à cette page.", 'error');
+                    header('Location:'.mkurl(array('val'=>1)));
+                    exit;
+                }
+                $_PAGE['id'] = (int) $data['page_id'];
+                $_PAGE['anchor'] = $data['page_anchor'];
+                $_PAGE['acl'] = (int) $data['page_acl'];
+            }
+            if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], $data['page_getmod']) !== false) {
+                $_PAGE['referer'] = array(
+                    'id' => (int) $data['page_id'],
+                    'getmod' => $data['page_getmod'],
+                    'anchor' => $data['page_anchor'],
+                    'full_url' => $_SERVER['HTTP_REFERER'],
+                );
+            }
+        }
+        unset($result);
+    }
+    unset($result, $data);
+
+    $pageToSave = $_PAGE;
+    unset($pageToSave['get'], $pageToSave['extension'], $pageToSave['id'], $pageToSave['anchor'], $pageToSave['acl']);
+    $pageToSave = var_export($pageToSave, true);
+    file_put_contents($cacheFile, "<?php\nreturn $pageToSave;");
 }
-unset($result, $data);
 
 if (!$_PAGE['id'] || !isset($_PAGE['list'][$_PAGE['id']])) {
     $page = null;

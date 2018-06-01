@@ -34,8 +34,8 @@ class Users {
 		} elseif (is_numeric($db_datas) && (int) $db_datas) {
             /** @var bdd $db */
             global $db;
-			$res = $db->row('SELECT * FROM %%users WHERE %user_id = ?', array($db_datas));
-			if (!$res) {
+            $res = $db->row('SELECT user_id, user_name, user_email, user_acl, user_status, user_confirm FROM %%users WHERE %user_id = ?', array($db_datas));
+            if (!$res) {
 				Session::setFlash('Utilisateur incorrect... #001', 'error');
 				self::logout();
 				return false;
