@@ -42,6 +42,9 @@ $request = preg_replace('~^/esteren~i', '', $request);
 if ($request) {
 	$request = preg_split('~/~', $request, null, PREG_SPLIT_NO_EMPTY);
 	$lang = array_shift($request);
+	if ('index.php' === $lang) {
+	    $lang = array_shift($request);
+    }
 	$getmod = array_shift($request);
 } else {
 	$request = array();

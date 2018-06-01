@@ -27,6 +27,11 @@ function mkurl($base_params = [])
     $params = (array) $base_params;
     $final = '';//Cette variable contient la chaîne de caractère du résultat
 
+    $baseUrl = BASE_URL;
+    if (strpos($_SERVER['REQUEST_URI'], $_SERVER['SCRIPT_NAME']) === 0) {
+        $baseUrl .= $_SERVER['SCRIPT_NAME'];
+    }
+
     $params_default = [## On définit les valeurs par défaut de tous les attributs
         'val'       => $_PAGE['id'],
         'field'     => 'page_id',
@@ -144,11 +149,11 @@ function mkurl($base_params = [])
 
     if ($params['type'] === 'href') {//Uniquement le lien complet
         if ($page['page_getmod'] === 'index') {
-            return BASE_URL.'/'.$params['lang'].'/'.($all_params ? 'index/'.$all_params : '').($get_params ? $get_params : '');//Pour l'accueil, on définit une url plus "jolie", notamment pour le référencement
+            return $baseUrl.'/'.$params['lang'].'/'.($all_params ? 'index/'.$all_params : '').($get_params ? $get_params : '');//Pour l'accueil, on définit une url plus "jolie", notamment pour le référencement
         }
 
         if ($params['custom'] === false) {
-            return BASE_URL.'/'.$params['lang'].'/'.$page['page_getmod'].$all_params.'.'.$params['ext'].($get_params ? $get_params : '');
+            return $baseUrl.'/'.$params['lang'].'/'.$page['page_getmod'].$all_params.'.'.$params['ext'].($get_params ? $get_params : '');
         }
 
         if ($params['custom'] === true) {
@@ -166,9 +171,9 @@ function mkurl($base_params = [])
 
     if ($params['type'] === 'tag') {//Création d'une balise <a> complète
         if ($page['page_getmod'] === 'index') {
-            $href = BASE_URL.'/'.$params['lang'].'/'.($all_params ? 'index/'.$all_params : '').($get_params ? $get_params : '');//Pour l'accueil, on définit une url plus "jolie", notamment pour le référencement
+            $href = $baseUrl.'/'.$params['lang'].'/'.($all_params ? 'index/'.$all_params : '').($get_params ? $get_params : '');//Pour l'accueil, on définit une url plus "jolie", notamment pour le référencement
         } elseif ($params['custom'] === false) {
-            $href = BASE_URL.'/'.$params['lang'].'/'.$page['page_getmod'].$all_params.'.'.$params['ext'].($get_params ? $get_params : '');
+            $href = $baseUrl.'/'.$params['lang'].'/'.$page['page_getmod'].$all_params.'.'.$params['ext'].($get_params ? $get_params : '');
         } elseif ($params['custom'] === true) {
             $href = $params['val'];
             if (strpos($href, 'http') === false) {
