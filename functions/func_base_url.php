@@ -33,5 +33,5 @@ function base_url($withLang = false)
         $base = $baseUrl;
     }
 
-    return $base;
+    return $baseUrl;
 }
