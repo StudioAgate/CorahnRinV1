@@ -79,8 +79,8 @@ $request = $t;
  * On crée la variable $_GET pour obtenir les informations en GET
  */
 $get_parameters = $_SERVER['REQUEST_URI'];
-if (false !== strpos($get_parameters, "\?")) {
-	$get_parameters = preg_replace('#^[^?]*\?#Uu', '', $get_parameters);
+if (false !== strpos($get_parameters, "?")) {
+	$get_parameters = preg_replace('#^[^?]+\?#Uu', '', $get_parameters);
 	$get_parameters = explode('&', $get_parameters);
 	$t = array();
 	foreach($get_parameters as $k => $v) {
