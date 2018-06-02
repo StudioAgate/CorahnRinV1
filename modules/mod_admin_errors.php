@@ -97,7 +97,7 @@ if ($err_type && $err_file) {
 				$v = explode('||', $v);
 				foreach ($v as $kk => $vv) {
 					$vv = explode('=>', $vv);
-					$vv[1] = json_decode($vv[1], true);
+					$vv[1] = json_decode(isset($vv[1]) ? $vv[1] : null, true);
 					if (!isset($fields[$vv[0]])) { $fields[$vv[0]] = 1; }
 					$contents[$k][$vv[0]] = @$vv[1];
 					if ($vv[0] === 'Exectime') { $exec_all[] = $vv[1]; $exec_sum += $vv[1]; }

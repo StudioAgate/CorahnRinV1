@@ -46,6 +46,11 @@ if ($request) {
 	    $lang = array_shift($request);
     }
 	$getmod = array_shift($request);
+	if ($lang === $getmod) {
+	    // Fix this stupid thing that happens when uri has twice the language in the url.
+        header('Location: '.str_replace("/$lang/$lang", "/$lang", $_SERVER['REQUEST_URI']));
+        exit;
+    }
 } else {
 	$request = array();
     $lang = null;
