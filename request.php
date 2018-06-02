@@ -53,11 +53,11 @@ if ($request) {
 }
 
 if ($lang !== 'fr' && $lang !== 'en') {
-    $url = BASE_URL.'/fr/'.$getmod;
+    $url = base_url().'/fr/'.$getmod;
     if ($getmod && count($request)) {
         $url .= '/'.implode('/', $request);
     }
-    header('Location: '.$url);
+    redirect($url);
     exit;
 }
 
@@ -109,7 +109,7 @@ if ($lang === 'fr' || $lang === 'en') {
     ## La langue est désormais définie ici pour la compatibilité avec le nouveau système de langue
     define('P_LANG', $lang);
 } else {
-    header('Location: '.BASE_URL.'/fr/404.html');
+    redirect(base_url().'/fr/404.html');
     exit;
 }
 
@@ -125,7 +125,9 @@ $_PAGE['id'] = null;
 $_PAGE['extension'] = $ext;
 $_PAGE['style'] = 'corahn_rin';//id CSS de la balise body
 $_PAGE['anchor'] = '';
-$_PAGE['list'] = array();
+$_PAGE['list'] = [];
+$_PAGE['more_js'] = [];
+$_PAGE['more_css'] = [];
 
 $cacheFile = ROOT.DS.'tmp'.DS.'requestlist.php';
 if (file_exists($cacheFile) && filemtime($cacheFile) >= (time() - 864000) && $cnt = file_get_contents($cacheFile)) {
@@ -186,23 +188,23 @@ foreach ($_PAGE['list'] as $data) {
 }
 
 if (!$_PAGE['extension'] && $_PAGE['get'] !== 'index') {
-    $url = BASE_URL.'/fr/'.$_PAGE['get'];
+    $url = base_url().'/fr/'.$_PAGE['get'];
     if (count($_PAGE['request'])) {
         $url .= '/'.implode('/', $_PAGE['request']);
     }
     $url .= '.html';
-    header('Location: '.$url);
+    redirect($url);
     exit;
 }
 
 ## Si le module chargé est "index" alors on redirige vers une page d'accueil possédant une url "saine"
-if ($getmod === 'index') { redirect(BASE_URL); }
+if ($getmod === 'index') { redirect(base_url(true)); }
 unset($getmod);
 
 ##On définit le referer en fonction de ce que l'on a dans HTTP_REFERER.
 ##Si celui-ci est sur ce site, on récupère ses paramètres dans $_PAGE. Sinon, uniquement son url.
 if (isset($_SERVER['HTTP_REFERER']) && !isset($_PAGE['referer'])) {
-	if ($_SERVER['HTTP_REFERER'] === BASE_URL.'/') {
+	if ($_SERVER['HTTP_REFERER'] === base_url().'/') {
 		$_PAGE['referer'] = array(
 			'id' => 1,
 			'getmod' => $_PAGE['list'][1]['page_getmod'],

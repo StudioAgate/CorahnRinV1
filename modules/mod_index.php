@@ -46,7 +46,7 @@ use App\Session;
 
 buffWrite('css', '
 	body {
-		/*background: url("'.BASE_URL.'/img/esteren_set1_logo.png'.'");*/
+		/*background: url("'.base_url().'/img/esteren_set1_logo.png'.'");*/
 		background-size: cover;
 	}
 	.hero-unit {

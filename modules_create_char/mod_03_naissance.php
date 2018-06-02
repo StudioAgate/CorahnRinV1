@@ -46,19 +46,19 @@
 			width: 1000px; height: 648px;
 		}
 		#formgen #Gwidre {
-			background: url(\''.BASE_URL.'/img/carte_Gwidre.jpg\');
+			background: url(\''.base_url().'/img/carte_Gwidre.jpg\');
 		}
 		#formgen #Reizh, #formgen #Reizh svg {
 			width: 1000px; height: 838px;
 		}
 		#formgen #Reizh {
-			background: url(\''.BASE_URL.'/img/carte_Reizh.jpg\');
+			background: url(\''.base_url().'/img/carte_Reizh.jpg\');
 		}
 		#formgen #TaolKaer, #formgen #TaolKaer svg {
 			width: 1000px; height: 594px;
 		}
 		#formgen #TaolKaer {
-			background: url(\''.BASE_URL.'/img/carte_Taol-Kaer.jpg\');
+			background: url(\''.base_url().'/img/carte_Taol-Kaer.jpg\');
 		}
 		#formgen svg {
 			position: absolute;

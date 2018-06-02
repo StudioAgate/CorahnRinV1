@@ -74,7 +74,7 @@ CSSFILE
 			}
 // 			if (confirm('Voulez-vous vraiment soumettre cette traduction :'+"\\n\\nPhrase initiale : \\n"+propos+"\\n\\nTraduction proposée : \\n"+trad)) {
 				ajax_xhr = $.ajax({
-					url: 'ajax/aj_tradpropos.php',
+				    url : with_lang+'/ajax/aj_tradpropos.php',
 					type: 'post',
 					data : {
 						'maj_propos' : propos,

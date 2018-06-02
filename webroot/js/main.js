@@ -1,6 +1,8 @@
 (function($, document, corahn_rin, window){
     window.base_url = corahn_rin;
+    window.with_lang = corahn_rin_with_lang;
     var base_url = window.base_url;
+    var with_lang = window.with_lang;
 
     /**
      * Efface la sélection actuelle sur la page
@@ -40,12 +42,13 @@
             window.xhr.ajaxStop();
         }
         window.xhr = $.ajax({
-            url : base_url+'/ajax/aj_genmaj.php',
+            url : with_lang+'/ajax/aj_genmaj.php',
             type : 'post',
             data : values,
             success : function(msg) {
                 if (empty !== true) {
-                    $('#gen_send').delay(1).attr('href', base_url+action).html(nextsteptranslate).css('visibility', 'visible');
+                    action = action.replace(base_url, '').replace('/fr', '').replace('/en', '');
+                    $('#gen_send').delay(1).attr('href', with_lang+action).html(nextsteptranslate).css('visibility', 'visible');
                 } else {
                     $('#gen_send').delay(1).attr('href', '#').html(nextsteptranslate).css('visibility', 'hidden');
                 }

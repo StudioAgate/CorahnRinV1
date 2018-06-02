@@ -11,6 +11,8 @@ use App\FileAndDir;
 use App\Session;
 use App\Translate;
 
+$_PAGE = [];
+
 setlocale(LC_TIME, array('fr_FR', 'fr_FR.UTF-8'));
 
 ## Réécriture d'url active ou non, permet de créer des liens cohérents);

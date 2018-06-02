@@ -111,7 +111,7 @@
 					values['".$page_mod."'] = '';
 					$('#gen_send').attr('href', '#').css('visibility', 'hidden');
 					xhr = $.ajax({
-						url : base_url+'/ajax/aj_genmaj.php',
+                        url : with_lang+'/ajax/aj_genmaj.php',
 						type : 'post',
 						data : values
 					});

@@ -27,10 +27,7 @@ function mkurl($base_params = [])
     $params = (array) $base_params;
     $final = '';//Cette variable contient la chaîne de caractère du résultat
 
-    $baseUrl = BASE_URL;
-    if (strpos($_SERVER['REQUEST_URI'], $_SERVER['SCRIPT_NAME']) === 0) {
-        $baseUrl .= $_SERVER['SCRIPT_NAME'];
-    }
+    $baseUrl = base_url();
 
     $params_default = [## On définit les valeurs par défaut de tous les attributs
         'val'       => $_PAGE['id'],
@@ -228,7 +225,7 @@ function mkurl_to_internal_url($url)
 
 function mkurl_to_client_url($url, $lang = true)
 {
-    $url = str_replace([ROOT.DS.'webroot', '\\', '/'], [BASE_URL.($lang ? '/'.P_LANG : ''), '/', '/'], $url);
+    $url = str_replace([ROOT.DS.'webroot', '\\', '/'], [$lang ? base_url(true) : BASE_URL, '/', '/'], $url);
 
     return $url;
 }

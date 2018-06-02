@@ -20,7 +20,7 @@ $css = array(
 	BASE_URL.'/css/pages/pg_'.$_PAGE['get'].'.css'
 );
 if (isset($_PAGE['more_css'])) {
-	foreach ((array) $_PAGE['more_css'] as $v) { $css[] = $v; }// Ajout des fichiers css supplémentaires demandés dans $_PAGE
+	foreach ($_PAGE['more_css'] as $v) { $css[] = $v; }// Ajout des fichiers css supplémentaires demandés dans $_PAGE
 	unset($v);
 }
 
@@ -152,7 +152,10 @@ if (isset($_PAGE['more_css'])) {
 		}
 		?>
 
-		<script type="text/javascript">var corahn_rin = '<?php echo BASE_URL.'/'.P_LANG; ?>';</script>
+		<script type="text/javascript">
+            var corahn_rin = '<?php echo BASE_URL; ?>';
+            var corahn_rin_with_lang = '<?php echo base_url(true); ?>';
+        </script>
 		<?php foreach($js as $v) { ?>
 <script type="text/javascript" src="<?php echo $v; ?>"></script>
 

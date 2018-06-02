@@ -25,6 +25,7 @@ define('CHAR_EXPORT', WEBROOT.DS.'files'.DS.'characters_export');
 ## Chargement des fonctions
 $function_inc = array(
     'arrayDiffRecursive',
+    'base_url',
     'buffwrite',
     'createZip',
     'getPostDatas',

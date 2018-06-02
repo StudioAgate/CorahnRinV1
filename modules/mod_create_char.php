@@ -45,7 +45,7 @@
 	}
 
     $p_action = isset($steps[$page_step+1]) ? mkurl(array('params'=>array($steps[$page_step+1]['mod']))) : '';
-    $p_action = str_replace(BASE_URL.'/'.P_LANG, '', $p_action);
+    $p_action = str_replace(base_url(true), '', $p_action);
 
 	if (isset($steps[$page_step])) {
 
@@ -99,7 +99,7 @@
 			if ($datas['p_prev']) {
 				?><a href="<?php echo $datas['p_prev']; ?>" class="btn" id="gen_prev">&larr; <?php tr("Étape précédente"); ?></a>
 			<?php } ?>
-			<a href="<?php echo isset($_SESSION[$page_mod]) ? BASE_URL.'/'.P_LANG.$datas['p_action'] : '#'; ?>" class="btn<?php echo $datas['p_stepval'] ? ' vsbl' : ''; ?>" id="gen_send"><?php tr("Étape suivante"); ?> &rarr;</a>
+			<a href="<?php echo isset($_SESSION[$page_mod]) ? base_url(true).$datas['p_action'] : '#'; ?>" class="btn<?php echo $datas['p_stepval'] ? ' vsbl' : ''; ?>" id="gen_send"><?php tr("Étape suivante"); ?> &rarr;</a>
 
 			<?php
 				load_module($page_mod, 'module', $datas);
