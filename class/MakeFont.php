@@ -309,7 +309,7 @@ class MakeFont {
 			$info = self::GetInfoFromType1($fontfile, $embed, $map);
 
 		$basename = substr(basename($fontfile), 0, -4);
-		$basename = ROOT.DS.'files'.DS.'fpdf'.DS.'fonts'.DS.$basename;
+		$basename = P_FPDF_FONTPATH.DS.$basename;
 		if($embed) {
 			if(function_exists('gzcompress')) {
 				$file = $basename.'.z';

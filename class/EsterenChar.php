@@ -1686,7 +1686,7 @@ class EsterenChar {
 	private function _make_sheet_from_original($pages = null, $printer_friendly = false) {
 		Translate::$domain = 'character_sheet';
 
-		if ($pages === null) { $pages = array(1,2,3); }
+        if ($pages === null) { $pages = array(1,2,3); }
 
 		$char_name_dest = clean_word($this->get('details_personnage.name'));
 
@@ -1735,6 +1735,7 @@ class EsterenChar {
 			$police_du_texte = $lettrine;
 			$char_name = '';
 			$arr = str_split(ucfirst($this->get('details_personnage.name')));
+
 			foreach ( $arr as $letter ){
 
 				$teststring = $char_name.$letter;
