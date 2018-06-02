@@ -15,4 +15,3 @@
 *.rtf	 diff=astextplain
 *.RTF	 diff=astextplain
 
-*.ttf   binary
