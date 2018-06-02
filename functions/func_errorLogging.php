@@ -97,9 +97,9 @@ function error_logging($errno, $errstr, $errfile, $errline) {
         $msgMail = $msgEcho
             .$trace
             .'<br />Server request:<br /><pre style="font-size: 10px;">'
-            .dump($_SERVER, true)
+            .pr($_SERVER, true)
             .'</pre><br />Backtrace:<br /><pre style="font-size: 10px;">'
-            .dump(debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT), true)
+            .pr(debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT), true)
             .'</pre>';
 
         try {

@@ -31,6 +31,9 @@ class Translate {
         if (!is_dir(ROOT.DS.'translation'.DS.'fr'.DS)) {
             mkdir(ROOT.DS.'translation'.DS.'fr'.DS, 0775, true);
         }
+        if (!is_dir(ROOT.DS.'translation'.DS.'en'.DS)) {
+            mkdir(ROOT.DS.'translation'.DS.'en'.DS, 0775, true);
+        }
         if (!is_dir(ROOT.DS.'translation'.DS.'fr'.DS.'characters'.DS)) {
             mkdir(ROOT.DS.'translation'.DS.'fr'.DS.'characters'.DS, 0775, true);
         }
@@ -146,11 +149,25 @@ class Translate {
 	 */
 	public static function get_words_fr() {
         $dir = ROOT.DS.'translation'.DS.'fr'.DS;
+
+        $files = glob($dir.'*.php');
+        foreach ($files as $file) {
+            if (is_file($file)) {
+                $domain = basename($file, '.php');
+                self::$words_fr[$domain] = require $file;
+            }
+        }
+
         $files = glob($dir.'*.json');
         foreach ($files as $file) {
             if (is_file($file)) {
                 $domain = basename($file, '.json');
+                if (isset(self::$words_fr[$domain])) {
+                    continue;
+                }
                 self::$words_fr[$domain] = json_decode(file_get_contents($file), true);
+                $export = var_export(self::$words_fr[$domain], true);
+                file_put_contents(str_replace('.json', '.php', $file), "<?php return $export;");
             }
         }
 
@@ -172,11 +189,25 @@ class Translate {
 	 */
 	public static function get_words_en() {
         $dir = ROOT.DS.'translation'.DS.'en'.DS;
+
+        $files = glob($dir.'*.php');
+        foreach ($files as $file) {
+            if (is_file($file)) {
+                $domain = basename($file, '.php');
+                self::$words_fr[$domain] = require $file;
+            }
+        }
+
         $files = glob($dir.'*.json');
         foreach ($files as $file) {
             if (is_file($file)) {
                 $domain = basename($file, '.json');
+                if (isset(self::$words_en[$domain])) {
+                    continue;
+                }
                 self::$words_en[$domain] = json_decode(file_get_contents($file), true);
+                $export = var_export(self::$words_en[$domain], true);
+                file_put_contents(str_replace('.json', '.php', $file), "<?php return $export;");
             }
         }
 
@@ -306,8 +337,8 @@ class Translate {
                 if (preg_match('~^characters\.~', $domain)) {
                     $domain = preg_replace('~^characters\.~', 'characters'.DS, $domain);
                 }
-                $words_for_translation = json_encode($words, 480);
-                $octets += (int) file_put_contents(ROOT.DS.'translation'.DS.'fr'.DS.$domain.'.json', $words_for_translation);
+                $export = var_export($words, true);
+                $octets += (int) file_put_contents(ROOT.DS.'translation'.DS.'fr'.DS.$domain.'.php', "<?php return $export;");
                 $files++;
             }
         }
@@ -317,8 +348,8 @@ class Translate {
                 if (preg_match('~^characters\.~', $domain)) {
                     $domain = preg_replace('~^characters\.~', 'characters'.DS, $domain);
                 }
-                $words_for_translation = json_encode($words, 480);
-                $octets += (int) file_put_contents(ROOT.DS.'translation'.DS.'en'.DS.$domain.'.json', $words_for_translation);
+                $export = var_export($words, true);
+                $octets += (int) file_put_contents(ROOT.DS.'translation'.DS.'en'.DS.$domain.'.php', "<?php return $export;");
                 $files++;
             }
         }
