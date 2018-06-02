@@ -44,10 +44,12 @@
 		exit;
 	}
 
-    $p_action = isset($steps[$page_step+1]) ? mkurl(array('params'=>array($steps[$page_step+1]['mod']))) : '';
-    $p_action = str_replace(base_url(true), '', $p_action);
+    $lang = P_LANG;
 
-	if (isset($steps[$page_step])) {
+    $p_action = isset($steps[$page_step+1]) ? mkurl(array('params'=>array($steps[$page_step+1]['mod']))) : '';
+    $p_action = str_replace([base_url(), "/$lang/$lang"], array('', "/$lang"), $p_action);
+
+    if (isset($steps[$page_step])) {
 
 		$datas = array(
 			'steps' => $steps,
