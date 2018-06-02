@@ -194,7 +194,7 @@ class Translate {
         foreach ($files as $file) {
             if (is_file($file)) {
                 $domain = basename($file, '.php');
-                self::$words_fr[$domain] = require $file;
+                self::$words_en[$domain] = require $file;
             }
         }
 
