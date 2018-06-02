@@ -1,19 +1,23 @@
-
+<?php
+use App\Session;
+?>
 <div class="container">
 
 	<div class="hero-unit">
-		<h1><?php tr("Corahn Rin"); ?></h1>
+		<h1><?php
+
+            tr('Corahn Rin'); ?></h1>
 		<h2><?php tr('La plateforme de gestion de personnages pour "Les Ombres d\'Esteren"'); ?></h2>
 		<p><?php tr("Ce générateur permet de créer un personnage pour \"Les Ombres d'Esteren\", directement en ligne, mais également de modifier son contenu, d'assister à des parties et de dépenser ses points d'expérience, et plein d'autres choses encore."); ?></p>
 		<ul>
-			<li><?php tr("Plus besoin de se reporter au livre à chaque étape"); ?></li>
-			<li><?php tr("Peu de valeurs chiffrée pour une immersion maximale dans le personnage"); ?></li>
-		   	<li><?php tr("Très simple : une étape, une information sur le personnage"); ?></li>
-			<li><?php tr("La possibilité de revenir aux étapes précédentes"); ?></li>
+			<li><?php tr('Plus besoin de se reporter au livre à chaque étape'); ?></li>
+			<li><?php tr('Peu de valeurs chiffrée pour une immersion maximale dans le personnage'); ?></li>
+		   	<li><?php tr('Très simple : une étape, une information sur le personnage'); ?></li>
+			<li><?php tr('La possibilité de revenir aux étapes précédentes'); ?></li>
 		</ul>
 		<p><small><?php tr("Deux mots d'ordre : Lisez les instructions, et surtout <strong>immergez-vous dans les Ombres...</strong>"); ?></small></p>
 		<p><?php
-		$anchor = (Session::read('etape') > 1 ? tr("Continuer la création du personnage", true) : tr("Commencer la création d'un personnage", true)) . ' &raquo;';
+		$anchor = (Session::read('etape') > 1 ? tr('Continuer la création du personnage', true) : tr("Commencer la création d'un personnage", true)) . ' &raquo;';
 		echo mkurl(array('val'=>62, 'type' => 'tag', 'anchor' => $anchor, 'attr' => 'class="btn"'));
 		unset($anchor);
 		?></p>

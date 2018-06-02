@@ -53,10 +53,8 @@ function mkurl($base_params = [])
 
     $params = [//On sécurise toutes les variables
         'val'       => is_numeric($params['val']) ? (int) $params['val'] : (string) $params['val'],
-        'field'     => (string) strtolower(
-            (false === strpos($params['field'], 'page_') ? 'page_' : '').$params['field']
-        ),
-        'type'      => (string) strtolower($params['type']),
+        'field'     => strtolower((false === strpos($params['field'], 'page_') ? 'page_' : '').$params['field']),
+        'type'      => strtolower($params['type']),
         'anchor'    => (string) $params['anchor'],
         'ext'       => (string) $params['ext'],
         'get'       => (array) $params['get'],
@@ -156,17 +154,13 @@ function mkurl($base_params = [])
             return $baseUrl.'/'.$params['lang'].'/'.$page['page_getmod'].$all_params.'.'.$params['ext'].($get_params ? $get_params : '');
         }
 
-        if ($params['custom'] === true) {
-            $final = $params['val'];
+        $final = $params['val'];
 
-            if (strpos($final, 'http') === false) {
-                $final = 'http'.(is_ssl() ? 's' : '').'://'.$final;
-            }
-
-            return $final;
+        if (strpos($final, 'http') === false) {
+            $final = 'http'.(is_ssl() ? 's' : '').'://'.$final;
         }
 
-        throw new \RuntimeException('Could not generate an url with specified href...');
+        return $final;
     }
 
     if ($params['type'] === 'tag') {//Création d'une balise <a> complète
@@ -245,10 +239,10 @@ function is_ssl()
         if ('on' === strtolower($_SERVER['HTTPS'])) {
             return true;
         }
-        if ('1' === $_SERVER['HTTPS']) {
+        if (1 === (int) $_SERVER['HTTPS']) {
             return true;
         }
     }
 
-    return isset($_SERVER['SERVER_PORT']) && ('443' === $_SERVER['SERVER_PORT']);
+    return isset($_SERVER['SERVER_PORT']) && (443 === (int) $_SERVER['SERVER_PORT']);
 }

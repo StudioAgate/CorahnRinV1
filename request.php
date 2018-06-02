@@ -138,24 +138,6 @@ if (file_exists($cacheFile) && filemtime($cacheFile) >= (time() - 864000) && $cn
     if ($result) {
         foreach ($result as $data) {
             $_PAGE['list'][$data['page_id']] = $data;
-            if ($_PAGE['get'] === $data['page_getmod'] || $_PAGE['id'] === $data['page_id']) {
-                if (Users::$acl > $data['page_acl'] || (P_LOGGED === false && $data['page_require_login'] === 1)) {
-                    Session::setFlash("Vous n'avez pas les droits pour accéder à cette page.", 'error');
-                    header('Location:'.mkurl(array('val'=>1)));
-                    exit;
-                }
-                $_PAGE['id'] = (int) $data['page_id'];
-                $_PAGE['anchor'] = $data['page_anchor'];
-                $_PAGE['acl'] = (int) $data['page_acl'];
-            }
-            if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], $data['page_getmod']) !== false) {
-                $_PAGE['referer'] = array(
-                    'id' => (int) $data['page_id'],
-                    'getmod' => $data['page_getmod'],
-                    'anchor' => $data['page_anchor'],
-                    'full_url' => $_SERVER['HTTP_REFERER'],
-                );
-            }
         }
         unset($result);
     }
@@ -165,6 +147,27 @@ if (file_exists($cacheFile) && filemtime($cacheFile) >= (time() - 864000) && $cn
     unset($pageToSave['get'], $pageToSave['extension'], $pageToSave['id'], $pageToSave['anchor'], $pageToSave['acl']);
     $pageToSave = var_export($pageToSave, true);
     file_put_contents($cacheFile, "<?php\nreturn $pageToSave;");
+}
+
+foreach ($_PAGE['list'] as $data) {
+    if ($_PAGE['get'] === $data['page_getmod'] || $_PAGE['id'] === $data['page_id']) {
+        if (Users::$acl > $data['page_acl'] || (P_LOGGED === false && $data['page_require_login'] === 1)) {
+            Session::setFlash("Vous n'avez pas les droits pour accéder à cette page.", 'error');
+            header('Location:'.mkurl(array('val'=>1)));
+            exit;
+        }
+        $_PAGE['id'] = (int) $data['page_id'];
+        $_PAGE['anchor'] = $data['page_anchor'];
+        $_PAGE['acl'] = (int) $data['page_acl'];
+    }
+    if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], $data['page_getmod']) !== false) {
+        $_PAGE['referer'] = array(
+            'id' => (int) $data['page_id'],
+            'getmod' => $data['page_getmod'],
+            'anchor' => $data['page_anchor'],
+            'full_url' => $_SERVER['HTTP_REFERER'],
+        );
+    }
 }
 
 if (!$_PAGE['id'] || !isset($_PAGE['list'][$_PAGE['id']])) {
