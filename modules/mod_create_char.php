@@ -101,7 +101,7 @@
 			if ($datas['p_prev']) {
 				?><a href="<?php echo $datas['p_prev']; ?>" class="btn" id="gen_prev">&larr; <?php tr("Étape précédente"); ?></a>
 			<?php } ?>
-			<a href="<?php echo isset($_SESSION[$page_mod]) ? base_url(true).$datas['p_action'] : '#'; ?>" class="btn<?php echo $datas['p_stepval'] ? ' vsbl' : ''; ?>" id="gen_send"><?php tr("Étape suivante"); ?> &rarr;</a>
+			<a href="<?php echo isset($_SESSION[$page_mod]) ? base_url().$datas['p_action'] : '#'; ?>" class="btn<?php echo $datas['p_stepval'] ? ' vsbl' : ''; ?>" id="gen_send"><?php tr("Étape suivante"); ?> &rarr;</a>
 
 			<?php
 				load_module($page_mod, 'module', $datas);
