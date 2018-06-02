@@ -47,7 +47,7 @@
             data : values,
             success : function(msg) {
                 if (empty !== true) {
-                    action = action.replace(base_url, '').replace('/fr/fr','/fr').replace('/en/en', '/en');
+                    action = action.replace(base_url, '').replace(/(\/fr(\/fr)?|\/en(\/en)?)/gi,'');
                     $('#gen_send').delay(1).attr('href', with_lang+action).html(nextsteptranslate).css('visibility', 'visible');
                 } else {
                     $('#gen_send').delay(1).attr('href', '#').html(nextsteptranslate).css('visibility', 'hidden');
