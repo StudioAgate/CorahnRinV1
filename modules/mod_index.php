@@ -1,23 +1,6 @@
 
 <div class="container">
 
-	<p class="info">
-		<?php use App\Session;
-
-        tr('Faites vos propositions !'); ?>
-		<br />
-		<?php tr('Si vous souhaitez contribuer à Corahn-Rin, n\'hésitez pas et postez vos rapports de bug ou vos propositions d\'amélioration sur la page "Redmine" du générateur :'); ?>
-		<br />
-		<?php echo mkurl(array(
-			'val'=>'http://redmine.pierstoval.com/projects/corahn-rin-v1',
-			'custom'=>true,
-            'trans' => true,
-			'anchor'=>'Gestion du projet Corahn-Rin',
-			'type'=>'tag',
-			'attr'=>array('class'=>'btn btn-link newwindow'),
-		)); ?>
-	</p>
-
 	<div class="hero-unit">
 		<h1><?php tr("Corahn Rin"); ?></h1>
 		<h2><?php tr('La plateforme de gestion de personnages pour "Les Ombres d\'Esteren"'); ?></h2>
