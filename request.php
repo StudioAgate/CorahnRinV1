@@ -129,9 +129,7 @@ $_PAGE['list'] = array();
 
 $cacheFile = ROOT.DS.'tmp'.DS.'requestlist.php';
 if (file_exists($cacheFile) && filemtime($cacheFile) >= (time() - 864000) && $cnt = file_get_contents($cacheFile)) {
-    $page = require $cacheFile;
-
-    $_PAGE = array_merge($_PAGE, $page);
+    $_PAGE['list'] = require $cacheFile;
 } else {
     $result = $db->req('SELECT  %page_id, %page_show_in_menu, %page_show_in_debug, %page_getmod, %page_anchor, %page_acl, %page_require_login FROM %%pages ORDER BY %page_anchor ASC');
 
@@ -142,11 +140,28 @@ if (file_exists($cacheFile) && filemtime($cacheFile) >= (time() - 864000) && $cn
         unset($result);
     }
     unset($result, $data);
-
-    $pageToSave = $_PAGE;
-    unset($pageToSave['get'], $pageToSave['extension'], $pageToSave['id'], $pageToSave['anchor'], $pageToSave['acl']);
-    $pageToSave = var_export($pageToSave, true);
+    $pageToSave = var_export($_PAGE['list'], true);
     file_put_contents($cacheFile, "<?php\nreturn $pageToSave;");
+}
+
+if (!$_PAGE['id'] || !isset($_PAGE['list'][$_PAGE['id']])) {
+    $page = null;
+    foreach ($_PAGE['list'] as $id => $data) {
+        if (((string) $data['page_getmod']) === '404') {
+            $page = $data;
+            break;
+        }
+    }
+    if (!$page) {
+        header('HTTP/1.0 404 Not Found');
+        header('Status: 404 Not Found');
+        echo 'Not found.';
+        exit;
+    }
+    $_PAGE['id'] = (int) $page['page_id'];
+    $_PAGE['anchor'] = $page['page_anchor'];
+    $_PAGE['acl'] = (int) $page['page_acl'];
+    $_PAGE['extension'] = 'html';
 }
 
 foreach ($_PAGE['list'] as $data) {
@@ -168,26 +183,6 @@ foreach ($_PAGE['list'] as $data) {
             'full_url' => $_SERVER['HTTP_REFERER'],
         );
     }
-}
-
-if (!$_PAGE['id'] || !isset($_PAGE['list'][$_PAGE['id']])) {
-    $page = null;
-    foreach ($_PAGE['list'] as $id => $data) {
-        if (((string) $data['page_getmod']) === '404') {
-            $page = $data;
-            break;
-        }
-    }
-    if (!$page) {
-        header('HTTP/1.0 404 Not Found');
-        header('Status: 404 Not Found');
-        echo 'Not found.';
-        exit;
-    }
-    $_PAGE['id'] = (int) $page['page_id'];
-    $_PAGE['anchor'] = $page['page_anchor'];
-    $_PAGE['acl'] = (int) $page['page_acl'];
-    $_PAGE['extension'] = 'html';
 }
 
 if (!$_PAGE['extension'] && $_PAGE['get'] !== 'index') {

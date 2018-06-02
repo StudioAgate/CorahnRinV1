@@ -119,4 +119,19 @@
     'source' => 'Trauma-curable',
     'trans' => 'Trauma-curable',
   ),
+  24 => 
+  array (
+    'source' => 'Voies',
+    'trans' => 'Voies',
+  ),
+  25 => 
+  array (
+    'source' => 'Score',
+    'trans' => 'Score',
+  ),
+  26 => 
+  array (
+    'source' => 'Domaine',
+    'trans' => 'Domaine',
+  ),
 );
