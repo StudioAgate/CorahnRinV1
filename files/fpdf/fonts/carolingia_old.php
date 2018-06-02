@@ -20,4 +20,4 @@ $cw = array(
 $enc = 'cp1252';
 $file = ROOT.DS.'files'.DS.'fpdf'.DS.'fonts'.DS.'carolingia_old.z';
 $originalsize = 35692;
-?>
+
