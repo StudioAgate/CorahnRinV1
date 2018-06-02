@@ -10,4 +10,3 @@
 	#RewriteRule ^(.*)$ index.php?request=$1 [L]
 </IfModule>
 ErrorDocument 404 404.html
-
