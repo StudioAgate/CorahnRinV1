@@ -410,12 +410,12 @@ class EsterenChar {
 	 * @param array $pages Contient la listes des pages à générer
 	 * @return mixed False si la fonction n'existe pas ou qu'une erreur est survenue dans la méthode
 	 */
-	public function export_to_img($img_type = 'original', $printer_friendly = false, $pages = array(1,2,3)) {
+	public function export_to_img($img_type = 'original', $printer_friendly = false, $pages = [1,2,3]) {
 
 		$method = '_make_sheet_from_'.$img_type;
 
         if ('original' === $img_type) {
-            return $this->_make_sheet_from_original($printer_friendly);
+            return $this->_make_sheet_from_original($pages, $printer_friendly);
         }
 
         if (method_exists(__CLASS__, $method)) {
