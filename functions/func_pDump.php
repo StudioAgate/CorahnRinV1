@@ -25,8 +25,8 @@ function pr($val, $return = false) {
  * @return string contenant un dump plus agréable de la variable entrée en paramètre
  * @author Pierstoval 26/12/2012
  */
-function p_dump(...$args) {
-    dump(...$args);
+function p_dump() {
+    pr(func_get_args());
 }
 
 function show_globals($glob = array(), $return = false) {

@@ -117,7 +117,6 @@ if ($daols = gv('daols', $before, $after)) {
         }
         foreach ($list as $id => $val) {
             if (isset($val['val'])) {
-//                dump($referenceDomains, $id, $finalDomains);
                 $finalDomains[$referenceDomains[$id]['domain_name']][$type] = $val['val'];
             }
             if (isset($val['disciplines'])) {

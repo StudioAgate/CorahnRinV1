@@ -1,16 +1,13 @@
 <?php
+
 /**
  * Fonction de gestion zip récupérée sur http://php.net/
- *
- * @param array $files Contient la liste des fichiers et du chemin de ceux-ci
- * @param string $destination Destination du fichier zip
- * @param boolean $overwrite Si false, on ne réécrit pas par-dessus. Sinon, on remplace le fichier zip
  */
-function create_zip($files,$destination, $destination_names = array(), $overwrite = true, $debug = false) {
-
-	if(file_exists($destination) && !$overwrite) {//if the zip file already exists and overwrite is false, return false
-		if ($debug === true && P_LOGGED === true) { echo 'Le fichier existe déjà'; }
-		return false;
+function create_zip(array $files, $destination, array $destination_names = array(), $overwrite = true, $debug = false)
+{
+	if(!$overwrite && file_exists($destination)) {
+	    // If file exists and we don't need to recreate it, it's ok
+		return true;
 	}
 
 	$valid_files = $invalid_files = array();//vars
@@ -27,8 +24,8 @@ function create_zip($files,$destination, $destination_names = array(), $overwrit
 
 	if(count($valid_files)) {//if we have good files...
 		$zip = new ZipArchive();//create the archive
-		if($zip->open($destination,$overwrite ? ZIPARCHIVE::OVERWRITE : ZIPARCHIVE::CREATE) !== true) {//try opening zip file
-			return false;
+		if(true !== $zipReturn = $zip->open($destination,ZIPARCHIVE::OVERWRITE | ZIPARCHIVE::CREATE)) {//try opening zip file
+		    throw new \RuntimeException('Zip error: '.zipErrorMessage($zipReturn));
 		}
 
 		foreach($valid_files as $i => $file) {
@@ -46,7 +43,7 @@ function create_zip($files,$destination, $destination_names = array(), $overwrit
 
 		$zip->close();//close the zip -- done!
 
-		if (count($invalid_files) && $debug === true && P_LOGGED === true) {
+		if (P_LOGGED === true && $debug === true && count($invalid_files)) {
 			echo 'Fichiers invalides : ';
 			foreach($invalid_files as $file) {
 				echo '<br />'.$file;
@@ -54,10 +51,68 @@ function create_zip($files,$destination, $destination_names = array(), $overwrit
 		}
 
 		return file_exists($destination);//check to make sure the file exists
-	} else {
-		if ($debug === true && P_LOGGED === true) {
-			echo 'Aucun fichier correct';
-		}
-		return false;
 	}
+
+    if ($debug === true && P_LOGGED === true) {
+        echo 'Aucun fichier correct';
+    }
+
+    return false;
+}
+
+function zipErrorMessage($code)
+{
+    switch (true)
+    {
+        case $code === 0:
+            return 'No error';
+        case $code === 1:
+            return 'Multi-disk zip archives not supported';
+        case $code === 2:
+            return 'Renaming temporary file failed';
+        case $code === 3:
+            return 'Closing zip archive failed';
+        case $code === 4:
+            return 'Seek error';
+        case $code === 5:
+            return 'Read error';
+        case $code === 6:
+            return 'Write error';
+        case $code === 7:
+            return 'CRC error';
+        case $code === 8:
+            return 'Containing zip archive was closed';
+        case $code === 9:
+            return 'No such file';
+        case $code === 10:
+            return 'File already exists';
+        case $code === 11:
+            return 'Can\'t open file';
+        case $code === 12:
+            return 'Failure to create temporary file';
+        case $code === 13:
+            return 'Zlib error';
+        case $code === 14:
+            return 'Malloc failure';
+        case $code === 15:
+            return 'Entry has been changed';
+        case $code === 16:
+            return 'Compression method not supported';
+        case $code === 17:
+            return 'Premature EOF';
+        case $code === 18:
+            return 'Invalid argument';
+        case $code === 19:
+            return 'Not a zip archive';
+        case $code === 20:
+            return 'Internal error';
+        case $code === 21:
+            return 'Zip archive inconsistent';
+        case $code === 22:
+            return 'Can\'t remove file';
+        case $code === 23:
+            return 'Entry has been deleted';
+        default:
+            return 'An unknown error has occurred('.$code.')';
+    }
 }

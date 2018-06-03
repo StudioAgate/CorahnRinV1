@@ -430,7 +430,7 @@ class EsterenChar {
 	 *
 	 * @param string $sheet_style Détermine le type de l'image, cela va lancer la fonction éponyme
 	 * @param boolean $printer_friendly Détermine si l'on crée une image printer friendly ou pas
-	 * @return boolean True si réussi, False sinon
+	 * @return tFPDF|boolean True si réussi, False sinon
 	 */
 	public function export_to_pdf($sheet_style = 'original', $printer_friendly = false) {
 		$method = '_make_pdf_from_'.$sheet_style;
