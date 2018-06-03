@@ -87,15 +87,11 @@ if ($err_type && $err_file) {
 	$file_to_load = ROOT.DS.'logs'.DS.$err_type.DS.$err_file.'.log';
 	$exec_all = array();
 	$exec_sum = 0;
+    $median = 0;
 	if (FileAndDir::fexists($file_to_load)) {
-		$content = FileAndDir::get($file_to_load);
-
-		$content = explode('*|*|*', $content);
-
-		foreach ($content as $k => $v) {
+        foreach (explode('*|*|*', FileAndDir::get($file_to_load)) as $k => $v) {
 			if ($v) {
-				$v = explode('||', $v);
-				foreach ($v as $kk => $vv) {
+                foreach (explode('||', $v) as $kk => $vv) {
 					$vv = explode('=>', $vv);
 					$vv[1] = json_decode(isset($vv[1]) ? $vv[1] : null, true);
 					if (!isset($fields[$vv[0]])) { $fields[$vv[0]] = 1; }
@@ -109,22 +105,27 @@ if ($err_type && $err_file) {
 
 	$exec = false;
 	if (!empty($exec_all)) {
+	    $length = count($exec_all);
 		$exec = true;
 		$exec_max = max($exec_all);
-		$exec_sum = $exec_sum / count($exec_all);
+		$exec_sum /= $length;
 		$exec_min = min($exec_all);
+        sort($exec_all);
+        $key = (int) round($length / 2);
+        $median = $exec_all[$key];
 	}
 	unset($exec_all);
 	rsort($contents);
 
 	?>
-		<h3><?php echo $types_ok[$err_type]; ?> <small>le <?php echo $err_file; ?></small></h3>
+		<h3><?php echo $types_ok[$err_type]; ?> (ms) <small>le <?php echo $err_file; ?></small></h3>
 			<?php
 			unset($types_ok, $err_type, $err_file);
 			if ($exec === true) { ?>
 			<table class="table"><tr>
 				<td class="maxval"><?php tr('Temps maximum'); ?> : <strong><?php echo number_format($exec_max, 4, ',', ' '); ?></strong> <span class="icon-search"></span></td>
 				<td class="medval"><?php tr('Temps moyen'); ?> : <strong><?php echo number_format($exec_sum, 4, ',', ' '); ?></strong></td>
+				<td class="medval"><?php tr('Temps médian'); ?> : <strong><?php echo number_format($median, 4, ',', ' '); ?></strong></td>
 				<td class="minval"><?php tr('Temps minimum'); ?> : <strong><?php echo number_format($exec_min, 4, ',', ' '); ?></strong> <span class="icon-search"></span></td>
 			</tr></table>
 			<?php }

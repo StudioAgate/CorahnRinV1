@@ -24,4 +24,9 @@
     'source' => 'Temps minimum',
     'trans' => 'Temps minimum',
   ),
+  5 => 
+  array (
+    'source' => 'Temps médian',
+    'trans' => 'Temps médian',
+  ),
 );
