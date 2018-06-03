@@ -15,7 +15,7 @@ function pr($val, $return = false) {
 		return ob_get_clean();
 	}
 
-    echo p_dump($val);
+    dump($val);
 }
 
 /**
@@ -27,20 +27,4 @@ function pr($val, $return = false) {
  */
 function p_dump() {
     pr(func_get_args());
-}
-
-function show_globals($glob = array(), $return = false) {
-
-	foreach($glob as $k => $v) {
-		if (0 === strpos($k, '_')
-		// && $k !== '_PAGE'
- 		) { unset($glob[$k]); }
-		if (is_object($v)) { $v = 'Object'.get_class($v); $glob[$k] = $v; }
-	}
-
-	if ($return === true) { return $glob; }
-
-    pr($glob);
-
-    return true;
 }
