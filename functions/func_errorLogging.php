@@ -52,10 +52,6 @@ function error_logging($errno, $errstr, $errfile, $errline) {
 		E_USER_DEPRECATED => 'Technique dépréciée (utilisateur)',
 	);
 
-	$output = '';
-	if (isset($phpType[$errno])) {
-		$output = $phpType[$errno];
-	}
 	if (isset($humanType[$errno])) {
 		$error_file = ROOT.DS.'logs'.DS.'error_tracking'.DS.date('Y.m.d').'.log';
 		$errfile = str_replace(ROOT, '', $errfile);
@@ -94,21 +90,48 @@ function error_logging($errno, $errstr, $errfile, $errline) {
 
         $msgEcho = $humanType[$errno].' - <span class="underline">'.date(DATE_RFC822).'</span>';
         $trace = '<br />Message : <small>'.$errstr.'</small>';
+
+        $servKeys = [
+            'HTTP_COOKIE',
+            'HTTP_USER_AGENT',
+            'REMOTE_ADDR',
+            'REQUEST_URI',
+            'REQUEST_METHOD',
+            'QUERY_STRING',
+        ];
+
+        $serv = [];
+        foreach ($servKeys as $key) {
+            $serv[$key] = isset($_SERVER[$key]) ? $_SERVER[$key] : null;
+        }
+
+        $ref = new ReflectionClass(Users::class);
+        $user = $ref->getStaticProperties();
+        $userData = [
+            'id' => $user['id'],
+            'name' => $user['name'],
+            'email' => $user['email'],
+        ];
+
         $msgMail = $msgEcho
             .$trace
             .'<br />Server request:<br /><pre style="font-size: 10px;">'
-            .pr($_SERVER, true)
+            .pr($serv, true)
+            .'<br />Connected user:<br /><pre style="font-size: 10px;">'
+            .pr($userData, true)
             .'</pre><br />Backtrace:<br /><pre style="font-size: 10px;">'
-            .pr(debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT), true)
+            .pr(debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS), true)
             .'</pre>';
 
         try {
             if (Users::$acl <= 20) {
-                $ref = new ReflectionClass(Users::class);
-                $user = $ref->getStaticProperties();
                 $p = $_PAGE;
                 unset($p['list']);
-                $msgEcho .= $trace."<br />\n".pr(array('_PAGE' => $p, '_SERVER' => $_SERVER, 'User' => $user), true);
+                $msgEcho .= $trace."<br />\n".pr(array(
+                    '_PAGE' => $p,
+                    '_SERVER' => $serv,
+                    'User' => $userData
+                ), true);
             }
             $msgEcho .= '<br /><br />'.tr('Veuillez envoyer ce message à l\'administrateur du site', true, array(), 'general');
             if ($_SERVER['REMOTE_ADDR'] !== '127.0.0.1') {
