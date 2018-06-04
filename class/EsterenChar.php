@@ -930,7 +930,7 @@ class EsterenChar {
 		if (isset($char['revers'])) {
 			if (is_array($char['revers']) && !empty($char['revers']) && $char['revers'] !== array(0=>'0')) {
 				$char['revers'] = array_map('intval', $char['revers']);
-				$t = $this->db->req('SELECT %rev_id,%rev_name,%rev_desc,%rev_malus FROM %%revers WHERE %rev_id IN ('.implode(',', $char['revers']).')');
+				$t = $this->db->req('SELECT %rev_id,%rev_name,%rev_desc,%rev_malus FROM %%revers WHERE %rev_id IN ('.implode(',', $char['revers']).')') ?: [];
 				$revers = array();
 				foreach($t as $v) {
 					$revers[$v['rev_id']] = array(
