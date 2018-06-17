@@ -45,6 +45,9 @@ if ($request) {
 	if ('index.php' === $lang) {
 	    $lang = array_shift($request);
     }
+    if (!$lang) {
+        $lang = 'fr';
+    }
 	$getmod = array_shift($request);
 	if ($lang === $getmod) {
 	    // Fix this stupid thing that happens when uri has twice the language in the url.
