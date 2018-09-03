@@ -74,4 +74,9 @@
     'source' => 'Déconnexion',
     'trans' => 'Déconnexion',
   ),
+  15 => 
+  array (
+    'source' => 'Crééer un personnage',
+    'trans' => 'Crééer un personnage',
+  ),
 );

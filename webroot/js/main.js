@@ -42,7 +42,7 @@
             window.xhr.ajaxStop();
         }
         window.xhr = $.ajax({
-            url : with_lang+'/ajax/aj_genmaj.php',
+            url : with_lang+'/ajax/aj_genmaj',
             type : 'post',
             data : values,
             success : function(msg) {

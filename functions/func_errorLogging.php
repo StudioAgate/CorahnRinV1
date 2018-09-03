@@ -14,6 +14,11 @@ use App\Users;
  */
 function error_logging($errno, $errstr, $errfile, $errline) {
 	global $_PAGE;
+
+	if ($errno === E_USER_DEPRECATED) {
+	    return;
+    }
+
 	$phpType = array(
 		0 => 'UNCAUGHT EXCEPTION',
 		E_ERROR => 'E_ERROR',
@@ -86,7 +91,9 @@ function error_logging($errno, $errstr, $errfile, $errline) {
 		} elseif ($errno & (E_NOTICE | E_USER_NOTICE | E_PARSE | E_USER_DEPRECATED | E_DEPRECATED | E_STRICT)) {
 			$errclass = 'notif';
 		}
-		if (strpos($_SERVER['HTTP_HOST'], '127\.0\.0\.1') !== false || (defined('P_DEBUG') && P_DEBUG === true)) { $errstr .= ' in file : <strong>'.$errfile.'</strong> on line <strong><span class="underline">'.$errline.'</span></strong>'; }
+		if (true === P_DEBUG) {
+		    $errstr .= ' in file : <strong>'.$errfile.'</strong> on line <strong><span class="underline">'.$errline.'</span></strong>';
+		}
 
         $msgEcho = $humanType[$errno].' - <span class="underline">'.date(DATE_RFC822).'</span>';
         $trace = '<br />Message : <small>'.$errstr.'</small>';
@@ -124,7 +131,7 @@ function error_logging($errno, $errstr, $errfile, $errline) {
             .'</pre>';
 
         try {
-            if (Users::$acl <= 20) {
+            if (true === P_DEBUG) {
                 $p = $_PAGE;
                 unset($p['list']);
                 $msgEcho .= $trace."<br />\n".pr(array(
@@ -134,9 +141,8 @@ function error_logging($errno, $errstr, $errfile, $errline) {
                 ), true);
             }
             $msgEcho .= '<br /><br />'.tr('Veuillez envoyer ce message à l\'administrateur du site', true, array(), 'general');
-            if ($_SERVER['REMOTE_ADDR'] !== '127.0.0.1') {
-		        send_mail(P_ERROR_MAIL_TO, 'Error !', $msgMail, 0, P_ERROR_MAIL_FROM);
-            }
+
+            send_mail(P_ERROR_MAIL_TO, 'Error !', $msgMail, 0, P_ERROR_MAIL_FROM);
         } catch (Exception $e) {}
 		echo '<pre class="thrown_error '.$errclass.'">'.$msgEcho.'</pre>';
 		if ($errno & (E_ERROR | E_CORE_ERROR | E_COMPILE_ERROR | E_USER_ERROR)) {
