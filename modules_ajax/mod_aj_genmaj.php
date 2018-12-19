@@ -15,7 +15,7 @@ if (!empty($_POST)) {
 		}
 	}
 
-	$_SESSION['etape'] = isset($_POST['etape']) ? $_POST['etape'] : (isset($_SESSION['etape']) ? $_SESSION['etape'] : '');//Génère l'étape envoyée en post
+	$_SESSION['etape'] = $_POST['etape'] ?? $_SESSION['etape'] ?? '';//Génère l'étape envoyée en post
 	$_SESSION['etape'] = (int) $_SESSION['etape'];
 
 	foreach($steps as $etape => $val) {
@@ -54,9 +54,9 @@ if (!empty($_POST)) {
 
 	// Création de la variable si elle existe dans POST ou dans SESSION
     if (isset($_SESSION[$stepname])) {
-        $_SESSION[$stepname] = isset($_POST[$stepname]) ? $_POST[$stepname] : $_SESSION[$stepname];
+        $_SESSION[$stepname] = $_POST[$stepname] ?? $_SESSION[$stepname];
     } else {
-        $_SESSION[$stepname] = isset($_POST[$stepname]) ? $_POST[$stepname] : '';
+        $_SESSION[$stepname] = $_POST[$stepname] ?? '';
     }
 
 	if (is_numeric($_SESSION[$stepname])) {
@@ -138,7 +138,7 @@ if (!empty($_POST)) {
 		if (isset($_SESSION[$steps[10]['mod']])) {
 			unset($_SESSION[$steps[10]['mod']]);
 		}
-		if (!preg_match('#^[0-9]+(,[0-9]+)+$#isU', $_SESSION[$stepname])) {
+		if (!preg_match('#^\d+(,\d+)+$#U', $_SESSION[$stepname])) {
 			unset($_SESSION[$stepname]);
 			$_SESSION['etape']--;
 		} else {
@@ -151,7 +151,7 @@ if (!empty($_POST)) {
 	}
 
 	if (strpos($stepname, 'traits') !== false) {
-		if (!preg_match('#^[0-9]+(,[0-9]+)*$#isU', $_SESSION[$stepname])) {
+		if (!preg_match('#^\d+(,\d+)*$#U', $_SESSION[$stepname])) {
 			echo 'ok';
 			unset($_SESSION[$stepname]);
 			$_SESSION['etape']--;
@@ -168,9 +168,9 @@ if (!empty($_POST)) {
 		if (!$_SESSION[$stepname]) {
 			$_SESSION[$stepname] = array();
 		}
-		$_SESSION[$stepname]['avantages'] = isset($_SESSION[$stepname]['avantages']) ? $_SESSION[$stepname]['avantages'] : array();
-		$_SESSION[$stepname]['desavantages'] = isset($_SESSION[$stepname]['desavantages']) ? $_SESSION[$stepname]['desavantages'] : array();
-		foreach ($_SESSION[$stepname]['desavantages'] as $key => $val) {
+		$_SESSION[$stepname]['avantages'] = $_SESSION[$stepname]['avantages'] ?? [];
+        $_SESSION[$stepname]['desavantages'] = $_SESSION[$stepname]['desavantages'] ?? [];
+        foreach ($_SESSION[$stepname]['desavantages'] as $key => $val) {
 			if (!$val) { unset($_SESSION[$stepname]['desavantages'][$key]); }
 		}
 		foreach ($_SESSION[$stepname]['avantages'] as $key => $val) {
@@ -198,8 +198,13 @@ if (!empty($_POST)) {
 			if (empty($_SESSION[$stepname])) { $_SESSION[$stepname] = array(); }
 		} else {
 			if (strpos($stepname, 'domaines_primsec') !== false) {
-				$_SESSION[$stepname]['ost'] = isset($_POST['ost']) ? $_POST['ost'] : 2;
-				if (isset($_POST['lettre'])) { $_SESSION[$stepname]['lettre'] = (int) $_POST['lettre']; }
+			    if (!isset($_SESSION[$stepname])) {
+                    $_SESSION[$stepname] = [];
+			    }
+				$_SESSION[$stepname]['ost'] = $_POST['ost'] ?? 2;
+                if (isset($_POST['lettre'])) {
+                    $_SESSION[$stepname]['lettre'] = (int) $_POST['lettre'];
+                }
 			}
 			if (!is_array($_SESSION[$stepname])) {
 				unset($_SESSION[$stepname]);
@@ -213,7 +218,7 @@ if (!empty($_POST)) {
 	}
 	if (strpos($stepname, 'xpdom') !== false) {
 		unset($_SESSION[$stepname][0]);
-		if (!preg_match('#^([0-9]+,)+[0-9]+$#isU', implode(',', $_SESSION[$stepname]))) {
+		if (!preg_match('#^(\d+,)+\d+$#U', implode(',', $_SESSION[$stepname]))) {
 			unset($_SESSION[$stepname]);
 			$_SESSION['etape']--;
 		} else {
@@ -240,11 +245,11 @@ if (!empty($_POST)) {
 	}
 
 	if (strpos($stepname, 'equipements') !== false) {
-		$_SESSION[$stepname]['arme'] = (array) array_map('intval', (array) (isset($_SESSION[$stepname]['arme']) ? $_SESSION[$stepname]['arme'] : array()));
-		$_SESSION[$stepname]['armure'] = (array) array_map('intval', (array) (isset($_SESSION[$stepname]['armure']) ? $_SESSION[$stepname]['armure'] : array()));
-	}
+		$_SESSION[$stepname]['arme'] = array_map('intval', (array) ($_SESSION[$stepname]['arme'] ?? []));
+        $_SESSION[$stepname]['armure'] = array_map('intval', (array) ($_SESSION[$stepname]['armure'] ?? []));
+    }
 
-	if (isset($_POST['bonusdom'])) { $_SESSION['bonusdom'] = $_POST['bonusdom']; }
+    if (isset($_POST['bonusdom'])) { $_SESSION['bonusdom'] = $_POST['bonusdom']; }
 
 	$_SESSION['etape']++;
 
