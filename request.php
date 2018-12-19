@@ -185,7 +185,7 @@ foreach ($_PAGE['list'] as $data) {
         $_PAGE['anchor'] = $data['page_anchor'];
         $_PAGE['acl'] = (int) $data['page_acl'];
     }
-    if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], $data['page_getmod']) !== false) {
+    if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], (string)$data['page_getmod']) !== false) {
         $_PAGE['referer'] = array(
             'id' => (int) $data['page_id'],
             'getmod' => $data['page_getmod'],
