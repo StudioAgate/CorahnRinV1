@@ -1,52 +1,50 @@
 Corahn-Rin, le générateur de personnages
-========================
+========================================
 
 Cette web-application vous permet d'étendre votre expérience de jeu pour le jeu de rôle [Les Ombres d'Esteren](http://www.esteren.org/).
 
-Le site est accessible ici : http://jdr.pierstoval.com/esteren/fr
+Le site est accessible ici : https://jdr.pierstoval.com/esteren/fr
 
 :warning: Vous avez le droit d'utiliser et de modifier cette repository, mais pas d'en faire une utilisation commerciale.
 
-:warning: Tous les contenus relatifs au jeu de rôle Les Ombres d'Esteren écrits dans cette repository appartiennent à Agate Éditions et sont créés par l'association Forgesonges, et aucune reproduction de ces contenus n'est autorisée sans l'accord explicite de leurs auteurs.
+:warning: Tous les contenus relatifs au jeu de rôle Les Ombres d'Esteren écrits dans cette repository appartiennent à Agate Éditions, et aucune reproduction de ces contenus n'est autorisée sans l'accord explicite de leurs auteurs.
 Ces contenus incluent tous les textes écrits dans chacune des 20 étapes de création de personnage.
 
+# Installation
 
-1) Installation
-----------------------------------
+Utilisez Docker Compose (compatible toutes plateformes) :
 
-Installez l'application sur votre serveur (local ou distant).
+```
+# Installe un fichier de config par défaut (et fonctionnel)
+$ cp config.php.dist config.php
 
-Copiez et collez le fichier `config.php` à partir du fichier `config.php.dist` à la racine pour bien y marquer les données de connexion à votre base de données et d'autres infos relatives aux e-mails.
+# Télécharger les images & les démarrer
+$ docker-compose up -d
 
-Une fois fait, la structure de la base de données est située dans `docker/mysql/install.sql`, vous devez importer manuellement ce fichier pour obtenir les données de base du générateur.
+# Installer la base de données d'exemple
+$ docker-compose exec mysql bash install_database.bash
+```
 
-Si vous utilisez *Docker*, vous pouvez installer les containers principaux avec la commande `docker-compose up -d`.
+# Debug mode
 
-Si vous utilisez *Docker*, vous pouvez installer les containers principaux avec la commande `docker-compose up -d`.
+Pour activer le mode debug, ouvrez le fichier `config.php` et placez-y ceci si ce n'est pas déjà fait :
 
-Vous devrez néanmoins exécuter la commande `docker-compose exec mysql bash install_database.bash`,
-pour installer la base de données.
+```php
+define('P_DEBUG', true);
+```
+ 
+Pour activer le mode debug lors de la création de personnage, faites en sorte que `showMsg` soit systématiquement égal à `true` dans [webroot/js/main.js](webroot/js/main.js#L33), de cette façon, à chaque modification du personnage via AJAX, la réponse du serveur sera affichée dans la page.
+En plus de ça, vous pouvez voir l'actuelle valeur de l'étape dans le personnage en cours de création, il suffit de remplacer `/*` par `//*` à [cet endroit dans le module `create_char`](modules/mod_create_char.php#L65)
 
-2) Debug mode
---------------------------------
-
-Vérifier que le debug mode est bien actif dans [app.php](app.php#L113).
-Pour activer le mode debug lors de la création de personnage, faites en sorte que `showMsg` soit systématiquement égal à `true` dans [webroot/js/main.js](webroot/js/main.js#L52), de cette façon, à chaque modif du personnage via AJAX, la réponse du serveur sera affichée dans la page.
-En plus de ça, vous pouvez voir l'actuelle valeur de l'étape dans le personnage en cours de création, il suffit de supprimer le commentaire de [ce code, dans le module `create_char`](modules/mod_create_char.php#L60-L67)
-
-3) Administration
---------------------------------
+# Administration
+----------------
 
 Le compte administrateur est `admin`, le mot de passe est le même. Si votre compte comporte un niveau d'ACL minimum, vous aurez normalement accès à toute l'administration. Attention à ne pas tout modifier !
 
 Pour toute question, envoyez un mail à pierstoval@gmail.com !
 
-4) Bugs
---------------------------------
+# Bugs
 
-Vous pouvez rapporter un bug de deux façons différentes :
-
-* Utiliser le [bug tracker](//github.com/Pierstoval/Esteren/issues) de Github.
-* Utiliser la plateforme Redmine, le gestionnaire de projets que l'équipe d'Esteren utilise pour gérer tous les projets de la gamme, en créant un nouveau ticket directement via ce lien : http://redmine.pierstoval.com/projects/corahn-rin-v1/issues/new
+Utiliser le [bug tracker](https://github.com/StudioAgate/CorahnRinV1/issues) de Github.
 
 Enjoy!

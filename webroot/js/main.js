@@ -30,6 +30,7 @@
      * @author Pierstoval
      */
     function sendMaj(values, action, empty, show_msg) {
+        show_msg = show_msg || false;
         if (empty !== true) {
             $('#gen_send').html('<img src=\"'+base_url.replace(/(\/fr|\/en)/gi,'')+'/img/ajax-loader.gif\" />').css('visibility', 'visible');
         } else {
