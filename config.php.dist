@@ -1,26 +1,20 @@
 <?php
 
 ## Constantes concernant la BDD
-define('P_DB_HOST', '127.0.0.1');
-define('P_DB_USER', 'root');
-define('P_DB_PWD', '');
-define('P_DB_DBNAME', 'esteren');
+define('P_DB_HOST', 'mysql');
+define('P_DB_USER', 'corahnrin');
+define('P_DB_PWD', 'corahnrin');
+define('P_DB_DBNAME', 'corahnrin');
 define('P_DB_PREFIX', 'est_');
 
-## Détermine si les erreurs seront affichées
-define('P_DB_INITERRORS', false);
-
-## Détermine quel type d'erreur sera envoyé
-define('P_DB_ERROR_TYPE', 'notice');
-
-define('P_DEBUG', Users::$id === 1);
+define('P_DEBUG', true);
 
 ## Constantes liées aux envois de mail
 define('P_ERROR_MAIL_TO', 'me@domain.com');
 define('P_ERROR_MAIL_FROM', 'me@domain.com');
 
 ##Constantes liées à PHP Mailer
-define('P_MAIL_SMTP_HOST', '127.0.0.1');
+define('P_MAIL_SMTP_HOST', '127.0.0.1:11080');
 define('P_MAIL_SMTP_USER', 'me@domain.com');
 define('P_MAIL_SMTP_PASSWORD', '');
 define('P_MAIL_SMTP_SECURE', 'TLS');

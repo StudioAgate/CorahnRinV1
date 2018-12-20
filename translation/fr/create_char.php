@@ -3914,4 +3914,9 @@
     'source' => 'Alchimiste',
     'trans' => 'Alchimiste',
   ),
+  783 => 
+  array (
+    'source' => 'Crééer un personnage',
+    'trans' => 'Crééer un personnage',
+  ),
 );

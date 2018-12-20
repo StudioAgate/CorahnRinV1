@@ -10,9 +10,12 @@
 -- Base de données: `db457938209`
 -- 
 
--- Décommentez ces deux lignes si vous souhaitez réinitialiser totalement la base de données
--- DROP DATABASE IF EXISTS `esteren`;
--- CREATE DATABASE `esteren` DEFAULT CHARACTER SET "utf8" COLLATE utf8_unicode_ci;
+SET NAMES "utf8";
+
+DROP DATABASE IF EXISTS `corahnrin`;
+CREATE DATABASE `corahnrin` DEFAULT CHARACTER SET "utf8" COLLATE utf8_unicode_ci;
+
+USE `corahnrin`;
 
 -- --------------------------------------------------------
 
@@ -20,6 +23,7 @@
 -- Structure de la table `est_armes`
 -- 
 
+DROP TABLE IF EXISTS `est_armes`;
 CREATE TABLE `est_armes` (
   `arme_id` int(11) NOT NULL AUTO_INCREMENT,
   `arme_name` varchar(50) NOT NULL,
@@ -60,6 +64,7 @@ INSERT INTO `est_armes` (`arme_id`, `arme_name`, `arme_dmg`, `arme_prix`, `arme_
 -- Structure de la table `est_armures`
 -- 
 
+DROP TABLE IF EXISTS `est_armures`;
 CREATE TABLE `est_armures` (
   `armure_id` int(11) NOT NULL AUTO_INCREMENT,
   `armure_name` varchar(50) NOT NULL,
@@ -95,6 +100,7 @@ INSERT INTO `est_armures` (`armure_id`, `armure_name`, `armure_desc`, `armure_pr
 -- Structure de la table `est_avantages`
 -- 
 
+DROP TABLE IF EXISTS `est_avantages`;
 CREATE TABLE `est_avantages` (
   `avtg_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `avtg_name` varchar(50) NOT NULL,
@@ -147,6 +153,7 @@ INSERT INTO `est_avantages` (`avtg_id`, `avtg_name`, `avtg_xp`, `avtg_desc`, `av
 -- Structure de la table `est_avdesv`
 -- 
 
+DROP TABLE IF EXISTS `est_avdesv`;
 CREATE TABLE `est_avdesv` (
   `avdesv_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `avdesv_type` enum('avtg','desv') NOT NULL DEFAULT 'avtg',
@@ -223,6 +230,7 @@ INSERT INTO `est_avdesv` (`avdesv_id`, `avdesv_type`, `avdesv_name`, `avdesv_nam
 -- Structure de la table `est_characters`
 -- 
 
+DROP TABLE IF EXISTS `est_characters`;
 CREATE TABLE `est_characters` (
   `char_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `char_name` varchar(255) NOT NULL,
@@ -246,6 +254,7 @@ CREATE TABLE `est_characters` (
 -- Structure de la table `est_charmod`
 -- 
 
+DROP TABLE IF EXISTS `est_charmod`;
 CREATE TABLE `est_charmod` (
   `charmod_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `charmod_date` bigint(20) unsigned NOT NULL,
@@ -264,6 +273,7 @@ CREATE TABLE `est_charmod` (
 -- Structure de la table `est_desavantages`
 -- 
 
+DROP TABLE IF EXISTS `est_desavantages`;
 CREATE TABLE `est_desavantages` (
   `desv_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `desv_name` varchar(50) NOT NULL,
@@ -308,6 +318,7 @@ INSERT INTO `est_desavantages` (`desv_id`, `desv_name`, `desv_xp`, `desv_desc`, 
 -- Structure de la table `est_desordres`
 -- 
 
+DROP TABLE IF EXISTS `est_desordres`;
 CREATE TABLE `est_desordres` (
   `desordre_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `desordre_name` varchar(255) NOT NULL,
@@ -337,6 +348,7 @@ INSERT INTO `est_desordres` (`desordre_id`, `desordre_name`, `desordre_voies_maj
 -- Structure de la table `est_discdoms`
 -- 
 
+DROP TABLE IF EXISTS `est_discdoms`;
 CREATE TABLE `est_discdoms` (
   `discdoms_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `disc_id` smallint(5) unsigned NOT NULL,
@@ -477,6 +489,7 @@ INSERT INTO `est_discdoms` (`discdoms_id`, `disc_id`, `domain_id`) VALUES (1, 1,
 -- Structure de la table `est_disciplines`
 -- 
 
+DROP TABLE IF EXISTS `est_disciplines`;
 CREATE TABLE `est_disciplines` (
   `disc_id` int(11) NOT NULL AUTO_INCREMENT,
   `disc_name` varchar(50) NOT NULL,
@@ -605,6 +618,7 @@ INSERT INTO `est_disciplines` (`disc_id`, `disc_name`, `disc_rang`) VALUES (1, '
 -- Structure de la table `est_domains`
 -- 
 
+DROP TABLE IF EXISTS `est_domains`;
 CREATE TABLE `est_domains` (
   `domain_id` int(22) unsigned NOT NULL AUTO_INCREMENT,
   `domain_name` varchar(100) NOT NULL,
@@ -640,6 +654,7 @@ INSERT INTO `est_domains` (`domain_id`, `domain_name`, `voie_id`, `domain_desc`)
 -- Structure de la table `est_games`
 -- 
 
+DROP TABLE IF EXISTS `est_games`;
 CREATE TABLE `est_games` (
   `game_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `game_name` varchar(255) NOT NULL,
@@ -655,6 +670,7 @@ CREATE TABLE `est_games` (
 -- Structure de la table `est_jobdomains`
 -- 
 
+DROP TABLE IF EXISTS `est_jobdomains`;
 CREATE TABLE `est_jobdomains` (
   `jobdomain_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `job_id` int(10) unsigned NOT NULL,
@@ -744,6 +760,7 @@ INSERT INTO `est_jobdomains` (`jobdomain_id`, `job_id`, `domain_id`, `jobdomain_
 -- Structure de la table `est_jobs`
 -- 
 
+DROP TABLE IF EXISTS `est_jobs`;
 CREATE TABLE `est_jobs` (
   `job_id` tinyint(22) unsigned NOT NULL AUTO_INCREMENT,
   `job_name` varchar(255) NOT NULL,
@@ -790,6 +807,7 @@ INSERT INTO `est_jobs` (`job_id`, `job_name`, `job_desc`, `job_book`) VALUES (1,
 -- Structure de la table `est_mails`
 -- 
 
+DROP TABLE IF EXISTS `est_mails`;
 CREATE TABLE `est_mails` (
   `mail_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `mail_code` varchar(100) NOT NULL,
@@ -812,6 +830,7 @@ INSERT INTO `est_mails` (`mail_id`, `mail_code`, `mail_contents`, `mail_subject`
 -- Structure de la table `est_mails_sent`
 -- 
 
+DROP TABLE IF EXISTS `est_mails_sent`;
 CREATE TABLE `est_mails_sent` (
   `mail_sent_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `mail_id` int(10) unsigned DEFAULT NULL,
@@ -828,12 +847,13 @@ CREATE TABLE `est_mails_sent` (
 -- Structure de la table `est_pages`
 -- 
 
+DROP TABLE IF EXISTS `est_pages`;
 CREATE TABLE `est_pages` (
   `page_id` int(20) unsigned NOT NULL AUTO_INCREMENT,
   `page_show_in_menu` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `page_show_in_debug` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `page_getmod` varchar(30) NOT NULL,
-  `page_anchor` varchar(75) NOT NULL,
+  `page_anchor` varchar(75) NOT NULL COLLATE utf8_unicode_ci,
   `page_acl` smallint(5) unsigned NOT NULL DEFAULT '50',
   `page_require_login` tinyint(3) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`page_id`),
@@ -864,7 +884,7 @@ INSERT INTO `est_pages` (`page_id`, `page_show_in_menu`, `page_show_in_debug`, `
 (59, 0, 1, 'admin_errors', 'Gestion des erreurs', 10, 0),
 (60, 0, 1, 'campaigns', 'Mes campagnes', 50, 1),
 (61, 0, 0, 'create_campaign', 'Créer une campagne', 50, 1),
-(62, 1, 0, 'create_char', 'Créer un personnage', 50, 0),
+(62, 1, 0, 'create_char', 'Crééer un personnage', 50, 0),
 (63, 0, 0, 'spend_exp', 'Dépenser de l''expérience', 50, 1),
 (64, 0, 0, 'mail', 'Envoyer un mail', 50, 0),
 (65, 0, 1, 'admin_campaigns', 'Gestion des campagnes', 0, 1),
@@ -876,6 +896,7 @@ INSERT INTO `est_pages` (`page_id`, `page_show_in_menu`, `page_show_in_debug`, `
 -- Structure de la table `est_regions`
 -- 
 
+DROP TABLE IF EXISTS `est_regions`;
 CREATE TABLE `est_regions` (
   `region_id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
   `region_name` varchar(50) NOT NULL,
@@ -928,6 +949,7 @@ INSERT INTO `est_regions` (`region_id`, `region_name`, `region_desc`, `region_ki
 -- Structure de la table `est_revers`
 -- 
 
+DROP TABLE IF EXISTS `est_revers`;
 CREATE TABLE `est_revers` (
   `rev_id` tinyint(11) NOT NULL AUTO_INCREMENT,
   `rev_name` varchar(50) NOT NULL,
@@ -957,6 +979,7 @@ INSERT INTO `est_revers` (`rev_id`, `rev_name`, `rev_desc`, `rev_malus`) VALUES 
 -- Structure de la table `est_steps`
 -- 
 
+DROP TABLE IF EXISTS `est_steps`;
 CREATE TABLE `est_steps` (
   `gen_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `gen_step` int(10) unsigned NOT NULL,
@@ -997,6 +1020,7 @@ INSERT INTO `est_steps` (`gen_id`, `gen_step`, `gen_mod`, `gen_anchor`) VALUES (
 -- Structure de la table `est_traitscaractere`
 -- 
 
+DROP TABLE IF EXISTS `est_traitscaractere`;
 CREATE TABLE `est_traitscaractere` (
   `trait_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `trait_name` varchar(50) NOT NULL,
@@ -1106,6 +1130,7 @@ INSERT INTO `est_traitscaractere` (`trait_id`, `trait_name`, `trait_name_female`
 -- Structure de la table `est_users`
 -- 
 
+DROP TABLE IF EXISTS `est_users`;
 CREATE TABLE `est_users` (
   `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_name` varchar(255) NOT NULL,
@@ -1132,6 +1157,7 @@ VALUES (1, 'admin', '5ff72db64a44df9364e9ab1f8c61de6d9c97d9d6', 'admin@localhost
 -- Structure de la table `est_voies`
 -- 
 
+DROP TABLE IF EXISTS `est_voies`;
 CREATE TABLE `est_voies` (
   `voie_id` tinyint(4) unsigned NOT NULL AUTO_INCREMENT,
   `voie_shortname` varchar(3) NOT NULL,

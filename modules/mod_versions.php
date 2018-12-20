@@ -106,7 +106,7 @@ unset($v, $comment, $task, $day, $month, $year, $date, $code, $element, $version
 							}
 						} elseif ($task['name']) {
 							foreach($pagelist as $get => $id) {
-								if (strpos($task['name'], $get) !== false) {
+								if (strpos($task['name'], (string) $get) !== false) {
 									if ($_PAGE['list'][$id]['page_anchor']) {
 										$element = $_PAGE['list'][$id]['page_anchor'];
 									}

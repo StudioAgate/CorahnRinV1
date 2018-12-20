@@ -1,0 +1,46 @@
+version: '3'
+services:
+    mysql:
+        image: 'mysql:5.7'
+        working_dir: /home/mysql/
+        volumes:
+          - './docker/mysql/:/app/'
+        environment:
+            - MYSQL_DATABASE=corahnrin
+            - MYSQL_USER=corahnrin
+            - MYSQL_PASSWORD=corahnrin
+            - MYSQL_ROOT_PASSWORD=corahnrin
+
+    adminer:
+        image: 'adminer:latest'
+        links:
+            - mysql
+        ports:
+            - '8081:8080'
+
+    php:
+        build: ./docker/php/
+        working_dir: /usr/share/nginx/html
+        links:
+            - mysql
+            - mailcatcher
+        volumes:
+            - './:/usr/share/nginx/html'
+
+    nginx:
+        image: 'okty/nginx:1.14'
+        working_dir: /usr/share/nginx/html
+        ports:
+            - '8080:80'
+        links:
+            - php
+        volumes:
+            - './:/usr/share/nginx/html'
+        environment:
+            - PHP_CONTAINER_ID=php
+            - INDEX_SUBFOLDER=webroot
+
+    mailcatcher:
+        image: 'tophfr/mailcatcher:latest'
+        ports:
+            - '1080:80'

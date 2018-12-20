@@ -106,7 +106,7 @@ function tln_skipspace($body, $offset){
  * @return	string 	   location of the next occurrence of the needle, or
  *				   strlen($body) if needle wasn't found.
  */
-function tln_findnxstr($body, $offset, $needle){
+function tln_findnxstr($body, $offset, string $needle){
 	$me = 'tln_findnxstr';
 	$pos = strpos($body, $needle, $offset);
 	if ($pos === FALSE){

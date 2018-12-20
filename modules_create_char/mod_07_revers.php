@@ -193,7 +193,8 @@ buffWrite('css', '
 ', $page_mod);
 buffWrite('js', "
     $(document).ready(function(){
-        var nb_revers_max = parseInt($('#nb_revers').val());
+        var nb_revers_max = parseInt($('#nb_revers').val()),
+            values = {};
         $('.input_setback_manual').on('change', function(){
             var nb_revers = $('.input_setback_manual:checked').length;
             if (nb_revers > nb_revers_max) {

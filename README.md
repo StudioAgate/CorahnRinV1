@@ -18,7 +18,14 @@ Installez l'application sur votre serveur (local ou distant).
 
 Copiez et collez le fichier `config.php` à partir du fichier `config.php.dist` à la racine pour bien y marquer les données de connexion à votre base de données et d'autres infos relatives aux e-mails.
 
-Une fois fait, la structure de la base de données est située dans `files/install.sql`, vous devez importer manuellement ce fichier pour obtenir les données de base du générateur.
+Une fois fait, la structure de la base de données est située dans `docker/mysql/install.sql`, vous devez importer manuellement ce fichier pour obtenir les données de base du générateur.
+
+Si vous utilisez *Docker*, vous pouvez installer les containers principaux avec la commande `docker-compose up -d`.
+
+Si vous utilisez *Docker*, vous pouvez installer les containers principaux avec la commande `docker-compose up -d`.
+
+Vous devrez néanmoins exécuter la commande `docker-compose exec mysql bash install_database.bash`,
+pour installer la base de données.
 
 2) Debug mode
 --------------------------------

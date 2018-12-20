@@ -14,4 +14,9 @@
     'source' => 'Vous n\'avez pas les droits pour accéder à cette page.',
     'trans' => 'Vous n\'avez pas les droits pour accéder à cette page.',
   ),
+  3 => 
+  array (
+    'source' => 'Le nom d\'utilisateur ou le mot de passe est incorrect.',
+    'trans' => 'Le nom d\'utilisateur ou le mot de passe est incorrect.',
+  ),
 );

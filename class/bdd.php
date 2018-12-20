@@ -37,7 +37,7 @@ class bdd
     ) {
         $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
         self::$prefix = $tb_prefix;
-        $dsn = $db_type.':host='.$host.';dbname='.$database.'';
+        $dsn = "$db_type:host=$host;dbname=$database;charset=UTF8";
         $this->initErr(true);
         try {
             $this->db = new PDO($dsn, $user, $pwd, $pdo_options);
@@ -47,8 +47,6 @@ class bdd
 
             return;
         }
-        //$this->initErr(false);
-        $this->noRes('SET NAMES "utf8"');
     }
 
     public function __toString()

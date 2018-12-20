@@ -74,15 +74,17 @@ function send_mail($dest = array(), $subj = '', $message = '', $mail_id = 0, $fr
 
 	$mail->SetLanguage(P_LANG);
 
-	if ($_SERVER['HTTP_HOST'] === '127.0.0.1') {
+	if (true === P_DEBUG) {
 		$mail->IsSMTP();//Active le SMTP
 
-		$mail->SMTPAuth = true;//Authentification SMTP requise
+        if (P_MAIL_SMTP_USER) {
+            $mail->SMTPAuth = true;//Authentification SMTP requise
+            $mail->Username = P_MAIL_SMTP_USER;
+            $mail->Password = P_MAIL_SMTP_PASSWORD;
+        }
 		$mail->SMTPKeepAlive = true;//Permet de ne pas fermer la connexion après chaque mail envoyé
 
 		$mail->Host = P_MAIL_SMTP_HOST;
-		$mail->Username = P_MAIL_SMTP_USER;
-		$mail->Password = P_MAIL_SMTP_PASSWORD;
 		$mail->SMTPSecure = P_MAIL_SMTP_SECURE;
 		$mail->Port = P_MAIL_SMTP_PORT;
 	}

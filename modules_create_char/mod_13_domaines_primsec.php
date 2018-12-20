@@ -329,7 +329,7 @@
 					if ($('.lettrbtn')[0]) { values.lettre = ''; }
 					$('#gen_send').attr('href', '#').css('visibility', 'hidden');
 					xhr = $.ajax({
-						url : with_lang+'/ajax/aj_genmaj.php',
+						url : with_lang+'/ajax/aj_genmaj',
 						type : 'post',
 						data : values
 					});

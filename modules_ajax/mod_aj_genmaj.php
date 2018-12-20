@@ -39,11 +39,11 @@ if (!empty($_POST)) {
 // 		$_POST[$stepname] = isset($_POST[$stepname]) ? $_POST[$stepname] : '';
 // 	}
 
-	// Si l'étape n'existe pas ou n'est pas un nombre, alors c'est que aj_genmaj.php a été contourné avec AJAX
+	// Si l'étape n'existe pas ou n'est pas un nombre, alors c'est que aj_genmaj a été contourné avec AJAX
 	if (!is_numeric($_SESSION['etape'])) {
 		foreach($_SESSION as $k => $v) {
 			foreach($_PAGE['list'] as $id => $page) {
-				if (strpos($page['page_getmod'], $k) !== false) {
+				if (strpos($page['page_getmod'], (string) $k) !== false) {
 					unset($_SESSION[$k]);
 				}
 			}

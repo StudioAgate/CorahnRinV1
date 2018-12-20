@@ -15,7 +15,7 @@ function base_url($withLang = false)
 
     $baseUrl = BASE_URL;
 
-    if (strpos($_SERVER['REQUEST_URI'], $_SERVER['SCRIPT_NAME']) === 0) {
+    if (strpos($_SERVER['REQUEST_URI'], (string) $_SERVER['SCRIPT_NAME']) === 0) {
         $baseUrl .= $_SERVER['SCRIPT_NAME'].'/';
     } else {
         $baseUrl .= '/';
