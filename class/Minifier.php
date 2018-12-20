@@ -200,7 +200,7 @@ class Minifier
 				case "\n":
 					// if the next line is something that can't stand alone
                     // preserve the newline
-					if(strpos('(-+{[@', $this->b) !== false)
+					if(strpos('(-+{[@', (string) $this->b) !== false)
 					{
 						echo $this->a;
 						$this->saveString();
@@ -226,7 +226,7 @@ class Minifier
 					switch($this->b)
 					{
 						case "\n":
-							if(strpos('}])+-"\'', $this->a) !== false)
+							if(strpos('}])+-"\'', (string) $this->a) !== false)
 							{
 								echo $this->a;
 								$this->saveString();
@@ -262,7 +262,7 @@ class Minifier
 			// do reg check of doom
 			$this->b = $this->getReal();
 
-			if($this->b === '/' && strpos('(,=:[!&|?', $this->a) !== false) {
+			if($this->b === '/' && strpos('(,=:[!&|?', (string) $this->a) !== false) {
                 $this->saveRegex();
             }
 		}

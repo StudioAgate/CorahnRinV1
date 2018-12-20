@@ -57,9 +57,9 @@ class CakePHPString {
 		while ($offset <= $length) {
 			$tmpOffset = -1;
 			$offsets = array(
-				strpos($data, $separator, $offset),
-				strpos($data, $leftBound, $offset),
-				strpos($data, $rightBound, $offset)
+				strpos($data, (string) $separator, $offset),
+				strpos($data, (string) $leftBound, $offset),
+				strpos($data, (string) $rightBound, $offset)
 			);
 			for ($i = 0; $i < 3; $i++) {
 				if ($offsets[$i] !== false && ($offsets[$i] < $tmpOffset || $tmpOffset === -1)) {

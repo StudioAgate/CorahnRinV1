@@ -43,7 +43,7 @@ if (!empty($_POST)) {
 	if (!is_numeric($_SESSION['etape'])) {
 		foreach($_SESSION as $k => $v) {
 			foreach($_PAGE['list'] as $id => $page) {
-				if (strpos($page['page_getmod'], $k) !== false) {
+				if (strpos($page['page_getmod'], (string) $k) !== false) {
 					unset($_SESSION[$k]);
 				}
 			}
