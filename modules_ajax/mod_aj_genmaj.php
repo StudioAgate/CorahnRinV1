@@ -198,7 +198,7 @@ if (!empty($_POST)) {
 			if (empty($_SESSION[$stepname])) { $_SESSION[$stepname] = array(); }
 		} else {
 			if (strpos($stepname, 'domaines_primsec') !== false) {
-			    if (!isset($_SESSION[$stepname])) {
+			    if (empty($_SESSION[$stepname])) {
                     $_SESSION[$stepname] = [];
 			    }
 				$_SESSION[$stepname]['ost'] = $_POST['ost'] ?? 2;
