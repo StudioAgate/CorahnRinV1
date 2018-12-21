@@ -20,8 +20,8 @@ if ($experience = gv('experience', $before, $after)) {
             }
         }
     }
-    $xpUsedBefore = isset($experience['before']['reste']) ? $experience['before']['reste'] : 0;
-    $xpUsedAfter = isset($experience['after']['reste']) ? $experience['after']['reste'] : 0;
+    $xpUsedBefore = isset($experience['before']['reste']) ? (int) $experience['before']['reste'] : 0;
+    $xpUsedAfter = isset($experience['after']['reste']) ? (int) $experience['after']['reste'] : 0;
     if (null !== $xpUsedAfter) {
         if (null !== $xpUsedBefore) {
             $diff = $xpUsedAfter - $xpUsedBefore;
