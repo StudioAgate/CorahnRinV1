@@ -1875,6 +1875,7 @@ class FPDF
         $text = str_replace("\n", ' ', $text);
         $str = '';
         $arr = preg_split("#\s| #isUu", $text);
+        if (!$arr) { $arr = []; }
         $i = 0;
 // 		$widths = array();
         foreach ($arr as $word) {
