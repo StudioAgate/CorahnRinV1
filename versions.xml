@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+    <version date="20190603" code="1.38">
+        <tasks>
+			<task type="page">
+				<element name="pages/mod_sheet.php" id="49"></element>
+				<comment>Corrigé une erreur mineure sur l'affichage de texte multi-ligne dans l'export PDF d'un personnage.</comment>
+			</task>
+        </tasks>
+    </version>
     <version date="20181220" code="1.37">
         <tasks>
             <task type="general">
