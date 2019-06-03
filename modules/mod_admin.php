@@ -4,12 +4,10 @@ use App\Users;
 
 $admin_module = isset($_PAGE['request'][0]) ? $_PAGE['request'][0] : '';
 
-
 if (P_LOGGED === false) {
-	header('Location:'.mkurl(array('val'=>48)));
-	exit;
+    header('Location:'.mkurl(['val' => 48]));
+    exit;
 } elseif (P_LOGGED === true) {
-
     // The next functions are used to generate automatic getters to the EsterenChar class
     /*
     function a(array $content, $charContent, $nestedKey = '') {
@@ -31,34 +29,39 @@ if (P_LOGGED === false) {
     a($charContent, $charContent);
     */
 
-	?><div class="container"><h3><?php tr("Bienvenue sur le panneau d'administration"); ?></h3></div><?php
+    ?>
+    <div class="container"><h3><?php tr("Bienvenue sur le panneau d'administration"); ?></h3></div><?php
 
-	//Chargement des modules spécifiques aux utilisateurs
-	if (!$admin_module) {
-		for ($i = 50; $i >= Users::$acl; $i--) {
+    //Chargement des modules spécifiques aux utilisateurs
+    if (!$admin_module) {
+        for ($i = 50; $i >= Users::$acl; $i--) {
+            $admin_module_file = ROOT.DS.'modules_'.$_PAGE['get'].DS.'mod_'.$i.'.php';
+            if (file_exists($admin_module_file)) {
+                ?>
+                <div class="container module_admin_container"><?php
+                load_module($i, 'module', [], false);
+                ?></div><?php
+            }
+        }
+        unset($i);
+    }
 
-			$admin_module_file = ROOT.DS.'modules_'.$_PAGE['get'].DS.'mod_'.$i.'.php';
-			if (file_exists($admin_module_file)) {
-				?><div class="container module_admin_container"><?php
-					load_module($i, 'module', array(), false);
-				?></div><?php
-			}
-		}
-		unset($i);
-	}
-
-	if (!$admin_module && P_DEBUG === true) { $admin_module = 'modify_pages'; } elseif (!$admin_module && P_DEBUG === false) { $admin_module = 'modify_char'; }
-	//Chargement du module spécifique à la requête
-	if ($admin_module) {
-		?><div class="container module_admin_container"><?php
-			load_module($admin_module, 'module', array(), false);
-		?></div><?php
-	}
-
+    if (!$admin_module && !P_DEBUG) {
+        $admin_module = 'modify_char';
+    }
+    //Chargement du module spécifique à la requête
+    if ($admin_module) {
+        ?>
+        <div class="container module_admin_container"><?php
+        load_module($admin_module, 'module', [], false);
+        ?></div><?php
+    }
 }//endif logged true
-unset($module,$admin_module_file, $admin_module);
+unset($module, $admin_module_file, $admin_module);
 
-buffWrite('css', '
+buffWrite(
+    'css',
+    '
 	label:hover { cursor: pointer; }
 	.module_admin_container {
 		-webkit-box-shadow: 0 0 15px #888;
@@ -95,5 +98,6 @@ buffWrite('css', '
 		text-align: center;
 	}
 
-');
+'
+);
 buffWrite('js', "");
