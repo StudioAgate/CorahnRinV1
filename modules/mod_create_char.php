@@ -62,14 +62,9 @@
 		$_PAGE['more_css'][] = BASE_URL.'/css/pages/pg_'.$page_mod.'.css';
 		$_PAGE['more_js'][] = BASE_URL.'/js/pages/pg_'.$page_mod.'.js';
 
-		/*
-		if (P_DEBUG === true) {
-			# Affichage de l'étape en cours
-			echo '<div class="container">';
-			pr(array($steps[$page_step]['mod'] => $datas['p_stepval']));
-			echo '</div>';
-		}
-		//*/
+        // Uncomment this if you want to debug current step's character data.
+        // Very useful when debugging step actions.
+		// if (P_DEBUG === true) { echo '<div class="container">'; pr(array($steps[$page_step]['mod'] => $datas['p_stepval'])); echo '</div>'; }
 		?>
 		<div id="formgen" class="container">
 
