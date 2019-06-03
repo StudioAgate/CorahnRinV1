@@ -12,18 +12,19 @@ Ces contenus incluent tous les textes écrits dans chacune des 20 étapes de cr�
 
 # Installation
 
-Utilisez Docker Compose (compatible toutes plateformes) :
+Utilisez `make`:
 
 ```
-# Installe un fichier de config par défaut (et fonctionnel)
-$ cp config.php.dist config.php
-
-# Télécharger les images & les démarrer
-$ docker-compose up -d
-
-# Installer la base de données d'exemple
-$ docker-compose exec mysql bash install_database.bash
+$ make install
 ```
+
+Cette commande va :
+
+* Créer un fichier `config.php` avec les informations par défaut pour faire fonctionner le projet
+* Télécharger les images Docker nécessaires
+* Démarrer les containers
+* Installer les dépendances Composer
+* Installer une base de données fonctionnelle, avec un compte administrateur `admin` (mot de passe `admin`), les informations nécessaires pour utiliser Corahn-Rin, ainsi que le personnage Yldiane par défaut pour tester l'export de la feuille de personnage en PDF.
 
 # Debug mode
 

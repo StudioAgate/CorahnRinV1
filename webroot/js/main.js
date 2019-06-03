@@ -31,6 +31,7 @@
      */
     function sendMaj(values, action, empty, show_msg) {
         show_msg = show_msg || false;
+        //show_msg = true; // Uncomment this if you want messages to be displayed to the user everytime there is an error.
         if (empty !== true) {
             $('#gen_send').html('<img src=\"'+base_url.replace(/(\/fr|\/en)/gi,'')+'/img/ajax-loader.gif\" />').css('visibility', 'visible');
         } else {
