@@ -10,7 +10,9 @@ $characters = $db->req('
 	LEFT JOIN %%users
 		ON %%users.%user_id = %%characters.%user_id
 	WHERE %%characters.%char_status = 0
-	ORDER BY %%users.%user_name ASC');
+	OR %%characters.%char_status IS NULL
+	ORDER BY %%users.%user_name ASC
+') ?: [];
 
 $users = array();
 

@@ -268,7 +268,7 @@ class bdd
      * @param string $req_qry Une requête formatée préalablement avec buildReq()
      * @param mixed  $values Un tableau de valeurs à envoyer à PDO pour la requête préparée
      *
-     * @return true si la requête est excéutée, false sinon
+     * @return bool true si la requête est excéutée, false sinon
      */
     public function noRes($req_qry, $values = [])
     {

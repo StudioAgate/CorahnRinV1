@@ -13,33 +13,30 @@
  */
 function is_correct_email ($email) {
 
-	$host = preg_replace('#^.*@([^@]+)$#isUu', '$1', $email);
+	$host = preg_replace('#^.*@([^@]+)$#iUu', '$1', $email);
 // 	$ips = gethostbynamel($host);
 	$ip_blacklisted = false;
 	//foreach($ips as $ip) { if (is_blacklisted($ip)) { $ip_blacklisted = true; } }
-
-	$has_MX = checkdnsrr($host, 'MX');
 
 	$manual_blacklist = array('yopmail');
 	$is_manual_blacklisted = false;
 	foreach($manual_blacklist as $v) { if (preg_match('#'.$v.'#isUu', $host)) { $is_manual_blacklisted = true; } }
 
-	if (preg_match('#yopmail#isUu', $host) ||
-		!preg_match(P_MAIL_REGEX, $email) ||
+	if (
 		$ip_blacklisted === true ||
-		$has_MX === false ||
-		$is_manual_blacklisted === true
+		$is_manual_blacklisted === true ||
+        false !== stripos($host, 'yopmail') ||
+        !preg_match(P_MAIL_REGEX, $email)
 	) {
 		if (P_DEBUG === true) {
 			echo 'Mail incorrect : ';
-			pr(preg_match('#yopmail#isUu', $host));
-			pr(!preg_match(P_MAIL_REGEX, $email));
-			pr($ip_blacklisted);
-			pr($has_MX);
-			pr($is_manual_blacklisted);
+			pr('false !== stripos($host, \'yopmail\') => '.(false !== stripos($host, 'yopmail') ? '1' : '0'));
+			pr('!preg_match(P_MAIL_REGEX, $email) => '.(!preg_match(P_MAIL_REGEX, $email) ? '1' : '0'));
+			pr('$ip_blacklisted => '.($ip_blacklisted ? '1' : '0'));
+			pr('$is_manual_blacklisted => '.($is_manual_blacklisted ? '1' : '0'));
 		}
 		return false;
-	} else {
-		return true;
 	}
+
+    return true;
 }

@@ -471,6 +471,10 @@ class EsterenChar {
 			'char_people' => $this->get('peuple'),
 			'char_content' => $this->_encrypt(),
 			'char_date_creation' => time(),
+			'char_date_update' => time(),
+			'char_status' => 0,
+			'char_confirm_invite' => '',
+			'game_id' => null,
 		);
         $ret = $this->db->noRes('INSERT INTO %%characters SET %%%fields', $datas);
         $id = $this->db->last_id();

@@ -3,9 +3,9 @@
 use App\Session;
 use App\Users;
 
-if (!empty($_POST) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])) {
+if (isset($_POST['name'], $_POST['email'], $_POST['password']) && !empty($_POST)) {
 
-    if (Session::read('_token') !== Session::read('tokenToCheck') || $_PAGE['referer']['id'] !== $_PAGE['id']) {
+    if (($_PAGE['referer']['id'] !== $_PAGE['id']) || (Session::read('_token') !== Session::read('tokenToCheck'))) {
         Session::setFlash('Une erreur est survenue dans l\'envoi du formulaire, veuillez réessayer', 'error');
         httpCode(403);
     } else {
@@ -23,19 +23,17 @@ if (!empty($_POST) && isset($_POST['name']) && isset($_POST['email']) && isset($
                 'password' => $_POST['password'],
                 'email' => $_POST['email'],
                 'status' => 0,
-                'confirm' => md5($_POST['name'].uniqid(preg_replace('#[^a-z_]+#isUu', '', $_POST['name']), true)),
+                'confirm' => md5($_POST['name'].uniqid(preg_replace('#[^a-z_]+#iUu', '', $_POST['name']), true)),
             );
 
             Session::delete('tokenToCheck');
             $create = Users::create($datas);
             if ($create === false) {
                 Session::setFlash($err, 'error');
+            } elseif (!empty($_GET['redirect']) && url_exists($_GET['redirect'])) {
+                redirect($_GET['redirect']);
             } else {
-                if (isset($_GET['redirect']) && $_GET['redirect'] && url_exists($_GET['redirect'])) {
-                    redirect($_GET['redirect']);
-                } else {
-                    redirect(array('val'=>34));
-                }
+                redirect(array('val'=>34));
             }
         }
     }

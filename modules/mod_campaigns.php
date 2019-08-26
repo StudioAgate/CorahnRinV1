@@ -1,11 +1,13 @@
 <?php
 
-$sendmail = isset($_PAGE['request']['sendmail']) ? (int) $_PAGE['request']['sendmail'] : 0;
+$sendmail = isset($_PAGE['request'][2]) && $_PAGE['request'][2] === 'sendmail';
 
 $game_mj = isset($_PAGE['request'][0]) ? (int) $_PAGE['request'][0] : 0;
 $char_id = isset($_PAGE['request'][1]) ? (int) $_PAGE['request'][1] : 0;
 
-if ($game_mj && $char_id) {
+if ($game_mj && $char_id && $sendmail) {
+	load_module('send_invitation', 'module', array('game_mj'=>$game_mj, 'char_id'=>$char_id));
+} elseif ($game_mj && $char_id && !$sendmail) {
 	load_module('gift', 'module', array('game_mj'=>$game_mj, 'char_id'=>$char_id));
 } elseif ($game_mj && !$char_id) {
 	load_module('gm', 'module', array('game_mj' => $game_mj));

@@ -240,10 +240,10 @@ CREATE TABLE `est_characters` (
   `char_content` mediumtext NOT NULL,
   `char_date_creation` varchar(40) NOT NULL,
   `char_date_update` varchar(40) NOT NULL,
-  `char_status` smallint(5) unsigned NOT NULL,
-  `char_confirm_invite` varchar(255) NOT NULL,
-  `game_id` smallint(5) unsigned NOT NULL,
-  `user_id` smallint(5) unsigned NOT NULL,
+  `char_status` smallint(5) unsigned DEFAULT NULL,
+  `char_confirm_invite` varchar(255) DEFAULT NULL,
+  `game_id` smallint(5) unsigned DEFAULT NULL,
+  `user_id` smallint(5) unsigned DEFAULT NULL,
   PRIMARY KEY (`char_id`),
   UNIQUE KEY `restriction user et name` (`char_name`,`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=673 DEFAULT CHARSET=utf8 AUTO_INCREMENT=673 ;
@@ -662,8 +662,8 @@ DROP TABLE IF EXISTS `est_games`;
 CREATE TABLE `est_games` (
   `game_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `game_name` varchar(255) NOT NULL,
-  `game_summary` text NOT NULL,
-  `game_notes` longtext NOT NULL,
+  `game_summary` text DEFAULT NULL,
+  `game_notes` longtext DEFAULT NULL,
   `game_mj` int(10) unsigned NOT NULL,
   PRIMARY KEY (`game_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
