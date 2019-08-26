@@ -7,7 +7,7 @@ SYMFONY_CONSOLE = $(EXEC_PHP) bin/console
 COMPOSER        = $(EXEC_PHP) composer
 
 DB_NAME = corahnrin
-DB_USER = corahnrin
+DB_USER = root
 DB_PWD = corahnrin
 
 CURRENT_DATE = `date "+%Y-%m-%d_%H-%M-%S"`

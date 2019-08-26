@@ -19,7 +19,7 @@ setlocale(LC_TIME, array('fr_FR', 'fr_FR.UTF-8'));
 //define('P_REWRITE_URLS', true);
 
 ## Regex vérifiant les adresses mail
-define('P_MAIL_REGEX', '#^[a-z0-9!\#$%&\'*+/=?^_`{|}~-]+((\.[a-z0-9!\#$%&\'*+/=?^_`{|}~-]+)?)+@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[a-z0-9][a-z0-9\-]*[a-z0-9])?$#isU');
+define('P_MAIL_REGEX', '#^.+\@\S+\.\S+$#isU');
 
 ## Champs disponibles pour la fonction mkurl. Dépend de la base de données
 define('P_MKURL_FIELDS', 'page_id,page_getmod,page_anchor');

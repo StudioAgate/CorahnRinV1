@@ -2,13 +2,10 @@ version: '3'
 services:
     mysql:
         image: 'mysql:5.7'
-        working_dir: /home/mysql/
         volumes:
           - './docker/mysql/:/app/'
         environment:
             - MYSQL_DATABASE=corahnrin
-            - MYSQL_USER=corahnrin
-            - MYSQL_PASSWORD=corahnrin
             - MYSQL_ROOT_PASSWORD=corahnrin
 
     adminer:
@@ -17,6 +14,8 @@ services:
             - mysql
         ports:
             - '8081:8080'
+        environment:
+            - ADMINER_DEFAULT_SERVER=mysql
 
     php:
         build: ./docker/php/

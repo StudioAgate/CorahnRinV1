@@ -2,7 +2,7 @@
 
 ## Constantes concernant la BDD
 define('P_DB_HOST', 'mysql');
-define('P_DB_USER', 'corahnrin');
+define('P_DB_USER', 'root');
 define('P_DB_PWD', 'corahnrin');
 define('P_DB_DBNAME', 'corahnrin');
 define('P_DB_PREFIX', 'est_');
