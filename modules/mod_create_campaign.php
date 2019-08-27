@@ -75,7 +75,8 @@ if ($send === true) {
 	);
 	$msg_invite = $db->row('SELECT %mail_id, %mail_contents, %mail_subject FROM %%mails WHERE %mail_code = ?', 'campaign_invite');
 	$subj = tr($msg_invite['mail_subject'], true, null, 'mails');
-    $result2 = [];
+	$result2 = [];
+	$send_chars = null;
 	if (!empty($_POST['char_select'])) {
         $send_chars =  $db->req('
             SELECT %%characters.%char_id, %%characters.%char_name, %%characters.%user_id,
