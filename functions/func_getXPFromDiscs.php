@@ -58,7 +58,7 @@ function getXPFromDiscs($discs, $initexp = 100) {
 		if ($v < 5) { unset($totaldoms[$k]); }
 	}
 
-	$dom_ids = array_keys($totaldoms) ?: array();
+	$dom_ids = array_keys($totaldoms) ?: array(0);
 	$domains = $db->req('SELECT %domain_id, %domain_name FROM %%domains WHERE %domain_id IN ('.implode(',',$dom_ids).') ORDER BY %domain_name ASC ') ?: array();
 	$t = array();
 	foreach($domains as $k => $v) { $t[$v['domain_id']] = $v; }
