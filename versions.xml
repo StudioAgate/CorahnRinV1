@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+    <version date="20200324" code="1.40">
+        <tasks>
+			<task type="db">
+				<element name="est_steps">Bug SQL lors de la création de personnages</element>
+				<comment>Corrigé une erreur lorsqu'aucun domaine n'avait été amélioré avec de l'XP durant la création de personnages.</comment>
+			</task>
+        </tasks>
+    </version>
     <version date="20190826" code="1.39">
         <tasks>
 			<task type="page">
