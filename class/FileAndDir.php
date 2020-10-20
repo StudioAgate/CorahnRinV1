@@ -28,10 +28,10 @@ class FileAndDir {
  */
 	public static function createDirectory($path, $mod) {
 		umask(0);
-		if (is_dir($path)) {
+		if (is_dir($path) || is_file($path)) {
 		    return;
-        }
-		@mkdir($path, $mod);
+                }
+		@mkdir($path, $mod, true);
 	}
 
 /**
