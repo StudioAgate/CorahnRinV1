@@ -2,6 +2,9 @@
 * text=input
 
 *.pdf binary
+*.jpg binary
+*.png binary
+*.gif binary
 
 # Standard to msysgit
 *.doc	 diff=astextplain
