@@ -13,12 +13,7 @@ class FileAndDir {
  * Crée une arborescence (vérifie son existence) en fonction du chemin indiqué
  */
 	public static function createPath($path, $mod = 0777) {
-		$path_pieces = explode(DS, $path);
-		$path = '';
-		while(!is_null($piece = array_shift($path_pieces))) {
-			$path .= $piece.DS;
-			if(!is_dir($path)) { self::createDirectory($path, $mod); }
-		}
+	    self::createDirectory($path, $mod);
 	}
 
 /**
@@ -28,9 +23,9 @@ class FileAndDir {
  */
 	public static function createDirectory($path, $mod) {
 		umask(0);
-		if (is_dir($path) || is_file($path)) {
-		    return;
-                }
+        if (is_dir($path) || is_file($path)) {
+            return;
+        }
 		@mkdir($path, $mod, true);
 	}
 
