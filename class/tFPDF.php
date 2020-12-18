@@ -872,10 +872,6 @@ class tFPDF extends FPDF
         if (ini_get('mbstring.func_overload') & 2) {
             $this->Error('mbstring overloading must be disabled');
         }
-        // Ensure runtime magic quotes are disabled
-        if (get_magic_quotes_runtime()) {
-            @set_magic_quotes_runtime(0);
-        }
     }
 
     public function _getfontpath()
