@@ -107,8 +107,8 @@ class bdd
         $final .= '||PDO caught exceptions=>'.json_encode(is_object($e) ? $e->getMessage() : '');
 
         $final .= '||Ip=>'.json_encode($_SERVER['REMOTE_ADDR'])
-            .'||Page.get=>'.json_encode($_PAGE['get'])
-            .'||Page.request=>'.json_encode($_PAGE['request'])
+            .'||Page.get=>'.json_encode($_PAGE['get'] ?? '__unknown__')
+            .'||Page.request=>'.json_encode($_PAGE['request'] ?? '__unknown__')
             .'||User.id=>'.json_encode(Session::read('user'));
 
         $error_file = ROOT.DS.'logs'.DS.'sql'.DS.date('Y.m.d').'.log';
