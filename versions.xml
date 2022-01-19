@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+    <version date="20220119" code="1.42">
+        <tasks>
+            <task type="general">
+                <element name=""><![CDATA[<em>Code sniffing</em>]]></element>
+                <comment>Corrigé des erreurs liées à la migration vers PHP 7.4</comment>
+            </task>
+            <task type="general">
+                <element name="">Suppression de personnage</element>
+                <comment>Corrigé un bug qui empêchait de supprimer un personnage</comment>
+            </task>
+            <task type="general">
+                <element name="">Dev setup</element>
+                <comment>Mis à jour le setup de dev avec Docker</comment>
+            </task>
+        </tasks>
+    </version>
     <version date="20211011" code="1.41">
         <tasks>
 			<task type="db">
