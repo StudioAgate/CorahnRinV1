@@ -18,26 +18,17 @@ services:
             - ADMINER_DEFAULT_SERVER=mysql
 
     php:
-        build: ./docker/php/
-        working_dir: /usr/share/nginx/html
+        build:
+            dockerfile: ./docker/php/Dockerfile
+            context: .
+        working_dir: /srv
+        ports:
+            - '8080:8080'
         links:
             - mysql
             - mailcatcher
         volumes:
-            - './:/usr/share/nginx/html'
-
-    nginx:
-        image: 'okty/nginx:1.14'
-        working_dir: /usr/share/nginx/html
-        ports:
-            - '8080:80'
-        links:
-            - php
-        volumes:
-            - './:/usr/share/nginx/html'
-        environment:
-            - PHP_CONTAINER_ID=php
-            - INDEX_SUBFOLDER=webroot
+            - './:/srv'
 
     mailcatcher:
         image: 'tophfr/mailcatcher:latest'
