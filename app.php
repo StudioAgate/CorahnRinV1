@@ -13,14 +13,14 @@ use App\Users;
 
 require __DIR__.'/vendor/autoload.php';
 
-define('ROOT', __DIR__); //Chemin vers le dossier racine
-define('DS', DIRECTORY_SEPARATOR); //Définition du séparateur dans le cas ou l'on est sur windows ou linux
+const ROOT = __DIR__; //Chemin vers le dossier racine
+const DS = DIRECTORY_SEPARATOR; //Définition du séparateur dans le cas ou l'on est sur windows ou linux
 
-define('WEBROOT',     ROOT.DS.'webroot');
-define('P_FONTS',     WEBROOT.DS.'css'.DS.'fonts');
-define('P_CSS',       WEBROOT.DS.'css');
-define('P_JS',        WEBROOT.DS.'js');
-define('CHAR_EXPORT', WEBROOT.DS.'files'.DS.'characters_export');
+const WEBROOT = ROOT.DS.'webroot';
+const P_FONTS = WEBROOT.DS.'css'.DS.'fonts';
+const P_CSS = WEBROOT.DS.'css';
+const P_JS = WEBROOT.DS.'js';
+const CHAR_EXPORT = WEBROOT.DS.'files'.DS.'characters_export';
 
 ## Chargement des fonctions
 $function_inc = array(
@@ -133,9 +133,10 @@ ob_start();
 $_LAYOUT = ob_get_clean();
 unset($content_for_layout);
 
-Translate::translate_writewords();//On enregistre les mots à traduire
+// Désactivé parce que ça fout la merde dans les fichiers de trad en prod
+// Translate::translate_writewords();//On enregistre les mots à traduire
 
-if (strpos($_LAYOUT, '{PAGE_TIME}') !== false) {
+if (strpos($_LAYOUT, '{PAGE_TIME}') !== false && isset($time)) {
     $time = (microtime(true) - $time)*1000;
     $_LAYOUT = str_replace('{PAGE_TIME}', number_format($time, 4, ',', ' '), $_LAYOUT);## On affiche le message de temps d'exécution
     $logfile = ROOT.DS.'logs'.DS.'exectime'.DS.date('Y.m.d').'.log';
@@ -153,8 +154,7 @@ if (strpos($_LAYOUT, '{PAGE_TIME}') !== false) {
             .'||GET=>'.json_encode((array)$_GET)
             .'||User.id=>'.json_encode(Users::$id)
             .'||Exectime=>'.json_encode($time);
-        $final = preg_replace('#\n|\r|\t#isU', '', $final);
-        $final = preg_replace('#\s\s+#isUu', ' ', $final);
+        $final = preg_replace(['#\n|\r|\t#isU', '#\s\s+#isUu'], ['', ' '], $final);
         fwrite($f, $final);
         fclose($f);
         unset($f, $final);

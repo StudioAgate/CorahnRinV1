@@ -1,23 +1,23 @@
 <?php
 
 ## Constantes concernant la BDD
-define('P_DB_HOST', 'mysql');
-define('P_DB_USER', 'root');
-define('P_DB_PWD', 'corahnrin');
-define('P_DB_DBNAME', 'corahnrin');
-define('P_DB_PREFIX', 'est_');
+const P_DB_HOST = 'mysql';
+const P_DB_USER = 'root';
+const P_DB_PWD = 'corahnrin';
+const P_DB_DBNAME = 'corahnrin';
+const P_DB_PREFIX = 'est_';
 
-define('P_DEBUG', true);
+const P_DEBUG = true;
 
 ## Constantes liées aux envois de mail
-define('P_ERROR_MAIL_TO', 'me@domain.com');
-define('P_ERROR_MAIL_FROM', 'me@domain.com');
+const P_ERROR_MAIL_TO = 'me@domain.com';
+const P_ERROR_MAIL_FROM = 'me@domain.com';
 
 ##Constantes liées à PHP Mailer
-define('P_MAIL_SMTP_HOST', '127.0.0.1:11080');
-define('P_MAIL_SMTP_USER', 'me@domain.com');
-define('P_MAIL_SMTP_PASSWORD', '');
-define('P_MAIL_SMTP_SECURE', 'TLS');
-define('P_MAIL_SMTP_PORT', 587);
-define('P_MAIL_DEFAULT_FROM_MAIL', P_MAIL_SMTP_USER);
-define('P_MAIL_DEFAULT_FROM_NAME', 'Corahn Rin');
+const P_MAIL_SMTP_HOST = '127.0.0.1:11080';
+const P_MAIL_SMTP_USER = 'me@domain.com';
+const P_MAIL_SMTP_PASSWORD = '';
+const P_MAIL_SMTP_SECURE = 'TLS';
+const P_MAIL_SMTP_PORT = 587;
+const P_MAIL_DEFAULT_FROM_MAIL = P_MAIL_SMTP_USER;
+const P_MAIL_DEFAULT_FROM_NAME = 'Corahn Rin';

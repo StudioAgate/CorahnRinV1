@@ -287,7 +287,7 @@ class bdd
             $result->closeCursor();
         }
 
-        return $results ? true : false;
+        return (bool) $results;
     }
 
     /**

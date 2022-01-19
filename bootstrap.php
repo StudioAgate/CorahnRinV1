@@ -19,17 +19,17 @@ setlocale(LC_TIME, array('fr_FR', 'fr_FR.UTF-8'));
 //define('P_REWRITE_URLS', true);
 
 ## Regex vérifiant les adresses mail
-define('P_MAIL_REGEX', '#^.+\@\S+\.\S+$#isU');
+const P_MAIL_REGEX = '#^.+\@\S+\.\S+$#isU';
 
 ## Champs disponibles pour la fonction mkurl. Dépend de la base de données
-define('P_MKURL_FIELDS', 'page_id,page_getmod,page_anchor');
+const P_MKURL_FIELDS = 'page_id,page_getmod,page_anchor';
 
 ## Contenu de la balise meta generator
-define('P_META_GENERATOR', 'Corahn Rin {version} - Automatic character creation by Pierstoval');
+const P_META_GENERATOR = 'Corahn Rin {version} - Automatic character creation by Pierstoval';
 
 ## Constantes liées à FPDF pour les fichiers externes
-define('P_FPDF_FONTPATH', ROOT.DS.'files'.DS.'fpdf'.DS.'fonts');
-define('P_FPDF_SYSTEM_TTF_FONTS', ROOT.DS.'files'.DS.'fpdf'.DS.'fonts');
+const P_FPDF_FONTPATH = ROOT.DS.'files'.DS.'fpdf'.DS.'fonts';
+const P_FPDF_SYSTEM_TTF_FONTS = ROOT.DS.'files'.DS.'fpdf'.DS.'fonts';
 
 ## Générer les fichiers css et js des pages à chaque chargement via la fonction buffWrite(). Permet de réinitialiser une partie cache en local ou lorsque le superadmin est connecté
 define('P_GEN_FILES_ONLOAD', $_SERVER['HTTP_HOST'] === '127.0.0.1');
@@ -37,29 +37,6 @@ define('P_GEN_FILES_ONLOAD', $_SERVER['HTTP_HOST'] === '127.0.0.1');
 
 ## Extensions de fichiers qu'il est possible de créer à chaque chargement via la fonction buffWrite(). Par défaut CSS et JS
 // define('P_GEN_FILES_TYPES', 'css,js');
-
-## Template de base des modules
-define('P_TPL_BASEMOD', <<<'TPLBASEMOD'
-<?php
-
-?>
-
-<div class="container">
-
-
-</div><!-- /container -->
-
-<?php
-buffWrite('css', <<<CSSFILE
-
-CSSFILE
-);
-buffWrite('js', <<<JSFILE
-
-JSFILE
-);
-TPLBASEMOD
-);
 
 ## Création de la variable $_SESSION['etape'] qui correspond à l'avancement du personnage
 if (!Session::read('etape')) { Session::write('etape', 1); }

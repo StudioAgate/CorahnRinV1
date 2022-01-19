@@ -11,7 +11,6 @@ $time = microtime(true);
 date_default_timezone_set('Europe/Paris');
 
 try {
-    throw new Exception('WOW');
     require dirname(__DIR__).'/app.php';
 } catch (Exception $e) {
 ?>

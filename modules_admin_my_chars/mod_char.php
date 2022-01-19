@@ -19,6 +19,7 @@ if ($del === 'delete') {
 	if (!empty($_POST)) {
 		if (isset($_POST['delete']) && $_POST['delete'] === 'yes') {
 			if ($character->delete_char()) {
+                unset($character);
 				redirect(array('val'=>58), tr('Le personnage a été correctement supprimé !', true), 'success');
 			} else {
 				redirect(array('params'=>$_PAGE['request']), 'Personnage non supprimé. #003', 'error');
