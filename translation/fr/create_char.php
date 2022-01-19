@@ -3916,7 +3916,7 @@
   ),
   783 => 
   array (
-    'source' => 'Crééer un personnage',
-    'trans' => 'Crééer un personnage',
+    'source' => 'Créer un personnage',
+    'trans' => 'Créer un personnage',
   ),
 );

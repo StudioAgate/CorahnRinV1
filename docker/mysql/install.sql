@@ -1,14 +1,14 @@
 -- phpMyAdmin SQL Dump
 -- version 2.6.4-pl3
 -- http://www.phpmyadmin.net
--- 
+--
 -- Serveur: db457938209.db.1and1.com
 -- Généré le : Mardi 01 Octobre 2013 à 09:41
 -- Version du serveur: 5.1.71
 -- Version de PHP: 5.3.3-7+squeeze17
--- 
+--
 -- Base de données: `db457938209`
--- 
+--
 
 SET NAMES "utf8";
 
@@ -19,9 +19,9 @@ USE `corahnrin`;
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `est_armes`
--- 
+--
 
 DROP TABLE IF EXISTS `est_armes`;
 CREATE TABLE `est_armes` (
@@ -35,9 +35,9 @@ CREATE TABLE `est_armes` (
   PRIMARY KEY (`arme_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
--- 
+--
 -- Contenu de la table `est_armes`
--- 
+--
 
 INSERT INTO `est_armes` (`arme_id`, `arme_name`, `arme_dmg`, `arme_prix`, `arme_dispo`, `arme_domain`, `arme_range`) VALUES (1, 'Dague,poignard,couteau', 1, 4, 'FR', '2,14', 4),
 (2, 'Fronde', 1, 2, 'FR', '14', 8),
@@ -60,9 +60,9 @@ INSERT INTO `est_armes` (`arme_id`, `arme_name`, `arme_dmg`, `arme_prix`, `arme_
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `est_armures`
--- 
+--
 
 DROP TABLE IF EXISTS `est_armures`;
 CREATE TABLE `est_armures` (
@@ -75,9 +75,9 @@ CREATE TABLE `est_armures` (
   PRIMARY KEY (`armure_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
--- 
+--
 -- Contenu de la table `est_armures`
--- 
+--
 
 INSERT INTO `est_armures` (`armure_id`, `armure_name`, `armure_desc`, `armure_prot`, `armure_prix`, `armure_dispo`) VALUES (1, 'Bouclier rond', 'bois renforcé de métal', 1, 20, 'FR'),
 (2, 'Bouclier Osag', 'bois et renforts de métal, rectangulaire', 1, 20, 'CO'),
@@ -96,9 +96,9 @@ INSERT INTO `est_armures` (`armure_id`, `armure_name`, `armure_desc`, `armure_pr
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `est_avantages`
--- 
+--
 
 DROP TABLE IF EXISTS `est_avantages`;
 CREATE TABLE `est_avantages` (
@@ -112,9 +112,9 @@ CREATE TABLE `est_avantages` (
   UNIQUE KEY `avtg_name` (`avtg_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 AUTO_INCREMENT=31 ;
 
--- 
+--
 -- Contenu de la table `est_avantages`
--- 
+--
 
 INSERT INTO `est_avantages` (`avtg_id`, `avtg_name`, `avtg_xp`, `avtg_desc`, `avtg_double`, `avtg_bonusdisc`) VALUES (1, 'Allié isolé', 20, 'Un allié dans un village, prévôt, marchand, artisan...', '0', ''),
 (2, 'Allié mentor', 40, 'Un mentor ou un professeur qui vous donne un bonus de +1 dans un Domaine', '0', ''),
@@ -149,9 +149,9 @@ INSERT INTO `est_avantages` (`avtg_id`, `avtg_name`, `avtg_xp`, `avtg_desc`, `av
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `est_avdesv`
--- 
+--
 
 DROP TABLE IF EXISTS `est_avdesv`;
 CREATE TABLE `est_avdesv` (
@@ -167,9 +167,9 @@ CREATE TABLE `est_avdesv` (
   UNIQUE KEY `avdesv_name` (`avdesv_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8 AUTO_INCREMENT=53 ;
 
--- 
+--
 -- Contenu de la table `est_avdesv`
--- 
+--
 
 INSERT INTO `est_avdesv` (`avdesv_id`, `avdesv_type`, `avdesv_name`, `avdesv_name_female`, `avdesv_xp`, `avdesv_desc`, `avdesv_double`, `avdesv_bonusdisc`) VALUES (1, 'avtg', 'Allié isolé', 'Allié isolé', 20, 'Un allié dans un village, prévôt, marchand, artisan...', '0', ''),
 (2, 'avtg', 'Allié mentor', 'Allié mentor', 40, 'Un mentor ou un professeur qui vous donne un bonus de +1 dans un Domaine', '0', ''),
@@ -226,9 +226,9 @@ INSERT INTO `est_avdesv` (`avdesv_id`, `avdesv_type`, `avdesv_name`, `avdesv_nam
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `est_characters`
--- 
+--
 
 DROP TABLE IF EXISTS `est_characters`;
 CREATE TABLE `est_characters` (
@@ -254,9 +254,9 @@ INSERT INTO `est_characters` VALUES
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `est_charmod`
--- 
+--
 
 DROP TABLE IF EXISTS `est_charmod`;
 CREATE TABLE `est_charmod` (
@@ -273,9 +273,9 @@ CREATE TABLE `est_charmod` (
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `est_desavantages`
--- 
+--
 
 DROP TABLE IF EXISTS `est_desavantages`;
 CREATE TABLE `est_desavantages` (
@@ -289,9 +289,9 @@ CREATE TABLE `est_desavantages` (
   UNIQUE KEY `desv_name` (`desv_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
 
--- 
+--
 -- Contenu de la table `est_desavantages`
--- 
+--
 
 INSERT INTO `est_desavantages` (`desv_id`, `desv_name`, `desv_xp`, `desv_desc`, `desv_double`, `desv_bonusdisc`) VALUES (1, 'Boiteux', 30, '-1 en Rapidité et en Défense', '0', 'def,rap'),
 (2, 'Dépendance', 20, '-1 en Vigueur, et une addiction (tabac, alcool, drogue...)', '0', 'vig'),
@@ -318,9 +318,9 @@ INSERT INTO `est_desavantages` (`desv_id`, `desv_name`, `desv_xp`, `desv_desc`, 
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `est_desordres`
--- 
+--
 
 DROP TABLE IF EXISTS `est_desordres`;
 CREATE TABLE `est_desordres` (
@@ -331,9 +331,9 @@ CREATE TABLE `est_desordres` (
   PRIMARY KEY (`desordre_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
--- 
+--
 -- Contenu de la table `est_desordres`
--- 
+--
 
 INSERT INTO `est_desordres` (`desordre_id`, `desordre_name`, `desordre_voies_maj`, `desordre_voies_min`) VALUES (1, 'Frénésie', '1', ''),
 (2, 'Exaltation', '1', '5'),
@@ -348,9 +348,9 @@ INSERT INTO `est_desordres` (`desordre_id`, `desordre_name`, `desordre_voies_maj
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `est_discdoms`
--- 
+--
 
 DROP TABLE IF EXISTS `est_discdoms`;
 CREATE TABLE `est_discdoms` (
@@ -360,9 +360,9 @@ CREATE TABLE `est_discdoms` (
   PRIMARY KEY (`discdoms_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8 AUTO_INCREMENT=124 ;
 
--- 
+--
 -- Contenu de la table `est_discdoms`
--- 
+--
 
 INSERT INTO `est_discdoms` (`discdoms_id`, `disc_id`, `domain_id`) VALUES (1, 1, 10),
 (3, 2, 5),
@@ -489,9 +489,9 @@ INSERT INTO `est_discdoms` (`discdoms_id`, `disc_id`, `domain_id`) VALUES (1, 1,
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `est_disciplines`
--- 
+--
 
 DROP TABLE IF EXISTS `est_disciplines`;
 CREATE TABLE `est_disciplines` (
@@ -502,9 +502,9 @@ CREATE TABLE `est_disciplines` (
   UNIQUE KEY `disc_name` (`disc_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8 AUTO_INCREMENT=110 ;
 
--- 
+--
 -- Contenu de la table `est_disciplines`
--- 
+--
 
 INSERT INTO `est_disciplines` (`disc_id`, `disc_name`, `disc_rang`) VALUES (1, 'Acrobaties', 'Professionnel'),
 (2, 'Agriculture', 'Professionnel'),
@@ -618,9 +618,9 @@ INSERT INTO `est_disciplines` (`disc_id`, `disc_name`, `disc_rang`) VALUES (1, '
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `est_domains`
--- 
+--
 
 DROP TABLE IF EXISTS `est_domains`;
 CREATE TABLE `est_domains` (
@@ -631,9 +631,9 @@ CREATE TABLE `est_domains` (
   PRIMARY KEY (`domain_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
--- 
+--
 -- Contenu de la table `est_domains`
--- 
+--
 
 INSERT INTO `est_domains` (`domain_id`, `domain_name`, `voie_id`, `domain_desc`) VALUES (1, 'Artisanat', 2, ''),
 (2, 'Combat au Contact', 1, ''),
@@ -654,9 +654,9 @@ INSERT INTO `est_domains` (`domain_id`, `domain_name`, `voie_id`, `domain_desc`)
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `est_games`
--- 
+--
 
 DROP TABLE IF EXISTS `est_games`;
 CREATE TABLE `est_games` (
@@ -670,9 +670,9 @@ CREATE TABLE `est_games` (
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `est_jobdomains`
--- 
+--
 
 DROP TABLE IF EXISTS `est_jobdomains`;
 CREATE TABLE `est_jobdomains` (
@@ -683,9 +683,9 @@ CREATE TABLE `est_jobdomains` (
   PRIMARY KEY (`jobdomain_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8 AUTO_INCREMENT=78 ;
 
--- 
+--
 -- Contenu de la table `est_jobdomains`
--- 
+--
 
 INSERT INTO `est_jobdomains` (`jobdomain_id`, `job_id`, `domain_id`, `jobdomain_primsec`) VALUES (1, 1, 1, 1),
 (2, 1, 11, 0),
@@ -760,9 +760,9 @@ INSERT INTO `est_jobdomains` (`jobdomain_id`, `job_id`, `domain_id`, `jobdomain_
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `est_jobs`
--- 
+--
 
 DROP TABLE IF EXISTS `est_jobs`;
 CREATE TABLE `est_jobs` (
@@ -774,9 +774,9 @@ CREATE TABLE `est_jobs` (
   UNIQUE KEY `job_name` (`job_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
 
--- 
+--
 -- Contenu de la table `est_jobs`
--- 
+--
 
 INSERT INTO `est_jobs` (`job_id`, `job_name`, `job_desc`, `job_book`) VALUES (1, 'Artisan', 'Quel que soit son domaine, l''artisan est un manuel qualifié.\r\nForgeron, cuisinier, architecte, cordonnier, bûcheron, sculpteur, joailler ; les artisans couvrent un grand nombre de spécialités.\r\nDans les cités où est implantée la magience, on trouve aussi des réparateurs d''artefacts et des ouvriers spécialisés travaillant dans les usines.', '1'),
 (2, 'Barde', 'Le statut de barde est hautement honorifique et les plus puissants monarques s''entourent de ces artistes qui ont de véritables rôles d''éminence grise.\r\nArtiste, acrobate, musicien, bouffon, le barde peut revêtir différents rôles.\r\nIl peut également être connu sous d''autres noms, comme les poètes aveugles filidh ou les étranges céilli de l''archipel des Tri-Sweszörs.', '1'),
@@ -807,9 +807,9 @@ INSERT INTO `est_jobs` (`job_id`, `job_name`, `job_desc`, `job_book`) VALUES (1,
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `est_mails`
--- 
+--
 
 DROP TABLE IF EXISTS `est_mails`;
 CREATE TABLE `est_mails` (
@@ -821,18 +821,18 @@ CREATE TABLE `est_mails` (
   UNIQUE KEY `mail_code` (`mail_code`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
--- 
+--
 -- Contenu de la table `est_mails`
--- 
+--
 
 INSERT INTO `est_mails` (`mail_id`, `mail_code`, `mail_contents`, `mail_subject`) VALUES (1, 'register', '<p style="text-align: center;">Bonjour {name}, et bienvenue sur le site Corahn-Rin, plateforme de jeu des Ombres d&#39;Esteren !</p>\n<p style="text-align: center;">Pour valider votre adresse mail, veuillez cliquer sur ce lien : {link}</p>\n<p style="text-align: center;">Si vous ne validez pas votre adresse mail, vous ne pourrez pas accéder au site !</p>', 'Bienvenue sur Corahn-Rin ! Confirmation d''inscription.'),
 (2, 'campaign_invite', '<p style="text-align: center;">Bonjour {user_name}, le maître de jeu <strong>{cp_mj}</strong> vous a invité dans sa campagne !</p>\r\n<p style="text-align: center;">Il propose d''inviter votre personnage <strong>{char_name}</strong> à sa campagne <strong>{cp_name}</strong></p>\r\n<p style="text-align: center;">Si vous souhaitez confirmer cette invitation, et rejoindre une partie des <strong>Ombres d''Esteren</strong>, veuillez cliquer sur ce lien : {link}</p>\r\n<p style="text-align: center;">À bientôt sur Corahn-Rin !</p>', 'Invitation à une campagne - Corahn Rin');
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `est_mails_sent`
--- 
+--
 
 DROP TABLE IF EXISTS `est_mails_sent`;
 CREATE TABLE `est_mails_sent` (
@@ -847,9 +847,9 @@ CREATE TABLE `est_mails_sent` (
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `est_pages`
--- 
+--
 
 DROP TABLE IF EXISTS `est_pages`;
 CREATE TABLE `est_pages` (
@@ -864,9 +864,9 @@ CREATE TABLE `est_pages` (
   UNIQUE KEY `page_getmod` (`page_getmod`)
 ) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8 AUTO_INCREMENT=68 ;
 
--- 
+--
 -- Contenu de la table `est_pages`
--- 
+--
 
 INSERT INTO `est_pages` (`page_id`, `page_show_in_menu`, `page_show_in_debug`, `page_getmod`, `page_anchor`, `page_acl`, `page_require_login`) VALUES (1, 0, 0, 'index', 'Accueil', 50, 0),
 (34, 0, 0, 'admin', 'Administration', 50, 1),
@@ -888,7 +888,7 @@ INSERT INTO `est_pages` (`page_id`, `page_show_in_menu`, `page_show_in_debug`, `
 (59, 0, 1, 'admin_errors', 'Gestion des erreurs', 10, 0),
 (60, 0, 1, 'campaigns', 'Mes campagnes', 50, 1),
 (61, 0, 0, 'create_campaign', 'Créer une campagne', 50, 1),
-(62, 1, 0, 'create_char', 'Crééer un personnage', 50, 0),
+(62, 1, 0, 'create_char', 'Créer un personnage', 50, 0),
 (63, 0, 0, 'spend_exp', 'Dépenser de l''expérience', 50, 1),
 (64, 0, 0, 'mail', 'Envoyer un mail', 50, 0),
 (65, 0, 1, 'admin_campaigns', 'Gestion des campagnes', 0, 1),
@@ -896,9 +896,9 @@ INSERT INTO `est_pages` (`page_id`, `page_show_in_menu`, `page_show_in_debug`, `
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `est_regions`
--- 
+--
 
 DROP TABLE IF EXISTS `est_regions`;
 CREATE TABLE `est_regions` (
@@ -910,9 +910,9 @@ CREATE TABLE `est_regions` (
   PRIMARY KEY (`region_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 AUTO_INCREMENT=34 ;
 
--- 
+--
 -- Contenu de la table `est_regions`
--- 
+--
 
 INSERT INTO `est_regions` (`region_id`, `region_name`, `region_desc`, `region_kingdom`, `region_htmlmap`) VALUES (1, 'Duché de Seòl', '', 'Taol-Kaer', '845,175,816,183,763,167,765,144,772,137,797,127,824,128,829,141,840,143,837,152,844,157'),
 (2, 'Duché de Kel Loar', '', 'Taol-Kaer', '823,128,797,127,771,137,767,143,749,140,741,128,707,132,689,81,680,81,669,71,672,63,657,44,660,33,679,27,699,27,715,17,744,12,773,20,787,35,800,47,800,53,819,64,817,71,833,75,840,81,847,88,852,92,860,108,843,116,831,119'),
@@ -949,9 +949,9 @@ INSERT INTO `est_regions` (`region_id`, `region_name`, `region_desc`, `region_ki
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `est_revers`
--- 
+--
 
 DROP TABLE IF EXISTS `est_revers`;
 CREATE TABLE `est_revers` (
@@ -962,9 +962,9 @@ CREATE TABLE `est_revers` (
   PRIMARY KEY (`rev_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
--- 
+--
 -- Contenu de la table `est_revers`
--- 
+--
 
 INSERT INTO `est_revers` (`rev_id`, `rev_name`, `rev_desc`, `rev_malus`) VALUES (1, 'Poisse', 'Tirer une deuxième fois, ignorer les 1 supplémentaires', ''),
 (2, 'Séquelle', '-1 Vigueur, et une séquelle physique (cicatrice...)', 'vig'),
@@ -979,9 +979,9 @@ INSERT INTO `est_revers` (`rev_id`, `rev_name`, `rev_desc`, `rev_malus`) VALUES 
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `est_steps`
--- 
+--
 
 DROP TABLE IF EXISTS `est_steps`;
 CREATE TABLE `est_steps` (
@@ -993,9 +993,9 @@ CREATE TABLE `est_steps` (
   UNIQUE KEY `Unique step` (`gen_step`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
--- 
+--
 -- Contenu de la table `est_steps`
--- 
+--
 
 INSERT INTO `est_steps` (`gen_id`, `gen_step`, `gen_mod`, `gen_anchor`) VALUES (1, 1, '01_peuple', 'Peuple'),
 (2, 2, '02_metier', 'Métier'),
@@ -1020,9 +1020,9 @@ INSERT INTO `est_steps` (`gen_id`, `gen_step`, `gen_mod`, `gen_anchor`) VALUES (
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `est_traitscaractere`
--- 
+--
 
 DROP TABLE IF EXISTS `est_traitscaractere`;
 CREATE TABLE `est_traitscaractere` (
@@ -1035,9 +1035,9 @@ CREATE TABLE `est_traitscaractere` (
   PRIMARY KEY (`trait_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=utf8 AUTO_INCREMENT=89 ;
 
--- 
+--
 -- Contenu de la table `est_traitscaractere`
--- 
+--
 
 INSERT INTO `est_traitscaractere` (`trait_id`, `trait_name`, `trait_name_female`, `trait_voie`, `trait_qd`, `trait_mm`) VALUES (1, 'Combatif', 'Combative', 'com', 'q', 'maj'),
 (2, 'Optimiste', 'Optimiste', 'com', 'q', 'maj'),
@@ -1130,9 +1130,9 @@ INSERT INTO `est_traitscaractere` (`trait_id`, `trait_name`, `trait_name_female`
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `est_users`
--- 
+--
 
 DROP TABLE IF EXISTS `est_users`;
 CREATE TABLE `est_users` (
@@ -1148,18 +1148,18 @@ CREATE TABLE `est_users` (
   UNIQUE KEY `user_email` (`user_email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=119 DEFAULT CHARSET=utf8 AUTO_INCREMENT=119 ;
 
--- 
+--
 -- Contenu de la table `est_users`
--- 
+--
 
 INSERT INTO `est_users` (`user_id`, `user_name`, `user_password`, `user_email`, `user_acl`, `user_status`, `user_confirm`)
 VALUES (1, 'admin', '5ff72db64a44df9364e9ab1f8c61de6d9c97d9d6', 'admin@localhost.com', 0, 1, '');
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Structure de la table `est_voies`
--- 
+--
 
 DROP TABLE IF EXISTS `est_voies`;
 CREATE TABLE `est_voies` (
@@ -1173,9 +1173,9 @@ CREATE TABLE `est_voies` (
   UNIQUE KEY `voie_name` (`voie_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
--- 
+--
 -- Contenu de la table `est_voies`
--- 
+--
 
 INSERT INTO `est_voies` (`voie_id`, `voie_shortname`, `voie_name`, `voie_travers`, `voie_desc`) VALUES (1, 'com', 'Combativité', 'Passion', 'Cette Voie traduit la pugnacité, l''énergie qui pousse à agir, la rage de vivre.'),
 (2, 'cre', 'Créativité', 'Subversion', 'La capacité à imaginer, à donner à sa vie un sens original, l''inventivité, la débrouillardise.'),
