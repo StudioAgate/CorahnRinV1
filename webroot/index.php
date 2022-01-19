@@ -11,6 +11,7 @@ $time = microtime(true);
 date_default_timezone_set('Europe/Paris');
 
 try {
+    throw new Exception('WOW');
     require dirname(__DIR__).'/app.php';
 } catch (Exception $e) {
 ?>
@@ -27,7 +28,7 @@ try {
 <?php
     do {
         echo '<pre>&gt; ' .$e->getMessage().' ('.$e->getCode().')</pre>';
-        if (P_DEBUG) {
+        if (defined('P_DEBUG') && P_DEBUG) {
             echo '<pre>'.$e->getTraceAsString().'</pre>';
             pr($e->getTrace());
         }
