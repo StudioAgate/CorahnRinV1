@@ -156,7 +156,7 @@ class FileAndDir {
 		try {
 			if (!file_put_contents($filename, $content, $append)) {
 				$message = error_get_last();
-				$message = $message['message'];
+				$message = $message['message'] ?? '';
 				throw new Exception('Impossible d\'écrire dans ' . $filename . "\n" . $message);
 			}
 			return true;
