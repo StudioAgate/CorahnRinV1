@@ -546,24 +546,19 @@ class EsterenChar {
             return false;
         }
 
-        if ($req && isset($req['char_id'], $req['char_name'])) {
-            $this->char = array();
-            if ($this->update_to_db(false)) {
-                $ret = $this->db->noRes('DELETE FROM %%characters WHERE %char_id = ?', array($req['char_id']));
-                if (!$ret) {
-                    Session::setFlash('Une erreur est survenue lors de la suppression du personnage. #001', 'error');
-                }
-                return $ret;
-            }
-
-            Session::setFlash('Erreur lors de la mise à jour du personnage', 'error');
+        if ($req && !isset($req['char_id'], $req['char_name'])) {
+            Session::setFlash('Une erreur inconnue est survenue lors de la suppression du personnage. #002', 'error');
 
             return false;
         }
 
-        Session::setFlash('Une erreur inconnue est survenue lors de la suppression du personnage. #002', 'error');
+        $ret = $this->db->noRes('DELETE FROM %%characters WHERE %char_id = ?', array($req['char_id']));
 
-        return false;
+        if (!$ret) {
+            Session::setFlash('Une erreur est survenue lors de la suppression du personnage. #001', 'error');
+        }
+
+        return $ret;
     }
 
 	/**
