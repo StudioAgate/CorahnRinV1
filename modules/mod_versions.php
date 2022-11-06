@@ -48,7 +48,7 @@ foreach ($versions->version as $v) {
 		);
 		foreach ($task->comment as $comment) {
             if (strpos($comment, 'redmine#') !== false) {
-                $comment = preg_replace('~redmine#(\d+)~', '<a href="http://redmine.pierstoval.com/issues/$1">#$1</a>', $comment);
+                $comment = preg_replace('~redmine#(\d+)~', '', $comment);
             }
 			$element['comments'][] = (string) $comment;
 			$i++;
