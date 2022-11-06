@@ -365,7 +365,7 @@ div:not(.control-group).error:not(.noicon):before,		p.error:not(.noicon):before,
 div:not(.control-group).success:not(.noicon):before,	p.success:not(.noicon):before,	span.success:not(.noicon):before {
 	display: inline-block;
 	content: "";
-	background: url('../../img/glyphicons-halflings-yellow.png') no-repeat top left;
+	background: url('../img/glyphicons-halflings-yellow.png') no-repeat top left;
 	width: 14px;
 	height: 14px;
 	margin-top: 1px;
