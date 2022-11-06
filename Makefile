@@ -1,6 +1,6 @@
 DOCKER_COMPOSE  = docker-compose
 
-EXEC_DB         = $(DOCKER_COMPOSE) exec mysql
+EXEC_DB         = $(DOCKER_COMPOSE) exec database
 EXEC_PHP        = $(DOCKER_COMPOSE) exec php
 
 SYMFONY_CONSOLE = $(EXEC_PHP) bin/console
@@ -31,17 +31,15 @@ config.php:
 
 build: ## Build the Docker images
 	@$(DOCKER_COMPOSE) pull --include-deps
-	@$(DOCKER_COMPOSE) build --force-rm --compress
+	@$(DOCKER_COMPOSE) build
 .PHONY: build
 
 start: ## Start all containers and the PHP server
 	@$(DOCKER_COMPOSE) up -d --remove-orphans --no-recreate
-	@$(MAKE) start-php
 .PHONY: start
 
 stop: ## Stop all containers and the PHP server
 	@$(DOCKER_COMPOSE) stop
-	@$(MAKE) stop-php
 .PHONY: stop
 
 restart: ## Restart the containers & the PHP server
@@ -85,11 +83,3 @@ wait-for-db:
 	@echo " Waiting for database..."
 	@for i in {1..5}; do $(EXEC_DB) mysql -u$(DB_USER) -p$(DB_PWD) -e "SELECT 1;" > /dev/null 2>&1 && sleep 1 || echo " Unavailable..." ; done;
 .PHONY: wait-for-db
-
-start-php:
-	$(DOCKER_COMPOSE) up -d --force-recreate php
-.PHONY: start-php
-
-stop-php:
-	$(DOCKER_COMPOSE) stop php
-.PHONY: stop-php

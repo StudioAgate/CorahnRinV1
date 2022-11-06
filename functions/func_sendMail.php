@@ -60,8 +60,8 @@ function send_mail($dest = array(), $subj = '', $message = '', $mail_id = 0, $fr
 
 		'.wordwrap(strip_tags($message), 70, "\r\n").'
 
-		Corahn Rin - Plateforme de jeu des Ombres d\'Esteren - Pierstoval - contact@pierstoval.com - 2012-2013
-		Tous droits réservés - Pierstoval 2012-2013
+		Corahn Rin - Plateforme de jeu des Ombres d\'Esteren - Pierstoval - pierstoval@protonmail.com - 2012-'.date('Y').'
+		Tous droits réservés - Pierstoval 2012-'.date('Y').'
 		Tous les contenus sont générés par l\'auteur du site, mais proviennent des livres des Ombres d\'Esteren, et appartiennent au collectif Forgesonges, et édité par Agate Editions.
 	', 70, "\r\n");
 
@@ -74,20 +74,20 @@ function send_mail($dest = array(), $subj = '', $message = '', $mail_id = 0, $fr
 
 	$mail->SetLanguage(P_LANG);
 
-	if (true === P_DEBUG) {
-		$mail->IsSMTP();//Active le SMTP
+    $mail->IsSMTP();//Active le SMTP
 
-        if (P_MAIL_SMTP_USER) {
-            $mail->SMTPAuth = true;//Authentification SMTP requise
-            $mail->Username = P_MAIL_SMTP_USER;
-            $mail->Password = P_MAIL_SMTP_PASSWORD;
-        }
-		$mail->SMTPKeepAlive = true;//Permet de ne pas fermer la connexion après chaque mail envoyé
+    if (P_MAIL_SMTP_USER) {
+        $mail->SMTPAuth = true;//Authentification SMTP requise
+        $mail->Username = P_MAIL_SMTP_USER;
+        $mail->Password = P_MAIL_SMTP_PASSWORD;
+    }
+    $mail->SMTPKeepAlive = true;//Permet de ne pas fermer la connexion après chaque mail envoyé
 
-		$mail->Host = P_MAIL_SMTP_HOST;
-		$mail->SMTPSecure = P_MAIL_SMTP_SECURE;
-		$mail->Port = P_MAIL_SMTP_PORT;
-	}
+    $mail->Host = P_MAIL_SMTP_HOST;
+    if (P_MAIL_SMTP_SECURE) {
+        $mail->SMTPSecure = P_MAIL_SMTP_SECURE;
+    }
+    $mail->Port = P_MAIL_SMTP_PORT;
 
 	$mail->SetFrom($from['mail'], $from['name']);
 	$mail->AddReplyTo($from['mail'], $from['name']);
@@ -95,7 +95,7 @@ function send_mail($dest = array(), $subj = '', $message = '', $mail_id = 0, $fr
 	$mail->AddAddress($dest['mail'], $dest['name']);
 
 	$mail->WordWrap = 70;
-	$mail->IsHTML(true);
+	$mail->IsHTML();
 
 	$mail->Subject = $subj;
 

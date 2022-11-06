@@ -1,7 +1,7 @@
 <?php
 
 ## Constantes concernant la BDD
-const P_DB_HOST = 'mysql';
+const P_DB_HOST = 'database';
 const P_DB_USER = 'root';
 const P_DB_PWD = 'corahnrin';
 const P_DB_DBNAME = 'corahnrin';
@@ -14,10 +14,10 @@ const P_ERROR_MAIL_TO = 'me@domain.com';
 const P_ERROR_MAIL_FROM = 'me@domain.com';
 
 ##Constantes liées à PHP Mailer
-const P_MAIL_SMTP_HOST = '127.0.0.1:11080';
-const P_MAIL_SMTP_USER = 'me@domain.com';
+const P_MAIL_SMTP_HOST = 'mailcatcher';
+const P_MAIL_SMTP_USER = '';
 const P_MAIL_SMTP_PASSWORD = '';
-const P_MAIL_SMTP_SECURE = 'TLS';
-const P_MAIL_SMTP_PORT = 587;
-const P_MAIL_DEFAULT_FROM_MAIL = P_MAIL_SMTP_USER;
+const P_MAIL_SMTP_SECURE = '';
+const P_MAIL_SMTP_PORT = 1025;
+define('P_MAIL_DEFAULT_FROM_MAIL', 'admin@'.$_SERVER['HTTP_HOST']);
 const P_MAIL_DEFAULT_FROM_NAME = 'Corahn Rin';
