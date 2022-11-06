@@ -40,3 +40,4 @@ translation/*/[0-9]*.json
 
 /vendor/
 docker/mysql/dump.sql
+/docker-compose.override.yaml
