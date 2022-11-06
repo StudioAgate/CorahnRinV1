@@ -17,7 +17,7 @@ $users = array();
 
 if (!is_array($characters)) {
     Session::setFlash('Erreur dans la liste des personnages...', 'error');
-    redirect(1);
+    redirect(['val'=>1]);
 }
 
 foreach ($characters as $k => $v) {
@@ -60,6 +60,7 @@ if ($send === true) {
 		'game_name' => $_POST['game_name'],
 		'game_summary' => $_POST['game_summary'],
 		'game_mj' => Users::$id,
+        'game_notes' => '',
 	);
 
 	$result1 = $db->noRes('INSERT INTO %%games SET %%%fields', $game);

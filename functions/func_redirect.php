@@ -27,6 +27,9 @@ function redirect($mkurl, $setflash = '', $flashtype = 'success', $bypass_get_re
 	if ($setflash) {
 		Session::setFlash($setflash, $flashtype);
 	}
+    if (is_int($mkurl)) {
+        $mkurl = ['val' => $mkurl];
+    }
 	if (is_array($mkurl)) {
 		$mkurl = (array) $mkurl;
 		$redir = mkurl($mkurl);
