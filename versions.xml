@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+    <version date="20221106" code="1.43">
+        <tasks>
+            <task type="general">
+                <element name=""><![CDATA[<em>Code sniffing</em>]]></element>
+                <comment>Supprimé vieux code lié à IE</comment>
+            </task>
+            <task type="general">
+                <element name="">Assets</element>
+                <comment>Corrigé les fichiers glyphicons corrompus</comment>
+            </task>
+            <task type="general">
+                <element name="pages/mod_admin_errors.php" id="59"></element>
+                <comment>Corrigé un bug sur la gestion d'erreurs, et ajouté la gestion des exceptions</comment>
+            </task>
+            <task type="general">
+                <element name="">Dev setup</element>
+                <comment>Remis à jour le setup de dev en supprimant Symfony CLI</comment>
+            </task>
+        </tasks>
+    </version>
     <version date="20220119" code="1.42">
         <tasks>
             <task type="general">
