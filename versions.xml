@@ -5,6 +5,7 @@
             <task type="general">
                 <element name="pages/create_campaign.php" id="61"></element>
                 <comment>Corrigé un bug de redirection après création de campagne</comment>
+                <comment>Corrigé un bug lié à un champ manquant lors de la création de campagne</comment>
             </task>
             <task type="general">
                 <element name=""><![CDATA[<em>Code sniffing</em>]]></element>
