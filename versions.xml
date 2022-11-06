@@ -3,6 +3,10 @@
     <version date="20221106" code="1.43">
         <tasks>
             <task type="general">
+                <element name="pages/create_campaign.php" id="61"></element>
+                <comment>Corrigé un bug de redirection après création de campagne</comment>
+            </task>
+            <task type="general">
                 <element name=""><![CDATA[<em>Code sniffing</em>]]></element>
                 <comment>Supprimé vieux code lié à IE</comment>
             </task>
@@ -17,6 +21,8 @@
             <task type="general">
                 <element name="">Dev setup</element>
                 <comment>Remis à jour le setup de dev en supprimant Symfony CLI</comment>
+                <comment>Refacto du setup Docker</comment>
+                <comment>Correction du SQL d'installation en dev</comment>
             </task>
         </tasks>
     </version>
