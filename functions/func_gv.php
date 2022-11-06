@@ -13,8 +13,12 @@ use App\Hash;
  * @return array|null
  */
 function gv($key, array $before = array(), array $after = array()) {
-    $result = null;
     $beforeValue = Hash::get($before, $key);
     $afterValue = Hash::get($after, $key);
-    return $beforeValue || $afterValue ? array('before' => $beforeValue, 'after' => $afterValue) : null;
+
+    if ($beforeValue || $afterValue) {
+        return ['before' => $beforeValue, 'after' => $afterValue];
+    }
+
+    return null;
 }

@@ -46,7 +46,7 @@ function redirect($mkurl, $setflash = '', $flashtype = 'success', $bypass_get_re
 		header('Location: '.$redir);
 	} else {
         Session::setFlash('Erreur de redirection', 'error');
-        header('Location: '.BASE_URL);
+        header('Location: '.base_url());
 	}
 	exit;
 }

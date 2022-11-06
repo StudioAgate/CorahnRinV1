@@ -11,7 +11,7 @@ if ($character->user_id() !== Users::$id) {
 	return;
 }
 
-$_POST = get_post_datas();
+$_POST = get_post_data();
 
 ## On va traiter la suppression au cas où l'on demande à supprimer un personnage
 $del = isset($_PAGE['request'][1]) ? $_PAGE['request'][1] : '';

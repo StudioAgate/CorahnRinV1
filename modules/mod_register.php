@@ -18,7 +18,7 @@ if (isset($_POST['name'], $_POST['email'], $_POST['password']) && !empty($_POST)
         if ($err !== '') {
             Session::setFlash($err, 'error');
         } else {
-            $datas = array(
+            $data = array(
                 'name' => $_POST['name'],
                 'password' => $_POST['password'],
                 'email' => $_POST['email'],
@@ -27,7 +27,7 @@ if (isset($_POST['name'], $_POST['email'], $_POST['password']) && !empty($_POST)
             );
 
             Session::delete('tokenToCheck');
-            $create = Users::create($datas);
+            $create = Users::create($data);
             if ($create === false) {
                 Session::setFlash($err, 'error');
             } elseif (!empty($_GET['redirect']) && url_exists($_GET['redirect'])) {

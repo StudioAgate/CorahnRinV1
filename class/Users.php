@@ -57,42 +57,42 @@ class Users {
 		Session::write('user', 0);
 	}
 
-	public static function create($datas = array()) {
+	public static function create(array $data = []) {
         /** @var bdd $db */
         global $db;
 		if (
-			isset($datas['name']) &
-			isset($datas['email']) &&
-			isset($datas['password'])
+			isset($data['name']) &
+			isset($data['email']) &&
+			isset($data['password'])
 		) {
-			unset($datas['associate'], $datas['user']);
-			if (strlen($datas['password']) < 5 || !preg_match('#[a-zA-Z]#iUu', $datas['password']) || !preg_match('#\d#U', $datas['password'])) {
+			unset($data['associate'], $data['user']);
+			if (strlen($data['password']) < 5 || !preg_match('#[a-zA-Z]#iUu', $data['password']) || !preg_match('#\d#U', $data['password'])) {
 				Session::setFlash('Le mot de passe doit comporter au moins 5 caractères, ainsi qu\'au moins une lettre et un chiffre.', 'error');
 				return false;
 			}
-			$datas['password'] = self::pwd($datas['password']);
-			$users = $db->req('SELECT COUNT(*) as %nb_users FROM %%users WHERE %user_name = ? OR %user_email = ?', array($datas['name'], $datas['email']));
+			$data['password'] = self::pwd($data['password']);
+			$users = $db->req('SELECT COUNT(*) as %nb_users FROM %%users WHERE %user_name = ? OR %user_email = ?', array($data['name'], $data['email']));
 			if ($users && isset($users[0]['nb_users']) && $users[0]['nb_users'] > 0) {
 				Session::setFlash('Le nom d\'utilisateur ou l\'adresse mail est déjà utilisé', 'error');
 				return false;
 			}
-			if (!is_correct_email($datas['email'])) {
+			if (!is_correct_email($data['email'])) {
 				Session::setFlash('Entrez une adresse email correcte', 'error');
 				return false;
 			}
-			if (!$datas['name']) {
+			if (!$data['name']) {
 				Session::setFlash('Entrez un nom d\'utilisateur', 'error');
 				return false;
 			}
-			$datas = array(
-				'user_name' => $datas['name'],
-				'user_email' => $datas['email'],
-				'user_password' => $datas['password'],
+			$data = array(
+				'user_name' => $data['name'],
+				'user_email' => $data['email'],
+				'user_password' => $data['password'],
 				'user_status' => 0,
-				'user_confirm' => md5($datas['name'].mt_rand(1,10000)),
+				'user_confirm' => md5($data['name'].mt_rand(1,10000)),
 			);
-			$db->noRes('INSERT INTO %%users SET %%%fields ', $datas);
-			$user = $db->row('SELECT %user_id,%user_name,%user_email,%user_confirm FROM %%users WHERE %user_name = ? AND %user_email = ?', array($datas['user_name'], $datas['user_email']));
+			$db->noRes('INSERT INTO %%users SET %%%fields ', $data);
+			$user = $db->row('SELECT %user_id,%user_name,%user_email,%user_confirm FROM %%users WHERE %user_name = ? AND %user_email = ?', array($data['user_name'], $data['user_email']));
 			if ($user && !empty($user)) {
 				//Session::write('user', $id);
 				//self::init($user);

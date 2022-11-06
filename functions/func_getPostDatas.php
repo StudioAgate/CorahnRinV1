@@ -8,7 +8,7 @@
  * @return array Le tableau avec les données POST
  * @author Pierstoval 23/05/2013
  */
-function get_post_datas() {
+function get_post_data() {
 	$pairs = explode('&', file_get_contents('php://input'));//On découpe la requête selon les "&"
 	$var_names = array();
 	if (!empty($pairs)) {

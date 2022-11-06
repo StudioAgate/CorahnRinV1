@@ -214,32 +214,25 @@ function mkurl($base_params = [])
 
 function mkurl_to_internal_url($url)
 {
-    $url = str_replace(
+    return str_replace(
         ['/fr/', '/en/', BASE_URL, '/', '\\', DS.DS],
         ['/', '/', ROOT.DS.'webroot'.DS, DS, DS, DS],
         $url
     );
-
-    return $url;
 }
 
 function mkurl_to_client_url($url, $lang = true)
 {
-    $url = str_replace([ROOT.DS.'webroot', '\\', '/'], [$lang ? base_url(true) : BASE_URL, '/', '/'], $url);
-
-    return $url;
+    return str_replace([ROOT.DS.'webroot', '\\', '/'], [$lang ? base_url(true) : BASE_URL, '/', '/'], $url);
 }
 
 function is_ssl()
 {
     if (isset($_SERVER['HTTPS'])) {
-        if ('on' === strtolower($_SERVER['HTTPS'])) {
-            return true;
-        }
-        if (1 === (int) $_SERVER['HTTPS']) {
+        if (strtolower($_SERVER['HTTPS']) === 'on' || ((int)$_SERVER['HTTPS']) === 1) {
             return true;
         }
     }
 
-    return isset($_SERVER['SERVER_PORT']) && (443 === (int) $_SERVER['SERVER_PORT']);
+    return isset($_SERVER['SERVER_PORT']) && (((int) $_SERVER['SERVER_PORT']) === 443);
 }

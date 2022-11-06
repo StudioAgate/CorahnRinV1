@@ -5,7 +5,7 @@ $discs = array();
 foreach ($t as $v) {
 	$discs[$v['disc_id']] = $v;
 }
-$_POST = get_post_datas();
+$_POST = get_post_data();
 
 $send = true;
 

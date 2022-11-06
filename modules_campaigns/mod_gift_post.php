@@ -3,7 +3,7 @@
 ## Récupération de $_POST à partir des réelles données POST, pour obtenir les bons noms de variable entrées en paramètre,
 use App\Session;
 
-$post = get_post_datas();
+$post = get_post_data();
 
 foreach ($post['arme'] as $k => $v) {
 	if (!$v) { unset($post['arme'][$k]); }
