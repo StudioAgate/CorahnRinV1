@@ -62,7 +62,6 @@ function error_logging($errno, $errstr, $errfile, $errline) {
 		$errfile = str_replace(ROOT, '', $errfile);
 		$final = "*|*|*Date=>".json_encode(date(DATE_RFC822))
 			.'||Ip=>'.json_encode($_SERVER['REMOTE_ADDR'])
-// 			.'||Referer=>'.json_encode(@$_SERVER['HTTP_REFERER'])
 			.'||Traçage=>'.json_encode(debug_backtrace())
 			.'||Errno=>'.json_encode($errno)
 			.'||Errcode=>'.json_encode($phpType[$errno])
@@ -70,9 +69,9 @@ function error_logging($errno, $errstr, $errfile, $errline) {
 			.'||Error_comment=>'.json_encode($errstr)
 			.'||Error_file=>'.json_encode($errfile)
 			.'||Error_line=>'.json_encode($errline)
-			.'||Page.get=>'.json_encode(@$_PAGE['get'])
-			.'||Page.request=>'.json_encode(@$_PAGE['request'])
-			.'||Page.get_params=>'.json_encode(@urldecode($_GET))
+			.'||Page.get=>'.json_encode($_PAGE['get'] ?? '')
+			.'||Page.request=>'.json_encode($_PAGE['request'] ?? '')
+			.'||Page.get_params=>'.json_encode($_SERVER['QUERY_STRING'])
 			.'||User.id=>'.json_encode(Users::$id);
 		$final = preg_replace('#\n|\r|\t#iUu', '', $final);
 		$final = preg_replace('#\s\s+#iUu', ' ', $final);
@@ -109,7 +108,7 @@ function error_logging($errno, $errstr, $errfile, $errline) {
 
         $serv = [];
         foreach ($servKeys as $key) {
-            $serv[$key] = isset($_SERVER[$key]) ? $_SERVER[$key] : null;
+            $serv[$key] = $_SERVER[$key] ?? null;
         }
 
         $ref = new ReflectionClass(Users::class);

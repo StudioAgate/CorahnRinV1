@@ -104,10 +104,21 @@ $_PAGE['layout'] = 'default';
 
 ## Récupération du module dans $module
 ob_start();
-    if (file_exists(ROOT.DS.'modules'.DS.'mod_' . $_PAGE['get'] . '.php')) {//S'il existe on le charge
-        load_module($_PAGE['get'], 'page');
-    } else {
-        load_module('404', 'page');
+    try {
+        if (file_exists(ROOT . DS . 'modules' . DS . 'mod_' . $_PAGE['get'] . '.php')) {//S'il existe on le charge
+            load_module($_PAGE['get'], 'page');
+        } else {
+            load_module('404', 'page');
+        }
+    } catch (Throwable $e) {
+        $baseE = $e;
+        $msg = '';
+        do {
+            $msg .= $e->getMessage()."\n";
+            $e = $e->getPrevious();
+        } while ($e);
+        $e = $baseE;
+        error_logging(E_RECOVERABLE_ERROR, $msg, $e->getFile(), $e->getLine());
     }
 $_PAGE['content_for_layout'] = ob_get_clean();
 ## Fin de récupération du module
