@@ -5,9 +5,7 @@
  * @return int|null
  */
 function httpCode($code = null) {
-
     if ($code !== null) {
-
         $code = (int) $code;
 
         switch ($code) {
@@ -56,19 +54,16 @@ function httpCode($code = null) {
 
             default:
                 exit('Unknown http status code "' .htmlentities($code, ENT_QUOTES | ENT_HTML5). '"');
-                break;
         }
 
-        $protocol = (isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0');
+        $protocol = ($_SERVER['SERVER_PROTOCOL'] ?? 'HTTP/1.0');
 
         header($protocol.' '.$code.' '.$text);
 
         $GLOBALS['http_response_code'] = $code;
-
     } else {
-        $code = (isset($GLOBALS['http_response_code']) ? $GLOBALS['http_response_code'] : 200);
+        $code = ($GLOBALS['http_response_code'] ?? 200);
     }
 
     return $code;
-
 }

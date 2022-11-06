@@ -11,9 +11,6 @@ use App\Session;
  */
 function redirect($mkurl, $setflash = '', $flashtype = 'success', $bypass_get_redirect = false) {
 	$redir = '';
-// 	if (isset($_GET['redirect']) && $_GET['redirect'] && $bypass_get_redirect === false && url_exists($_GET['redirect'])) {
-// 		$redir = $_GET['redirect'];
-// 	} else
 
     if (isset($mkurl['http_code'])) {
         httpCode($mkurl['http_code']);
@@ -31,7 +28,6 @@ function redirect($mkurl, $setflash = '', $flashtype = 'success', $bypass_get_re
         $mkurl = ['val' => $mkurl];
     }
 	if (is_array($mkurl)) {
-		$mkurl = (array) $mkurl;
 		$redir = mkurl($mkurl);
 	} elseif (is_string($mkurl)) {
 		$redir = $mkurl;
@@ -47,9 +43,10 @@ function redirect($mkurl, $setflash = '', $flashtype = 'success', $bypass_get_re
     }
 
 	if ($redir) {
-		header('Location:'.$redir);
+		header('Location: '.$redir);
 	} else {
-		redirect(array('val'=>1), 'Erreur de redirection', 'error');
+        Session::setFlash('Erreur de redirection', 'error');
+        header('Location: '.BASE_URL);
 	}
 	exit;
 }
