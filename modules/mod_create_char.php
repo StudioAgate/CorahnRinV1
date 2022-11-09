@@ -110,7 +110,7 @@
 </div>
 <!-- /container -->
 <?php
-buffWrite('css', <<<CSSFILE
+buffWrite('css', /** @lang CSS */ <<<CSSFILE
 	ul#create_char_links {
 		/*border: medium none;*/
 		margin: 0;
@@ -131,7 +131,4 @@ buffWrite('css', <<<CSSFILE
 
 CSSFILE
 );
-	buffWrite('js', <<<JSFILE
-
-JSFILE
-);
+	buffWrite('js', '');

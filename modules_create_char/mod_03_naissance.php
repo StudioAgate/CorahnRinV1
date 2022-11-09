@@ -37,7 +37,7 @@
 
 		?>
 	<?php
-	buffWrite('css', '
+	buffWrite('css', /** @lang CSS */ '
 		#formgen #Gwidre, #formgen #Reizh, #formgen #TaolKaer {
 			margin: 0 auto;
 			border: solid 1px #000;
@@ -82,7 +82,7 @@
 			cursor:pointer;
 		}
 	', $page_mod);
-	buffWrite('js', "
+	buffWrite('js', /** @lang JavaScript */ "
 		$(document).ready(function() {
 			var values = { }, checked = 0, xhr;
 			$('polygon').click(function() {

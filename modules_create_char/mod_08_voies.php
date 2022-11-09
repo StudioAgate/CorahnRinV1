@@ -32,7 +32,7 @@
 		?>
 	</div>
 	<?php
-	buffWrite('css', '
+	buffWrite('css', /** @lang CSS */ '
 		#formgen #p_somme * { z-index: 99999;vertical-align: baseline; }
 		#formgen div.row div[class*="span"] { display: block; float: none; }
 		[class*="span"] p {
@@ -56,7 +56,7 @@
 			width: 270px;
 			padding-left: 10px;
 		}', $page_mod);
-	buffWrite('js', "
+	buffWrite('js', /** @lang JavaScript */ "
 		$(document).ready(function() {
 			var values = { }, xhr;
 			values.etape = ".$page_step.";

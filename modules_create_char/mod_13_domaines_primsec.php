@@ -179,7 +179,7 @@
 		return;
 	}
 
-		buffWrite('css', '
+		buffWrite('css', /** @lang CSS */ '
 		.ostbtn { display: none; float: left; }
 		.lettrbtn { float: left; }
 		span.icon-certificate.icon-red { margin-top: -1px; }
@@ -241,7 +241,7 @@
 	', $page_mod);
 
 
-		buffWrite('js', <<<JSFILE
+		buffWrite('js', /** @lang JavaScript */ <<<JSFILE
 		function show_and_hide() {
 			act = $('[data-jobval][data-jobval!=0]');
 			if (act.filter('[data-jobval=5]').length == 1) {

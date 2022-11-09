@@ -82,7 +82,7 @@ Session::write('tokenToCheck', Session::read('_token'));
 </div>
 
 <?php
-	buffWrite('css', <<<CSSFILE
+	buffWrite('css', /** @lang CSS */ <<<CSSFILE
 		#register_form { width: 500px; }
 		#register_form label { width: 200px; }
 		#register_form label:hover { cursor: pointer; }

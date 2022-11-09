@@ -13,7 +13,7 @@ if (isset($_SESSION['etape'])) {
 	if ($dropdown) {
 		$dropdown = ($_SESSION['etape'] > 0 ? '<li>'.mkurl(array('val'=>52, 'type' => 'TAG')).'</li>' : '').'
 		<li class="dropdown">
-			<a href="#" class="dropdown-toggle" data-toggle="dropdown">'.tr('Revenir à une autre étape', true).' <b class="caret"></b></a>
+			<a class="dropdown-toggle" data-toggle="dropdown">'.tr('Revenir à une autre étape', true).' <b class="caret"></b></a>
 			<ul class="dropdown-menu">'.$dropdown.'</ul>
 		</li>';
 	}
@@ -52,7 +52,7 @@ if (isset($_SESSION['etape'])) {
 								unset($id,$page,$active);
 								?>
 								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php tr('Changer la langue'); ?> <span class="caret"></span></a>
+									<a class="dropdown-toggle" data-toggle="dropdown"><?php tr('Changer la langue'); ?> <span class="caret"></span></a>
 									<ul class="dropdown-menu">
 										<li<?php echo P_LANG === 'fr' ? ' class="active"' : ''; ?>><?php echo mkurl(array('val'=>$_PAGE['id'], 'type' => 'tag', 'anchor' => 'Français','lang'=>'fr', 'params' => $_PAGE['request'])); ?></li>
 										<li<?php echo P_LANG === 'en' ? ' class="active"' : ''; ?>><?php echo mkurl(array('val'=>$_PAGE['id'], 'type' => 'tag', 'anchor' => 'Anglais','lang'=>'en', 'params' => $_PAGE['request'])); ?></li>

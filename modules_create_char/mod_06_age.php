@@ -12,7 +12,7 @@
 	</div>
 	<script type="text/javascript">var slidevalue = <?php echo (int) $slidevalue; ?>;</script>
 	<?php
-	buffWrite('css', '
+	buffWrite('css', /** @lang CSS */ '
 		#formgen div.row div h3,
 		#formgen div.row div a.ib,
 		#formgen div.row div span {
@@ -23,7 +23,7 @@
 		width: 270px;
 			padding-left: 10px;
 		}', $page_mod);
-	buffWrite('js', "
+	buffWrite('js', /** @lang JavaScript */ "
 	$(document).ready(function() {
 		var values = { }, xhr;
 		$('#age_slider').slider({
@@ -33,15 +33,15 @@
 			max: 35,
 			slide: function( event, ui ) {
 				$('#age_val').text(ui.value);
-			}
+			},
+			stop: function() {
+                values.etape = ".$page_step.";
+                values['".$page_mod."'] = $('#age_val').text();
+                sendMaj(values, '".$p_action."');
+            }
 		});
 		$('#age_slider').mousedown(function() {
 			$('#gen_send').html('<img src=\"".BASE_URL."/img/ajax-loader.gif\" />').css('visibility', 'visible');
-		});
-		$('#age_slider').mouseup(function(){
-			values.etape = ".$page_step.";
-			values['".$page_mod."'] = $('#age_val').text();
-			sendMaj(values, '".$p_action."');
 		});
 		$('#age_val').text($('#age_slider').slider('value'));
 	});

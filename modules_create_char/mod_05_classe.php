@@ -61,7 +61,7 @@
 		</div>
 	</div>
 	<?php
-	buffWrite('css', '
+	buffWrite('css', /** @lang CSS */ '
 		#formgen div[class*="span"] h3 {
 			padding: 5px;
 			text-align: center;
@@ -87,7 +87,7 @@
 		[class*="span"] p {
 			padding: 10px;
 		}', $page_mod);
-	buffWrite('js', "
+	buffWrite('js', /** @lang JavaScript */ "
 		$(document).ready(function() {
 			var values = { }, xhr;
 			$('div[class*=span]').click(function(e) {

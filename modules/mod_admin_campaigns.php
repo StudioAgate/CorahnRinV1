@@ -67,11 +67,5 @@ foreach ($games as $game_id => $game) {
 </div><!-- /container -->
 
 <?php
-buffWrite('css', <<<CSSFILE
-
-CSSFILE
-);
-buffWrite('js', <<<JSFILE
-
-JSFILE
-);
+buffWrite('css', '');
+buffWrite('js', '');

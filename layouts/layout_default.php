@@ -136,8 +136,8 @@ if (isset($_PAGE['more_css'])) {
 		// Création de la liste des fichiers js
 		$js = array(
 			BASE_URL.'/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js',
-			BASE_URL.'/js/vendor/jquery-1.8.3.min.js',
-		// 	BASE_URL.'/js/vendor/jquery-1.9.0.js',
+//		 	BASE_URL.'/js/vendor/jquery-3.6.1.js',
+		 	BASE_URL.'/js/vendor/jquery-3.6.1.min.js',
 			BASE_URL.'/js/vendor/jquery-ui-min.js',
 			BASE_URL.'/js/vendor/bootstrap.js',
 			BASE_URL.'/js/main.min.js',

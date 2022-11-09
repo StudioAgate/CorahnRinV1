@@ -44,18 +44,18 @@
 		<div class="content mt10"><?php
 			foreach($desordres as $id => $v) {
 				$active = $p_stepval == $id ? ' btn-inverse' : '';
-				echo '<button href="#" class="btn',$active,'" data-desordreid="',$id,'">',tr($v['desordre_name'], true),'</button>';
+				echo '<button class="btn',$active,'" data-desordreid="',$id,'">',tr($v['desordre_name'], true),'</button>';
 			}
 		?></div>
 	</div>
 
 	<?php
-	buffWrite('css', '
+	buffWrite('css', /** @lang CSS */ '
 	button {
 		margin: 0 5px;
 	}
 	', $page_mod);
-	buffWrite('js', "
+	buffWrite('js', /** @lang JavaScript */ "
 		$(document).ready(function() {
 			var values = { }, xhr;
 			$('button').click(function() {

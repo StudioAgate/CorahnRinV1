@@ -191,7 +191,7 @@ unset($err_file,$types_ok, $err_type);
 </div><!-- /container -->
 
 <?php
-	buffWrite('css', <<<CSSFILE
+	buffWrite('css', /** @lang CSS */ <<<CSSFILE
 	.maxval:hover, .minval:hover { cursor: pointer; }
 	.maxval:hover { background-color: #FCF8E3; color: #C09853; border: solid 1px #FBEED5; }
 	.minval:hover { background-color: #DFF0D8; color: #468847; border: solid 1px #D6E9C6;  }
@@ -205,7 +205,7 @@ unset($err_file,$types_ok, $err_type);
 	h4, th, table tr td.maxval, table tr td.minval, table tr td.medval { text-align: center; }
 CSSFILE
 );
-	buffWrite('js', <<<JSFILE
+	buffWrite('js', /** @lang JavaScript */ <<<JSFILE
 	$(document).ready(function(){
 		$('td.maxval').hover(function(){
 			$(this).find('[class*=icon-]').addClass('icon-yellow');

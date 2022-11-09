@@ -16,12 +16,12 @@ if ($game_mj && $char_id && $sendmail) {
 }
 unset($sendmail, $game_mj, $game_player, $char_id);
 
-buffWrite('css', <<<CSSFILE
+buffWrite('css', /** @lang CSS */ <<<CSSFILE
 	.give_exp { margin-right: 5px; }
 CSSFILE
 );
 
-buffWrite('js', <<<JSFILE
+buffWrite('js', /** @lang JavaScript */ <<<JSFILE
 \$(document).ready(function(){
 	$('.select_char').click(function(){
 		$(this).toggleClass('btn-inverse').next('input[name="'+$(this).attr('data-valid')+'"]').val($(this).is('.btn-inverse') ? '1' : '0');

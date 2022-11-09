@@ -19,7 +19,7 @@ use App\Translate;
 	<?php
     Translate::$domain = null;
 
-	buffWrite('css', <<<CSSFILE
+	buffWrite('css', /** @lang CSS */ <<<CSSFILE
 	a.btn.btn-large.btn-danger { color: white; }
 CSSFILE
 );

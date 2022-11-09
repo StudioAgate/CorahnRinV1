@@ -138,7 +138,7 @@ if ($resetPassword) {
 			<p><?php echo mkurl(array('val'=>56, 'type' => 'tag', 'anchor' => 'Créez un compte !', 'trans' => true, 'attr' => 'class="btn btn-link"')); ?></p>
 		</div>
         <p class="center">
-            <a href="#" id="lostpassword" class="btn btn-link ib"><?php tr("Mot de passe oublié ?"); ?></a>
+            <a id="lostpassword" class="btn btn-link ib"><?php tr("Mot de passe oublié ?"); ?></a>
         </p>
         <form id="recoverpassword" action="<?php echo mkurl(array('val'=>$_PAGE['id'],'get'=>$_GET)); ?>" method="post" style="display: none;">
             <fieldset>
@@ -156,13 +156,13 @@ if ($resetPassword) {
 	<?php
 }
 
-	buffWrite('css', <<<CSSFILE
+	buffWrite('css', /** @lang CSS */ <<<CSSFILE
 	#debugmode, #recoverpassword {
 		text-align: center;
 	}
 CSSFILE
 );
-	buffWrite('js', <<<JSFILE
+	buffWrite('js', /** @lang JavaScript */ <<<JSFILE
 
 	$('#lostpassword').on('click', function(){
 	    $('#recoverpassword').slideDown(400);

@@ -77,7 +77,7 @@
 	</div>
 </div>
 <?php
-	buffWrite('css', '
+	buffWrite('css', /** @lang CSS */ '
 	#formgen div[class*="span"]:hover { cursor: default; }
 	div[class^="span"] a.btn {
 		margin: 2px;
@@ -86,7 +86,7 @@
 	}
 	h3 { text-align: center; }
 	', $page_mod);
-	buffWrite('js', "
+	buffWrite('js', /** @lang JavaScript */ "
 		$(document).ready(function() {
 			var values = { }, allval1 = '', allval2 = '', xhr;
 			$('div[class*=span] p a.btn').click(function() {

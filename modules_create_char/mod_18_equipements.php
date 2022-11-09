@@ -44,11 +44,11 @@
 	</div>
 
 	<?php
-	buffWrite('css', '
+	buffWrite('css', /** @lang CSS */ '
 		button { margin: 5px 3px; }
 		#autre_equip { width: 100%; height: 150px; }
 	', $page_mod);
-	buffWrite('js', <<<JSFILE
+	buffWrite('js', /** @lang JavaScript */ <<<JSFILE
 		function send_datas() {
 			var values = {};
 			values['{$page_mod}'] = {};

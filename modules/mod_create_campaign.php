@@ -166,7 +166,7 @@ if ($send === true) {
 	</form>
 	<?php
 }
-	buffWrite('css', <<<CSSFILE
+	buffWrite('css', /** @lang CSS */ <<<CSSFILE
 	select[name*=char_select] {
 		max-width: 100%;
 	}
@@ -179,7 +179,7 @@ if ($send === true) {
 	}
 CSSFILE
 );
-	buffWrite('js', <<<JSFILE
+	buffWrite('js', /** @lang JavaScript */ <<<JSFILE
 $(document).ready(function(){
 	$('.select_char').click(function(){
 		$(this).toggleClass('btn-inverse').next('input[name="'+$(this).attr('data-valid')+'"]').val($(this).is('.btn-inverse') ? '1' : '0');

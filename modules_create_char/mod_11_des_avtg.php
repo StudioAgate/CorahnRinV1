@@ -108,7 +108,7 @@ foreach($totlist as $key => $val) {//Formatage d'une liste d'avantages et une au
 	</div>
 </div><!--/.row-->
 	<?php
-	buffWrite('css', '
+	buffWrite('css', /** @lang CSS */ '
 		#formgen div[class*="span"]:hover { cursor: default; }
 		div[class^="span"] a.btn {
 			margin: 0;
@@ -139,7 +139,7 @@ foreach($totlist as $key => $val) {//Formatage d'une liste d'avantages et une au
 			font-size: 0.8em;
 		}
 	', $page_mod);
-	buffWrite('js', <<<JSFILE
+	buffWrite('js', /** @lang JavaScript */ <<<JSFILE
 	$(document).ready(function() {
 		$('#infodesc').hide().text('');
 		$('a.btn.btn-small[data-stepid]').click(function() {

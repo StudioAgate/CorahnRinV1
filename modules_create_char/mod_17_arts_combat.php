@@ -87,7 +87,7 @@
 
 	<?php
 		buffWrite('css', '', $page_mod);
-		buffWrite('js', <<<JSFILE
+		buffWrite('js', /** @lang JavaScript */ <<<JSFILE
 		var baseExp;
 		function ajsend() {
 			var values = {};

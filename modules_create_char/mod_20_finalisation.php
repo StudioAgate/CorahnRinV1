@@ -92,12 +92,12 @@ foreach ($sheets as $k => $sheet) {
 		</div>
 	</div>
 <?php
-buffWrite('css', <<<CSSFILE
+buffWrite('css', /** @lang CSS */ <<<CSSFILE
 	div[class*=span]:hover { cursor: default; }
 	#indicate_all { display: none; }
 CSSFILE
 , $page_mod);
-buffWrite('js', <<<JSFILE
+buffWrite('js', /** @lang JavaScript */ <<<JSFILE
 	$(document).ready(function(){
 		$('#form_create').click(function(){ $('#formgen').submit(); });
 		$(".pageview").click(function() { return !window.open(this.href); });

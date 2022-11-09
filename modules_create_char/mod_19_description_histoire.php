@@ -39,7 +39,7 @@
 			trad_cnt = "<?php tr("Le nom et le sexe du personnage doivent être mentionnés"); ?>";
 	</script>
 	<?php
-	buffWrite('css', '
+	buffWrite('css', /** @lang CSS */ '
 		textarea {
 			min-width: 200px;
 			width: 60%;
@@ -50,7 +50,7 @@
 			width: 400px;
 		}
 	', $page_mod);
-	buffWrite('js', <<<JSFILE
+	buffWrite('js', /** @lang JavaScript */ <<<JSFILE
 	var timeout = [];
 	function send_datas() {
 		var values = {};

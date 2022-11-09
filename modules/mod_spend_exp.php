@@ -81,13 +81,13 @@ $modules_exp = array(
 		trad_send = "<?php tr('Envoyer'); ?>";
 </script>
 <?php
-	buffWrite('css', <<<CSSFILE
+	buffWrite('css', /** @lang CSS */ <<<CSSFILE
 	#modal { margin-top: -140px; }
 	.modal-backdrop.fade.in { opacity: 0.2; }
 	.progress:hover { cursor: pointer; }
 CSSFILE
 );
-	buffWrite('js', <<<JSFILE
+	buffWrite('js', /** @lang JavaScript */ <<<JSFILE
 
 /**
  * Calcule les valeurs en fonction de l'objet cliqué

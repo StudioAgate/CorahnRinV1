@@ -49,12 +49,9 @@ unset($users,$k,$user,$char);
 </div><!-- /container -->
 
 <?php
-	buffWrite('css', <<<CSSFILE
+	buffWrite('css', /** @lang CSS */ <<<CSSFILE
 	.username { display: inline-block; min-width: 140px; }
 	.usermail { display: inline-block; min-width: 200px; }
 CSSFILE
 );
-	buffWrite('js', <<<JSFILE
-
-JSFILE
-);
+	buffWrite('js', '');

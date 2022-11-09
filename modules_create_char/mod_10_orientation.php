@@ -45,8 +45,8 @@
 		</div><!--/.row-->
 
 		<?php
-		buffWrite('css', '', $page_mod);
-		buffWrite('js', "
+		buffWrite('css', /** @lang CSS */ '', $page_mod);
+		buffWrite('js', /** @lang JavaScript */ "
 			$(document).ready(function() {
 				var values = { }, xhr;
 				$('span.btn:not(.disabled)').mouseup(function() {

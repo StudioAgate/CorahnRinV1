@@ -84,7 +84,7 @@ if ($char_id) {
 </div><!-- /container -->
 
 	<?php
-	buffWrite('css', <<<CSSFILE
+	buffWrite('css', /** @lang CSS */ <<<CSSFILE
 	.listlinks a { color: #0088CC; }
 	.charid { width: 5%; }
 	.charname { width: 25%; font-weight: bold; }
@@ -116,7 +116,7 @@ if ($char_id) {
 	}
 CSSFILE
 );
-	buffWrite('js', <<<JSFILE
+	buffWrite('js', /** @lang JavaScript */ <<<JSFILE
 	$(document).ready(function(){
 		$(".pageview").click(function() { return !window.open(this.href); });
 	});

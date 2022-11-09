@@ -138,7 +138,7 @@
 	<?php
 	}
 
-	buffWrite('css', '
+	buffWrite('css', /** @lang CSS */ '
 	.domain_value {
 		position: absolute;
 		left: 50%;
@@ -211,7 +211,7 @@
 	}
 	', $page_mod);
 
-	buffWrite('js', <<<JSFILE
+	buffWrite('js', /** @lang JavaScript */ <<<JSFILE
 		/**
 		 * bonusdomval
 		 * Vérifie la validité de l'pointsérience des domaines (de 0 à 5)

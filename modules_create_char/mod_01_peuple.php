@@ -24,7 +24,7 @@
 		</div>
 	</div><!--/.row-->
 	<?php
-	buffWrite('css', <<<CSSFILE
+	buffWrite('css', /** @lang CSS */ <<<CSSFILE
 		div[class*="span"]:hover { cursor: pointer; }
 		#formgen div[class*="span"] h3 {
 			padding: 10px;
@@ -40,7 +40,7 @@
 		}
 CSSFILE
 , $page_mod);
-	buffWrite('js', <<<JSFILE
+	buffWrite('js', /** @lang JavaScript */ <<<JSFILE
 		$(document).ready(function() {
 			var values = { }, xhr;
 			$('div[class*=span]').click(function() {

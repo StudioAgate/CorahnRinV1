@@ -24,7 +24,7 @@ $char_id = isset($_PAGE['request'][0]) ? (int) $_PAGE['request'][0] : 0;
 	?>
 </div><!-- /container -->
 <?php
-buffWrite('css', <<<CSSFILE
+buffWrite('css', /** @lang CSS */ <<<CSSFILE
 	input, textarea {
 		min-width: 90%;
 		width: 90%;
@@ -40,7 +40,7 @@ buffWrite('css', <<<CSSFILE
 	}
 CSSFILE
 );
-buffWrite('js', <<<JSFILE
+buffWrite('js', /** @lang JavaScript */ <<<JSFILE
 	$(document).ready(function(){
 		$('#modify_tabs a').click(function (e) {
 			e.preventDefault();

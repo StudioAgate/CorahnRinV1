@@ -187,11 +187,11 @@ $t = $db->req('SELECT %rev_id,%rev_name,%rev_desc FROM %%revers ORDER BY %rev_id
 
     <?php
 echo "<style type=\"text/css\">#gen_send{visibility:visible;}</style>";
-buffWrite('css', '
+buffWrite('css', /** @lang CSS */ '
     #formgen p#generated { display: none; }
     #formgen div[class*="span"]:hover { cursor: default; }
 ', $page_mod);
-buffWrite('js', "
+buffWrite('js', /** @lang JavaScript */ "
     $(document).ready(function(){
         var nb_revers_max = parseInt($('#nb_revers').val()),
             values = {};

@@ -48,7 +48,7 @@
 			foreach ($jobs as $job_id => $job) { ?>
 		<div class="span3">
 			<div class="btn-group btnslist">
-				<a href="#" data-stepid="<?php echo $job['job_id']; ?>" class="btn jobindicator<?php echo $p_stepval == $job['job_id'] ? ' btn-inverse' : ''; ?>">
+				<a data-stepid="<?php echo $job['job_id']; ?>" class="btn jobindicator<?php echo $p_stepval == $job['job_id'] ? ' btn-inverse' : ''; ?>">
 					<?php tr($job['job_name']); ?>
 				</a>
 				<a href="#job<?php echo $job['job_id']; ?>" role="button" data-toggle="modal" class="btn<?php echo $p_stepval == $job['job_id'] ? ' btn-inverse' : ''; ?>"><span class="icon-search"></span></a>
@@ -100,7 +100,7 @@
 			<h4><input type="text" placeholder="<?php tr('Créer un autre métier'); ?>" value="<?php echo is_string($p_stepval) ? $p_stepval : ''; ?>" id="otherjob" /></h4>
 		</div>
 	<?php
-	buffWrite('css', '
+	buffWrite('css', /** @lang CSS */ '
 		@media(max-width: 979px) and (min-width: 768px) {
 			.btn-group.btnslist { float: left; }
 			.btn-group .btn.jobindicator{ font-size: 11px;min-width: 120px; }
@@ -129,14 +129,14 @@
 		div[class*="span"]:hover { cursor: default; }
 		div[class*="span"]:hover h4 { text-shadow: none; }
 		', $page_mod);
-	buffWrite('js', "
+	buffWrite('js', /** @lang JavaScript */ "
 	var values = {};
 	\$(document).ready(function() {
 		\$('.checkthisjob,.jobindicator').mouseup(function() {
 			values.etape = ".$page_step.";
 			values['".$page_mod."'] =  \$(this).attr('data-stepid');
 			\$('.btn-group .btn-inverse').removeClass('btn-inverse');
-			\$('a[href=#job'+$(this).attr('data-stepid')+']').parent().find('.btn').addClass('btn-inverse');
+			\$('a[href=\"#job'+$(this).attr('data-stepid')+'\"]').parent().find('.btn').addClass('btn-inverse');
 			sendMaj(values, '".$p_action."');
 		});
 		\$('#otherjob').blur(function(){

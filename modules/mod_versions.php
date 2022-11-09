@@ -134,7 +134,7 @@ unset($v, $comment, $task, $day, $month, $year, $date, $code, $element, $version
 	</ul><!-- /ul#versions -->
 </div>
 	<?php
-	buffWrite('css', '
+	buffWrite('css', /** @lang CSS */ '
 	.btn_all_links { padding: 0; text-align: left; font-size: 1em; }
 	#versions, #versions ul, #versions li, #versions ul p, #versions ul h5 { margin-top: 0; }
 	#versions, #versions ul { list-style-type: none; }
@@ -175,7 +175,7 @@ unset($v, $comment, $task, $day, $month, $year, $date, $code, $element, $version
 	h5,h6,p { margin-top: 3px; margin-bottom: 3px; }
 	');
 
-	buffWrite('js', <<<JSFILE
+	buffWrite('js', /** @lang JavaScript */ <<<JSFILE
 	$(document).ready(function(){
 		$('li.version h4').hover(function(){
 			$(this).find('span[class*=icon-]').addClass('icon-red');

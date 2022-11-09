@@ -36,7 +36,4 @@ $rap = $char->get('rapidite');
 
 <?php
 $_PAGE['more_js'][] = BASE_URL.'/js/pages/pg_'.$module_name.'.js';
-buffWrite('js', <<<JSFILE
-
-JSFILE
-, $module_name);
+buffWrite('js', '', $module_name);

@@ -140,7 +140,7 @@
 	}
 
 
-	buffWrite('css', '
+	buffWrite('css', /** @lang CSS */ '
 	a.btn {
 		margin-bottom: 7px;
 	}
@@ -150,7 +150,7 @@
 		text-shadow: none;
 	}
 	', $page_mod);
-	buffWrite('js', <<<JSFILE
+	buffWrite('js', /** @lang JavaScript */ <<<JSFILE
 	var baseExp, basePoints;
 	function ajsend() {
 		var values = {};

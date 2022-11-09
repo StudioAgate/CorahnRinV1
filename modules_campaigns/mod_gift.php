@@ -146,7 +146,7 @@ $modules_list = array(
 <?php
 $_PAGE['more_js'][] = BASE_URL.'/js/pages/pg_'.$_PAGE['get'].'_gift.js';
 
-buffWrite('js', <<<JSFILE
+buffWrite('js', /** @lang JavaScript */ <<<JSFILE
 
 	function remove_chars() {
 	}

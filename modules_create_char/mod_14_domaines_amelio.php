@@ -111,7 +111,7 @@
 	</div><!--/.row-fluid-->
 	<?php
 
-	buffWrite('css', '
+	buffWrite('css', /** @lang CSS */ '
 	.rowfirst { margin-top: 10px; }
 	.xpdomcalc { position: relative; }
 	.domain_value {
@@ -177,7 +177,7 @@
 	}
 	', $page_mod);
 
-	buffWrite('js', <<<JSFILE
+	buffWrite('js', /** @lang JavaScript */ <<<JSFILE
 		/**
 		 * xpdomval
 		 * Vérifie la validité de l'expérience des domaines (de 0 à 5)

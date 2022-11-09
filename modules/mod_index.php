@@ -44,7 +44,7 @@ use App\Session;
 
 <?php
 
-buffWrite('css', '
+buffWrite('css', /** @lang CSS */ '
 	body {
 		/*background: url("'.base_url().'/img/esteren_set1_logo.png'.'");*/
 		background-size: cover;
