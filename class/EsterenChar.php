@@ -268,7 +268,7 @@ class EsterenChar {
                 return $value;
             }
         }
-        throw new RuntimeException('Undefined method "'.$name.'" in '.__CLASS__);
+        trigger_error('Undefined method "'.$name.'" in '.__CLASS__, E_USER_ERROR);
     }
 
 	public static function session_clear() {
