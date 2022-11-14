@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+    <version date="20221114" code="1.45">
+        <tasks>
+            <task type="general">
+                <element name=""><![CDATA[<em>Dev setup</em>]]></element>
+                <comment>Mis à jour l'installation de la bdd locale</comment>
+            </task>
+            <task type="page">
+                <element name="pages/mod_see_character" id="47"></element>
+                <comment>Corrigé un bug quand le personnage n'avait aucun argent</comment>
+            </task>
+        </tasks>
+    </version>
     <version date="20221109" code="1.44">
         <tasks>
             <task type="css">

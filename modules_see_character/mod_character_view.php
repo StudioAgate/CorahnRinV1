@@ -91,6 +91,7 @@ foreach ($a as $discipline) { $disciplines[$discipline['disc_id']] = $discipline
                 </tr>
                 <?php
                 $shownDomains = 0;
+                $a=$charObj->getInventaireArgent();
                 foreach ($charObj->getVoies() as $id => $values) {
                     $domainTrClass = $shownDomains % 2 === 0 ? 'even' : 'odd';
                     ?>

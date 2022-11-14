@@ -66,7 +66,7 @@ clean: kill
 ## -----
 ##
 
-cc: ## Clear and warmup PHP cache
+cc: ## Clear local cache
 	rm -rf tmp/*
 .PHONY: cc
 
@@ -74,6 +74,11 @@ db: ## Reset the development database
 db: wait-for-db
 	$(EXEC_DB) bash /app/install_database.bash
 .PHONY: db
+
+prod-db: ## Uses a prod dump as local database
+prod-db: wait-for-db
+	$(EXEC_DB) bash /app/install_database.bash -f dump.sql
+.PHONY: prod-db
 
 vendor: ## Install PHP vendors
 	$(COMPOSER) install

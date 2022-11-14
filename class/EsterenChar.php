@@ -2,8 +2,6 @@
 
 namespace App;
 
-use RuntimeException;
-
 /** @var bdd $db */
 
 /**
@@ -237,7 +235,7 @@ class EsterenChar {
     {
         $update = false;
 
-        $daols = $this->getInventaireArgent();
+        $daols = $this->get('inventaire.argent');
         if (is_numeric($daols)) {
             $daols = $this->get_daols((int) $daols);
             $this->setInventaireArgent($daols);
@@ -256,8 +254,9 @@ class EsterenChar {
             $stringPath = preg_replace_callback('~[A-Z]~', function($matches) {
                 return '.'.strtolower($matches[0]);
             }, $path);
-            if (null !== $value = $this->get($stringPath)) {
-                return $value;
+
+            if (Hash::check($this->char, $stringPath)) {
+                return $this->get($stringPath);
             }
         } elseif (strpos($name, 'set') === 0 && count($arguments) === 1) {
             $path = lcfirst(preg_replace('~^set~', '', $name));

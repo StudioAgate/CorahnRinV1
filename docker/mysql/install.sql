@@ -1,21 +1,10 @@
--- phpMyAdmin SQL Dump
--- version 2.6.4-pl3
--- http://www.phpmyadmin.net
---
--- Serveur: db457938209.db.1and1.com
 -- Généré le : Mardi 01 Octobre 2013 à 09:41
 -- Version du serveur: 5.1.71
--- Version de PHP: 5.3.3-7+squeeze17
---
--- Base de données: `db457938209`
---
 
 SET NAMES "utf8";
 
-DROP DATABASE IF EXISTS `corahnrin`;
-CREATE DATABASE `corahnrin` DEFAULT CHARACTER SET "utf8" COLLATE utf8_unicode_ci;
-
-USE `corahnrin`;
+CREATE DATABASE IF NOT EXISTS `corahnrin` DEFAULT CHARACTER SET "utf8" COLLATE utf8_unicode_ci;
+use `corahnrin`;
 
 -- --------------------------------------------------------
 
