@@ -1757,7 +1757,7 @@ class EsterenChar {
 			imagettftext($nimg, 21, 0, 880, 280, $grey, $lettrine, $player_name);
 			unset($taille_du_texte, $police_du_texte, $char_name, $arr, $player_name);
 
-			imagettftext($nimg, 18, 0, 215, 322, $grey, $times, tr($this->get('details_personnage.sexe'), true)[0]);
+			imagettftext($nimg, 18, 0, 215, 322, $grey, $times, tr($this->get('details_personnage.sexe'), true)[0] ?? '');
 			imagettftext($nimg, 20, 0, 343, 322, $grey, $carolingia_bold, substr($this->get('age'), 0, 3));
 
 			$taille_du_texte = 17;
