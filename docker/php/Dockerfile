@@ -46,6 +46,7 @@ RUN set -xe \
         php${PHP_VERSION}-opcache \
         php${PHP_VERSION}-readline \
         php${PHP_VERSION}-xml \
+        php${PHP_VERSION}-xdebug \
         php${PHP_VERSION}-zip \
     \
     && mkdir -p /run/php \

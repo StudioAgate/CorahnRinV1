@@ -18,7 +18,7 @@ services:
             - "443:443/udp"
 
     mailcatcher:
-        build: ./docker/mailcatcher/
+        image: mailhog/mailhog
 
     database:
         image: 'mysql:5.7'
