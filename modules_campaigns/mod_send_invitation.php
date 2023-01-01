@@ -3,10 +3,11 @@
 use App\Session;
 use App\Users;
 
+/** @var \App\bdd $db */
 /** @var int $game_mj */
 /** @var int $char_id */
 
-	$send_char =  $db->row('
+	$send_char = $db->row('
 		SELECT %%characters.%char_id, %%characters.%char_name, %%characters.%user_id,
 			%%users.%user_name, %%users.%user_email
 		FROM %%characters
@@ -18,11 +19,18 @@ use App\Users;
 	$game = $db->row('
 		SELECT %%games.%game_name
 		FROM %%games
-		WHERE %%games.%game_name = ?
+		WHERE %%games.%game_id = ?
     ', $game_mj);
 
     if (!$send_char) {
-        Session::setFlash('Une erreur est survenue...', 'error');
+        Session::setFlash('Une erreur est survenue dans la récupération du personnage...', 'error');
+        trigger_error('Une erreur est survenue dans la récupération du personnage', E_USER_NOTICE);
+        redirect(array('val'=>60));
+    }
+
+    if (!$game) {
+        Session::setFlash('Une erreur est survenue dans la récupération de la campagne...', 'error');
+        trigger_error('Une erreur est survenue dans la récupération de la campagne', E_USER_NOTICE);
         redirect(array('val'=>60));
     }
 

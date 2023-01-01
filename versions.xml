@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
-    <version date="20221114" code="1.45">
+    <version date="20230101" code="1.46">
+        <tasks>
+            <task type="page">
+                <element name="pages/create_campaign.php" id="61"></element>
+                <comment>Corrigé un bug qui empêchait de renvoyer des invitations à des joueurs/joueuses</comment>
+            </task>
+        </tasks>
+    </version>
+    <version date="20231114" code="1.45">
         <tasks>
             <task type="general">
                 <element name=""><![CDATA[<em>Dev setup</em>]]></element>
