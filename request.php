@@ -137,7 +137,7 @@ $_PAGE['list'] = [];
 $_PAGE['more_js'] = [];
 $_PAGE['more_css'] = [];
 
-$cacheFile = ROOT.DS.'tmp'.DS.'requestlist.php';
+$cacheFile = CACHE_DIR.DS.'requestlist.php';
 if (file_exists($cacheFile) && filemtime($cacheFile) >= (time() - 864000) && $cnt = file_get_contents($cacheFile)) {
     $_PAGE['list'] = require $cacheFile;
 } else {

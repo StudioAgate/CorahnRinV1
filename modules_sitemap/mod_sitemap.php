@@ -3,7 +3,7 @@ if ($_PAGE['extension'] !== 'xml') {
 	redirect(array('ext' => 'xml'));
 }
 
-$cacheFile = ROOT.DS.'tmp'.DS.'modsitemap.xml';
+$cacheFile = CACHE_DIR.DS.'modsitemap.xml';
 if (file_exists($cacheFile) && filemtime($cacheFile) >= (time() - 86400) && $cnt = file_get_contents($cacheFile)) {
 	echo $cnt;
 	return;
@@ -172,4 +172,3 @@ if (!is_dir(dirname($cacheFile))) {
 
 file_put_contents($cacheFile, $cacheFileContent);
 touch($cacheFile);
-

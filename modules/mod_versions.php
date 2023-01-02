@@ -13,7 +13,7 @@ foreach($_PAGE['list'] as $v) {
 $updates = array();
 $total_maj = 0;
 
-$cacheFile = ROOT.DS.'tmp'.DS.'modversions.html';
+$cacheFile = CACHE_DIR.DS.'modversions.html';
 if (file_exists($cacheFile) && filemtime($cacheFile) >= (time() - 86400) && $cnt = file_get_contents($cacheFile)) {
 	echo $cnt;
 	return;

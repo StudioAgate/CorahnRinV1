@@ -31,6 +31,11 @@ const P_META_GENERATOR = 'Corahn Rin {version} - Automatic character creation by
 const P_FPDF_FONTPATH = ROOT.DS.'files'.DS.'fpdf'.DS.'fonts';
 const P_FPDF_SYSTEM_TTF_FONTS = ROOT.DS.'files'.DS.'fpdf'.DS.'fonts';
 
+const CACHE_DIR = ROOT.DS.'tmp';
+if (!is_dir(CACHE_DIR)) {
+    FileAndDir::createPath(CACHE_DIR);
+}
+
 ## Générer les fichiers css et js des pages à chaque chargement via la fonction buffWrite(). Permet de réinitialiser une partie cache en local ou lorsque le superadmin est connecté
 define('P_GEN_FILES_ONLOAD', $_SERVER['HTTP_HOST'] === '127.0.0.1');
 
