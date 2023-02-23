@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+    <version date="20230223" code="1.47">
+        <tasks>
+            <task type="page">
+                <element name="pages/mod_campaigns.php" id="60"></element>
+                <comment>Corrigé une erreur qui empêchait l'ajout d'XP à un personnage de sa campagne.</comment>
+            </task>
+        </tasks>
+    </version>
     <version date="20230101" code="1.46">
         <tasks>
             <task type="page">

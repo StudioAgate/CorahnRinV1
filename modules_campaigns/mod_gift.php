@@ -49,7 +49,7 @@ if (isset($_PAGE['request'][2])) {
         // Retrait du personnage de la campagne en cours
         $sql = 'UPDATE %%characters SET %game_id = :game_id, %char_status = :char_status WHERE %char_id = :char_id ';
         $datas['game_id'] = null;
-        $datas['char_status'] = null;
+        $datas['char_status'] = 0;
         $datas['char_id'] = $char_id;
         $db->noRes($sql, $datas);
         Session::setFlash('Le personnage a été correctement retiré de la campagne.');
