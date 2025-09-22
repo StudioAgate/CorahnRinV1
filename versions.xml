@@ -14,6 +14,10 @@
                 <element page="pages/mod_create_char.php" id="62" module="modules_create_char/20_finalisation.php"/>
                 <comment>Corrigé un manque de validation relatif au nom du personnage (en cas de hack du formulaire de l'étape 19).</comment>
             </task>
+            <task type="general">
+                <element name=""></element>
+                <comment>Mise à jour des dépendances PHP</comment>
+            </task>
         </tasks>
     </version>
     <version date="20230223" code="1.47">
