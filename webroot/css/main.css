@@ -377,3 +377,7 @@ p.success:not(.noicon):before,	div:not(.control-group).success:not(.noicon):befo
 p.info:not(.noicon):before,		div:not(.control-group).info:not(.noicon):before,	span.info:not(.noicon):before	{ background: url('../img/glyphicons-halflings-blue.png') no-repeat -120px -96px; }
 p.warning:not(.noicon):before,	div:not(.control-group).warning:not(.noicon):before,span.warning:not(.noicon):before{ background: url('../img/glyphicons-halflings-yellow.png') no-repeat -144px -120px; }
 p.error:not(.noicon):before,	div:not(.control-group).error:not(.noicon):before,	span.error:not(.noicon):before	{ background: url('../img/glyphicons-halflings-red.png') no-repeat -216px -96px; }
+
+.text-red {
+	color: red;
+}

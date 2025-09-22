@@ -17,7 +17,7 @@ $form = false;
 
 ##Création du compte
 if (isset($_POST['assoc'])) {
-	if ($_POST['assoc'] == 'yes') {
+	if ($_POST['assoc'] === 'yes') {
 		$user_id = Users::$id;
 	}
 	$form = true;
@@ -26,18 +26,34 @@ if (isset($_POST['assoc'])) {
 }
 
 if($form === true) {
-$saved = $char->export_to_db($user_id);
-	if ($saved === true) {
-		EsterenChar::session_clear();
-		if (!$user_id) {
-			Session::setFlash('Le personnage a été correctement enregistré ! Il ne sera associé à aucun utilisateur.', 'success');
-		} else {
-			Session::setFlash('Le personnage a été correctement enregistré ! Il sera désormais associé à votre compte.', 'success');
-		}
-        $char_id = $db->last_id();
-		header('Location:'.mkurl(array('val'=>47,'params'=>array($char->id()))));
-		exit;
-	}
+    $isValid = true;
+    $validationErrors = [];
+
+    if (!\trim($char->name())) {
+        $isValid = true;
+        $validationErrors[] = 'Le personnage doit avoir un nom.';
+    }
+
+    if ($isValid) {
+        $saved = $char->export_to_db($user_id);
+        if ($saved === true) {
+            EsterenChar::session_clear();
+            if (!$user_id) {
+                Session::setFlash('Le personnage a été correctement enregistré ! Il ne sera associé à aucun utilisateur.', 'success');
+            } else {
+                Session::setFlash('Le personnage a été correctement enregistré ! Il sera désormais associé à votre compte.', 'success');
+            }
+            /** @var \App\bdd $db */
+            global $db;
+            $char_id = $db->last_id();
+            header('Location:'.mkurl(array('val'=>47,'params'=>array($char->id()))));
+            exit;
+        }
+    } else {
+        foreach ($validationErrors as $error) {
+            Session::setFlash($error, 'error');
+        }
+    }
 }
 
 $sheets = $char->export_to_img();

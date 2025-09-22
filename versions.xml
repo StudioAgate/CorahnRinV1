@@ -6,12 +6,20 @@
                 <element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
                 <comment>Corrigé un bug lorsqu'un PDF était régénéré plusieurs fois, ce qui donnait lieu à une erreur.</comment>
             </task>
+            <task type="page">
+                <element name="pages/mod_see_character" id="47"/>
+                <comment>Corrigé une erreur en cas de manque de données dans les données d'un personnage.</comment>
+            </task>
+            <task type="page">
+                <element page="pages/mod_create_char.php" id="62" module="modules_create_char/20_finalisation.php"/>
+                <comment>Corrigé un manque de validation relatif au nom du personnage (en cas de hack du formulaire de l'étape 19).</comment>
+            </task>
         </tasks>
     </version>
     <version date="20230223" code="1.47">
         <tasks>
             <task type="page">
-                <element name="pages/mod_campaigns.php" id="60"></element>
+                <element name="pages/mod_campaigns.php" id="60"/>
                 <comment>Corrigé une erreur qui empêchait l'ajout d'XP à un personnage de sa campagne.</comment>
             </task>
         </tasks>
@@ -19,7 +27,7 @@
     <version date="20230101" code="1.46">
         <tasks>
             <task type="page">
-                <element name="pages/create_campaign.php" id="61"></element>
+                <element name="pages/create_campaign.php" id="61"/>
                 <comment>Corrigé un bug qui empêchait de renvoyer des invitations à des joueurs/joueuses</comment>
             </task>
         </tasks>
@@ -31,7 +39,7 @@
                 <comment>Mis à jour l'installation de la bdd locale</comment>
             </task>
             <task type="page">
-                <element name="pages/mod_see_character" id="47"></element>
+                <element name="pages/mod_see_character" id="47"/>
                 <comment>Corrigé un bug quand le personnage n'avait aucun argent</comment>
             </task>
         </tasks>
@@ -45,7 +53,7 @@
                 <comment>Mis à jour Bootstrap</comment>
             </task>
             <task type="page">
-                <element page="pages/mod_create_char.php" id="62" module="modules_create_char/06_age.php"></element>
+                <element page="pages/mod_create_char.php" id="62" module="modules_create_char/06_age.php"/>
                 <comment>Corrigé un bug qui empêchait l'étape de continuer lorsque le curseur était en dehors du slider.</comment>
             </task>
         </tasks>
@@ -53,7 +61,7 @@
     <version date="20221106" code="1.43">
         <tasks>
             <task type="general">
-                <element name="pages/create_campaign.php" id="61"></element>
+                <element name="pages/create_campaign.php" id="61"/>
                 <comment>Corrigé un bug de redirection après création de campagne</comment>
                 <comment>Corrigé un bug lié à un champ manquant lors de la création de campagne</comment>
             </task>
@@ -66,7 +74,7 @@
                 <comment>Corrigé les fichiers glyphicons corrompus</comment>
             </task>
             <task type="general">
-                <element name="pages/mod_admin_errors.php" id="59"></element>
+                <element name="pages/mod_admin_errors.php" id="59"/>
                 <comment>Corrigé un bug sur la gestion d'erreurs, et ajouté la gestion des exceptions</comment>
             </task>
             <task type="general">
@@ -112,7 +120,7 @@
     <version date="20190826" code="1.39">
         <tasks>
 			<task type="page">
-				<element name="pages/mod_campaigns.php" id="60"></element>
+                <element name="pages/mod_campaigns.php" id="60"/>
 				<comment>Corrigé une erreur qui empêchait l'invitation de joueurs à une campagne.</comment>
 			</task>
         </tasks>
@@ -120,7 +128,7 @@
     <version date="20190603" code="1.38">
         <tasks>
 			<task type="page">
-				<element name="pages/mod_sheet.php" id="49"></element>
+                <element name="pages/mod_sheet.php" id="49"/>
 				<comment>Corrigé une erreur mineure sur l'affichage de texte multi-ligne dans l'export PDF d'un personnage.</comment>
 			</task>
         </tasks>
@@ -152,7 +160,7 @@
     <version date="20170227" code="1.35">
         <tasks>
             <task type="page">
-                <element name="pages/mod_see_character" id="47"></element>
+                <element name="pages/mod_see_character" id="47"/>
                 <comment>Ajouté l'expérience dans le listing</comment>
             </task>
         </tasks>
@@ -160,7 +168,7 @@
     <version date="20170117" code="1.34">
         <tasks>
             <task type="page">
-                <element name="pages/mod_see_character" id="47"></element>
+                <element name="pages/mod_see_character" id="47"/>
                 <comment>Ajouté les valeurs des domaines et voies dans la page d'un personnage</comment>
             </task>
         </tasks>
@@ -192,7 +200,7 @@
     <version date="20150917" code="1.33.1">
         <tasks>
             <task type="page">
-                <element name="pages/mod_campaigns.php" id="60"></element>
+                <element name="pages/mod_campaigns.php" id="60"/>
                 <comment>Corrigé un bug qui causait une erreur dans la création d'un diff lors de la mise à jour d'un personnage.</comment>
                 <comment><![CDATA[Créé une méthode <code>fixCharacter</code> qui permettra à l'avenir de faire une migration automatique d'un personnage "à l'ancienne" vers le nouveau système.]]></comment>
             </task>
@@ -201,7 +209,7 @@
     <version date="20150830" code="1.33.0">
         <tasks>
             <task type="page">
-                <element name="pages/mod_see_character" id="47"></element>
+                <element name="pages/mod_see_character" id="47"/>
                 <comment>Ajout du module "Daols", ticket Redmine redmine#1189</comment>
                 <comment>Ajout du module "Trauma", ticket Redmine redmine#1190</comment>
             </task>
@@ -210,7 +218,7 @@
     <version date="20150823" code="1.32.1">
         <tasks>
             <task type="page">
-                <element name="pages/mod_see_character" id="47"></element>
+                <element name="pages/mod_see_character" id="47"/>
                 <comment>Corrigé un bug lié à la précédente mise à jour</comment>
             </task>
         </tasks>
@@ -218,7 +226,7 @@
     <version date="20150823" code="1.32.0">
         <tasks>
             <task type="page">
-                <element name="pages/mod_see_character" id="47"></element>
+                <element name="pages/mod_see_character" id="47"/>
                 <comment>Désormais, les dernières modifications de chaque personnage sont visible sur sa page.</comment>
             </task>
         </tasks>
@@ -226,7 +234,7 @@
     <version date="20150801" code="1.31.3">
         <tasks>
             <task type="page">
-                <element name="pages/mod_sheet.php" id="49"></element>
+                <element name="pages/mod_sheet.php" id="49"/>
                 <comment>Ticket Redmine redmine#1120</comment>
             </task>
         </tasks>
@@ -234,7 +242,7 @@
     <version date="20150618" code="1.31.2">
         <tasks>
             <task type="page">
-                <element name="pages/mod_create_char.php" id="62"></element>
+                <element name="pages/mod_create_char.php" id="62"/>
                 <comment>Corrigé l'étape 16 - Discipline, un bug permettait de choisir des disciplines pour un domaine avec un score inférieur à 5.</comment>
                 <comment>Ticket Redmine redmine#1022</comment>
             </task>
@@ -243,12 +251,12 @@
     <version date="20150608" code="1.31.1">
         <tasks>
             <task type="page">
-                <element name="pages/mod_create_char.php" id="62"></element>
+                <element name="pages/mod_create_char.php" id="62"/>
                 <comment>Corrigé l'étape 16 - Disciplines. Désormais, il est possible de choisir des disciplines dans les domaines primaires ET secondaires.</comment>
                 <comment>Ticket Redmine redmine#499</comment>
             </task>
             <task type="page">
-                <element name="pages/mod_index.php" id="1"></element>
+                <element name="pages/mod_index.php" id="1"/>
                 <comment>Changé les urls relatives à Redmine</comment>
             </task>
         </tasks>
@@ -256,7 +264,7 @@
     <version date="20150425" code="1.31.0">
         <tasks>
             <task type="page">
-                <element name="pages/mod_login.php" id="48"></element>
+                <element name="pages/mod_login.php" id="48"/>
                 <comment>Ajouté un encart "Mot de passe oublié".</comment>
             </task>
         </tasks>
@@ -264,7 +272,7 @@
     <version date="20150412" code="1.30.0">
         <tasks>
             <task type="page">
-                <element name="pages/mod_sheet.php" id="49"></element>
+                <element name="pages/mod_sheet.php" id="49"/>
                 <comment>Corrigé la feuille PDF sur laquelle la description ne s'affichait pas.</comment>
             </task>
         </tasks>
@@ -288,7 +296,7 @@
     <version date="20140828" code="1.28.0">
         <tasks>
             <task type="page">
-                <element name="pages/mod_create_char.php" id="62"></element>
+                <element name="pages/mod_create_char.php" id="62"/>
                 <comment>Modification de l'étape : désormais, l'utilisateur peut choisir ses revers manuellement, ou les tirer automatiquement.</comment>
                 <comment>Merci à Maxime Carron et à Arthus pour leurs propositions.</comment>
                 <comment>Ticket redmine redmine#10</comment>
@@ -328,7 +336,7 @@
     <version date="20140527" code="1.26.0">
         <tasks>
             <task type="general">
-                <element name="pages/mod_campaigns.php" id="60"></element>
+                <element name="pages/mod_campaigns.php" id="60"/>
                 <comment>Intégration de la demande de Nepharius de pouvoir retirer un personnage d'une campagne en cours.</comment>
                 <comment>Ajouté la fonctionnalité de renvoi d'invitation à un joueur, en cas où le mail initial aurait échoué.</comment>
             </task>
@@ -390,7 +398,7 @@
 				<comment>La suppression est désormais indiquée dans la table des modifications des personnages.</comment>
 			</task>
 			<task type="page">
-				<element page="pages/mod_spend_exp.php" id="63" module="modules_spend_exp/mod__post.php"></element>
+                <element page="pages/mod_spend_exp.php" id="63" module="modules_spend_exp/mod__post.php"/>
 				<comment>Corrigé un bug mineur provocant un mauvais calcul d'XP lors de la dépense d'XP.</comment>
 			</task>
 		</tasks>
@@ -423,7 +431,7 @@
 				<comment>Ajouté une fonctionnalité permettant de stocker les modifications du personnage dans la BDD.</comment>
 			</task>
 			<task type="page">
-				<element name="pages/mod_sitemap.php" id="67"></element>
+                <element name="pages/mod_sitemap.php" id="67"/>
 				<comment>Ajouté un générateur automatique de sitemap.</comment>
 			</task>
 		</tasks>
@@ -431,7 +439,7 @@
 	<version date="20130623" code="1.21.1">
 		<tasks>
 			<task type="page">
-				<element name="pages/mod_campaigns.php" id="60"></element>
+                <element name="pages/mod_campaigns.php" id="60"/>
 				<comment>Corrigé un bug mineur d'affichage au cas où le joueur n'a aucune partie en tant que maître de jeu.</comment>
 			</task>
 			<task type="function">
@@ -439,7 +447,7 @@
 				<comment>Corrigé un bug mineur dans la gestion des tableaux une fois que le personnage était créé avec le générateur.</comment>
 			</task>
 			<task type="page">
-				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/16_disciplines.php"></element>
+                <element page="pages/mod_create_char.php" id="62" module="modules_create_char/16_disciplines.php"/>
 				<comment>Corrigé un bug mineur dans la gestion des tableaux lors de la récupération des disciplines.</comment>
 			</task>
 		</tasks>
@@ -447,17 +455,17 @@
 	<version date="20130623" code="1.21.0">
 		<tasks>
 			<task type="page">
-				<element name="pages/mod_index.php" id="1"></element>
+                <element name="pages/mod_index.php" id="1"/>
 				<comment>Ajout d'une information concernant le wiki de Corahn-Rin dans la page d'accueil.</comment>
 			</task>
 			<task type="page">
-				<element name="pages/mod_campaigns.php" id="60"></element>
+                <element name="pages/mod_campaigns.php" id="60"/>
 				<comment>Corrigé tous les bugs concernant les invitations et les envois de mails.</comment>
 				<comment>Chaque Maître de Jeu peut désormais inviter des personnages en cours de campagne.</comment>
 				<comment>Le Maître de Jeu peut désormais inviter plusieurs personnages appartenant au même utilisateur.</comment>
 			</task>
 			<task type="page">
-				<element name="pages/mod_create_campaign.php" id="61"></element>
+                <element name="pages/mod_create_campaign.php" id="61"/>
 				<comment>Le Maître de Jeu peut désormais inviter plusieurs personnages appartenant au même utilisateur.</comment>
 			</task>
 			<task type="function">
@@ -481,15 +489,15 @@
 				<comment>Dans la 3e page du fichier PDF original, les daols de braise, d'azur et d'argent sont désormais correctement positionnés.</comment>
 			</task>
 			<task type="page">
-				<element name="pages/mod_index.php" id="1"></element>
+                <element name="pages/mod_index.php" id="1"/>
 				<comment>Légère modification du texte d'accueil.</comment>
 			</task>
 			<task type="page">
-				<element name="pages/mod_register.php" id="56"></element>
+                <element name="pages/mod_register.php" id="56"/>
 				<comment>Corrigé les bugs concernant l'inscription.</comment>
 			</task>
 			<task type="page">
-				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/20_finalisation.php"></element>
+                <element page="pages/mod_create_char.php" id="62" module="modules_create_char/20_finalisation.php"/>
 				<comment>Remanié la façon d'associer le personnage. Désormais l'utilisateur pourra directement accéder aux pages d'inscription ou de connexion pour associer son personnage à son compte.</comment>
 			</task>
 		</tasks>
@@ -497,7 +505,7 @@
 	<version date="20130619" code="1.20.1">
 		<tasks>
 			<task type="page">
-				<element name="pages/mod_spend_exp.php" id="63"></element>
+                <element name="pages/mod_spend_exp.php" id="63"/>
 				<comment>Corrigé un bug calculant de façon incorrecte l'XP dépensée pour les disciplines ainsi que pour la rapidité et la défense.</comment>
 			</task>
 		</tasks>
@@ -505,28 +513,28 @@
 	<version date="20130618" code="1.2">
 		<tasks>
 			<task type="page">
-				<element name="pages/mod_admin_errors.php" id="59"></element>
+                <element name="pages/mod_admin_errors.php" id="59"/>
 				<comment>Ajouté un puissant système d'examen des erreurs, dont les erreurs 404, celles liées à la base de données, l'indexation des différents "referer", tracking des erreurs</comment>
 			</task>
 			<task type="page">
-				<element name="pages/mod_admin_my_chars.php" id="58"></element>
+                <element name="pages/mod_admin_my_chars.php" id="58"/>
 				<comment>Ajouté la possibilité de dépenser de l'expérience pour le personnage.</comment>
 			</task>
 			<task type="page">
-				<element name="pages/mod_register.php" id="56"></element>
+                <element name="pages/mod_register.php" id="56"/>
 				<comment>Ajouté l'envoi d'un mail de confirmation pour l'inscription.</comment>
 			</task>
 			<task type="page">
-				<element name="pages/mod_create_char.php" id="62"></element>
+                <element name="pages/mod_create_char.php" id="62"/>
 				<comment>Conversion de toutes les pages du générateur en un module unique "Générateur de personnage".</comment>
 				<comment>Modifié le design du générateur pour ajouter la liste des étapes au-dessus de l'étape elle-même pour voir tous les liens.</comment>
 			</task>
 			<task type="page">
-				<element name="pages/mod_ajax.php" id="51"></element>
+                <element name="pages/mod_ajax.php" id="51"/>
 				<comment>Conversion de tous les modules AJAX pour s'adapter à la nouvelle architecture de développement.</comment>
 			</task>
 			<task type="page">
-				<element name="pages/mod_index.php" id="1"></element>
+                <element name="pages/mod_index.php" id="1"/>
 				<comment>Modifié la page d'accueil, le site se nomme désormais "Corahn Rin".</comment>
 				<comment>Ajouté quelques liens sous forme de "focus" pour le référencement.</comment>
 			</task>
@@ -540,26 +548,26 @@
 				<comment>La librairie "PhpMailer" a été ajoutée pour pouvoir gérer les envois de mails.</comment>
 			</task>
 			<task type="page">
-				<element name="pages/mod_campaigns.php" id="60"></element>
+                <element name="pages/mod_campaigns.php" id="60"/>
 				<comment>Ajouté un gestionnaire de campagnes.</comment>
 				<comment>Ajouté un lien pour donner des récompenses au personnage, notamment de l'expérience.</comment>
 			</task>
 			<task type="page">
-				<element name="pages/mod_create_campaign.php" id="61"></element>
+                <element name="pages/mod_create_campaign.php" id="61"/>
 				<comment>Ajouté un formulaire pour créer une partie.</comment>
 				<comment>Ajouté la gestion des invitations par envoi de mail.</comment>
 			</task>
 			<task type="page">
-				<element name="pages/mod_versions.php" id="42"></element>
+                <element name="pages/mod_versions.php" id="42"/>
 				<comment>Changé le design de la page.</comment>
 			</task>
 			<task type="page">
-				<element name="pages/mod_see_character" id="47"></element>
+                <element name="pages/mod_see_character" id="47"/>
 				<comment>Ajouté la possibilité de télécharger les feuilles de personnage aux formats ZIP et PDF.</comment>
 				<comment>Le format ZIP contient toutes les feuilles de personnage générées.</comment>
 			</task>
 			<task type="page">
-				<element name="pages/mod_sheet.php" id="49"></element>
+                <element name="pages/mod_sheet.php" id="49"/>
 				<comment>Changé le type MIME en fonction du contenu téléchargé.</comment>
 				<comment>L'url contient désormais l'extension dépendant du fichier téléchargé</comment>
 			</task>
@@ -603,7 +611,7 @@
 	<version date="20130526" code="1.12.0">
 		<tasks>
 			<task type="page">
-				<element name="pages/mod_admin.php" id="34"></element>
+                <element name="pages/mod_admin.php" id="34"/>
 				<comment>Ajouté un gestionnaire de visualisation des erreurs (pour les utilisateurs disposant des droits).</comment>
 			</task>
 			<task type="function">
@@ -619,18 +627,18 @@
 				<comment>Embelli les boîtes d'alertes (fond, bordure et couleur du texte).</comment>
 			</task>
 			<task type="page">
-				<element name="pages/admin_my_chars.php" id="58"></element>
+                <element name="pages/admin_my_chars.php" id="58"/>
 				<comment>Ajouté une page permettant aux joueurs connectés de modifier leur personnage.</comment>
 				<comment>Les caractéristiques des personnages seront organisées en onglets.</comment>
 				<comment>Ajouté les onglets "Description et histoire", "Inventaire" et "Arts anciens"</comment>
 			</task>
 			<task type="page">
-				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/02_metier.php"></element>
+                <element page="pages/mod_create_char.php" id="62" module="modules_create_char/02_metier.php"/>
 				<comment>Supprimé le métier "Religieux du temple", remplacé par six nouveaux métiers en fonction des ordres du Temple (Moines,Prêtres,Clercs,Vecteurs,Sigires et Lames).</comment>
 				<comment>Ajouté un tri en fonction du type de métier, s'il est officiel ou non.</comment>
 			</task>
 			<task type="page">
-				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/20_finalisation.php"></element>
+                <element page="pages/mod_create_char.php" id="62" module="modules_create_char/20_finalisation.php"/>
 				<comment>Corrigé un bug qui déconnectait l'utilisateur après avoir associé un personnage à son compte.</comment>
 			</task>
 			<task type="function">
@@ -685,24 +693,25 @@
 				<comment>Ajouté une classe objet pour gérer les utilisateurs.</comment>
 			</task>
 			<task type="page">
-				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/19_description_histoire.php"></element>
+                <element page="pages/mod_create_char.php" id="62"
+                         module="modules_create_char/19_description_histoire.php"/>
 				<comment>Ajouté le champ "Faits marquants", et remplacé la zone de texte pour "Description" par un champ simple.</comment>
 			</task>
 			<task type="page">
-				<element name="pages/mod_see_character.php" id="47"></element>
+                <element name="pages/mod_see_character.php" id="47"/>
 				<comment>Ajouté des détails sur chaque personnage, comme le métier, la contrée d'origine et le peuple.</comment>
 				<comment>Ajouté des filtres par nom, métier, peuple ou origine pour trier les personnages.</comment>
 			</task>
 			<task type="page">
-				<element page="pages/mod_404.php" id="53"></element>
+                <element page="pages/mod_404.php" id="53"/>
 				<comment>Ajouté une page d'erreur 404.</comment>
 			</task>
 			<task type="page">
-				<element name="pages/mod_admin.php" id="34"></element>
+                <element name="pages/mod_admin.php" id="34"/>
 				<comment>Ajouté un panneau d'administration pour les utilisateurs connectés.</comment>
 			</task>
 			<task type="page">
-				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/03_naissance.php"></element>
+                <element page="pages/mod_create_char.php" id="62" module="modules_create_char/03_naissance.php"/>
 				<comment>Corrigé l'erreur qui empêchait de voir la carte de Gwidre.</comment>
 			</task>
 			<task type="page">
@@ -710,7 +719,7 @@
 				<comment>Ajouté un indicateur numérique sur les barres de progression des domaines, afin de voir quel est le niveau du domaine.</comment>
 			</task>
 			<task type="page">
-				<element name="mod_14_domaines_amelio.php"></element>
+                <element name="mod_14_domaines_amelio.php"/>
 				<comment>Ajouté une indication sur les coûts généraux en XP, afin de prévenir l'utilisateur.</comment>
 			</task>
 			<task type="css">
@@ -722,7 +731,7 @@
 	<version date="20130511" code="1.7.0">
 		<tasks>
 			<task type="page">
-				<element name="pages/mod_login.php" id="48"></element>
+                <element name="pages/mod_login.php" id="48"/>
 				<comment>Ajouté un système de connexion et de comptes d'utilisateurs pour avoir accès à la liste de ses propres personnages.</comment>
 			</task>
 			<task type="function">
@@ -735,7 +744,7 @@
 				<comment>Désormais, le générateur de feuille de personnage peut créer une feuille printer friendly.</comment>
 			</task>
 			<task type="page">
-				<element name="pages/mod_sheet.php" id="49"></element>
+                <element name="pages/mod_sheet.php" id="49"/>
 				<comment>Ajouté une page pour pouvoir visualiser les feuilles de personnage générées.</comment>
 			</task>
 		</tasks>
@@ -763,24 +772,25 @@
 				<comment>Amélioré l'affichage du menu au cas où deux lignes de liens s'affichent.</comment>
 			</task>
 			<task type="page">
-				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/02_metier.php"></element>
+                <element page="pages/mod_create_char.php" id="62" module="modules_create_char/02_metier.php"/>
 				<comment>Correction du fait que le métier "Religieux du Temple" n'affichait pas le domaine secondaire "Combat au Contact" qui peut normalement être choisi.</comment>
 				<comment>Mise à jour du système par rapport aux nouvelles informations dans la base de données.</comment>
 			</task>
 			<task type="page">
-				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/18_equipements.php"></element>
+                <element page="pages/mod_create_char.php" id="62" module="modules_create_char/18_equipements.php"/>
 				<comment>Supprimé le bouton "Valider les modifications". Celles-ci se valident désormais au clic sur une arme ou armure, et lors de la perte du focus sur les champs de texte.</comment>
 			</task>
 			<task type="page">
-				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/19_description_histoire.php"></element>
+                <element page="pages/mod_create_char.php" id="62"
+                         module="modules_create_char/19_description_histoire.php"/>
 				<comment>Supprimé le bouton "Valider les modifications". Celles-ci se valident désormais au clic sur "Homme" ou "Femme", et lors de la perte du focus sur les champs de texte.</comment>
 			</task>
 			<task type="page">
-				<element name="pages/mod_see_character.php" id="47"></element>
+                <element name="pages/mod_see_character.php" id="47"/>
 				<comment>Ajouté une page pour pouvoir visualiser les personnages créés.</comment>
 			</task>
 			<task type="page">
-				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/13_domaines_primsec.php"></element>
+                <element page="pages/mod_create_char.php" id="62" module="modules_create_char/13_domaines_primsec.php"/>
 				<comment>Suppression de l'opacité sur les boutons servant à déselectionner un domaine.</comment>
 				<comment>Ajout d'une explication sur la façon de déselectionner un domaine choisi.</comment>
 			</task>
@@ -823,21 +833,21 @@
 	<version date="20130427" code="1.2.0">
 		<tasks>
 			<task type="page">
-				<element name="pages/mod_traduction.php" id="43"></element>
+                <element name="pages/mod_traduction.php" id="43"/>
 				<comment>Ajout d'une page relative à la traduction.</comment>
 				<comment>Ajout des formulaires pour permettre aux utilisateurs de traduire un texte et de le proposer.</comment>
 				<comment>Modification de toutes les pages pour récupérer un maximum de texte à traduire.</comment>
 			</task>
 			<task type="page">
-				<element name="pages/mod_index.php" id="1"></element>
+                <element name="pages/mod_index.php" id="1"/>
 				<comment>Légère modification du texte d'accueil.</comment>
 			</task>
 			<task type="page">
-				<element name="pages/mod_versions.php" id="42"></element>
+                <element name="pages/mod_versions.php" id="42"/>
 				<comment>Amélioration de l'affichage de la page.</comment>
 			</task>
 			<task type="page">
-				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/11_des_avtg.php"></element>
+                <element page="pages/mod_create_char.php" id="62" module="modules_create_char/11_des_avtg.php"/>
 				<comment>Ajout d'un commentaire concernant le nombre de points d'XP maximum donné par les désavantages comme étant fixé à 80.</comment>
 			</task>
 			<task type="function">
@@ -849,11 +859,11 @@
 				<comment>Lorsque la fonction est exécutée, elle enregistre la liste des expressions à traduire.</comment>
 			</task>
 			<task type="js">
-				<element name="js/mod_versions.js"></element>
+                <element name="js/mod_versions.js"/>
 				<comment>Ajout de l'accordéon.</comment>
 			</task>
 			<task type="css">
-				<element name="css/mod_versions.css"></element>
+                <element name="css/mod_versions.css"/>
 				<comment>Amélioration du design.</comment>
 			</task>
 			<task type="db">
@@ -865,11 +875,11 @@
 	<version date="20130426" code="1.1.0">
 		<tasks>
 			<task type="page">
-				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/11_des_avtg.php"></element>
+                <element page="pages/mod_create_char.php" id="62" module="modules_create_char/11_des_avtg.php"/>
 				<comment>Ajout d'un tri par nom pour l'affichage.</comment>
 			</task>
 			<task type="page">
-				<element page="pages/mod_create_char.php" id="62" module="modules_create_char/18_equipements.php"></element>
+                <element page="pages/mod_create_char.php" id="62" module="modules_create_char/18_equipements.php"/>
 				<comment>Suppression de la restriction des armes et armures, on peut désormais voir toutes les armes et armures.</comment>
 				<comment>Les armures ne donnant aucun point de protection ne sont plus affichées (les casques en l'occurrence).</comment>
 			</task>

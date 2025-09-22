@@ -1,4 +1,6 @@
 <?php
+    global $_PAGE, $p_action, $page_mod;
+
 	$sex = isset($p_stepval['sex']) ? $p_stepval['sex'] : '';
 	$name = isset($p_stepval['name']) ? ' value="'.$p_stepval['name'].'"' : '';
 	$player = isset($p_stepval['player']) ? ' value="'.$p_stepval['player'].'"' : '';
@@ -10,8 +12,8 @@
 	<a class="btn btn-inverse" id="validate"><?php tr("Valider les modifications"); ?></a>
 	</p>-->
 	<p>
-		<label for="name"><?php tr("Nom de votre personnage"); ?></label>
-		<input class="span4" type="text" id="name" placeholder="<?php tr("Entrez ici le nom de votre personnage"); ?>"<?php echo $name; ?> />
+		<label for="name"><span class="text-red">*</span><?php tr("Nom de votre personnage"); ?></label>
+		<input class="span4" type="text" id="name" required placeholder="<?php tr("Entrez ici le nom de votre personnage"); ?>"<?php echo $name; ?> />
 	</p>
 	<div class="btn-group" data-toggle="buttons-radio">
 		<button type="button" data-sex="Homme" class="btn<?php echo $sex == 'Homme' ? ' active' : ''; ?>"><?php tr("Homme"); ?></button>
@@ -80,7 +82,7 @@
 		$('#validate,[data-sex]').click(function(){ send_datas(); });
 		$('textarea,#player,#name')
 			.blur(function(){ send_datas(); })
-			.keydown(function (e){ if(e.ctrlKey && e.keyCode == 13){ send_datas(); } });
+			.keydown(function (e){ if(e.ctrlKey && e.keyCode === 13){ send_datas(); } });
 	});
 JSFILE
 , $page_mod);

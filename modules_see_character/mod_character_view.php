@@ -64,18 +64,18 @@ foreach ($a as $discipline) { $disciplines[$discipline['disc_id']] = $discipline
         $discValues = [];
 
         $baseBonus =
-            + $domainValues['bonus']
-            - $domainValues['malus']
+            + ($domainValues['bonus'] ?? 0)
+            - ($domainValues['malus'] ?? 0)
             + $charObj->get('voies.'.$domain['voie_id'])['val'];
 
-        if ($domainValues['disciplines']) {
+        if (!empty($domainValues['disciplines'])) {
             foreach ($domainValues['disciplines'] as $discId => $discValue) {
                 $discValues[tr($disciplines[$discId]['disc_name'], true, [], 'create_char')] = $discValue['val'] + $baseBonus;
             }
         }
 
         $domainsToShow[tr($domain['domain_name'], true, [], 'create_char')] = [
-            'val' => $domainValues['val'] + $baseBonus,
+            'val' => ($domainValues['val'] ?? 0) + $baseBonus,
             'disciplines' => $discValues,
         ];
     }
