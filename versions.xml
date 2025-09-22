@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+    <version date="20250922" code="1.48">
+        <tasks>
+            <task type="function">
+                <element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+                <comment>Corrigé un bug lorsqu'un PDF était régénéré plusieurs fois, ce qui donnait lieu à une erreur.</comment>
+            </task>
+        </tasks>
+    </version>
     <version date="20230223" code="1.47">
         <tasks>
             <task type="page">

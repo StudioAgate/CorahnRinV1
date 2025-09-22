@@ -221,7 +221,7 @@ class EsterenChar {
             $ret = $this->_make_char_from_db($char);
         }
 
-		if ($ret === true && $this->id > 0 && !is_dir(CHAR_EXPORT.DS.$this->id) && !is_file(CHAR_EXPORT.DS.$this->id)) {
+		if ($ret === true && $this->id > 0 && !FileAndDir::dexists(CHAR_EXPORT.DS.$this->id) && !FileAndDir::fexists(CHAR_EXPORT.DS.$this->id)) {
 			FileAndDir::createPath(CHAR_EXPORT.DS.$this->id);
 		}
 
