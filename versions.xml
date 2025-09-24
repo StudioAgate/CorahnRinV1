@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
-    <version date="20250923" code="1.48">
+    <version date="20250923" code="1.49">
         <tasks>
             <task type="page">
                 <element page="pages/mod_create_char.php" id="62" module="modules_create_char/20_finalisation.php"/>
