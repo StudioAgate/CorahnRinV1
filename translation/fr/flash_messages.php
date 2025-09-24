@@ -115,7 +115,7 @@
     'trans' => 'La partie a été correctement créée !<br />Vous pouvez désormais inviter des joueurs à cette partie',
   ),
   23 => array (
-    'source' => 'Le personnage doit avoir un nom.',
-    'trans' => 'Le personnage doit avoir un nom.',
+    'source' => 'Le personnage doit avoir un nom. Retournez à l\'étape précédente pour le mettre à jour.',
+    'trans' => 'Le personnage doit avoir un nom. Retournez à l\'étape précédente pour le mettre à jour.',
   ),
 );

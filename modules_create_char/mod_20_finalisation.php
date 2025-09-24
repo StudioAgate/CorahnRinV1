@@ -30,8 +30,8 @@ if($form === true) {
     $validationErrors = [];
 
     if (!\trim($char->name())) {
-        $isValid = true;
-        $validationErrors[] = 'Le personnage doit avoir un nom.';
+        $isValid = false;
+        $validationErrors[] = 'Le personnage doit avoir un nom. Retournez à l\'étape précédente pour le mettre à jour.';
     }
 
     if ($isValid) {

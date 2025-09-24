@@ -10,7 +10,7 @@
     'trans' => 'The character has been correctly modified!',
   ),
   2 => array (
-    'source' => 'Le personnage doit avoir un nom.',
-    'trans' => 'The character must have a name.',
+    'source' => 'Le personnage doit avoir un nom. Retournez à l\'étape précédente pour le mettre à jour.',
+    'trans' => 'The character must have a name. Go back to previous step to update it.',
   ),
 );
