@@ -12,33 +12,35 @@ use App\FileAndDir;
  * @param string $dest Le fichier de destination
  * @author Pierstoval 26/12/2012
  */
-function buffWrite($type, $content, $dest = '') {
+function buffWrite($type, $content, $dest = '')
+{
+    global $_PAGE;
+    $type = (string)$type;
+    $dest = (string)$dest;
+    $content = (string)$content;
 
-		global $_PAGE;
-		$type = (string) $type;
-		$dest = (string) $dest;
-		$content = (string) $content;
-		if (!$dest) {
-			$dest = WEBROOT.DS.$type.DS.'pages'.DS.'pg_'.$_PAGE['get'].'.'.$type;
-		} else {
-			if (strpos($dest, WEBROOT) === false) {
-				$dest = WEBROOT.DS.$type.DS.'pages'.DS.'pg_'.$dest.'.'.$type;
-			}
-		}
-// 		$type = strtolower($type);
-// 		$types = explode(',', strtolower(P_GEN_FILES_TYPES));
-// 		if (in_array($type, $types)) {
-	if (P_GEN_FILES_ONLOAD === true || $_SERVER['HTTP_HOST'] === '127.0.0.1' || !FileAndDir::fexists($dest)) {
-		//if ($type == 'js') { $content = Minifier::minify($content); }
-		//$content = Minifier::minify($content);
+    if (!$dest) {
+        $dest = WEBROOT . DS . $type . DS . 'pages' . DS . 'pg_' . $_PAGE['get'] . '.' . $type;
+    } else if (strpos($dest, WEBROOT) === false) {
+        $dest = WEBROOT . DS . $type . DS . 'pages' . DS . 'pg_' . $dest . '.' . $type;
+    }
+
+    if (
+        P_GEN_FILES_ONLOAD === true
+        || $_SERVER['HTTP_HOST'] === '127.0.0.1'
+        || $_SERVER['HTTP_HOST'] === 'localhost'
+        || !FileAndDir::fexists($dest)
+    ) {
+        //if ($type == 'js') { $content = Minifier::minify($content); }
+        //$content = Minifier::minify($content);
         if (P_DEBUG === false) {
-		    $content = minify($content, $type);
+            $content = minify($content, $type);
         }
         if (!is_dir(dirname($dest))) {
             FileAndDir::createPath(dirname($dest));
             touch($dest);
         }
-		FileAndDir::put($dest, $content);
-	}
+        FileAndDir::put($dest, \trim($content));
+    }
 }
 

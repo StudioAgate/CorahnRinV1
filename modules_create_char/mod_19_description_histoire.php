@@ -1,24 +1,24 @@
 <?php
-    global $_PAGE, $p_action, $page_mod;
+    global $_PAGE;
 
-	$sex = isset($p_stepval['sex']) ? $p_stepval['sex'] : '';
+    /** @var string $page_mod */
+    /** @var string $p_action */
+
+	$sex = $p_stepval['sex'] ?? '';
 	$name = isset($p_stepval['name']) ? ' value="'.$p_stepval['name'].'"' : '';
 	$player = isset($p_stepval['player']) ? ' value="'.$p_stepval['player'].'"' : '';
-	$histoire = isset($p_stepval['histoire']) ? $p_stepval['histoire'] : '';
-	$faits = isset($p_stepval['faits']) ? $p_stepval['faits'] : '';
+	$histoire = $p_stepval['histoire'] ?? '';
+	$faits = $p_stepval['faits'] ?? '';
 	$description = isset($p_stepval['description']) ? ' value="'.$p_stepval['description'].'"' : '';
 ?>
-	<!--<p>
-	<a class="btn btn-inverse" id="validate"><?php tr("Valider les modifications"); ?></a>
-	</p>-->
 	<p>
 		<label for="name"><span class="text-red">*</span><?php tr("Nom de votre personnage"); ?></label>
 		<input class="span4" type="text" id="name" required placeholder="<?php tr("Entrez ici le nom de votre personnage"); ?>"<?php echo $name; ?> />
 	</p>
-	<div class="btn-group" data-toggle="buttons-radio">
-		<button type="button" data-sex="Homme" class="btn<?php echo $sex == 'Homme' ? ' active' : ''; ?>"><?php tr("Homme"); ?></button>
-		<button type="button" data-sex="Femme" class="btn<?php echo $sex == 'Femme' ? ' active' : ''; ?>"><?php tr("Femme"); ?></button>
-	</div>
+	<p class="btn-group" data-toggle="buttons-radio">
+		<button type="button" data-sex="Homme" class="btn<?php echo $sex === 'Homme' ? ' active' : ''; ?>"><?php tr("Homme"); ?></button>
+		<button type="button" data-sex="Femme" class="btn<?php echo $sex === 'Femme' ? ' active' : ''; ?>"><?php tr("Femme"); ?></button>
+	</p>
 	<p>
 		<label for="player"><?php tr("Nom du joueur"); ?></label>
 		<input class="span4" type="text" id="player" placeholder="<?php tr("Entrez ici le nom du joueur"); ?>"<?php echo $player; ?> />
@@ -48,41 +48,51 @@
 			max-width: 80%;
 			max-height: 300px;
 		}
-		.popover {
-			width: 400px;
-		}
 	', $page_mod);
+
 	buffWrite('js', /** @lang JavaScript */ <<<JSFILE
-	var timeout = [];
+    function isValid() {
+        const hasChosenGender = $('button[data-sex].active')[0];
+        const hasTypedName = $('#name').val().trim().length > 0;
+        console.info({hasChosenGender, hasTypedName});
+        return hasChosenGender && hasTypedName;
+    }
+
 	function send_datas() {
-		var values = {};
-		if ($('.popover')[0]) { $('#validate').popover('hide'); }//On désactive le popover s'il est actif
-		if ($('button[data-sex].active')[0] && $('#name').val()){
-			values['{$page_mod}'] = {};
-			values['{$page_mod}'].sex = $('button[data-sex].active').attr('data-sex');
-			values['{$page_mod}'].name = $('#name').val();
-			values['{$page_mod}'].player = $('#player').val();
-			values['{$page_mod}'].histoire = $('#histoire').val();
-			values['{$page_mod}'].description = $('#description').val();
-			values['{$page_mod}'].faits = $('#faits').val();
-			sendMaj(values, '{$p_action}');
-		} else {
-			clearTimeout(timeout[0]);
-		 	timeout[0] = setTimeout(function(){ $('#validate').popover('show'); },200);
-			clearTimeout(timeout[1]);
-		 	timeout[1] = setTimeout(function(){ $('#validate').popover('hide'); },3200);
-		}
+        if (!isValid()) {
+            console.info('Invalid form data.');
+            $('#gen_send').attr('href', '#').css('visibility', 'hidden');
+            return;
+        }
+        console.info('sending data');
+		var values = {
+            '{$page_mod}': {
+                sex: $('button[data-sex].active').attr('data-sex'),
+                name: $('#name').val(),
+                player: $('#player').val(),
+                histoire: $('#histoire').val(),
+                description: $('#description').val(),
+                faits: $('#faits').val(),
+            }
+		};
+        sendMaj(values, '{$p_action}');
 	}
+
 	$(document).ready(function(){
-		$('#validate:not(.disabled)').popover({
-			'title' : trad_title,
-			'content': trad_cnt,
-			'trigger' : 'manual'
-		});
-		$('#validate,[data-sex]').click(function(){ send_datas(); });
+        let keydownTimeout;
+        $('[data-sex]')
+            .click(() => {
+                setTimeout(() => send_datas(), 100);
+            })
+        ;
 		$('textarea,#player,#name')
-			.blur(function(){ send_datas(); })
-			.keydown(function (e){ if(e.ctrlKey && e.keyCode === 13){ send_datas(); } });
+			.keydown(function (){
+                console.info('keydown');
+                if (keydownTimeout) { clearTimeout(keydownTimeout); }
+                keydownTimeout = setTimeout(() => send_datas(), 200);
+            })
+			.blur(() => send_datas())
+        ;
 	});
 JSFILE
 , $page_mod);

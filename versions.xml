@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+    <version date="20251006" code="1.50">
+        <tasks>
+            <task type="page">
+                <element page="pages/mod_create_char.php" id="62"
+                         module="modules_create_char/19_description_histoire.php"/>
+                <comment>Corrigé un problème empêchant de valider le nom du personnage.</comment>
+            </task>
+            <task type="function">
+                <element name="functions/func_buffwrite.php">Fonction générant le CSS/JS de chaque page</element>
+                <comment>Ajusté la génération d'assets en mode dev.</comment>
+            </task>
+            <task type="function">
+                <element name="functions/func_loadModule.php">Fonction générant le chargement de pages et de sous-modules</element>
+                <comment>Ajouté des logs pour certains edge-cases encore non rencontrés.</comment>
+            </task>
+            <task type="general">
+                <element name="">Dev setup</element>
+                <comment>Mise à jour du Dockerfile sur Debian 12 (il était sur Debian 10)</comment>
+                <comment>Utilisation de la dernière version de Docker Compose</comment>
+                <comment>Optimisation de l'installation de la BDD en dev</comment>
+            </task>
+        </tasks>
+    </version>
     <version date="20250923" code="1.49">
         <tasks>
             <task type="page">

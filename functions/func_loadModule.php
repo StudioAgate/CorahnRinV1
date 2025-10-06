@@ -33,12 +33,14 @@ function load_module($module_name = '', $module_type = 'page', $additionnal_vars
 			if (!is_numeric($k)) {//On vérifie que la clé n'est pas une chaîne numérique
 				if (strpos($k, '.') === false) {
 					$$k = $v;//On crée les variables additionnelles qui seront ajoutées dans le scope local de la fonction
-				} else {
-					if (preg_match('#^([^.]+)\.(.+)$#isUu', $k, $matches) && isset($matches[1]) && isset($matches[2])) {
-						${$matches[1]} = Hash::insert(${$matches[1]}, $matches[2], $v);
-					}
-				}
-			}
+				} else if (preg_match('#^([^.]+)\.(.+)$#isUu', $k, $matches) && isset($matches[1]) && isset($matches[2])) {
+                    ${$matches[1]} = Hash::insert(${$matches[1]}, $matches[2], $v);
+                } else {
+                    error_logging(E_USER_NOTICE, 'Apparently, additionnal vars contains a key named "'.$k.'" that we cannot handle.', __FILE__, __LINE__);
+                }
+			} else {
+                error_logging(E_USER_NOTICE, 'Apparently, additionnal vars contains a numeric key "'.$k.'".', __FILE__, __LINE__);
+            }
 		}
 		//On supprime les variables qui deviennent inutiles si elles n'ont pas été envoyées au module
 		if (!isset($additionnal_vars['k'])) { unset($k); }
@@ -47,9 +49,9 @@ function load_module($module_name = '', $module_type = 'page', $additionnal_vars
 		if (!isset($additionnal_vars['additionnal_vars'])) { unset($additionnal_vars); }
         unset($show_err);
 		return require $filename[$module_type];
-	} else {
-		if ($show_err === true) {
-			Session::setFlash('Le module "'.$module_name.'" n\'existe pas dans l\'élément "'.$module_type.'"', 'error');
-		}
 	}
+
+    if ($show_err === true) {
+        Session::setFlash('Le module "'.$module_name.'" n\'existe pas dans l\'élément "'.$module_type.'"', 'error');
+    }
 }

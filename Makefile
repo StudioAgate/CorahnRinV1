@@ -1,4 +1,4 @@
-DOCKER_COMPOSE  = docker-compose
+DOCKER_COMPOSE  = docker compose
 
 EXEC_DB         = $(DOCKER_COMPOSE) exec database
 EXEC_PHP        = $(DOCKER_COMPOSE) exec php
@@ -72,7 +72,7 @@ cc: ## Clear local cache
 
 db: ## Reset the development database
 db: wait-for-db
-	$(EXEC_DB) bash /app/install_database.bash
+	$(EXEC_DB) bash /app/install_database.bash -f /app/install.sql
 .PHONY: db
 
 prod-db: ## Uses a prod dump as local database

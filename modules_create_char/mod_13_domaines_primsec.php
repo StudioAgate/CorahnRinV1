@@ -1,5 +1,12 @@
 <?php
-	$avtgs = isset($_SESSION[$steps[11]['mod']]) ? $_SESSION[$steps[11]['mod']] : false;
+    global $db;
+    /** @var array $steps */
+    /** @var array $p_stepval */
+    /** @var string $page_mod */
+    /** @var string $page_step */
+    /** @var string $p_action */
+
+	$avtgs = $_SESSION[$steps[11]['mod']] ?? false;
 	if ($avtgs === false) {
 		tr("Les avantages n'ont pas été définis, merci de vous rendre à l'étape correspondante.<br />");
 		echo mkurl(array('params'=>11, 'type' => 'TAG', 'anchor' => 'Aller à la page correspondante', 'attr' => 'class="btn"'));
@@ -11,7 +18,7 @@
 	//Si l'avantage 23 est présent, alors l'avantage "Lettré" a été sélectionné
 	if (isset($avtgs['avantages'][23])) { $lettre = true; } else { $lettre = false; }
 
-	$job = isset($_SESSION[$steps[2]['mod']]) ? $_SESSION[$steps[2]['mod']] : false;
+	$job = $_SESSION[$steps[2]['mod']] ?? false;
 	if ($job === false) {
 		tr("Le métier n'a pas été défini, merci de vous rendre à l'étape correspondante.<br />");
 		echo mkurl(array('params'=>2, 'type' => 'TAG', 'anchor' => 'Aller à la page correspondante', 'attr' => 'class="btn"'));
@@ -84,7 +91,7 @@
 			?><p><?php tr('Vous avez choisi un métier prédéfini, c\'est pourquoi certains domaines ne peuvent pas bénéficier de <span class="progress3">&#9733;&#9733;&#9733;</span> ou <span class="progress5">&#9733;&#9733;&#9733;&#9733;&#9733;</span>.'); ?></p><?php
 		}
 		if ($lettre === true) {
-			$lettrid = isset($p_stepval['lettre']) ? $p_stepval['lettre'] : 0;
+			$lettrid = $p_stepval['lettre'] ?? 0;
 			?><p><?php tr("Vous avez choisi l'avantage \"<strong>Lettré</strong>\". Vous pouvez sélectionner choisir un bonus de +1 parmi 4 domaines différents en cliquant sur le bouton"); ?>
 			<span class="btn btn-mini"><span class="icon-book"></span></span></p><?php
 		} ?>
@@ -110,7 +117,7 @@
 		<div class="row-fluid rowfirst">
 	<?php
 		foreach($domains as $domain) {
-			$primsec = isset($p_stepval[$domain['domain_id']]) ? $p_stepval[$domain['domain_id']] : 0;
+			$primsec = $p_stepval[$domain['domain_id']] ?? 0;
 			if ($domain['domain_id'] == $predil) { $primsec = 5; }
 			if (!in_array($primsec, $primsec_ok)) { $primsec = 0; }
 			##Affichage des domaines
