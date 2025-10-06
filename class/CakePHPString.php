@@ -50,7 +50,7 @@ class CakePHPString {
 		$depth = 0;
 		$offset = 0;
 		$buffer = '';
-		$results = array();
+		$results = [];
 		$length = strlen($data);
 		$open = false;
 
@@ -103,7 +103,7 @@ class CakePHPString {
 		if (!empty($results)) {
 			$data = array_map('trim', $results);
 		} else {
-			$data = array();
+			$data = [];
 		}
 		return $data;
 	}
@@ -163,7 +163,7 @@ class CakePHPString {
 
         asort($data);
 
-        $hashKeys = array();
+        $hashKeys = [];
         foreach ($data as $key => $value) {
             $hashKeys[] = crc32($key);
         }

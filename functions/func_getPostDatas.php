@@ -10,7 +10,7 @@
  */
 function get_post_data() {
 	$pairs = explode('&', file_get_contents('php://input'));//On découpe la requête selon les "&"
-	$var_names = array();
+	$var_names = [];
 	if (!empty($pairs)) {
 		foreach ($pairs as $pair) {//Si le tableau n'est pas vide, on fait une boucle
 			if (!empty($pair)) {

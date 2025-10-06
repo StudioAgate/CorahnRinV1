@@ -7,7 +7,7 @@
 		return;
 	}
 
-	$maj = $min = array();
+	$maj = $min = [];
 	foreach($voies as $id => $v) {
 		if ($v < 3) { $min[$id] = 1; }
 		elseif ($v > 3) { $maj[$id] = 1; }
@@ -15,7 +15,7 @@
 	unset($voies);
 
 	$t = $db->req('SELECT %desordre_voies_min,%desordre_voies_maj,%desordre_name,%desordre_id FROM %%desordres');
-	$desordres = array();
+	$desordres = [];
 	foreach($t as $v) {
 		$defined = false;
 		$v['desordre_voies_maj'] = explode(',', $v['desordre_voies_maj']);

@@ -143,7 +143,7 @@ class Session {
 		$flashBag = Session::read('flash_bag');
 
         if (!isset($flashBag[$type])) {
-            $flashBag[$type] = array();
+            $flashBag[$type] = [];
         }
 
         $flashBag[$type][] = $message;

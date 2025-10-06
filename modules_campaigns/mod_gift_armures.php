@@ -2,7 +2,7 @@
 $armures_user = $char->get('inventaire.armures');
 
 $t = $db->req('SELECT %armure_id, %armure_name FROM %%armures');//On récupère les armures
-$armures = array();
+$armures = [];
 foreach($t as $v) { $armures[$v['armure_id']] = $v; }//On formate le tableau
 ?>
 

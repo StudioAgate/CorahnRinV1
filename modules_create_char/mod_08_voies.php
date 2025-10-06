@@ -2,7 +2,7 @@
 
 	$res = $db->req('SELECT %voie_id,%voie_name,%voie_shortname,%voie_desc FROM %%voies ORDER BY %voie_id ASC LIMIT 5');
 
-	$voies = array();
+	$voies = [];
 	foreach($res as $key => $val) {
 		foreach($val as $vkey => $vval) {
 			if (is_int($vkey)) { unset($val[$vkey]); }
@@ -11,7 +11,7 @@
 	}
 
 	if (!$p_stepval) {
-		$p_stepval = array();
+		$p_stepval = [];
 	}
 ?>
 <p class="notif"><?php tr("La somme totale des voies doit être égale à 15, et vous devez avoir au moins une voie avec un score de 1, ou de 5."); ?></p>

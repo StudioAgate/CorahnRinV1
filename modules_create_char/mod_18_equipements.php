@@ -1,15 +1,15 @@
 <?php
 	if (empty($p_stepval)) {
-		$p_stepval = array('arme'=>array(),'armure'=>array());
+		$p_stepval = array('arme'=>[],'armure'=>array());
 	}
 	$t = $db->req('SELECT %arme_id, %arme_name FROM %%armes');
-	$armes = array();
+	$armes = [];
 	foreach($t as $v) {
 		$armes[$v['arme_id']] = $v;
 	}
 
 	$t = $db->req('SELECT %armure_id, %armure_name FROM %%armures WHERE %armure_prot > 0');
-	$armures = array();
+	$armures = [];
 	foreach ($t as $v) {
 		$armures[$v['armure_id']] = $v;
 	}

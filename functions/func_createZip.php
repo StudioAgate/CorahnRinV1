@@ -3,14 +3,14 @@
 /**
  * Fonction de gestion zip récupérée sur http://php.net/
  */
-function create_zip(array $files, $destination, array $destination_names = array(), $overwrite = true, $debug = false)
+function create_zip(array $files, $destination, array $destination_names = [], $overwrite = true, $debug = false)
 {
 	if(!$overwrite && file_exists($destination)) {
 	    // If file exists and we don't need to recreate it, it's ok
 		return true;
 	}
 
-	$valid_files = $invalid_files = array();//vars
+	$valid_files = $invalid_files = [];//vars
 
 	if(is_array($files)) {//if files were passed in...
 		foreach($files as $i => $file) {//cycle through each file

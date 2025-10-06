@@ -3,9 +3,9 @@
 namespace App;
 
 class Translate {
-	public static $words_fr = array();
-	public static $words_en = array();
-//	public static $propositions_en = array();
+	public static $words_fr = [];
+	public static $words_en = [];
+//	public static $propositions_en = [];
 
     public static $at_least_one_modification = false;
 
@@ -44,7 +44,7 @@ class Translate {
      * @param null    $domain
      * @return mixed Le texte traduit si $return == true, sinon true après echo, sinon false
      */
-	public static function translate($txt, $return = false, $params = array(), $domain = null) {
+	public static function translate($txt, $return = false, $params = [], $domain = null) {
 
         if  ($return === null) {
             $return = false;
@@ -67,7 +67,7 @@ class Translate {
         }
 
         if (!isset(self::$words_fr[$domain])) {
-            self::$words_fr[$domain] = array();
+            self::$words_fr[$domain] = [];
         }
 
 		if (!self::check($txt, self::$words_fr[$domain], false)) {
@@ -179,7 +179,7 @@ class Translate {
 //        $file = ROOT.DS.'translation'.DS.'en'.DS.'propositions_en.txt';
 //        if (FileAndDir::fexists($file)) {
 //            $w = FileAndDir::get($file);
-//            $w = json_decode($w, true) ?: array();
+//            $w = json_decode($w, true) ?: [];
 //            self::$propositions_en = $w;
 //            unset($w);
 //        }
@@ -200,7 +200,7 @@ class Translate {
         $changed = false;
 
         if (!self::$words_en[$domain]) {
-            self::$words_en[$domain] = array();
+            self::$words_en[$domain] = [];
         }
 
         foreach  (self::$words_en[$domain] as $k => $word) {

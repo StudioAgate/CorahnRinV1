@@ -14,7 +14,7 @@ $orderby = $sort = $char = $charObj = $characters = $modifications = $users = nu
 if ($char_id) {
 	$char = $db->row('SELECT %char_id,%char_name,%%characters.%char_content FROM %%characters WHERE %char_id = ?', $char_id);
     if (!$char) {
-        redirect(array(), 'Aucun personnage trouvé', 'warning');
+        redirect([], 'Aucun personnage trouvé', 'warning');
     }
     $charObj = new EsterenChar($char_id);
     $modifications = $db->req('SELECT %charmod_date, %charmod_content_before, %charmod_content_after, %charmod_page_module, %char_id, %user_id FROM %%charmod WHERE %char_id = :char_id ORDER BY %charmod_date DESC', array('char_id' => $char_id));

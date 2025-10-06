@@ -43,9 +43,7 @@ class bdd
             $this->db = new PDO($dsn, $user, $pwd, $pdo_options);
             $this->dbname = $database;
         } catch (Exception $e) {
-            $this->showErr($e, null);
-
-            return;
+            $this->showErr($e);
         }
     }
 
@@ -326,7 +324,7 @@ class bdd
             $this->showErr($e, $req_qry);
         }
         $this->queriesRunnedCount++;
-        $this->queriesRunned[] = $req_qry.' ['.implode(',', $values).']';
+        $this->queriesRunned[] = $req_qry.' ['.print_r($values, true).']';
 
         return $result;
     }

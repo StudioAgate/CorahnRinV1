@@ -153,7 +153,7 @@ foreach ($a as $discipline) { $disciplines[$discipline['disc_id']] = $discipline
         $contentBefore = json_decode($mod['charmod_content_before'], true);
         $contentAfter = json_decode($mod['charmod_content_after'], true);
         if (!count($contentBefore) && !count($contentAfter)) { continue; }
-        $before = $after = array();
+        $before = $after = [];
         $processed = load_module('character_diff', 'module', array(
             'before' => $contentBefore,
             'after' => $contentAfter,

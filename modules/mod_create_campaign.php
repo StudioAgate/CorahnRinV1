@@ -13,7 +13,7 @@ $characters = $db->req('
 	OR %%characters.%char_status IS NULL
 	ORDER BY %%users.%user_name ASC');
 
-$users = array();
+$users = [];
 
 if (!is_array($characters)) {
     Session::setFlash('Erreur dans la liste des personnages...', 'error');
@@ -31,7 +31,7 @@ $send = false;
 if (!empty($_POST)) {
 	if (!isset($_POST['game_summary']) || !isset($_POST['game_name'])) {
 		Session::setFlash('Une erreur est survenue, veuillez recommencer...', 'error');
-		$_POST = array();
+		$_POST = [];
 		header('Location:'.mkurl($_PAGE['id']));
 	}
 	if (!isset($_POST['char_select'])) {

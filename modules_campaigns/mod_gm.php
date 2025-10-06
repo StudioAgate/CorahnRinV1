@@ -51,7 +51,7 @@ $chars = $db->req($sql, $game['game_id']);
 
 	<?php
 		if (!$chars) {
-			$chars = array();
+			$chars = [];
 			?>
 			<p class="warning"><?php tr('Aucun personnage'); ?></p>
 			<?php

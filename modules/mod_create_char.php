@@ -9,7 +9,7 @@
 
     $page_mod = $_PAGE['request'][0] ?? '';
 	$t = $db->req('SELECT %gen_step,%gen_mod,%gen_anchor,%gen_id FROM %%steps ORDER BY %gen_step ASC');//On génère la liste des étapes
-	$steps = array();
+	$steps = [];
 	$page_step = 0;
     $page_title = null;
 

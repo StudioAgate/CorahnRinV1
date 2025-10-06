@@ -19,7 +19,7 @@ namespace App;
 class EasyPeasyICS {
 
 	protected $calendarName;
-	protected $events = array();
+	protected $events = [];
 
 
 	/**

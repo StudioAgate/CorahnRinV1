@@ -69,7 +69,7 @@ if (isset($_PAGE['more_css'])) {
                     $i = 0;
                     foreach ($messages as $message) {
                         if ($i>0){echo'<br>';}else{$i++;}
-                        tr($message, false, array(), 'flash_messages');
+                        tr($message, false, [], 'flash_messages');
                     }
                     if ($err) { ?></div><?php }
                 }
@@ -94,7 +94,7 @@ if (isset($_PAGE['more_css'])) {
 			if (isset($_GET['userchange'])) {
 				Users::init($prev_user);
 				Session::delete('userchanged');
-				redirect(array(), 'Revenu correctement à l\'utilisateur précédent', 'success');
+				redirect([], 'Revenu correctement à l\'utilisateur précédent', 'success');
 			}
 		}
 		?>

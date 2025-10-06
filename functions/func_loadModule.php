@@ -14,7 +14,7 @@ use App\Session;
  *
  * @return mixed
  */
-function load_module($module_name = '', $module_type = 'page', $additionnal_vars = array(), $show_err = true) {
+function load_module($module_name = '', $module_type = 'page', $additionnal_vars = [], $show_err = true) {
 	global $_PAGE, $db;
 	$module_name = (string) $module_name; //On s'assure de l'intégrité des valeurs
 	$module_type = (string) $module_type; //On s'assure de l'intégrité des valeurs

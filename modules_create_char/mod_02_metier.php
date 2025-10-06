@@ -13,7 +13,7 @@
 	$result = $db->req($sql);
 	unset($sql);
 
-	$jobs_books = array();
+	$jobs_books = [];
 	foreach ($result as $v) {
 		$jobs_books[$v['job_book']][$v['job_id']]['job_id'] = $v['job_id'];
 		$jobs_books[$v['job_book']][$v['job_id']]['job_name'] = $v['job_name'];

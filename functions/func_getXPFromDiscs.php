@@ -7,11 +7,11 @@
  * @return int le nombre de points d'XP final
  * @author Pierstoval 28/12/2012
  */
-function getXPFromDiscs($discs, $initexp = 100) {
+function getXPFromDiscs(array $discs, $initexp = 100): int {
 	global $db;
 
 	$t = $db->req('SELECT %gen_step,%gen_mod,%gen_anchor FROM %%steps ORDER BY %gen_step ASC');//On génère la liste des étapes
-	$steps = array();
+	$steps = [];
 	foreach ($t as $v) {//On formate la liste des étapes
 		$steps[$v['gen_step']] = array(
 				'step' => $v['gen_step'],
@@ -21,19 +21,19 @@ function getXPFromDiscs($discs, $initexp = 100) {
 	}
 	unset($t,$v);
 
-	$avtgs = isset($_SESSION[$steps[11]['mod']]) ? $_SESSION[$steps[11]['mod']] : array();
+	$avtgs = $_SESSION[$steps[11]['mod']] ?? [];
 	//Si l'avantage 2 est présent, alors l'avantage "Mentor" a été sélectionné
 	if (isset($avtgs['avantages'][2])) { $mentor = true; } else { $mentor = false; }
 
-	$primsec = isset($_SESSION[$steps[13]['mod']]) ? $_SESSION[$steps[13]['mod']] : array();
-	$amelio = isset($_SESSION[$steps[14]['mod']]) ? $_SESSION[$steps[14]['mod']] : array();
+	$primsec = $_SESSION[$steps[13]['mod']] ?? [];
+	$amelio = $_SESSION[$steps[14]['mod']] ?? [];
 
-	$bonusdom = isset($_SESSION[$steps[15]['mod']]) ? $_SESSION[$steps[15]['mod']] : array();
-	$sess_bonus = isset($_SESSION['bonusdom']) ? (int) $_SESSION['bonusdom'] : array();
+	$bonusdom = $_SESSION[$steps[15]['mod']] ?? [];
+	$sess_bonus = (int) ($_SESSION['bonusdom'] ?? 0);
 
-	$disciplines = isset($_SESSION[$steps[16]['mod']]) ? $_SESSION[$steps[16]['mod']] : array();
+	$disciplines = $discs ?: $_SESSION[$steps[16]['mod']];
 
-	$totaldoms = array();
+	$totaldoms = [];
 	$mentor_domain_id = 0;
 	foreach($amelio as $id => $v) {
 		if (!isset($totaldoms[$id])) {
@@ -59,36 +59,58 @@ function getXPFromDiscs($discs, $initexp = 100) {
 	}
 
 	$dom_ids = array_keys($totaldoms) ?: array(0);
-	$domains = $db->req('SELECT %domain_id, %domain_name FROM %%domains WHERE %domain_id IN ('.implode(',',$dom_ids).') ORDER BY %domain_name ASC ') ?: array();
-	$t = array();
-	foreach($domains as $k => $v) { $t[$v['domain_id']] = $v; }
-	$domains = $t; unset($t);
+	$domains = $db->req('SELECT %domain_id, %domain_name FROM %%domains WHERE %domain_id IN ('.implode(',',$dom_ids).') ORDER BY %domain_name ASC ') ?: [];
+	$t = [];
+	foreach($domains as $v) { $t[$v['domain_id']] = $v; }
+	$domains = $t;
+    unset($t);
 	$disc = $db->req('SELECT %%disciplines.%disc_name, %%discdoms.%disc_id, %%discdoms.%domain_id
 		FROM %%discdoms
 		INNER JOIN %%disciplines ON %%disciplines.%disc_id = %%discdoms.%disc_id
 		WHERE %%disciplines.%disc_rang = "Professionnel"
-		AND %%discdoms.%domain_id IN ('.implode(',',$dom_ids).')') ?: array();
-	$mentor_disc_id = array();
-	foreach($disc as $k => $v) {
+		AND %%discdoms.%domain_id IN ('.implode(',',$dom_ids).')') ?: [];
+	$mentor_disc_id = [];
+	foreach($disc as $v) {
 		$domains[$v['domain_id']]['disciplines'][$v['disc_id']] = $v;
 		if ($v['domain_id'] == $mentor_domain_id) { $mentor_disc_id[$v['disc_id']] = $v['disc_id']; }//On détermine la liste des disciplines affectées par un potentiel mentor
 	}
 
-	$baseExp = getXPFromAvtg(isset($_SESSION[$steps[11]['mod']]) ? $_SESSION[$steps[11]['mod']] : array(), 100);
-	$baseExp = getXPFromDoms(isset($_SESSION[$steps[14]['mod']]) ? $_SESSION[$steps[14]['mod']] : array(), $baseExp);
+	$baseExp = getXPFromAvtg($_SESSION[$steps[11]['mod']] ?? [], $initexp);
+	$baseExp = getXPFromDoms($_SESSION[$steps[14]['mod']] ?? [], $baseExp);
 	$basePoints = $sess_bonus;
 	$points = $basePoints;
 	$exp = $baseExp;
 
 	foreach($disciplines as $disc_id => $v) {
 		if ($v['bonus']) {
-			$points -= 1;
+            if ($points <= 0) {
+                throw new \RuntimeException(sprintf(
+                    "La discipline \"%s\" a été ajoutée par le biais d'un point bonus, mais il n'y en avait pas suffisamment.",
+                    array_values(array_filter($disc, static function ($d) use ($disc_id) { return $d['disc_id'] == $disc_id; }))[0]['disc_name'] ?? $disc_id,
+                ));
+            }
+			--$points;
 		} elseif ($v['exp']) {
+            if ($exp <= 0) {
+                throw new \RuntimeException(sprintf(
+                    "La discipline \"%s\" a été ajoutée par le biais des points d'expérience, mais il n'y en avait pas suffisamment.",
+                    array_values(array_filter($disc, static function ($d) use ($disc_id) { return $d['disc_id'] == $disc_id; }))[0]['disc_name'] ?? $disc_id,
+                ));
+            }
 			$cost = 25;
-			if ($mentor === true && isset($disc_id) && isset($mentor_disc_id[$disc_id])) { $cost = 20; }
+			if ($mentor === true && $disc_id && isset($mentor_disc_id[$disc_id])) { $cost = 20; }
 			$exp -= $cost;
-		}
+		} else {
+            throw new \RuntimeException(E_USER_NOTICE, sprintf(
+                "Erreur dans la gestion des calculs d'xp pour les disciplines. Attendu clés \"bonus\" et \"exp\" pour la discipline avec identifiant \"%s\", et reçu cette valeur: %s",
+                $disc_id, print_r($v, true)
+            ));
+        }
 	}
+
+    if ($exp < 0) {
+        throw new \RuntimeException("Trop de points d'expérience ont été utilisés pour acheter des disciplines.");
+    }
 
 	return $exp;
 }

@@ -145,7 +145,7 @@ class Set {
  */
 	public static function __array($array) {
 		if (empty($array)) {
-			$array = array();
+			$array = [];
 		} elseif (is_object($array)) {
 			$array = get_object_vars($array);
 		} elseif (!is_array($array)) {
@@ -296,7 +296,7 @@ class Set {
  */
 	public static function format($data, $format, $keys) {
 
-		$extracted = array();
+		$extracted = [];
 		$count = count($keys);
 
 		if (!$count) {
@@ -306,7 +306,7 @@ class Set {
 		for ($i = 0; $i < $count; $i++) {
 			$extracted[] = Set::extract($data, $keys[$i]);
 		}
-		$out = array();
+		$out = [];
 		$data = $extracted;
 		$count = count($data[0]);
 
@@ -330,7 +330,7 @@ class Set {
 		} else {
 			$count2 = count($data);
 			for ($j = 0; $j < $count; $j++) {
-				$args = array();
+				$args = [];
 				for ($i = 0; $i < $count2; $i++) {
 					if (isset($data[$i][$j])) {
 						$args[] = $data[$i][$j];
@@ -385,7 +385,7 @@ class Set {
 			return Set::classicExtract($data, $path);
 		}
 		if (empty($data)) {
-			return array();
+			return [];
 		}
 		if ($path === '/') {
 			return $data;
@@ -407,7 +407,7 @@ class Set {
 				$conditions = $m[1];
 				$token = substr($token, 0, strpos($token, '['));
 			}
-			$matches = array();
+			$matches = [];
 			foreach ($contexts as $key => $context) {
 				if (!isset($context['trace'])) {
 					$context = array('trace' => array(null), 'item' => $context, 'key' => $key);
@@ -486,7 +486,7 @@ class Set {
 			}
 			if ($conditions) {
 				foreach ($conditions as $condition) {
-					$filtered = array();
+					$filtered = [];
 					$length = count($matches);
 					foreach ($matches as $i => $match) {
 						if (Set::matches(array($condition), $match['item'], $i + 1, $length)) {
@@ -503,7 +503,7 @@ class Set {
 			}
 		} while(1);
 
-		$r = array();
+		$r = [];
 
 		foreach ($matches as $match) {
 			if ((!$options['flatten'] || is_array($match['item'])) && !is_int($match['key'])) {
@@ -525,7 +525,7 @@ class Set {
  * @access public
  * @static
  */
-	public static function matches($conditions, $data = array(), $i = null, $length = null) {
+	public static function matches($conditions, $data = [], $i = null, $length = null) {
 		if (empty($conditions)) {
 			return true;
 		}
@@ -614,7 +614,7 @@ class Set {
 		if (!is_array($path)) {
 			$path = CakePHPString::tokenize($path, '.', '{', '}');
 		}
-		$tmp = array();
+		$tmp = [];
 
 		if (!is_array($path) || empty($path)) {
 			return null;
@@ -701,7 +701,7 @@ class Set {
 				$_list[$key] = $data;
 			} else {
 				if (!isset($_list[$key])) {
-					$_list[$key] = array();
+					$_list[$key] = [];
 				}
 				$_list =& $_list[$key];
 			}
@@ -897,7 +897,7 @@ class Set {
 				}
 			}
 			if (!$numeric || $assoc) {
-				$newList = array();
+				$newList = [];
 				for ($i = 0; $i < $count; $i++) {
 					if (is_int($keys[$i])) {
 						$newList[$list[$keys[$i]]] = null;
@@ -927,7 +927,7 @@ class Set {
  */
 	public static function combine($data, $path1 = null, $path2 = null, $groupPath = null) {
 		if (empty($data)) {
-			return array();
+			return [];
 		}
 
 		if (is_object($data)) {
@@ -941,7 +941,7 @@ class Set {
 			$keys = Set::extract($data, $path1);
 		}
 		if (empty($keys)) {
-			return array();
+			return [];
 		}
 
 		if (!empty($path2) && is_array($path2)) {
@@ -967,7 +967,7 @@ class Set {
 						$group[$i] = 0;
 					}
 					if (!isset($out[$group[$i]])) {
-						$out[$group[$i]] = array();
+						$out[$group[$i]] = [];
 					}
 					$out[$group[$i]][$keys[$i]] = $vals[$i];
 				}
@@ -975,7 +975,7 @@ class Set {
 			}
 		}
 		if (empty($vals)) {
-			return array();
+			return [];
 		}
 		return array_combine($keys, $vals);
 	}
@@ -988,7 +988,7 @@ class Set {
  * @static
  */
 	public static function reverse($object) {
-		$out = array();
+		$out = [];
 		if (is_a($object, 'XmlNode')) {
 			$out = $object->toArray();
 			return $out;
@@ -998,7 +998,7 @@ class Set {
 				$identity = $keys['_name_'];
 				unset($keys['_name_']);
 			}
-			$new = array();
+			$new = [];
 			foreach ($keys as $key => $value) {
 				if (is_array($value)) {
 					$new[$key] = (array)Set::reverse($value);
@@ -1037,7 +1037,7 @@ class Set {
  * @static
  */
 	public static function flatten($data, $separator = '.') {
-		$result = array();
+		$result = [];
 		$path = null;
 
 		if (is_array($separator)) {
@@ -1070,7 +1070,7 @@ class Set {
  * @access private
  */
 	public static function __flatten($results, $key = null) {
-		$stack = array();
+		$stack = [];
 		if (is_array($results)) {
 			foreach ($results as $k => $r) {
 				$id = $k;
@@ -1111,7 +1111,7 @@ class Set {
 			$dir = SORT_DESC;
 		}
 		array_multisort($values, $dir, $keys, $dir);
-		$sorted = array();
+		$sorted = [];
 		$keys = array_unique($keys);
 
 		foreach ($keys as $k) {

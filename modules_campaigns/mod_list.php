@@ -10,9 +10,9 @@ $games_mj = $db->req('
 	WHERE %game_mj = ?', Users::$id);
 
 if (!$games_mj) {
-	$games_mj = array();
+	$games_mj = [];
 }
-$games = array();
+$games = [];
 foreach($games_mj as $v) {
 	$games[$v['game_id']]['name'] = $v['game_name'];
 	if ($v['char_id'] && $v['char_id'] !== null) {

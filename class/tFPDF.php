@@ -32,14 +32,14 @@ class tFPDF extends FPDF
         $this->page = 0;
         $this->n = 2;
         $this->buffer = '';
-        $this->pages = array();
-        $this->PageSizes = array();
+        $this->pages = [];
+        $this->PageSizes = [];
         $this->state = 0;
-        $this->fonts = array();
-        $this->FontFiles = array();
-        $this->diffs = array();
-        $this->images = array();
-        $this->links = array();
+        $this->fonts = [];
+        $this->FontFiles = [];
+        $this->diffs = [];
+        $this->images = [];
+        $this->links = [];
         $this->InHeader = false;
         $this->InFooter = false;
         $this->lasth = 0;
@@ -1322,7 +1322,7 @@ class tFPDF extends FPDF
             $startcid = 128;
         } else {
             $rangeid = 0;
-            $range = array();
+            $range = [];
             $prevcid = -2;
             $prevwidth = -1;
             $interval = false;
@@ -1369,7 +1369,7 @@ class tFPDF extends FPDF
                             array_pop($range[$rangeid]);
                             // new range
                             $rangeid = $prevcid;
-                            $range[$rangeid] = array();
+                            $range[$rangeid] = [];
                             $range[$rangeid][] = $prevwidth;
                             $range[$rangeid][] = $width;
                         }
@@ -1379,7 +1379,7 @@ class tFPDF extends FPDF
                         if ($interval) {
                             // new range
                             $rangeid = $cid;
-                            $range[$rangeid] = array();
+                            $range[$rangeid] = [];
                             $range[$rangeid][] = $width;
                         } else {
                             $range[$rangeid][] = $width;
@@ -1388,7 +1388,7 @@ class tFPDF extends FPDF
                     }
                 } else {
                     $rangeid = $cid;
-                    $range[$rangeid] = array();
+                    $range[$rangeid] = [];
                     $range[$rangeid][] = $width;
                     $interval = false;
                 }
@@ -1559,7 +1559,7 @@ class tFPDF extends FPDF
     // Converts UTF-8 strings to codepoints array
     public function UTF8StringToArray($str)
     {
-        $out = array();
+        $out = [];
         $len = strlen($str);
         for ($i = 0; $i < $len; $i++) {
             $uni = -1;

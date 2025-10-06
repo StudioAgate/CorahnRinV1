@@ -35,7 +35,7 @@
 		LEFT JOIN %%jobdomains
 			ON %%jobdomains.%domain_id = %%domains.%domain_id
 		WHERE %%jobdomains.%job_id = :jobid', array('jobid' => (int) $job));
-		$test = array();
+		$test = [];
 		foreach($jobdoms as $key => $val) {
 			$test[$val['domid']] = $val;
 			if ($val['primsec'] == '1') { $predil = $val['domid']; }
@@ -43,7 +43,7 @@
 		$jobdoms = $test;
 		unset($test);
 	} else {
-		$jobdoms = array();
+		$jobdoms = [];
 		$predil = 0;
 	}
 	?>
@@ -52,7 +52,7 @@
 
 	$persojob = false;
 	if (!$p_stepval) {
-		$p_stepval = array();
+		$p_stepval = [];
 	}
 	if (is_numeric($job)) {
 		$persojob = false;
@@ -96,7 +96,7 @@
 			<span class="btn btn-mini"><span class="icon-book"></span></span></p><?php
 		} ?>
 		<p><?php
-			$ost = array();
+			$ost = [];
 			if (isset($p_stepval['ost']) && $p_stepval['ost'] != '2') {
 				$ost[1] = '';
 				$ost[0] = ' active';

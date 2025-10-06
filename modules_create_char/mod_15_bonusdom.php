@@ -50,8 +50,8 @@
 	$basePoints += $bonus;
 	$basePoints += $mentor;
 
-	$total_doms = array();
-	$doms_maxed = array();
+	$total_doms = [];
+	$doms_maxed = [];
 	foreach($primsec as $i => $val) {
 		$total_doms[$i] = 0;
 		if (isset($primsec[$i]['primsec'])) { $total_doms[$i] += (int) $primsec[$i]['primsec']; }
@@ -71,7 +71,7 @@
 	}
 
 	if (!$p_stepval) {
-		$p_stepval = array();
+		$p_stepval = [];
 	} else {
 		foreach($p_stepval as $k => $v) {
 			if ($v) { $points -= 1; }

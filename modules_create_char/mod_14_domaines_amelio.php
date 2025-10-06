@@ -56,7 +56,7 @@
 
 	$_SESSION['amelio_bonus'] = $bonus;
 
-	if (!$p_stepval) { $p_stepval = array(); }
+	if (!$p_stepval) { $p_stepval = []; }
 	$domains = $db->req('SELECT %domain_id, %domain_name FROM %%domains ORDER BY %domain_name ASC ');
 	$baseExp = getXPFromAvtg($_SESSION[$steps[11]['mod']], 100);
 	$exp = $baseExp;

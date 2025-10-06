@@ -1,31 +1,50 @@
 <?php
 
-if (isset($p_stepval['avantages']) && isset($p_stepval['desavantages'])) {
+global $db;
+/** @var array $steps */
+/** @var int $page_step */
+/** @var string $page_mod */
+/** @var string $p_action */
+/** @var array|null $p_stepval */
+
+if (isset($p_stepval['avantages'], $p_stepval['desavantages'])) {
 	$avtgs = $p_stepval['avantages'];
 	$desvs = $p_stepval['desavantages'];
-	$exp = getXPFromAvtg($p_stepval, 100);
+    try {
+        $exp = getXPFromAvtg($p_stepval, 100);
+    } catch (Exception $e) {
+        $p_stepval = null;
+        $exp = 100;
+        unset($_SESSION[$steps[$page_step]['mod']]);
+        ?>
+        <div class="alert alert-danger">
+            <?php tr($e->getMessage()); ?>
+            <?php tr("L'étape a été réinitialisée."); ?>
+        </div>
+        <?php
+    }
 } else {
-	$avtgs = $desvs = array();
+	$avtgs = $desvs = [];
 	$exp = 100;
 }
 
 $totlist = $db->req('SELECT %avdesv_id, %avdesv_type, %avdesv_name, %avdesv_xp, %avdesv_desc, %avdesv_double FROM %%avdesv ORDER BY %avdesv_name ASC');//récupération de la liste des avantages
 
-$revers = isset($_SESSION[$steps[7]['mod']]) ? $_SESSION[$steps[7]['mod']] : false;
+$revers = $_SESSION[$steps[7]['mod']] ?? false;
 if ($revers === false) {
 	echo 'Les revers n\'ont pas été définis, merci de vous rendre à l\'étape correspondante.<br />',
 	mkurl(array('params'=>7, 'type' => 'tag', 'anchor' => 'Aller à la page correspondante', 'attr' => 'class="btn"'));
 	return;
 }
 
-if (in_array(9, (array)$revers)) { $pauvre = true; } else { $pauvre = false; }
+if (in_array(9, (array)$revers, true)) { $pauvre = true; } else { $pauvre = false; }
 
-$avtglist = $desvlist = array();
+$avtglist = $desvlist = [];
 
 foreach($totlist as $key => $val) {//Formatage d'une liste d'avantages et une autre liste de désavantages
-	if ($val['avdesv_type'] == 'avtg') {
+	if ($val['avdesv_type'] === 'avtg') {
 		$avtglist[] = $val;
-	} elseif ($val['avdesv_type'] == 'desv') {
+	} elseif ($val['avdesv_type'] === 'desv') {
 		$desvlist[] = $val;
 	}
 }

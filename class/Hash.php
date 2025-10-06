@@ -72,7 +72,7 @@ class Hash {
 		if (!is_array($path)) {
 			$path = CakePHPString::tokenize($path, '.', '{', '}');
 		}
-		$tmp = array();
+		$tmp = [];
 
 		if (!is_array($path) || empty($path)) {
 			return null;
@@ -183,7 +183,7 @@ class Hash {
 		$context = array($_key => array($data));
 
 		foreach ($tokens as $token) {
-			$next = array();
+			$next = [];
 
 			$conditions = false;
 			$position = strpos($token, '[');
@@ -202,7 +202,7 @@ class Hash {
 
 			// Filter for attributes.
 			if ($conditions) {
-				$filter = array();
+				$filter = [];
 				foreach ($next as $item) {
 					if (self::_matches($item, $conditions)) {
 						$filter[] = $item;
@@ -337,11 +337,11 @@ class Hash {
 					return $data;
 				}
 				if (!isset($_list[$key])) {
-					$_list[$key] = array();
+					$_list[$key] = [];
 				}
 				$_list =& $_list[$key];
 				if (!is_array($_list)) {
-					$_list = array();
+					$_list = [];
 				}
 			} elseif ($op === 'remove') {
 				if ($i === $last) {
@@ -399,7 +399,7 @@ class Hash {
 	 */
 	public static function combine(array $data, $keyPath, $valuePath = null, $groupPath = null) {
 		if (empty($data)) {
-			return array();
+			return [];
 		}
 
 		if (is_array($keyPath)) {
@@ -409,7 +409,7 @@ class Hash {
 			$keys = self::extract($data, $keyPath);
 		}
 		if (empty($keys)) {
-			return array();
+			return [];
 		}
 
 		if (!empty($valuePath) && is_array($valuePath)) {
@@ -433,7 +433,7 @@ class Hash {
 						$group[$i] = 0;
 					}
 					if (!isset($out[$group[$i]])) {
-						$out[$group[$i]] = array();
+						$out[$group[$i]] = [];
 					}
 					$out[$group[$i]][$keys[$i]] = $vals[$i];
 				}
@@ -441,7 +441,7 @@ class Hash {
 			}
 		}
 		if (empty($vals)) {
-			return array();
+			return [];
 		}
 		return array_combine($keys, $vals);
 	}
@@ -467,7 +467,7 @@ class Hash {
 	 * @see Hash::extract()
 	 */
 	public static function format(array $data, array $paths, $format) {
-		$extracted = array();
+		$extracted = [];
 		$count = count($paths);
 
 		if (!$count) {
@@ -477,13 +477,13 @@ class Hash {
 		for ($i = 0; $i < $count; $i++) {
 			$extracted[] = self::extract($data, $paths[$i]);
 		}
-		$out = array();
+		$out = [];
 		$data = $extracted;
 		$count = count($data[0]);
 
 		$countTwo = count($data);
 		for ($j = 0; $j < $count; $j++) {
-			$args = array();
+			$args = [];
 			for ($i = 0; $i < $countTwo; $i++) {
 				if (array_key_exists($j, $data[$i])) {
 					$args[] = $data[$i][$j];
@@ -506,7 +506,7 @@ class Hash {
 		if (empty($data) || empty($needle)) {
 			return false;
 		}
-		$stack = array();
+		$stack = [];
 
 		while (!empty($needle)) {
 			$key = key($needle);
@@ -593,8 +593,8 @@ class Hash {
 	 * @link http://book.cakephp.org/2.0/en/core-utility-libraries/hash.html#Hash::flatten
 	 */
 	public static function flatten(array $data, $separator = '.') {
-		$result = array();
-		$stack = array();
+		$result = [];
+		$stack = [];
 		$path = null;
 
 		reset($data);
@@ -634,7 +634,7 @@ class Hash {
 	 * @return array
 	 */
 	public static function expand($data, $separator = '.') {
-		$result = array();
+		$result = [];
 		foreach ($data as $flat => $value) {
 			$keys = explode($separator, $flat);
 			$keys = array_reverse($keys);
@@ -737,7 +737,7 @@ class Hash {
 	 * @link http://book.cakephp.org/2.0/en/core-utility-libraries/hash.html#Hash::maxDimensions
 	 */
 	public static function maxDimensions(array $data) {
-		$depth = array();
+		$depth = [];
 		if (is_array($data) && reset($data) !== false) {
 			foreach ($data as $value) {
 				$depth[] = self::dimensions((array)$value) + 1;
@@ -823,7 +823,7 @@ class Hash {
 	 */
 	public static function sort(array $data, $path, $dir, $type = 'regular') {
 		if (empty($data)) {
-			return array();
+			return [];
 		}
 		$originalKeys = array_keys($data);
 		$numeric = is_numeric(implode('', $originalKeys));
@@ -863,7 +863,7 @@ class Hash {
 			$type = SORT_REGULAR;
 		}
 		array_multisort($values, $dir, $type, $keys, $dir, $type);
-		$sorted = array();
+		$sorted = [];
 		$keys = array_unique($keys);
 
 		foreach ($keys as $k) {
@@ -889,7 +889,7 @@ class Hash {
 	 * @return array
 	 */
 	protected static function _squash($data, $key = null) {
-		$stack = array();
+		$stack = [];
 		foreach ($data as $k => $r) {
 			$id = $k;
 			if (!is_null($key)) {
@@ -979,7 +979,7 @@ class Hash {
 			}
 		}
 		if (!$numeric || $assoc) {
-			$newList = array();
+			$newList = [];
 			for ($i = 0; $i < $count; $i++) {
 				if (is_int($keys[$i])) {
 					$newList[$data[$keys[$i]]] = null;
@@ -1022,7 +1022,7 @@ class Hash {
 				'root' => null
 		);
 
-		$return = $idMap = array();
+		$return = $idMap = [];
 		$ids = self::extract($data, $options['idPath']);
 
 		$idKeys = explode('.', $options['idPath']);
@@ -1032,7 +1032,7 @@ class Hash {
 		array_shift($parentKeys);
 
 		foreach ($data as $result) {
-			$result[$options['children']] = array();
+			$result[$options['children']] = [];
 
 			$id = self::get($result, $idKeys);
 			$parentId = self::get($result, $parentKeys);

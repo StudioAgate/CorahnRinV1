@@ -1,5 +1,12 @@
 <?php
-	$avtgs = isset($_SESSION[$steps[11]['mod']]) ? $_SESSION[$steps[11]['mod']] : false;
+    global $db;
+    /** @var array $steps */
+    /** @var int $page_step */
+    /** @var string $page_mod */
+    /** @var string $p_action */
+    /** @var array|null $p_stepval */
+
+	$avtgs = $_SESSION[$steps[11]['mod']] ?? false;
 	if ($avtgs === false) {
 		tr("Les avantages n\'ont pas été définis, merci de vous rendre à l\'étape correspondante.<br />");
 		echo mkurl(array('params'=>11, 'type' => 'TAG', 'anchor' => 'Aller à la page correspondante', 'attr' => 'class="btn"'));
@@ -8,20 +15,20 @@
 	//Si l'avantage 2 est présent, alors l'avantage "Mentor" a été sélectionné
 	if (isset($avtgs['avantages'][2])) { $mentor = true; } else { $mentor = false; }
 
-	$primsec = isset($_SESSION[$steps[13]['mod']]) ? $_SESSION[$steps[13]['mod']] : false;
+	$primsec = $_SESSION[$steps[13]['mod']] ?? false;
 	if ($primsec === false) {
 		tr("Les domaines primaires et secondaires n\'ont pas été définis, merci de vous rendre à l\'étape correspondante.<br />");
 		echo mkurl(array('params'=>13, 'type' => 'TAG', 'anchor' => 'Aller à la page correspondante', 'attr' => 'class="btn"'));
 		return;
 	}
-	$amelio = isset($_SESSION[$steps[14]['mod']]) ? $_SESSION[$steps[14]['mod']] : false;
+	$amelio = $_SESSION[$steps[14]['mod']] ?? false;
 	if ($amelio === false) {
 		tr("Les améliorations des domaines par dépense d\'XP n\'ont pas été définis, merci de vous rendre à l\'étape correspondante.<br />");
 		echo mkurl(array('params'=>14, 'type' => 'TAG', 'anchor' => 'Aller à la page correspondante', 'attr' => 'class="btn"'));
 		return;
 	}
 
-	$bonusdom = isset($_SESSION[$steps[15]['mod']]) ? $_SESSION[$steps[15]['mod']] : false;
+	$bonusdom = $_SESSION[$steps[15]['mod']] ?? false;
 	$sess_bonus = isset($_SESSION['bonusdom']) ? (int) $_SESSION['bonusdom'] : false;
 	if ($bonusdom === false || $sess_bonus === false) {
 		tr("Les bonus supplémentaires aux domaines n'ont pas été définis, merci de vous rendre à l'étape correspondante");
@@ -29,7 +36,7 @@
 		return;
 	}
 
-	$totaldoms = array();
+	$totaldoms = [];
 	$mentor_domain_id = 0;
 	foreach($amelio as $id => $v) {
 		if (!isset($totaldoms[$id])) {
@@ -54,7 +61,7 @@
 		if ($v < 5) { unset($totaldoms[$k]); }
 	}
 
-	$dom_ids = array();
+	$dom_ids = [];
 	foreach ($primsec as $k => $v) {
 		if ($v == 5 || ($v == 3 && isset($totaldoms[$k]) && $totaldoms[$k] === 5)) {
 			$dom_ids[] = (int) $k;
@@ -62,8 +69,8 @@
 	}
 
 	$domains = $db->req('SELECT %domain_id, %domain_name FROM %%domains WHERE %domain_id IN (%%%in) ORDER BY %domain_name ASC ', $dom_ids);
-	if (!$domains) { $domains = array(); }
-	$t = array();
+	if (!$domains) { $domains = []; }
+	$t = [];
 	foreach($domains as $k => $v) { $t[$v['domain_id']] = $v; }
 	$domains = $t; unset($t);
 	$disc = $db->req('SELECT %%disciplines.%disc_name, %%discdoms.%disc_id, %%discdoms.%domain_id
@@ -71,29 +78,48 @@
 		INNER JOIN %%disciplines ON %%disciplines.%disc_id = %%discdoms.%disc_id
 		WHERE %%disciplines.%disc_rang = "Professionnel"
 		AND %%discdoms.%domain_id IN (%%%in)', $dom_ids);
-	if (!$disc) { $disc = array(); }
-	$mentor_disc_id = array();
+	if (!$disc) { $disc = []; }
+	$mentor_disc_id = [];
 	foreach($disc as $k => $v) {
 		$domains[$v['domain_id']]['disciplines'][$v['disc_id']] = $v;
 		if ($v['domain_id'] == $mentor_domain_id) { $mentor_disc_id[$v['disc_id']] = $v['disc_id']; }//On détermine la liste des disciplines affectées par un potentiel mentor
 	}
 
-	$baseExp = getXPFromAvtg($_SESSION[$steps[11]['mod']], 100);
-	$baseExp = getXPFromDoms($_SESSION[$steps[14]['mod']], $baseExp);
-	$basePoints = $sess_bonus;
-	$points = $basePoints;
-	$exp = $baseExp;
-	if ($p_stepval) {
-		foreach($p_stepval as $disc_id => $v) {
-			if ($v['bonus']) {
-				$points -= 1;
-			} elseif ($v['exp']) {
-				$cost = 25;
-				if ($mentor === true && isset($disc_id) && isset($mentor_disc_id[$disc_id])) { $cost = 20; }
-				$exp -= $cost;
-			}
-		}
-	}
+    try {
+        $baseExp = getXPFromAvtg($_SESSION[$steps[11]['mod']], 100);
+        $baseExp = getXPFromDoms($_SESSION[$steps[14]['mod']], $baseExp);
+        $basePoints = $sess_bonus;
+        $points = $basePoints;
+        $exp = $baseExp;
+        if ($p_stepval) {
+            foreach ($p_stepval as $disc_id => $v) {
+                if ($v['bonus']) {
+                    --$points;
+                } elseif ($v['exp']) {
+                    $cost = 25;
+                    if ($mentor === true && $disc_id && isset($mentor_disc_id[$disc_id])) {
+                        $cost = 20;
+                    }
+                    $exp -= $cost;
+                }
+            }
+            if ($points < 0) {
+                throw new \RuntimeException("Trop de points d'expérience ont été utilisés pour acheter des avantages.");
+            }
+            if ($exp < 0) {
+                throw new \RuntimeException("Trop de points d'expérience ont été utilisés pour acheter des avantages, et l'achat de désavantages n'a pas permis de compenser.");
+            }
+        }
+    } catch (Exception $e) {
+        $p_stepval = null;
+        unset($_SESSION[$steps[$page_step]['mod']]);
+        ?>
+        <div class="alert alert-danger">
+            <?php tr($e->getMessage()); ?>
+            <?php tr("L'étape a été réinitialisée."); ?>
+        </div>
+        <?php
+    }
 	?>
 	<div class="notif noicon">
 		<p><?php tr("Vous avez la possibilité de choisir des disciplines en fonction des domaines qui disposent d'un score de 5 et font partie de vos <strong>domaines primaires et secondaires</strong>."); ?></p>

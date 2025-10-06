@@ -3,7 +3,7 @@
 use App\Session;
 
 $t = $db->req('SELECT %rev_id,%rev_name,%rev_desc FROM %%revers ORDER BY %rev_id ASC');
-    $revers = array();
+    $revers = [];
     foreach ($t as $k => $v) {
         $revers[$v['rev_id']] = $v;
     }
@@ -37,7 +37,7 @@ $t = $db->req('SELECT %rev_id,%rev_name,%rev_desc FROM %%revers ORDER BY %rev_id
             if (isset($_GET['manually'])) {
                 if ($_GET['manually'] === 'false') {
                     // Calcul automatique
-                    $dice = array();
+                    $dice = [];
                     $dice[0] = mt_rand(1,10);
                     if ($dice[0] == 10) {
                         $dice[1] = mt_rand(2, 9);
@@ -77,7 +77,7 @@ $t = $db->req('SELECT %rev_id,%rev_name,%rev_desc FROM %%revers ORDER BY %rev_id
                     // Validation des données POST
                     // Redirection événtuelle
                     if (count($_POST['setbacks']) === $nb_revers) {
-                        $dice = array();
+                        $dice = [];
                         foreach ($_POST['setbacks'] as $setback) {
                             if (!isset($revers[$setback])) {
                                 // Erreur

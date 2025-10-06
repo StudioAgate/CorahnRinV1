@@ -8,7 +8,7 @@ $doms = (array) Hash::extract($tab, 'domaines.{n}');
 
 unset($tab);
 
-$dom_ids = array();
+$dom_ids = [];
 foreach ($doms as $k => $v) {
 	$dom_ids[] = $v['id'];
 }

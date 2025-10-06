@@ -6,7 +6,7 @@
  * @param boolean $strict Si true, effectuera une comparaison strict. Sinon, effectuera une comparaison large
  */
 function p_array_diff_recursive($array1, $array2, $strict = true) {
-	$ret = array();
+	$ret = [];
 
 	foreach ($array1 as $k => $v) {
 		if (array_key_exists($k, $array2)) {

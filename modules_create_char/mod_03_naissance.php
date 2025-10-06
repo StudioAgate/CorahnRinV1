@@ -1,6 +1,6 @@
 <?php
 	$result = $db->req('SELECT * FROM %%regions ORDER BY %region_id ASC');
-	$p_regions = array();
+	$p_regions = [];
 	if ($result) {
 		foreach($result as $data) {
 			$p_regions[$data['region_id']] = $data;

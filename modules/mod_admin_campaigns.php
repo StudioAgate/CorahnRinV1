@@ -13,7 +13,7 @@ $sql = 'SELECT
 		ON %%characters.%user_id = %char_users.%user_id';
 $t = $db->req($sql);
 unset($sql);
-$games = array();
+$games = [];
 if ($t) {
 	foreach ($t as $v) {
 		$games[$v['game_id']]['id'] = $v['game_id'];
@@ -41,7 +41,7 @@ unset($t);
 <?php
 foreach ($games as $game_id => $game) {
 // pr($game);
-	if (!isset($game['characters'])) { $game['characters'] = array(); }?><li>
+	if (!isset($game['characters'])) { $game['characters'] = []; }?><li>
 		<?php echo $game['mj_name'], ' &ndash; <strong>',
 		$game['name'],
 		'</strong> '; ?><br />

@@ -86,14 +86,14 @@ class FPDF
         $this->page = 0;
         $this->n = 2;
         $this->buffer = '';
-        $this->pages = array();
-        $this->PageSizes = array();
+        $this->pages = [];
+        $this->PageSizes = [];
         $this->state = 0;
-        $this->fonts = array();
-        $this->FontFiles = array();
-        $this->diffs = array();
-        $this->images = array();
-        $this->links = array();
+        $this->fonts = [];
+        $this->FontFiles = [];
+        $this->diffs = [];
+        $this->images = [];
+        $this->links = [];
         $this->InHeader = false;
         $this->InFooter = false;
         $this->lasth = 0;
@@ -1877,7 +1877,7 @@ class FPDF
         $arr = preg_split("#\s| #isUu", $text);
         if (!$arr) { $arr = []; }
         $i = 0;
-// 		$widths = array();
+// 		$widths = [];
         foreach ($arr as $word) {
             $teststring = $str . ' ' . $word;
             $testbox = imagettfbbox($size, 0, $font['file'], $teststring);

@@ -5,12 +5,12 @@ $versions_xml = file_get_contents(ROOT.DS.'versions.xml');
 $versions = new SimpleXMLElement($versions_xml);
 unset($versions_xml);
 
-$pagelist = array();
+$pagelist = [];
 foreach($_PAGE['list'] as $v) {
 	$pagelist[$v['page_getmod']] = $v['page_id'];
 }
 
-$updates = array();
+$updates = [];
 $total_maj = 0;
 
 $cacheFile = CACHE_DIR.DS.'modversions.html';
@@ -22,7 +22,7 @@ if (file_exists($cacheFile) && filemtime($cacheFile) >= (time() - 86400) && $cnt
 ob_start();
 
 $t = $db->req('SELECT %gen_step,%gen_mod,%gen_anchor FROM %%steps ORDER BY %gen_step ASC');//On génère la liste des étapes
-$steps = array();
+$steps = [];
 foreach ($t as $v) {//On formate la liste des étapes
 	$steps[$v['gen_mod']] = 'Générateur : Étape '.$v['gen_step'].' - '.$v['gen_anchor'];
 }
@@ -34,7 +34,7 @@ foreach ($versions->version as $v) {
 	$date = $day.'/'.$month.'/'.$year;
 	$code = (string) $v['code'];
 	$updates[$code] = array(
-		'tasks' => array(),
+		'tasks' => [],
 		'date' => $date,
 	);
 	$i = 0;
@@ -44,7 +44,7 @@ foreach ($versions->version as $v) {
 			'id' => (int)$task->element['id'],
 			'module' => (string) $task->element['module'],
 			'title' => (string)$task->element,
-			'comments' => array()
+			'comments' => []
 		);
 		foreach ($task->comment as $comment) {
             if (strpos($comment, 'redmine#') !== false) {

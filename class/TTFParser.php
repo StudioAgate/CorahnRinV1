@@ -43,7 +43,7 @@ class TTFParser
 			$this->Error('Unrecognized file format');
 		$numTables = $this->ReadUShort();
 		$this->Skip(3*2); // searchRange, entrySelector, rangeShift
-		$this->tables = array();
+		$this->tables = [];
 		for($i=0;$i<$numTables;$i++) {
 			$tag = $this->Read(4);
 			$this->Skip(4); // checkSum
@@ -93,7 +93,7 @@ class TTFParser
 
 	public function ParseHmtx() {
 		$this->Seek('hmtx');
-		$this->widths = array();
+		$this->widths = [];
 		for($i=0;$i<$this->numberOfHMetrics;$i++) {
 			$advanceWidth = $this->ReadUShort();
 			$this->Skip(2); // lsb
@@ -120,11 +120,11 @@ class TTFParser
 		if($offset31==0)
 			$this->Error('No Unicode encoding found');
 
-		$startCount = array();
-		$endCount = array();
-		$idDelta = array();
-		$idRangeOffset = array();
-		$this->chars = array();
+		$startCount = [];
+		$endCount = [];
+		$idDelta = [];
+		$idRangeOffset = [];
+		$this->chars = [];
 		fseek($this->f, $this->tables['cmap']+$offset31, SEEK_SET);
 		$format = $this->ReadUShort();
 		if($format!=4)

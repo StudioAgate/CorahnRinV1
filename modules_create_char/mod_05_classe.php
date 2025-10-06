@@ -1,6 +1,6 @@
 <?php
 	$classe = isset($p_stepval['classe']) ? $p_stepval['classe'] : '';
-	$dom = isset($p_stepval['dom1']) && isset($p_stepval['dom2']) ? array($p_stepval['dom1'],$p_stepval['dom2']) : array();
+	$dom = isset($p_stepval['dom1']) && isset($p_stepval['dom2']) ? array($p_stepval['dom1'],$p_stepval['dom2']) : [];
 ?>
 	<p class="notif">
 		<?php tr("Choisissez ici la classe sociale de laquelle est issu votre personnage"); ?><br />

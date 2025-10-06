@@ -73,8 +73,8 @@ function error_logging($errno, $errstr, $errfile, $errline) {
 			.'||Page.request=>'.json_encode($_PAGE['request'] ?? '')
 			.'||Page.get_params=>'.json_encode($_SERVER['QUERY_STRING'])
 			.'||User.id=>'.json_encode(Users::$id);
-		$final = preg_replace('#\n|\r|\t#iUu', '', $final);
-		$final = preg_replace('#\s\s+#iUu', ' ', $final);
+		$final = preg_replace('#[\n\r\t]#Uu', '', $final);
+		$final = preg_replace('#\s\s+#Uu', ' ', $final);
         if (!is_dir(dirname($error_file))) {
             FileAndDir::createPath(dirname($error_file));
             FileAndDir::put($error_file, '');
@@ -119,6 +119,8 @@ function error_logging($errno, $errstr, $errfile, $errline) {
             'email' => $user['email'],
         ];
 
+        $debugBacktrace = debug_backtrace();
+
         $msgMail = $msgEcho
             .$trace
             .'<br />Server request:<br /><pre style="font-size: 10px;">'
@@ -126,20 +128,21 @@ function error_logging($errno, $errstr, $errfile, $errline) {
             .'<br />Connected user:<br /><pre style="font-size: 10px;">'
             .pr($userData, true)
             .'</pre><br />Backtrace:<br /><pre style="font-size: 10px;">'
-            .pr(debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS), true)
+            .pr($debugBacktrace, true)
             .'</pre>';
 
         try {
             if (true === P_DEBUG) {
                 $p = $_PAGE;
                 unset($p['list']);
-                $msgEcho .= $trace."<br />\n".pr(array(
+                $msgEcho .= $trace."<br />\nDebug data:".pr(array(
                     '_PAGE' => $p,
                     '_SERVER' => $serv,
-                    'User' => $userData
+                    'User' => $userData,
+                    'trace' => $debugBacktrace,
                 ), true);
             }
-            $msgEcho .= '<br /><br />'.tr('Veuillez envoyer ce message à l\'administrateur du site', true, array(), 'general');
+            $msgEcho .= '<br /><br />'.tr('Veuillez envoyer ce message à l\'administrateur du site', true, [], 'general');
 
             send_mail(P_ERROR_MAIL_TO, 'Error !', $msgMail, 0, P_ERROR_MAIL_FROM);
         } catch (Exception $e) {}

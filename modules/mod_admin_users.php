@@ -4,7 +4,7 @@ $all_chars = $db->req('SELECT %%characters.%user_id, %%characters.%char_name, %%
 
 $all_users = $db->req('SELECT %%users.%user_id, %%users.%user_email, %%users.%user_name FROM %%users');
 
-$users = array();
+$users = [];
 
 if ($all_chars) {
 	foreach($all_chars as $v) {

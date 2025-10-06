@@ -14,7 +14,7 @@ use App\PHPMailer;
  * @return true si le mail est envoyé, false sinon
  * @author Pierstoval 17/06/2013
  */
-function send_mail($dest = array(), $subj = '', $message = '', $mail_id = 0, $from = array()) {
+function send_mail($dest = [], $subj = '', $message = '', $mail_id = 0, $from = array()) {
 	global $db;
 
 	if (is_string($dest)) {

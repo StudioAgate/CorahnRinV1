@@ -13,10 +13,10 @@
 	$rai = $voies[4];
 	$ide = $voies[5];
 
-	$q = array();
-	$d = array();
+	$q = [];
+	$d = [];
 
-	$traits = array();
+	$traits = [];
 	if ($result = $db->req('SELECT  %trait_id, %trait_name, %trait_voie, %trait_qd, %trait_mm  FROM  %%traitscaractere ORDER BY %trait_name ASC')) {
 		foreach ($result as $data) {
 			$traits[] = $data;

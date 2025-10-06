@@ -12,7 +12,7 @@ use App\Hash;
  *
  * @return array|null
  */
-function gv($key, array $before = array(), array $after = array()) {
+function gv($key, array $before = [], array $after = array()) {
     $beforeValue = Hash::get($before, $key);
     $afterValue = Hash::get($after, $key);
 

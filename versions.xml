@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+    <version date="20251006" code="1.51">
+        <tasks>
+            <task type="page">
+                <element name="pages/mod_create_char.php" id="62"/>
+                <comment>Renforcé la sécurité dans plusieurs situations de consommation d'XP incohérentes</comment>
+                <comment>Ajouté de nouveaux messages d'erreur dans les cas où l'expérience aurait "mal" été dépensée (dans des cas extrêmement rares)</comment>
+            </task>
+            <task type="general">
+                <element name="">Divers</element>
+                <comment>Reformatage du code de plusieurs modules</comment>
+                <comment>Utilisation de print_r au lieu d'implode pour le debug des requêtes sql</comment>
+                <comment>Optimisé quelques regex</comment>
+            </task>
+        </tasks>
+    </version>
     <version date="20251006" code="1.50">
         <tasks>
             <task type="page">

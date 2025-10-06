@@ -14,7 +14,7 @@ $characters = $db->req('
 	ORDER BY %%users.%user_name ASC
 ') ?: [];
 
-$users = array();
+$users = [];
 
 foreach ($characters as $k => $v) {
 	if ($v['user_name'] && $v['char_status'] == 0) {

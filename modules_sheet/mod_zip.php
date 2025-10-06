@@ -20,7 +20,7 @@ $files_to_check = array(
 	$pdfPrintFriendly = CHAR_EXPORT.DS.$char_id.DS.$char_name.'-original-print_'.P_LANG.'.pdf',
 );
 
-$imgs = array();
+$imgs = [];
 
 if (!FileAndDir::fexists($zip_dest_name)) {
 	$generate_all = false;

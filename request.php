@@ -55,7 +55,7 @@ if ($request) {
         exit;
     }
 } else {
-	$request = array();
+	$request = [];
     $lang = null;
 	$getmod = null;
 }
@@ -69,7 +69,7 @@ if ($lang !== 'fr' && $lang !== 'en') {
     exit;
 }
 
-$t = array();
+$t = [];
 if ($ext === $getmod) { $ext = ''; }
 foreach($request as $v) {
 	if (strpos($v, ':') !== false) {
@@ -90,7 +90,7 @@ $get_parameters = $_SERVER['REQUEST_URI'];
 if (false !== strpos($get_parameters, "?")) {
 	$get_parameters = preg_replace('#^[^?]+\?#Uu', '', $get_parameters);
 	$get_parameters = explode('&', $get_parameters);
-	$t = array();
+	$t = [];
 	foreach($get_parameters as $k => $v) {
 		$v = explode('=', $v);
 		$t[$v[0]] = isset($v[1]) ? $v[1] : null;
@@ -98,7 +98,7 @@ if (false !== strpos($get_parameters, "?")) {
 	}
 	$get_parameters = $t;
 } else {
-	$get_parameters = array();
+	$get_parameters = [];
 }
 
 $_PAGE['request'] = $request;

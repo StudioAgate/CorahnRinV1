@@ -75,6 +75,7 @@ if (!FileAndDir::fexists(ROOT.DS.'config.php')) {
 require ROOT.DS.'config.php';
 
 ## Création de la connexion à la BDD
+global $db;
 $db = new bdd(P_DB_HOST, P_DB_USER, P_DB_PWD, P_DB_DBNAME, P_DB_PREFIX);
 
 ## On charge tous les paramètres de base du site (variable $_PAGE, session, etc)
@@ -90,6 +91,7 @@ if (!defined('P_DEBUG')) {
 
 ## On va créer la requête dans la variable $_PAGE
 require ROOT.DS.'request.php';
+global $_PAGE;
 Translate::$_PAGE = $_PAGE;
 
 ## On charge le module Git au cas où une mise à jour est prévue.
@@ -155,13 +157,13 @@ if (strpos($_LAYOUT, '{PAGE_TIME}') !== false && isset($time)) {
         $f = fopen($logfile, 'ab');##On stocke le temps d'exécution dans le fichier log
         $final = '*|*|*Date=>'.json_encode(date(DATE_RFC822))
             .'||Ip=>'.json_encode($_SERVER['REMOTE_ADDR'])
-            .'||Referer=>'.json_encode(isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '')
+            .'||Referer=>'.json_encode($_SERVER['HTTP_REFERER'] ?? '')
             .'||Page.get=>'.json_encode($_PAGE['get'])
-            .'||Page.request=>'.json_encode((array)@$_PAGE['request'])
+            .'||Page.request=>'.json_encode((array) ($_PAGE['request'] ?? []))
             .'||GET=>'.json_encode((array)$_GET)
             .'||User.id=>'.json_encode(Users::$id)
             .'||Exectime=>'.json_encode($time);
-        $final = preg_replace(['#\n|\r|\t#isU', '#\s\s+#isUu'], ['', ' '], $final);
+        $final = preg_replace(['#[\n\r\t]#U', '#\s\s+#iUu'], ['', ' '], $final);
         fwrite($f, $final);
         fclose($f);
         unset($f, $final);

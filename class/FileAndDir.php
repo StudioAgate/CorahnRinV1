@@ -84,7 +84,7 @@ class FileAndDir {
  * @return array La liste des fichiers dans le dossier
  */
 	public static function directoryContent($directory) {
-		$files = array();
+		$files = [];
 		$dir = opendir($directory);
 		while($file = readdir($dir)) {
 			if($file != '.' && $file != '..' && $file != 'empty' && !is_dir($directory.$file)) {

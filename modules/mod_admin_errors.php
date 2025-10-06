@@ -16,7 +16,7 @@ $types_ok = array(
 //	'git' => 'Messages Git',
 );
 
-$arr = array();
+$arr = [];
 foreach ($types_ok as $v => $k) {
 	$arr[$v] = scandir(ROOT.DS.'logs'.DS.$v.DS, SCANDIR_SORT_DESCENDING);
 }
@@ -81,11 +81,11 @@ if ($err_type && $err_file) {
 		return;
 	}
 
-	$contents = array();
-	$fields = array();
+	$contents = [];
+	$fields = [];
 
 	$file_to_load = ROOT.DS.'logs'.DS.$err_type.DS.$err_file.'.log';
-	$exec_all = array();
+	$exec_all = [];
 	$exec_sum = 0;
     $median = 0;
 	if (FileAndDir::fexists($file_to_load)) {

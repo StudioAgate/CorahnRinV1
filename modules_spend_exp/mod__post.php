@@ -1,7 +1,7 @@
 <?php
 
 $t = $db->req('SELECT %disc_id,%disc_name FROM %%disciplines WHERE %disc_rang = "Professionnel"');
-$discs = array();
+$discs = [];
 foreach ($t as $v) {
 	$discs[$v['disc_id']] = $v;
 }

@@ -241,7 +241,7 @@ class Inflector {
  * @var array
  * @access protected
  */
-	public $_pluralized = array();
+	public $_pluralized = [];
 
 /**
  * Cached array identity map of singularized words.
@@ -249,7 +249,7 @@ class Inflector {
  * @var array
  * @access protected
  */
-	public $_singularized = array();
+	public $_singularized = [];
 
 /**
  * Cached Underscore Inflections
@@ -257,7 +257,7 @@ class Inflector {
  * @var array
  * @access protected
  */
-	public $_underscore = array();
+	public $_underscore = [];
 
 /**
  * Cached Camelize Inflections
@@ -265,7 +265,7 @@ class Inflector {
  * @var array
  * @access protected
  */
-	public $_camelize = array();
+	public $_camelize = [];
 
 /**
  * Classify cached inflecctions
@@ -273,7 +273,7 @@ class Inflector {
  * @var array
  * @access protected
  */
-	public $_classify = array();
+	public $_classify = [];
 
 /**
  * Tablize cached inflections
@@ -281,7 +281,7 @@ class Inflector {
  * @var array
  * @access protected
  */
-	public $_tableize = array();
+	public $_tableize = [];
 
 /**
  * Humanize cached inflections
@@ -289,7 +289,7 @@ class Inflector {
  * @var array
  * @access protected
  */
-	public $_humanize = array();
+	public $_humanize = [];
 
 /**
  * Gets a reference to the Inflector object instance
@@ -298,7 +298,7 @@ class Inflector {
  * @access public
  */
 	public static function &getInstance() {
-		static $instance = array();
+		static $instance = [];
 
 		if (!$instance) {
 			//$instance[0] =& new Inflector();
@@ -379,9 +379,9 @@ class Inflector {
 							unset($_this->{$var}['merged'][$rule]);
 						}
 						if ($type === 'plural') {
-							$_this->_pluralized = $_this->_tableize = array();
+							$_this->_pluralized = $_this->_tableize = [];
 						} elseif ($type === 'singular') {
-							$_this->_singularized = array();
+							$_this->_singularized = [];
 						}
 					}
 				}

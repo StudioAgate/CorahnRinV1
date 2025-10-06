@@ -7,6 +7,6 @@ use App\Translate;
  *
  * @see Translate::translate
  */
-function tr($word, $return = false, $params = array(), $domain = null) {
+function tr($word, $return = false, $params = [], $domain = null) {
     return Translate::translate($word, $return, $params, $domain);
 }

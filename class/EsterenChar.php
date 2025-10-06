@@ -174,8 +174,8 @@ namespace App;
  */
 class EsterenChar {
 
-	private $base_char = array();//Le personnage récupéré dans la BDD ou dans la session (utilisé pour voir les différences et stocker les modifications)
-	private $char = array();//Le personnage en cours d'édition ou de modification
+	private $base_char = [];//Le personnage récupéré dans la BDD ou dans la session (utilisé pour voir les différences et stocker les modifications)
+	private $char = [];//Le personnage en cours d'édition ou de modification
 	private $id = 0;//L'id du personnage
 	private $user_id = 0;//L'id de l'utilisateur associé au personnage
 
@@ -274,7 +274,7 @@ class EsterenChar {
         /** @var \App\bdd $db */
         global $db;
         $t = $db->req('SELECT %gen_step,%gen_mod,%gen_anchor FROM %%steps ORDER BY %gen_step ASC');//On génère la liste des étapes
-		$steps = array();
+		$steps = [];
 		foreach ($t as $v) {//On formate la liste des étapes
 			$steps[$v['gen_step']] = array(
 				'step' => $v['gen_step'],
@@ -680,11 +680,11 @@ class EsterenChar {
 	 * @return array|bool
 	 */
 	private function _make_char_from_session($char) {
-		$err = array();
+		$err = [];
 		if (!$char || empty($char)) {
-			return array();
+			return [];
 		}
-		$t = array();
+		$t = [];
 		unset($char['bonusdom']);
 		foreach($char as $k => $v) {
 			$k = preg_replace('#^\d+_#U', '', $k);
@@ -710,7 +710,7 @@ class EsterenChar {
 		/*------------VOIES------------*/
 		if (isset($char['voies']) && !empty($char['voies'])) {
 			$t = $this->db->req('SELECT %voie_id, %voie_name FROM %%voies');
-			$voies = array();
+			$voies = [];
 			foreach ($t as $v) {
 				$voies[$v['voie_id']] = array(
 					'id' => (int) $v['voie_id'],
@@ -760,7 +760,7 @@ class EsterenChar {
 		if (isset($char['traits']) && !empty($char['traits']) && is_array($char['traits'])) {
 			$char['traits'] = array_map('intval', $char['traits']);
 			$t = $this->db->req('SELECT %trait_name,%trait_name_female,%trait_id,%trait_qd FROM %%traitscaractere WHERE %trait_id IN ('.implode(',', $char['traits']).')');
-			$traits = array();
+			$traits = [];
 			foreach($t as $v) {
 				if ($v['trait_qd'] === 'q') {
 					$traits['qualite'] = array(
@@ -791,7 +791,7 @@ class EsterenChar {
 
 			$amelio = $char['domaines_amelio'];
 			$bonusdom = $char['bonusdom'];
-			$domaines = array();
+			$domaines = [];
 			foreach($t as $v) {
 				$v['domain_id'] = (int) $v['domain_id'];
 				$id = $v['domain_id'];
@@ -803,7 +803,7 @@ class EsterenChar {
 					'name' => $v['domain_name'],
 					'description' => $v['domain_desc'],
 					'val' => $v['val'],
-					'disciplines' => array(),
+					'disciplines' => [],
 					'bonus' => 0,
 					'malus' => 0
 				);
@@ -821,7 +821,7 @@ class EsterenChar {
 		if (isset($char['des_avtg']) && !empty($char['des_avtg']) && is_array($char['des_avtg'])) {
 			$avtg = array_keys($char['des_avtg']['avantages']);
 			$avtg = array_map('intval', $avtg);
-			$avtgs = array();
+			$avtgs = [];
 			if (!empty($avtg)) {
 				$t = $this->db->req('SELECT %avdesv_id,%avdesv_name,%avdesv_name_female,%avdesv_bonusdisc FROM %%avdesv WHERE %avdesv_id IN ('.implode(',', $avtg).')');
 				foreach($t as $v) {
@@ -874,9 +874,9 @@ class EsterenChar {
 		/*------------DÉSAVANTAGES------------*/
 		if (isset($char['des_avtg']) && !empty($char['des_avtg']) && is_array($char['des_avtg'])) {
 			$desv = array_keys($char['des_avtg']['desavantages']);
-			if (!$desv) { $desv = array(); }
+			if (!$desv) { $desv = []; }
 			$desv = array_map('intval', $desv);
-			$desvs = array();
+			$desvs = [];
 			if (!empty($desv)) {
 				$t = $this->db->req('SELECT %avdesv_id,%avdesv_name,%avdesv_name_female,%avdesv_bonusdisc FROM %%avdesv WHERE %avdesv_id IN ('.implode(',', $desv).')');
 				foreach($t as $v) {
@@ -929,7 +929,7 @@ class EsterenChar {
 			if (is_array($char['revers']) && !empty($char['revers']) && $char['revers'] !== array(0=>'0')) {
 				$char['revers'] = array_map('intval', $char['revers']);
 				$t = $this->db->req('SELECT %rev_id,%rev_name,%rev_desc,%rev_malus FROM %%revers WHERE %rev_id IN ('.implode(',', $char['revers']).')') ?: [];
-				$revers = array();
+				$revers = [];
 				foreach($t as $v) {
 					$revers[$v['rev_id']] = array(
 						'id' => (int) $v['rev_id'],
@@ -945,7 +945,7 @@ class EsterenChar {
 					}
 				}
 				unset($t);
-			} else { $revers = array(); }
+			} else { $revers = []; }
 			$this->set('revers', $revers);
 		} else {
 			$err[] = 'Revers';
@@ -996,10 +996,10 @@ class EsterenChar {
         )) {
 			if ($char['equipements']['arme']) {
 				$arme = $this->db->req('SELECT %arme_id,%arme_name,%arme_dmg,%arme_domain FROM %%armes WHERE %arme_id IN ('.implode(',', $char['equipements']['arme']).')');
-				$armes = array();
+				$armes = [];
 				foreach ($arme as $v) {
 					$doms = explode(',', $v['arme_domain']);
-					$armes_dom = array();
+					$armes_dom = [];
 					foreach($doms as $d) { $armes_dom[$d] = $this->get('domaines.'.$d.'.name'); }
 					$armes[$v['arme_id']] = array(
 						'id' => $v['arme_id'],
@@ -1009,11 +1009,11 @@ class EsterenChar {
 					);
 				}
 			} else {
-				$armes = array();
+				$armes = [];
 			}
 			if ($char['equipements']['armure']) {
 				$armure = $this->db->req('SELECT %armure_id,%armure_name,%armure_prot FROM %%armures WHERE %armure_id IN ('.implode(',', $char['equipements']['armure']).')');
-				$armures = array();
+				$armures = [];
 				foreach ($armure as $v) {
 					$armures[$v['armure_id']] = array(
 						'id' => $v['armure_id'],
@@ -1022,7 +1022,7 @@ class EsterenChar {
 					);
 				}
 			} else {
-				$armures = array();
+				$armures = [];
 			}
 			$poss = $char['equipements']['autre_equip'];
 			$poss = explode("\n", $poss);
@@ -1042,7 +1042,7 @@ class EsterenChar {
 			$disc = $char['disciplines'];
 			if (!empty($disc)) {
 				$ids = array_map('intval', array_keys($disc));
-				$doms = array();
+				$doms = [];
 				foreach($disc as $v) { $doms[$v['domain']] = $v['domain']; }//On récupère les domaines pour ne pas avoir de doublon de disciplines
 				$discs = $this->db->req('
 					SELECT %%disciplines.%disc_name, %%discdoms.%disc_id, %%discdoms.%domain_id
@@ -1148,8 +1148,8 @@ class EsterenChar {
 
 		$this->set('ogham', array());
 		$this->set('miracles', array(
-			'majeurs' => array(),
-			'mineurs' => array()
+			'majeurs' => [],
+			'mineurs' => []
 		));
 		$this->set('artefacts', array());
 		$this->set('flux', array(
@@ -1173,29 +1173,33 @@ class EsterenChar {
 			unset($id);
 		}
 
-		$baseExp = getXPFromAvtg(isset($char['des_avtg']) ? $char['des_avtg'] : array(), 100);
-		$baseExp = getXPFromDoms(isset($char['domaines_amelio']) ? $char['domaines_amelio'] : array(), $baseExp);
-		$baseExp = getXPFromDiscs(isset($char['disciplines']) ? $char['disciplines'] : array(), $baseExp);
+		$baseExp = getXPFromAvtg(isset($char['des_avtg']) ? $char['des_avtg'] : [], 100);
+		$baseExp = getXPFromDoms(isset($char['domaines_amelio']) ? $char['domaines_amelio'] : [], $baseExp ?: 0);
+		$baseExp = getXPFromDiscs(isset($char['disciplines']) ? $char['disciplines'] : [], $baseExp ?: 0);
 		foreach($this->get('arts_combat') as $v) { if (!empty($v)) { $baseExp -= 20; } }
-
-		if ($baseExp > 100) {
-			$this->set('experience.total', $baseExp);
-			$this->set('experience.reste', $baseExp);
-		} else {
-			$this->set('experience.total', 100);
-			$this->set('experience.reste', $baseExp);
-		}
+        if ($baseExp <= 0 && !count($err)){
+            $err[] = 'Coût en expérience des arts de combat';
+        }
 
 		if (!empty($err)) {//S'il y a une erreur
 			//$obj_vars = get_object_vars($this);//On récupère les variables de l'objet
-			$this->char = array();
+			$this->char = [];
 			foreach($err as $k => $v) {
 				$err[$k] = '<span class="icon-arrow-right"></span> '.$v;
 			}
 			echo '<p>Une erreur est survenue lors du calcul des caractéristiques suivantes :<br />'.implode('<br />', $err).'</p>';//On affiche l'erreur en live
 			return false;
-		}//end if !empty($err)
-		return true;
+		}
+
+        if ($baseExp > 100) {
+            $this->set('experience.total', $baseExp);
+            $this->set('experience.reste', $baseExp);
+        } else {
+            $this->set('experience.total', 100);
+            $this->set('experience.reste', $baseExp);
+        }
+
+        return true;
 
 	}
 
@@ -1347,12 +1351,12 @@ class EsterenChar {
 		$pdf->textline($this->get('voies.3.val'), 1065, 1502, $p['unz'], 22);
 
 		// Avantages et désavantages
-		$av = array(); foreach($this->get('avantages') as $v) { $av[] = tr($v['name'], true, null, 'create_char').($v['val']>1 ? '    x'.$v['val'] : ''); }
+		$av = []; foreach($this->get('avantages') as $v) { $av[] = tr($v['name'], true, null, 'create_char').($v['val']>1 ? '    x'.$v['val'] : ''); }
 		if (isset($av[0])) { $pdf->textline(substr($av[0], 0, 25), 430, 500, $p['caro'], 18); }
 		if (isset($av[1])) { $pdf->textline(substr($av[1], 0, 25), 430, 540, $p['caro'], 18); }
 		if (isset($av[2])) { $pdf->textline(substr($av[2], 0, 25), 430, 580, $p['caro'], 18); }
 		if (isset($av[3])) { $pdf->textline(substr($av[3], 0, 25), 430, 620, $p['caro'], 18); }
-		$dv = array(); foreach($this->get('desavantages') as $v) { $dv[] = tr($v['name'], true, null, 'create_char').($v['val']>1 ? '    x'.$v['val'] : ''); }
+		$dv = []; foreach($this->get('desavantages') as $v) { $dv[] = tr($v['name'], true, null, 'create_char').($v['val']>1 ? '    x'.$v['val'] : ''); }
 		if (isset($dv[0])) { $pdf->textline(substr($dv[0], 0, 25), 430, 685, $p['caro'], 18); }
 		if (isset($dv[1])) { $pdf->textline(substr($dv[1], 0, 25), 430, 725, $p['caro'], 18); }
 		if (isset($dv[2])) { $pdf->textline(substr($dv[2], 0, 25), 430, 765, $p['caro'], 18); }
@@ -1360,7 +1364,7 @@ class EsterenChar {
 
 		// Santé
 		$health_array = $this->get_health_array();
-		$health = array();
+		$health = [];
 		foreach ($health_array as $k => $v) {
 			$health[$k] = '';
 			for ($i = 1; $i <= $v; $i++) { $health[$k] .= 'O '; }
@@ -1576,7 +1580,7 @@ class EsterenChar {
 		$pdf->textline(tr($this->get('classe_sociale'), true, null, 'create_char'), 557, 114, $p['caro'], 14);
 
 		if ($this->get('revers')) {
-			$rev = array();
+			$rev = [];
 			foreach($this->get('revers') as $v) { $rev[] = tr($v['name'], true, null, 'create_char'); }
 			$rev = implode(' - ', $rev);
 			$pdf->textline($rev, 557, 142, $p['caro'], 14);
@@ -1712,7 +1716,7 @@ class EsterenChar {
 		$lettrine			= P_FONTS.DS.'LettrinEsteren-Regular.ttf';
 		$times				= P_FONTS.DS.'times.ttf';
 
-		$ret = array();
+		$ret = [];
 
 		/*--------------------------------*/
 		/*---------PREMIÈRE FICHE---------*/
@@ -1763,7 +1767,7 @@ class EsterenChar {
 			$taille_du_texte = 17;
 			$police_du_texte = $carolingia;
 			$desc = '';
-			$arr = explode(' ', tr($this->get('details_personnage.description'), true, array(), 'characters.'.$this->id), 100);
+			$arr = explode(' ', tr($this->get('details_personnage.description'), true, [], 'characters.'.$this->id), 100);
 			foreach ( $arr as $word ){
 
 				$teststring = $desc.' '.$word;
@@ -1818,12 +1822,12 @@ class EsterenChar {
 			imagettftext($nimg, 22, 0, 1065, 1502, $grey, $unzialish, $this->get('voies.3.val'));
 
 			// Avantages et désavantages
-			$av = array(); foreach($this->get('avantages') ?: array() as $v) { $av[] = tr($v['name'], true, null, 'create_char').($v['val']>1 ? '    x'.$v['val'] : ''); }
+			$av = []; foreach($this->get('avantages') ?: [] as $v) { $av[] = tr($v['name'], true, null, 'create_char').($v['val']>1 ? '    x'.$v['val'] : ''); }
 			if (isset($av[0])) { imagettftext($nimg, 18, 0, 430, 500, $grey, $carolingia, substr($av[0], 0, 25)); }
 			if (isset($av[1])) { imagettftext($nimg, 18, 0, 430, 540, $grey, $carolingia, substr($av[1], 0, 25)); }
 			if (isset($av[2])) { imagettftext($nimg, 18, 0, 430, 580, $grey, $carolingia, substr($av[2], 0, 25)); }
 			if (isset($av[3])) { imagettftext($nimg, 18, 0, 430, 620, $grey, $carolingia, substr($av[3], 0, 25)); }
-			$dv = array(); foreach($this->get('desavantages') ?: array() as $v) { $dv[] = tr($v['name'], true, null, 'create_char').($v['val']>1 ? '    x'.$v['val'] : ''); }
+			$dv = []; foreach($this->get('desavantages') ?: [] as $v) { $dv[] = tr($v['name'], true, null, 'create_char').($v['val']>1 ? '    x'.$v['val'] : ''); }
 			if (isset($dv[0])) { imagettftext($nimg, 18, 0, 430, 685, $grey, $carolingia, substr($dv[0], 0, 25)); }
 			if (isset($dv[1])) { imagettftext($nimg, 18, 0, 430, 725, $grey, $carolingia, substr($dv[1], 0, 25)); }
 			if (isset($dv[2])) { imagettftext($nimg, 18, 0, 430, 765, $grey, $carolingia, substr($dv[2], 0, 25)); }
@@ -1831,7 +1835,7 @@ class EsterenChar {
 
 			// Santé
 			$health_array = $this->get_health_array();
-			$health = array();
+			$health = [];
 			foreach ($health_array as $k => $v) {
 				$health[$k] = '';
 				for ($i = 1; $i <= $v; $i++) { $health[$k] .= 'O '; }
@@ -2151,7 +2155,7 @@ class EsterenChar {
 				$taille_du_texte = 14;
 				$police_du_texte = $times;
 				$story = '';
-				$arr = explode(' ', tr($this->get('details_personnage.histoire'), true, array(), 'characters.'.$this->id), 250);
+				$arr = explode(' ', tr($this->get('details_personnage.histoire'), true, [], 'characters.'.$this->id), 250);
 				foreach ( $arr as $word ){
 
 					$teststring = $story.' '.$word;
@@ -2179,7 +2183,7 @@ class EsterenChar {
 
 			imagettftext($nimg, 14, 0, 557, 114, $grey, $carolingia, tr($this->get('classe_sociale'), true, null, 'create_char'));
 
-			$rev = array();
+			$rev = [];
 			if ($this->get('revers')) {
 				foreach($this->get('revers') as $v) { $rev[] = tr($v['name'], true, null, 'create_char'); }
 				$rev = implode(' - ', $rev);

@@ -3,7 +3,7 @@ if (!empty($_POST)) {
 
 	$stepname = '';
 	$t = $db->req('SELECT %gen_step,%gen_mod,%gen_anchor FROM %%steps ORDER BY %gen_step ASC');//On génère la liste des étapes
-	$steps = array();
+	$steps = [];
 	foreach ($t as $v) {//On formate la liste des étapes
 		$steps[$v['gen_step']] = array(
 			'step' => $v['gen_step'],
@@ -166,7 +166,7 @@ if (!empty($_POST)) {
 
 	if (strpos($stepname, 'des_avtg') !== false) {
 		if (!$_SESSION[$stepname]) {
-			$_SESSION[$stepname] = array();
+			$_SESSION[$stepname] = [];
 		}
 		$_SESSION[$stepname]['avantages'] = $_SESSION[$stepname]['avantages'] ?? [];
         $_SESSION[$stepname]['desavantages'] = $_SESSION[$stepname]['desavantages'] ?? [];
@@ -195,7 +195,7 @@ if (!empty($_POST)) {
 					if (!$val) { unset($_SESSION[$stepname][$key]); }
 				}
 			}
-			if (empty($_SESSION[$stepname])) { $_SESSION[$stepname] = array(); }
+			if (empty($_SESSION[$stepname])) { $_SESSION[$stepname] = []; }
 		} else {
 			if (strpos($stepname, 'domaines_primsec') !== false) {
 			    if (empty($_SESSION[$stepname])) {
@@ -249,7 +249,7 @@ if (!empty($_POST)) {
         $_SESSION[$stepname]['armure'] = array_map('intval', (array) ($_SESSION[$stepname]['armure'] ?? []));
     }
 
-    if (isset($_POST['bonusdom'])) { $_SESSION['bonusdom'] = $_POST['bonusdom']; }
+    if (isset($_POST['bonusdom'])) { $_SESSION['bonusdom'] = (int) $_POST['bonusdom']; }
 
 	$_SESSION['etape']++;
 
