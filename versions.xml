@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+    <version date="20251008" code="1.52">
+        <tasks>
+            <task type="page">
+                <element name="pages/mod_create_char.php" id="62"/>
+                <comment>Reformatage &amp; refactoring partiel pour simplifier la gestion d'erreurs</comment>
+            </task>
+            <task type="page">
+                <element name="pages/mod_login.php" id="48"/>
+                <comment>Ajouté un placeholder &amp; renommé le champ (pour faciliter l'usage de gestionnaire de mots de passe)</comment>
+            </task>
+            <task type="general">
+                <element name="">Divers</element>
+                <comment>Ajouté des outils de debug supplémentaires dans l'admin</comment>
+            </task>
+        </tasks>
+    </version>
     <version date="20251006" code="1.51">
         <tasks>
             <task type="page">

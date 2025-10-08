@@ -1,4 +1,10 @@
 <?php
+
+/** @var array $_PAGE */
+/** @var bdd $db */
+
+use App\bdd;
+
 if (!empty($_POST)) {
 
 	$stepname = '';

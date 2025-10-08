@@ -183,7 +183,7 @@ class EsterenChar {
 	 * L'objet de la classe bdd
 	 * @var bdd
 	 */
-	private $db;
+	private bdd $db;
 
 	/**
 	 * Récupère l'id. Si en paramètre on a l'id de la session en cours, c'est qu'on enregistre temporairement un personnage
@@ -211,19 +211,20 @@ class EsterenChar {
 	 * @param string $type Détermine si $char provient de la BDD. Si false, $char vient de la session
 	 */
 	public function __construct($char = null, string $type = 'db') {
+        /** @var bdd $db */
 		global $db;
 		$this->db = $db;
-        $ret = false;
+
 		if ('session' === $type) {
-            $ret = $this->_make_char_from_session($char);
+            $this->_make_char_from_session($char);
         }
 		if ('db' === $type) {
-            $ret = $this->_make_char_from_db($char);
+            $this->_make_char_from_db($char);
         }
 
-		if ($ret === true && $this->id > 0 && !FileAndDir::dexists(CHAR_EXPORT.DS.$this->id) && !FileAndDir::fexists(CHAR_EXPORT.DS.$this->id)) {
-			FileAndDir::createPath(CHAR_EXPORT.DS.$this->id);
-		}
+        if ($this->id > 0 && !FileAndDir::dexists(CHAR_EXPORT.DS.$this->id) && !FileAndDir::fexists(CHAR_EXPORT.DS.$this->id)) {
+            FileAndDir::createPath(CHAR_EXPORT.DS.$this->id);
+        }
 
         $this->fixCharacter();
 	}
@@ -644,25 +645,20 @@ class EsterenChar {
 	 * Cette fonction se charge de créer le personnage à partir d'un contenu envoyé, et de le placer dans la variable $char de l'objet
 	 *
 	 * @param string $content Le contenu crypté
-	 * @return boolean
 	 */
-	private function _decode_char($cnt) {
+	private function _decode_char($cnt): void {
 		if ($cnt) {
 			$cnt = self::sdecode_char($cnt);
 			if ($cnt) {
 				$this->char = $cnt;
 				$this->base_char = $cnt;
-				return true;
+				return;
 			}
 
-            echo '<div class="container error">Le contenu du personnage est incorrect. #001</div>';
-
-            return false;
+            throw new \RuntimeException('Le contenu du personnage est incorrect. #001');
         }
 
-        echo '<div class="container error">Le contenu du personnage a été mal récupéré. #002</div>';
-
-        return false;
+        throw new \RuntimeException('Le contenu du personnage a été mal récupéré. #002');
     }
 
 	/**
@@ -682,12 +678,11 @@ class EsterenChar {
 	 * Cette fonction crée un personnage à partir des variables de session
 	 *
 	 * @param array $char Variable qui contient le personnage généré
-	 * @return array|bool
 	 */
-	private function _make_char_from_session($char) {
+	private function _make_char_from_session($char): void {
 		$err = [];
 		if (!$char || empty($char)) {
-			return [];
+			throw new \RuntimeException('Une erreur est survenue : aucun personnage.');
 		}
 		$t = [];
 		unset($char['bonusdom']);
@@ -696,7 +691,6 @@ class EsterenChar {
 			$t[$k] = $v;
 		}
 		$char = $t;//On définit la variable $char qui sera à la fin envoyé à $this->char
-        dump('character:' , $char, $this->name());
 
 		/*
 		 On définit quelques variables qui pourront être modifiées au fur et à mesure, en fonction des choix du joueur
@@ -1179,60 +1173,47 @@ class EsterenChar {
 			unset($id);
 		}
 
-		$baseExp = getXPFromAvtg(isset($char['des_avtg']) ? $char['des_avtg'] : [], 100);
-		$baseExp = getXPFromDoms(isset($char['domaines_amelio']) ? $char['domaines_amelio'] : [], $baseExp ?: 0);
-		$baseExp = getXPFromDiscs(isset($char['disciplines']) ? $char['disciplines'] : [], $baseExp ?: 0);
+		$baseExp = getXPFromAvtg($char['des_avtg'] ?? [], 100);
+		$baseExp = getXPFromDoms($char['domaines_amelio'] ?? [], $baseExp ?: 0);
+		$baseExp = getXPFromDiscs($char['disciplines'] ?? [], $baseExp ?: 0);
 		foreach($this->get('arts_combat') as $v) { if (!empty($v)) { $baseExp -= 20; } }
         if ($baseExp <= 0 && !count($err)){
             $err[] = 'Coût en expérience des arts de combat';
         }
 
 		if (!empty($err)) {//S'il y a une erreur
-			//$obj_vars = get_object_vars($this);//On récupère les variables de l'objet
 			$this->char = [];
 			foreach($err as $k => $v) {
-				$err[$k] = '<span class="icon-arrow-right"></span> '.$v;
+				$err[$k] = $v;
 			}
-			echo '<p>Une erreur est survenue lors du calcul des caractéristiques suivantes :<br />'.implode('<br />', $err).'</p>';//On affiche l'erreur en live
-			return false;
+			throw new \RuntimeException(\sprintf("Une erreur est survenue lors du calcul des caractéristiques suivantes :\n%s", implode('\n', $err)));//On affiche l'erreur en live
 		}
 
-        if ($baseExp > 100) {
-            $this->set('experience.total', $baseExp);
-            $this->set('experience.reste', $baseExp);
-        } else {
-            $this->set('experience.total', 100);
-            $this->set('experience.reste', $baseExp);
-        }
-
-        return true;
-
+        $this->set('experience.total', max($baseExp, 100));
+        $this->set('experience.reste', $baseExp);
 	}
 
 	/**
 	 * Cette fonction se charge de créer le personnage à partir de la BDD
 	 *
 	 * @param int $id Contient l'identifiant du personnage dans la BDD
-	 * @return bool
 	 */
-	private function _make_char_from_db($id = 0) {
-		if ($id) {
-			$char_content = $this->db->row('SELECT %char_content, %user_id FROM %%characters WHERE %char_id = ?', $id);
-			if ($char_content && isset($char_content['char_content']) && !empty($char_content['char_content'])) {
-				$this->user_id = $char_content['user_id'];
-				$this->id = $id;
-				return $this->_decode_char($char_content['char_content']);
-			}
-
-            echo '<div class="container error">Aucun personnage trouvé.</div>';
-            if (P_DEBUG === true) { pr('Id recherché : '.$id); }
-
-            return false;
+	private function _make_char_from_db(int $id = 0): void {
+		if (!$id) {
+            throw new \RuntimeException('Une erreur est survenue pendant la récupération du personnage dans la base de données. #001');
         }
 
-        echo '<div class="container error">Une erreur est survenue pendant la récupération du personnage dans la base de données. #001</div>';
+        $char_content = $this->db->row('SELECT %char_content, %user_id FROM %%characters WHERE %char_id = ?', $id);
 
-        return false;
+        if (!$char_content || empty($char_content['char_content'])) {
+            throw new \RuntimeException(sprintf("Aucun personnage trouvé.%s", P_DEBUG === true ? "Id: $id" : ''));
+        }
+
+        $this->user_id = $char_content['user_id'];
+        $this->id = $id;
+        $this->_decode_char($char_content['char_content']);
+
+        return;
     }
 
 	/**

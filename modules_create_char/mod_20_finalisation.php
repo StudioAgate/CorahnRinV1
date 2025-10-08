@@ -16,7 +16,7 @@ try {
 } catch (Exception $error) {
     ?>
     <p class="alert alert-danger">
-        <?php echo $error->getMessage(); ?>
+        <?php tr($error->getMessage()); ?>
         <?php tr('Veuillez retourner aux étapes précédentes concernées pour régler le problème.'); ?>
     </p>
     <?php

@@ -8,6 +8,8 @@ use App\FileAndDir;
 use App\Session;
 use App\Users;
 
+/** @var \App\bdd $db */
+
 if (isset($_SERVER['BASE'])) {
     $baseUrl = $_SERVER['BASE'];
 } else {
@@ -29,7 +31,7 @@ unset($baseUrl, $scriptPath, $urlPath, $k, $v, $key);
 /**
  * On crée la variable $_PAGE['request'] pour obtenir les paramètres découpés par les '/'
  */
-$request = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
+$request = $_SERVER['REQUEST_URI'] ?? '';
 if (isset($_SERVER['BASE'])) {
     $request = str_replace($_SERVER['BASE'], '', $request);
 }
@@ -151,7 +153,7 @@ if (file_exists($cacheFile) && filemtime($cacheFile) >= (time() - 864000) && $cn
     }
     unset($result, $data);
     $pageToSave = var_export($_PAGE['list'], true);
-    file_put_contents($cacheFile, "<?php\nreturn $pageToSave;");
+    file_put_contents($cacheFile, sprintf("<?php\nreturn %s;\n", $pageToSave));
 }
 
 if (!$_PAGE['id'] || !isset($_PAGE['list'][$_PAGE['id']])) {
