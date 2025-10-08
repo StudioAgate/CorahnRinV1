@@ -60,7 +60,7 @@ if ($resetPassword) {
 }
 
 ## Connexion
-if (isset($_POST['nickname']) && isset($_POST['password'])) {
+if (isset($_POST['username']) && isset($_POST['password'])) {
 
     if (Session::read('_token') !== Session::read('tokenToCheck')) {
         Session::setFlash('Une erreur est survenue dans l\'envoi du formulaire, veuillez réessayer', 'error');
@@ -68,7 +68,7 @@ if (isset($_POST['nickname']) && isset($_POST['password'])) {
 
         $user = $db->row(
             'SELECT %user_id FROM %%users WHERE %user_name = :name AND %user_password = :pwd',
-            array('name'=>$_POST['nickname'],'pwd'=>Users::pwd($_POST['password']))
+            array('name'=>$_POST['username'],'pwd'=>Users::pwd($_POST['password']))
         );
         if ($user) {
             $_SESSION['user'] = $user['user_id'];
@@ -80,11 +80,11 @@ if (isset($_POST['nickname']) && isset($_POST['password'])) {
             }
         } else {
             $_SESSION['user'] = 0;
-            if ($_POST['nickname'] && !$_POST['password']) {
+            if ($_POST['username'] && !$_POST['password']) {
                 Session::setFlash('Veuillez entrer le mot de passe.', 'error');
-            } elseif ($_POST['nickname'] && $_POST['password']) {
+            } elseif ($_POST['username'] && $_POST['password']) {
                 Session::setFlash('Le nom d\'utilisateur ou le mot de passe est incorrect.', 'error');
-            } elseif (!$_POST['nickname']) {
+            } elseif (!$_POST['username']) {
                 Session::setFlash('Veuillez entrer un nom d\'utilisateur.', 'error');
             }
         }
@@ -121,8 +121,8 @@ if ($resetPassword) {
 			<fieldset>
 				<h3><?php tr('Connexion'); ?></h3>
 				<div class="ib w220">
-					<label for="nickname"><?php tr('Nom d\'utilisateur'); ?></label>
-					<input type="text" id="nickname" name="nickname" <?php echo isset($_POST['nickname']) ? 'value="'.$_POST['nickname'].'"' : ''?> />
+					<label for="username"><?php tr('Nom d\'utilisateur'); ?></label>
+					<input type="text" id="username" name="username" <?php echo isset($_POST['username']) ? 'value="'.$_POST['username'].'"' : ''?> />
 				</div>
 				<div class="ib w220">
 					<label for="password"><?php tr('Mot de passe'); ?></label>

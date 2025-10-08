@@ -11,7 +11,7 @@ $_PAGE['dont_log'] = true;
 
 $char = null;
 try {
-    $char = new Esterenchar($_SESSION, 'session');
+    $char = Esterenchar::makeFromSession();
     $char->id(session_id());
 } catch (Exception $error) {
     ?>

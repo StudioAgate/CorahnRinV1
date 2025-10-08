@@ -228,6 +228,11 @@ class EsterenChar {
         $this->fixCharacter();
 	}
 
+    public static function makeFromSession(): self
+    {
+        return new self($_SESSION, 'session');
+    }
+
     /**
      *
      */
