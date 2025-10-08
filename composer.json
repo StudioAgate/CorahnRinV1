@@ -8,9 +8,7 @@
         "ext-gd": "*",
         "ext-xml": "*",
         "php": "^7.4",
-        "symfony/yaml": "^5.4"
-    },
-    "require-dev": {
+        "symfony/yaml": "^5.4",
         "symfony/var-dumper": "^5.4"
     },
     "autoload": {
