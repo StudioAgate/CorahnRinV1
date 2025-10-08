@@ -122,11 +122,11 @@ if ($resetPassword) {
 				<h3><?php tr('Connexion'); ?></h3>
 				<div class="ib w220">
 					<label for="username"><?php tr('Nom d\'utilisateur'); ?></label>
-					<input type="text" id="username" name="username" <?php echo isset($_POST['username']) ? 'value="'.$_POST['username'].'"' : ''?> />
+					<input type="text" id="username" name="username" placeholder="<?php echo htmlspecialchars(tr('Nom d\'utilisateur', true)); ?>" <?php echo isset($_POST['username']) ? 'value="'.$_POST['username'].'"' : ''?> />
 				</div>
 				<div class="ib w220">
 					<label for="password"><?php tr('Mot de passe'); ?></label>
-					<input type="password" id="password" name="password" />
+					<input type="password" id="password" name="password" placeholder="*********" />
 				</div>
 				<div>
 					<input type="submit" class="btn debsend" value="Envoyer" />
