@@ -1,12 +1,16 @@
 <?php
 
+use App\bdd;
 use App\Session;
 use App\Users;
 
-$resetPassword = isset($_GET['reset_token']) ? $_GET['reset_token'] : null;
+/** @var bdd $db */
+/** @var array $_PAGE */
+
+$resetPassword = $_GET['reset_token'] ?? null;
 
 ## Déconnexion
-if (isset($_PAGE['request'][0]) && $_PAGE['request'][0] == 'logout') {
+if (isset($_PAGE['request'][0]) && $_PAGE['request'][0] === 'logout') {
 	Users::logout();
     session_destroy();
 	header('Location: '.mkurl(array('val'=>1)));
@@ -24,7 +28,7 @@ if (isset($_POST['recover_email'])) {
 
     $user = $db->row('SELECT %user_id, %user_name, %user_email, %user_confirm FROM %%users WHERE %user_email = :mail', array('mail' => $email));
     if (isset($user['user_id'])) {
-        $confirm = md5($user['user_name'].rand(1,10000));
+        $confirm = bin2hex(random_bytes(32));
         $db->noRes('UPDATE %%users SET %user_confirm = :confirm WHERE %user_id = :id', array('id' => $user['user_id'], 'confirm' => $confirm));
 
         $mailTxt = '<p style="text-align: center;">Bonjour {user_name}, le maître de jeu <strong>{cp_mj}</strong> vous a invité dans sa campagne !</p>
@@ -60,7 +64,7 @@ if ($resetPassword) {
 }
 
 ## Connexion
-if (isset($_POST['username']) && isset($_POST['password'])) {
+if (isset($_POST['username'], $_POST['password'])) {
 
     if (Session::read('_token') !== Session::read('tokenToCheck')) {
         Session::setFlash('Une erreur est survenue dans l\'envoi du formulaire, veuillez réessayer', 'error');
@@ -102,7 +106,7 @@ if ($resetPassword) {
                 <h3><?php tr('Réinitialiser mon mot de passe'); ?></h3>
                 <div class="ib w220">
                     <label for="m"><?php tr('Adresse email'); ?></label>
-                    <input type="text" id="m" value="<?php echo $user['user_email']; ?>" disabled="disabled" />
+                    <input type="text" id="m" value="<?php echo $user['user_email'] ?? ''; ?>" disabled="disabled" />
                 </div>
                 <div class="ib w220">
                     <label for="password"><?php tr('Mot de passe'); ?></label>
@@ -156,18 +160,18 @@ if ($resetPassword) {
 	<?php
 }
 
-	buffWrite('css', /** @lang CSS */ <<<CSSFILE
-	#debugmode, #recoverpassword {
-		text-align: center;
-	}
+buffWrite('css', /** @lang CSS */ <<<CSSFILE
+#debugmode, #recoverpassword {
+    text-align: center;
+}
 CSSFILE
 );
-	buffWrite('js', /** @lang JavaScript */ <<<JSFILE
+buffWrite('js', /** @lang JavaScript */ <<<JSFILE
 
-	$('#lostpassword').on('click', function(){
-	    $('#recoverpassword').slideDown(400);
-	    $(this).slideUp(400);
-	});
+$('#lostpassword').on('click', function(){
+    $('#recoverpassword').slideDown(400);
+    $(this).slideUp(400);
+});
 
 JSFILE
 );

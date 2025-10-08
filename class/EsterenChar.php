@@ -210,7 +210,7 @@ class EsterenChar {
 	 * @param array|int $char Variable qui contient le personnage généré
 	 * @param string $type Détermine si $char provient de la BDD. Si false, $char vient de la session
 	 */
-	public function __construct($char = null, $type = 'db') {
+	public function __construct($char = null, string $type = 'db') {
 		global $db;
 		$this->db = $db;
         $ret = false;
@@ -696,6 +696,7 @@ class EsterenChar {
 			$t[$k] = $v;
 		}
 		$char = $t;//On définit la variable $char qui sera à la fin envoyé à $this->char
+        dump('character:' , $char, $this->name());
 
 		/*
 		 On définit quelques variables qui pourront être modifiées au fur et à mesure, en fonction des choix du joueur

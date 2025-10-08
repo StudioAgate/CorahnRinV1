@@ -151,7 +151,7 @@ if ($err_type && $err_file) {
 				<tr<?php echo $class;?>>
 					<?php foreach ($v as $item => $value) { ?>
 					<td class="<?php echo $item; ?>"><?php
-						if ($item === 'Traçage') {
+						if ($item === 'Traçage' || $item === 'Session') {
 							?><button class="showhidden btn btn-small"><span class="icon-plus"></span></button><div class="hid"><?php pr($value); ?></div><?php
 						} elseif ($item === 'Date') {
 							$val = strtotime($value);
