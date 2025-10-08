@@ -72,7 +72,8 @@ function error_logging($errno, $errstr, $errfile, $errline) {
 			.'||Page.get=>'.json_encode($_PAGE['get'] ?? '')
 			.'||Page.request=>'.json_encode($_PAGE['request'] ?? '')
 			.'||Page.get_params=>'.json_encode($_SERVER['QUERY_STRING'])
-			.'||User.id=>'.json_encode(Users::$id);
+			.'||User.id=>'.json_encode(Users::$id)
+			.'||Session=>'.json_encode($_SESSION);
 		$final = preg_replace('#[\n\r\t]#Uu', '', $final);
 		$final = preg_replace('#\s\s+#Uu', ' ', $final);
         if (!is_dir(dirname($error_file))) {
