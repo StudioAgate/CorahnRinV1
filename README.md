@@ -10,6 +10,12 @@ Le site est accessible ici : https://jdr.pierstoval.com/esteren/fr
 :warning: Tous les contenus relatifs au jeu de rôle Les Ombres d'Esteren écrits dans cette repository appartiennent à Agate Éditions, et aucune reproduction de ces contenus n'est autorisée sans l'accord explicite de leurs auteurs.
 Ces contenus incluent tous les textes écrits dans chacune des 20 étapes de création de personnage.
 
+# Pré-requis pour le dev
+
+- Docker
+- Make
+- De préférence un système sous Linux (ou Windows + WSL)
+
 # Installation
 
 Utilisez `make`:
