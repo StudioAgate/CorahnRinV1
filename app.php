@@ -142,12 +142,8 @@ ob_start();
 $_LAYOUT = ob_get_clean();
 unset($content_for_layout);
 
-// Désactivé parce que ça fout la merde dans les fichiers de trad en prod
-// Translate::translate_writewords();//On enregistre les mots à traduire
-
-if (strpos($_LAYOUT, '{PAGE_TIME}') !== false && isset($time)) {
+if (isset($time)) {
     $time = (microtime(true) - $time)*1000;
-    $_LAYOUT = str_replace('{PAGE_TIME}', number_format($time, 4, ',', ' '), $_LAYOUT);## On affiche le message de temps d'exécution
     $logfile = ROOT.DS.'logs'.DS.'exectime'.DS.date('Y.m.d').'.log';
     if (!is_dir(dirname($logfile))) {
         FileAndDir::createPath(dirname($logfile));

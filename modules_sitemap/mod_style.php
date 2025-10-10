@@ -1,4 +1,5 @@
 <?php
+/** @var array $_PAGE */
 if ($_PAGE['extension'] !== 'xsl') {
 	redirect(array('params'=>'style', 'ext'=>'xsl'));
 }
@@ -101,8 +102,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
 					</h3>
 					<xsl:apply-templates />
 					<div id="footer">
-						Created with Pierstoval's Corahn-Rin Generator<br />
-						Time to load the page : {PAGE_TIME}ms
+						Created with Pierstoval's Corahn-Rin Generator
 					</div>
 				</div>
 			</body>
