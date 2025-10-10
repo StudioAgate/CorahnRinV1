@@ -5,6 +5,9 @@ use App\FileAndDir;
 use App\Session;
 use App\Users;
 
+/** @var array $_PAGE */
+/** @var int $char_id */
+
 $character = new Esterenchar($char_id, 'db');
 if ($character->user_id() !== Users::$id) {
 	Session::setFlash('Vous n\'avez pas le droit de consulter ce personnage', 'error');
@@ -14,7 +17,7 @@ if ($character->user_id() !== Users::$id) {
 $_POST = get_post_data();
 
 ## On va traiter la suppression au cas où l'on demande à supprimer un personnage
-$del = isset($_PAGE['request'][1]) ? $_PAGE['request'][1] : '';
+$del = $_PAGE['request'][1] ?? '';
 if ($del === 'delete') {
 	if (!empty($_POST)) {
 		if (isset($_POST['delete']) && $_POST['delete'] === 'yes') {

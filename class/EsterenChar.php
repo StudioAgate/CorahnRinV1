@@ -544,7 +544,7 @@ class EsterenChar {
 			return false;
 		}
 
-		$req = $this->db->row('SELECT %char_id, %char_name FROM %%characters WHERE %char_id = ?', array($this->id));
+		$req = $this->db->row('SELECT %char_id, %char_name FROM %%characters WHERE %deleted_at IS NULL AND %char_id = ?', array($this->id));
 
         if ($req === false) {
             Session::setFlash('Le personnage n\'a pas été trouvé dans la base de données, il a peut-être déjà été supprimé.', 'warning');
@@ -557,10 +557,13 @@ class EsterenChar {
             return false;
         }
 
-        $ret = $this->db->noRes('DELETE FROM %%characters WHERE %char_id = ?', array($req['char_id']));
+        // Soft Delete character
+        $ret = $this->db->noRes('UPDATE %%characters SET %deleted_at = CURRENT_TIMESTAMP() WHERE %char_id = ?', array($req['char_id']));
 
         if (!$ret) {
             Session::setFlash('Une erreur est survenue lors de la suppression du personnage. #001', 'error');
+        } else {
+            error_logging(E_USER_NOTICE, sprintf("Le personnage %d/%s a été supprimé.", $this->id, $this->name()), __FILE__, __LINE__);
         }
 
         return $ret;
@@ -1203,7 +1206,7 @@ class EsterenChar {
             throw new \RuntimeException('Une erreur est survenue pendant la récupération du personnage dans la base de données. #001');
         }
 
-        $char_content = $this->db->row('SELECT %char_content, %user_id FROM %%characters WHERE %char_id = ?', $id);
+        $char_content = $this->db->row('SELECT %char_content, %user_id FROM %%characters WHERE %deleted_at IS NULL AND %char_id = ?', $id);
 
         if (!$char_content || empty($char_content['char_content'])) {
             throw new \RuntimeException(sprintf("Aucun personnage trouvé.%s", P_DEBUG === true ? "Id: $id" : ''));
@@ -1215,34 +1218,6 @@ class EsterenChar {
 
         return;
     }
-
-	/**
-	 * Cette fonction se charge de créer le personnage à partir du contenu
-	 *
-	 * @param int $id Contient l'identifiant du personnage dans la BDD
-	 * @return array
-	 */
-	/*
-	private function _make_char_from_content($cnt = '') {
-		if ($id) {
-			$char_content = $this->db->row('SELECT %char_content, %user_id FROM %%characters WHERE %char_id = ?', $id);
-			if ($char_content && isset($char_content['char_content']) && !empty($char_content['char_content'])) {
-				$this->user_id = (int) $char_content['user_id'];
-				$this->id = (int) $id;
-				return $this->_decode_char($char_content['char_content']);
-			} else {
-				echo '<div class="container error">Aucun personnage trouvé.</div>';
-				if (P_DEBUG === true) { pr('Id recherché : '.$id); }
-				return false;
-			}
-		} else {
-			echo '<div class="container error">Une erreur est survenue pendant la récupération du personnage dans la base de données. #001</div>';
-			return false;
-		}
-		echo '<div class="container error">Une erreur est survenue pendant la récupération du personnage dans la base de données. #002</div>';
-		return false;
-	}
-	//*/
 
 	/**
 	 * Cette fonction se charge de générer les feuilles de personnage au format PDF selon la feuille originale des Ombres d'Esteren

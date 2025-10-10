@@ -4,12 +4,13 @@ use App\Session;
 
 /**
  * Redirige vers une page demandée
- * @param array|string $mkurl Un tableau à placer dans la fonction mkurl()
+ * @param array|string|int $mkurl Un tableau à placer dans la fonction mkurl()
  * @param string $setflash Une chaîne de caractères à envoyer à Session::setFlash()
  * @param string $flashtype Le type de message flash à afficher. Par défaut "success"
- * @param bool $bypass_get_redirect
+ *
+ * @return never
  */
-function redirect($mkurl, $setflash = '', $flashtype = 'success', $bypass_get_redirect = false) {
+function redirect($mkurl, string $setflash = '', string $flashtype = 'success') {
 	$redir = '';
 
     if (isset($mkurl['http_code'])) {
@@ -19,13 +20,11 @@ function redirect($mkurl, $setflash = '', $flashtype = 'success', $bypass_get_re
         httpCode(302);
     }
 
-	$setflash = (string) $setflash;
-	$flashtype = (string) $flashtype;
 	if ($setflash) {
 		Session::setFlash($setflash, $flashtype);
 	}
-    if (is_int($mkurl)) {
-        $mkurl = ['val' => $mkurl];
+    if (is_numeric($mkurl)) {
+        $mkurl = ['val' => (int) $mkurl];
     }
 	if (is_array($mkurl)) {
 		$redir = mkurl($mkurl);
@@ -48,5 +47,6 @@ function redirect($mkurl, $setflash = '', $flashtype = 'success', $bypass_get_re
         Session::setFlash('Erreur de redirection', 'error');
         header('Location: '.base_url());
 	}
+
 	exit;
 }

@@ -1,8 +1,11 @@
 <?php
 
+use App\bdd;
 use App\Users;
 
-$characters = $db->req('SELECT %char_name,%char_id FROM %%characters WHERE %user_id = ?', array(Users::$id));
+/** @var bdd $db */
+
+$characters = $db->req('SELECT %char_name,%char_id FROM %%characters WHERE %deleted_at IS NULL AND %user_id = ?', array(Users::$id));
 
 if (is_array($characters) && !empty($characters)) { ?>
 	<h4><?php tr('Voici la liste de vos personnages'); ?></h4>
@@ -18,6 +21,10 @@ if (is_array($characters) && !empty($characters)) { ?>
 	</ul>
 <?php
 } else {
-	?><p><?php tr('Aucun personnage'); ?></p><?php
+	?>
+    <p class="alert alert-info">
+        <?php tr('Aucun personnage'); ?>
+    </p>
+    <?php
 }
 unset($characters, $v);

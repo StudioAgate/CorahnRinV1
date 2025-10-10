@@ -17,8 +17,11 @@ $pdf =				isset($_PAGE['request']['pdf']) ? true : false;
 Translate::$char_id = $char_id;
 
 if (!$char_id) { redirect(array('val'=>47), 'Aucun personnage entré', 'warning'); }
-$character = new Esterenchar($char_id, 'db');
-if (!$character->get()) { redirect(array('val'=>47), 'Aucun personnage trouvé', 'warning'); }
+try {
+    $character = new Esterenchar($char_id, 'db');
+} catch (\RuntimeException $e) {
+    redirect(array('val'=>47), 'Aucun personnage trouvé', 'warning');
+}
 
 if ($pdf === true) {
 	$datas = array(

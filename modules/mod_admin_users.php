@@ -1,5 +1,7 @@
 <?php
 
+/** @var \App\bdd $db */
+
 $all_chars = $db->req('SELECT %%characters.%user_id, %%characters.%char_name, %%characters.%char_id, %%users.%user_email, %%users.%user_id, %%users.%user_name FROM %%characters INNER JOIN %%users ON %%users.%user_id = %%characters.%user_id');
 
 $all_users = $db->req('SELECT %%users.%user_id, %%users.%user_email, %%users.%user_name FROM %%users');

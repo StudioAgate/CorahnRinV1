@@ -233,6 +233,7 @@ CREATE TABLE `est_characters` (
   `char_confirm_invite` varchar(255) DEFAULT NULL,
   `game_id` smallint(5) unsigned DEFAULT NULL,
   `user_id` smallint(5) unsigned DEFAULT NULL,
+  `deleted_at` datetime default null,
   PRIMARY KEY (`char_id`),
   UNIQUE KEY `restriction user et name` (`char_name`,`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=673 DEFAULT CHARSET=utf8 AUTO_INCREMENT=673 ;

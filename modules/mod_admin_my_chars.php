@@ -8,7 +8,7 @@ if (P_LOGGED === false) {
 	exit;
 }
 
-$char_id = isset($_PAGE['request'][0]) ? (int) $_PAGE['request'][0] : 0;
+$char_id = (int) ($_PAGE['request'][0] ?? 0);
 
 ?>
 <div class="container">

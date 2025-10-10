@@ -9,8 +9,12 @@ $characters = $db->req('
 	FROM %%characters
 	LEFT JOIN %%users
 		ON %%users.%user_id = %%characters.%user_id
-	WHERE %%characters.%char_status = 0
-	OR %%characters.%char_status IS NULL
+	WHERE 
+	    %%characters.%deleted_at IS NULL AND 
+	    (
+            %%characters.%char_status = 0
+            OR %%characters.%char_status IS NULL
+	    )
 	ORDER BY %%users.%user_name ASC');
 
 $users = [];
@@ -85,7 +89,9 @@ if ($send === true) {
             FROM %%characters
             LEFT JOIN %%users
                 ON %%users.%user_id = %%characters.%user_id
-            WHERE %%characters.%char_id IN (%%%in)', array_values($_POST['char_select']));
+            WHERE %%characters.%deleted_at IS NULL
+                AND %%characters.%char_id IN (%%%in)
+        ', array_values($_POST['char_select']));
 
 		foreach ($send_chars as $k => $v) {
 			unset($data['char_confirm_invite'], $data['char_id']);
