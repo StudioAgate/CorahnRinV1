@@ -104,7 +104,7 @@
                 }
             }
             if ($points < 0) {
-                throw new \RuntimeException("Trop de points d'expérience ont été utilisés pour acheter des avantages.");
+                throw new \RuntimeException("Trop de points bonus ont été utilisés pour acheter des avantages.");
             }
             if ($exp < 0) {
                 throw new \RuntimeException("Trop de points d'expérience ont été utilisés pour acheter des avantages, et l'achat de désavantages n'a pas permis de compenser.");

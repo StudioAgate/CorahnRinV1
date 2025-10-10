@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+    <version date="20251008" code="1.53">
+        <task type="page">
+            <element page="pages/mod_create_char.php" id="62"
+                     module="modules_create_char/17_arts_combat.php"/>
+            <comment>Corrigé un message d'erreur envoyée trop tôt dans le calcul d'XP dépensée ou achetée par le biais des avantages et désavantages.</comment>
+        </task>
+    </version>
     <version date="20251008" code="1.52">
         <tasks>
             <task type="page">

@@ -52,24 +52,27 @@ function getXPFromAvtg($avdesv, $initexp = 100): int {
         }
     }
 
-    if ($exp < 0) {
-        throw new \RuntimeException("Trop de points d'expérience ont été utilisés pour acheter des avantages.");
-    }
-
     // Désavantages
+    $additionalFromDisadvantages = 0;
     foreach($desvs as $key => $val) {
         if (isset($desvlist[$key])) {
             if ($key == 50) {
-                $exp += (int) ($desvlist[$key]['avdesv_xp'] * $val);
+                $additionalFromDisadvantages += (int) ($desvlist[$key]['avdesv_xp'] * $val);
             } else {
                 if ($val == 1) {
-                    $exp += $desvlist[$key]['avdesv_xp'];
+                    $additionalFromDisadvantages += $desvlist[$key]['avdesv_xp'];
                 } elseif ($val == 2) {
-                    $exp += (int) ($desvlist[$key]['avdesv_xp'] * 1.5);
+                    $additionalFromDisadvantages += (int) ($desvlist[$key]['avdesv_xp'] * 1.5);
                 }
             }
         }
     }
+
+    if ($additionalFromDisadvantages > 80) {
+        throw new \RuntimeException("Le total d'expérience pour les désavantages achetés dépasse 80.");
+    }
+
+    $exp += $additionalFromDisadvantages;
 
     if ($exp < 0) {
         throw new \RuntimeException("Trop de points d'expérience ont été utilisés pour acheter des avantages, et l'achat de désavantages n'a pas permis de compenser.");
