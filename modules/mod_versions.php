@@ -57,7 +57,7 @@ foreach ($versions->version as $v) {
 			$i++;
 			$total_maj++;
 		}
-		$updates[$code]['tasks'][(string)$task['type']][] = $element;
+		$updates[$code]['tasks'][(string)($task['type'] ?? 'general')][] = $element;
 	}
 	$updates[$code]['modifications'] = $i;
 }
