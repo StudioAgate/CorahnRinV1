@@ -2,18 +2,22 @@
 <versions>
     <version date="20251010" code="1.54">
         <tasks>
-            <element type="general">
-                <element name="">Divers</element>
-                <comment>Ajouté des logs quand un personnage est supprimé, pour benchmarker les potentielles raisons de certaines erreurs 404.</comment>
-            </element>
+            <task>
+                <element type="general">
+                    <element name="">Divers</element>
+                    <comment>Ajouté des logs quand un personnage est supprimé, pour benchmarker les potentielles raisons de certaines erreurs 404.</comment>
+                </element>
+            </task>
         </tasks>
     </version>
     <version date="20251009" code="1.53">
-        <task type="page">
-            <element page="pages/mod_create_char.php" id="62"
-                     module="modules_create_char/17_arts_combat.php"/>
-            <comment>Corrigé un message d'erreur envoyée trop tôt dans le calcul d'XP dépensée ou achetée par le biais des avantages et désavantages.</comment>
-        </task>
+        <tasks>
+            <task type="page">
+                <element page="pages/mod_create_char.php" id="62"
+                         module="modules_create_char/17_arts_combat.php"/>
+                <comment>Corrigé un message d'erreur envoyée trop tôt dans le calcul d'XP dépensée ou achetée par le biais des avantages et désavantages.</comment>
+            </task>
+        </tasks>
     </version>
     <version date="20251008" code="1.52">
         <tasks>
