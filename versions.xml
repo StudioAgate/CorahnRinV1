@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
     <version date="20251010" code="1.54">
-        <task type="general">
-            <element name="">Divers</element>
-            <comment>Ajouté des logs quand un personnage est supprimé, pour benchmarker les potentielles raisons de certaines erreurs 404.</comment>
-        </task>
+        <tasks>
+            <task type="general">
+                <element name="">Divers</element>
+                <comment>Ajouté des logs quand un personnage est supprimé, pour benchmarker les potentielles raisons de certaines erreurs 404.</comment>
+            </task>
+        </tasks>
     </version>
     <version date="20251009" code="1.53">
         <task type="page">

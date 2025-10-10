@@ -1,5 +1,8 @@
 <?php
 
+/** @var array $_PAGE */
+/** @var App\bdd $db */
+
 $versions_xml = file_get_contents(ROOT.DS.'versions.xml');
 
 $versions = new SimpleXMLElement($versions_xml);
