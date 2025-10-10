@@ -3,10 +3,8 @@
     <version date="20251010" code="1.54">
         <tasks>
             <task type="general">
-                <element type="general">
-                    <element name="">Divers</element>
-                    <comment>Ajouté des logs quand un personnage est supprimé, pour benchmarker les potentielles raisons de certaines erreurs 404.</comment>
-                </element>
+                <element name="">Divers</element>
+                <comment>Ajouté des logs quand un personnage est supprimé, pour benchmarker les potentielles raisons de certaines erreurs 404.</comment>
             </task>
         </tasks>
     </version>
