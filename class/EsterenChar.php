@@ -219,7 +219,10 @@ class EsterenChar {
             $this->_make_char_from_session($char);
         }
 		if ('db' === $type) {
-            $this->_make_char_from_db($char);
+            if (!is_numeric($char)) {
+                $char = 0;
+            }
+            $this->_make_char_from_db((int) $char);
         }
 
         if ($this->id > 0 && !FileAndDir::dexists(CHAR_EXPORT.DS.$this->id) && !FileAndDir::fexists(CHAR_EXPORT.DS.$this->id)) {
