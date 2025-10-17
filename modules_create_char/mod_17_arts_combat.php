@@ -64,12 +64,17 @@ $getExp = static function (\Closure $c, int $stepId) use ($steps) {
     }
 };
 
-$baseExp = $getExp(static function () use ($steps) { return getXPFromAvtg($_SESSION[$steps[11]['mod']], 100); }, 11);
-if ($baseExp === null) { return; }
-$baseExp = $getExp(static function () use ($dom_amelio, $baseExp) { return getXPFromDoms($dom_amelio, $baseExp); }, 14);
-if ($baseExp === null) { return; }
-$baseExp = $getExp(static function () use ($disc, $baseExp) { return getXPFromDiscs($disc, $baseExp); }, 16);
-if ($baseExp === null) { return; }
+try {
+    $baseExp = getXPFromDiscs($disc, 100);
+} catch (\Throwable $e) {
+    ?>
+    <div class="alert alert-error">
+        <p><?php tr($e->getMessage()); ?></p>
+        <?php echo mkurl(array('params' => $steps[16]['mod'], 'type' => 'tag', 'anchor' => "Retourner à la page correspondante", 'attr' => 'class="btn"')); ?>
+    </div>
+    <?php
+    return null;
+}
 
 $exp = $baseExp;
 $t = $db->req('SELECT %avdesv_id, %avdesv_type, %avdesv_name, %avdesv_xp, %avdesv_desc, %avdesv_double FROM %%avdesv WHERE %avdesv_name REGEXP "^Arts de combat"');

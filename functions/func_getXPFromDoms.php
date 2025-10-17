@@ -11,9 +11,14 @@ function getXPFromDoms(array $xpdom, $initexp = 100): int {
     $initexp = (int) $initexp;
 
     foreach($xpdom as $val) {
-        if (isset($val['curval'])) {
-            $initexp -= $val['curval'] * 10;
+        $currentValue = ($val['curval'] ?? 0);
+        if (!is_numeric($currentValue)) {
+            throw new \RuntimeException(sprintf('Invalid current value "%s" in domains xp calculation.', $val['curval']));
         }
+        if ($currentValue === 0) {
+            continue;
+        }
+        $initexp -= $currentValue * 10;
     }
 
     if ($initexp < 0) {
