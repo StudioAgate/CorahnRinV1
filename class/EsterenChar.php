@@ -1179,9 +1179,10 @@ class EsterenChar {
 			unset($id);
 		}
 
-		$baseExp = getXPFromAvtg($char['des_avtg'] ?? [], 100);
-		$baseExp = getXPFromDoms($char['domaines_amelio'] ?? [], $baseExp ?: 0);
-		$baseExp = getXPFromDiscs($char['disciplines'] ?? [], $baseExp ?: 0);
+		$baseExp = getXPFromDiscs($char['disciplines'] ?? [], 100);
+		if ($baseExp < 0){
+			$err[] = 'Dépense et achat d\'expérience (domaines, disciplines...)';
+		}
 		foreach($this->get('arts_combat') as $v) { if (!empty($v)) { $baseExp -= 20; } }
         if ($baseExp < 0 && !count($err)){
             $err[] = 'Coût en expérience des arts de combat';
