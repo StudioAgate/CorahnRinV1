@@ -31,7 +31,7 @@ function getXPFromDiscs(array $discs, $initexp = 100): int {
 	$bonusdom = $_SESSION[$steps[15]['mod']] ?? [];
 	$sess_bonus = (int) ($_SESSION['bonusdom'] ?? 0);
 
-	$disciplines = $discs ?: $_SESSION[$steps[16]['mod']];
+	$disciplines = $discs ?: $_SESSION[$steps[16]['mod']] ?? [];
 
 	$totaldoms = [];
 	$mentor_domain_id = 0;
