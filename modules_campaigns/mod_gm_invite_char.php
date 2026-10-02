@@ -1,7 +1,17 @@
 <?php
 
+use App\bdd;
 use App\Session;
 use App\Users;
+
+/** @var bdd $db */
+
+$game_id = (int) ($_PAGE['request'][1] ?? 0);
+
+if (!$game_id) {
+    Session::setFlash('Une partie doit être sélectionnée', 'error');
+    return;
+}
 
 $characters = $db->req('
 	SELECT %%characters.%char_id, %%characters.%char_name, %%characters.%user_id, %%characters.%char_status,
@@ -109,6 +119,11 @@ if ($send === true) {
 		<input type="submit" id="invite_players" class="btn btn-large btn-success" value="<?php tr('Inviter les joueurs'); ?>" />
 		<div class="row-fluid">
 		<?php
+        if (!$users) {
+            ?>
+            <div class="warning"><?php tr('Aucun personnage'); ?></div>
+            <?php
+        }
 		foreach ($users as $user_id => $user) {
 			$i = 0; ?>
 			<h5><?php echo $user['name'], ' <small>', count($user['characters']), ' ', tr('personnage(s) disponible(s)', true), '</small>'; ?></h5>

@@ -8,6 +8,9 @@ use App\Users;
 /** @var array $_PAGE */
 /** @var int $char_id */
 
+if (!$char_id) {
+    redirect(array('val'=>58), 'Vous devez sélectionner un personnage', 'warning');
+}
 $character = new Esterenchar($char_id, 'db');
 if ($character->user_id() !== Users::$id) {
 	Session::setFlash('Vous n\'avez pas le droit de consulter ce personnage', 'error');

@@ -1,20 +1,19 @@
 <?php
 
-$sendmail = isset($_PAGE['request'][2]) && $_PAGE['request'][2] === 'sendmail';
+$submodule = $_PAGE['request'][0] ?? 'list';
 
-$game_mj = isset($_PAGE['request'][0]) ? (int) $_PAGE['request'][0] : 0;
-$char_id = isset($_PAGE['request'][1]) ? (int) $_PAGE['request'][1] : 0;
-
-if ($game_mj && $char_id && $sendmail) {
-	load_module('send_invitation', 'module', array('game_mj'=>$game_mj, 'char_id'=>$char_id));
-} elseif ($game_mj && $char_id && !$sendmail) {
-	load_module('gift', 'module', array('game_mj'=>$game_mj, 'char_id'=>$char_id));
-} elseif ($game_mj && !$char_id) {
-	load_module('gm', 'module', array('game_mj' => $game_mj));
-} elseif (!$game_mj && !$char_id) {
+if ($submodule === 'send_invitation') {
+	load_module('send_invitation', 'module');
+} elseif ($submodule === 'rewards') {
+	load_module('gift', 'module');
+} elseif ($submodule === 'gm') {
+	load_module('gm', 'module');
+} elseif ($submodule === 'list') {
 	load_module('list', 'module');
+} else {
+    redirect(['val' => 60]);
 }
-unset($sendmail, $game_mj, $game_player, $char_id);
+unset($submodule);
 
 buffWrite('css', /** @lang CSS */ <<<CSSFILE
 	.give_exp { margin-right: 5px; }

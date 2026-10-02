@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+    <version date="20261002" code="1.57">
+        <tasks>
+            <task type="function">
+                <element name="functions/func_getXPFromDiscs.php">Calcul d'expérience pour les disciplines</element>
+                <comment>Corrige un bug dans le cas où l'étape 16 n'est pas définie.</comment>
+            </task>
+            <task type="function">
+                <element name="class/EsterenChar.php">Classe objet gérant le personnage</element>
+                <comment>Corrige un problème empêchant de créer le dossier d'export de feuille de personnage.</comment>
+            </task>
+            <task type="page">
+                <element name="pages/mod_campaigns.php" id="60"/>
+                <comment>Réorganisé les URLs de la gestion de campagnes pour les MJs.</comment>
+            </task>
+        </tasks>
+    </version>
     <version date="20251017" code="1.56">
         <tasks>
             <task type="page">
@@ -12,7 +28,7 @@
     <version date="20251012" code="1.55">
         <tasks>
             <task type="function">
-                <element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+                <element name="class/EsterenChar.php">Classe objet gérant le personnage</element>
                 <comment>Corrigé un bug qui calculait trop d'xp dépensée en achetant des arts de combat.</comment>
             </task>
         </tasks>
@@ -100,7 +116,7 @@
     <version date="20250922" code="1.48">
         <tasks>
             <task type="function">
-                <element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+                <element name="class/EsterenChar.php">Classe objet gérant le personnage</element>
                 <comment>Corrigé un bug lorsqu'un PDF était régénéré plusieurs fois, ce qui donnait lieu à une erreur.</comment>
             </task>
             <task type="page">
@@ -277,7 +293,7 @@
     <version date="20161019" code="1.33.5">
         <tasks>
             <task type="function">
-                <element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+                <element name="class/EsterenChar.php">Classe objet gérant le personnage</element>
                 <comment>Corrigé un bug mineur lorsque le personnage n'a pas d'améliorations de domaines</comment>
             </task>
         </tasks>
@@ -285,7 +301,7 @@
     <version date="20161003" code="1.33.4">
         <tasks>
             <task type="function">
-                <element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+                <element name="class/EsterenChar.php">Classe objet gérant le personnage</element>
                 <comment>Corrigé un bug lorsqu'un personnage n'a aucune discipline lors de l'étape de finalisation</comment>
             </task>
         </tasks>
@@ -494,7 +510,7 @@
 	<version date="20130707" code="1.23.0">
 		<tasks>
 			<task type="function">
-				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<element name="class/EsterenChar.php">Classe objet gérant le personnage</element>
 				<comment>Désormais, un joueur peut supprimer son personnage.</comment>
 				<comment>La suppression est désormais indiquée dans la table des modifications des personnages.</comment>
 			</task>
@@ -511,7 +527,7 @@
 				<comment>Prise en charge de Git pour les mises à jour.</comment>
 			</task>
 			<task type="function">
-				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<element name="class/EsterenChar.php">Classe objet gérant le personnage</element>
 				<comment>Corrigé un bug dans les feuilles de personnage en JPG qui n'affichait pas correctement les avantages et désavantages.</comment>
 			</task>
 		</tasks>
@@ -528,7 +544,7 @@
 				<comment>Corrigé les erreurs survenues lors de l'amélioration des performances.</comment>
 			</task>
 			<task type="function">
-				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<element name="class/EsterenChar.php">Classe objet gérant le personnage</element>
 				<comment>Ajouté une fonctionnalité permettant de stocker les modifications du personnage dans la BDD.</comment>
 			</task>
 			<task type="page">
@@ -544,7 +560,7 @@
 				<comment>Corrigé un bug mineur d'affichage au cas où le joueur n'a aucune partie en tant que maître de jeu.</comment>
 			</task>
 			<task type="function">
-				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<element name="class/EsterenChar.php">Classe objet gérant le personnage</element>
 				<comment>Corrigé un bug mineur dans la gestion des tableaux une fois que le personnage était créé avec le générateur.</comment>
 			</task>
 			<task type="page">
@@ -586,7 +602,7 @@
 				<comment>Correction de bugs mineurs concernant les disciplines et leur mise à jour, ainsi que la librairie Hash de CakePHP.</comment>
 			</task>
 			<task type="function">
-				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<element name="class/EsterenChar.php">Classe objet gérant le personnage</element>
 				<comment>Dans la 3e page du fichier PDF original, les daols de braise, d'azur et d'argent sont désormais correctement positionnés.</comment>
 			</task>
 			<task type="page">
@@ -640,7 +656,7 @@
 				<comment>Ajouté quelques liens sous forme de "focus" pour le référencement.</comment>
 			</task>
 			<task type="function">
-				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<element name="class/EsterenChar.php">Classe objet gérant le personnage</element>
 				<comment>Ajouté la feuille de personnage au format PDF.</comment>
 				<comment>Lorsque le personnage est modifié, les fichiers en cache sont automatiquement supprimés pour être générés à nouveau.</comment>
 			</task>
@@ -743,7 +759,7 @@
 				<comment>Corrigé un bug qui déconnectait l'utilisateur après avoir associé un personnage à son compte.</comment>
 			</task>
 			<task type="function">
-				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<element name="class/EsterenChar.php">Classe objet gérant le personnage</element>
 				<comment>Ajouté dans les feuilles de personnage les valeurs des champs "Artefacts","Arts de Combat","Ogham","Miracles".</comment>
 				<comment>Corrigé l'affichage des armures dans l'inventaire, pour permettre d'afficher 4 éléments au lieu d'un seul.</comment>
 			</task>
@@ -756,7 +772,7 @@
 				<comment>Corrigé un bug qui ne vérifiait pas correctement l'adresse mail et empêchait de s'inscrire.</comment>
 			</task>
 			<task type="function">
-				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<element name="class/EsterenChar.php">Classe objet gérant le personnage</element>
 				<comment>Suppression des fichiers de stockage des personnages. Désormais, tous les personnages sont stockés dans la base de données.</comment>
 			</task>
 		</tasks>
@@ -776,7 +792,7 @@
 	<version date="20130517" code="1.8.0">
 		<tasks>
 			<task type="function">
-				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<element name="class/EsterenChar.php">Classe objet gérant le personnage</element>
 				<comment>Désormais, le champ "faits marquants" est correctement affiché.</comment>
 				<comment>Désormais, l'avantage "Lettré" n'apporte plus un niveau supplémentaire dans un domaine, mais un bonus classique.</comment>
 				<comment>Ajouté une méthode pour enregistrer le personnage dans la base de données.</comment>
@@ -841,7 +857,7 @@
 				<comment>Les paramètres de l'url sont désormais traités par un gestionnaire de requêtes, et non plus uniquement par les requêtes GET.</comment>
 			</task>
 			<task type="function">
-				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<element name="class/EsterenChar.php">Classe objet gérant le personnage</element>
 				<comment>Désormais, le générateur de feuille de personnage peut créer une feuille printer friendly.</comment>
 			</task>
 			<task type="page">
@@ -853,7 +869,7 @@
 	<version date="20130504" code="1.6.0">
 		<tasks>
 			<task type="function">
-				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<element name="class/EsterenChar.php">Classe objet gérant le personnage</element>
 				<comment>Désormais, les scores de Vigueur et Traumatismes tiendront bien compte des revers.</comment>
 				<comment>Correction de l'affichage de la description et de l'histoire qui prenait beaucoup de temps dans le cas d'un texte très important.</comment>
 			</task>
@@ -862,7 +878,7 @@
 	<version date="20130502" code="1.5.0">
 		<tasks>
 			<task type="function">
-				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<element name="class/EsterenChar.php">Classe objet gérant le personnage</element>
 				<comment>Le Rindath et l'Exaltation augmentent bel et bien de 5 lorsque les disciplines correspondantes "Sigil Rann" ou "Miracles" sont choisies.</comment>
 				<comment>Correction des bonus aux domaines appliqués à l'étape 15. Ceux-ci sont désormais bien pris en compte.</comment>
 				<comment>Correction de l'affichage des points de traumatisme et d'endurcissement sur la feuille de personnage. Les "points" sont désormais bien positionnés par rapport aux cercles de la feuille de personnage.</comment>
@@ -985,7 +1001,7 @@
 				<comment>Les armures ne donnant aucun point de protection ne sont plus affichées (les casques en l'occurrence).</comment>
 			</task>
 			<task type="function">
-				<element name="functions/class_esterenchar.php">Classe objet gérant le personnage</element>
+				<element name="class/EsterenChar.php">Classe objet gérant le personnage</element>
 				<comment>Correction d'un bug sur l'affichage des points de traumatismes. Il en affichait 1 par défaut.</comment>
 				<comment>Changement de la sauvegarde du nom du personnage : le dossier créé contient désormais un simple hash md5 du nom du personnage. Cela permettra à terme d'éviter les problèmes d'encodage d'url, notamment pour les caractères spéciaux (apostrophes, guillemets...)</comment>
 			</task>

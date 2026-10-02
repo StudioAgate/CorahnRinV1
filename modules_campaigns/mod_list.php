@@ -47,7 +47,7 @@ $games_player = $db->req('SELECT
 			echo '<p>', tr('Aucune partie', true), '</p>';
 		} else {
 			foreach ($games as $id => $v) {
-				echo mkurl(array('type' => 'tag', 'anchor' => $v['name'], 'attr' => 'class="btn btn-link"', 'params' => array(0=>$id)));
+				echo mkurl(array('type' => 'tag', 'anchor' => '📝 '.$v['name'], 'attr' => 'class="btn btn-link"', 'params' => ['gm', $id]));
 				?><p><?php tr('Joueurs'); ?> : <?php
 				if (isset($v['characters']) && count($v['characters'])) {
 					foreach ($v['characters'] as $char_id => $char_name) {

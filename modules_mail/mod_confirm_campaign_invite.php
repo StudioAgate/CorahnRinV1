@@ -1,5 +1,9 @@
 <?php
 
+use App\bdd;
+
+/** @var bdd $db */
+
 $hash = isset($_PAGE['request'][1]) ? $_PAGE['request'][1] : 0;
 
 if (!$hash) {

@@ -1,12 +1,15 @@
 <?php
 
+use App\bdd;
 use App\EsterenChar;
 use App\Session;
 use App\Users;
 
-$game_id = isset($_PAGE['request'][0]) ? (int) $_PAGE['request'][0] : 0;
+/** @var bdd $db */
 
-$invite = isset($_PAGE['request'][1]) && $_PAGE['request'][1] === 'invite_char' ? $_PAGE['request'][1] : '';
+$game_id = (int) ($_PAGE['request'][1] ?? 0);
+$submodule = $_PAGE['request'][2] ?? 'list';
+$char_id = (int) ($_PAGE['request'][3] ?? 0);
 
 if (!$game_id) {
 	Session::setFlash('Une partie doit être sélectionnée', 'error');
@@ -27,9 +30,60 @@ if ($game['game_mj'] != Users::$id) {
 	exit;
 }
 
-if ($invite) {
-	load_module('gm_invite_char','module',array('game_id'=>$game_id, 'game'=>$game));
+if ($submodule === 'invite_char') {
+	load_module('gm_invite_char','module',array('game'=>$game));
 	return;
+} elseif ($submodule === 'delete_char') {
+    // Retrait du personnage de la campagne en cours
+    $sql = 'UPDATE %%characters SET %game_id = :game_id, %char_status = :char_status WHERE %char_id = :char_id ';
+    $datas['game_id'] = null;
+    $datas['char_status'] = 0;
+    $datas['char_id'] = $char_id;
+    $db->noRes($sql, $datas);
+    Session::setFlash('Le personnage a été correctement retiré de la campagne.');
+    redirect(array('params' => array('gm', $game_id)));
+} elseif ($submodule === 'sendmail') {
+    $result = $db->row('
+            SELECT %c.%char_name, %c.%char_confirm_invite,
+                %g.%game_id, %g.%game_name,
+                %uMj.%user_name %gm_name,
+                %u.%user_name, %u.%user_email
+            FROM %%characters %c
+            LEFT JOIN %%games %g ON %c.%game_id = %g.%game_id
+            LEFT JOIN %%users %u ON %c.%user_id = %u.%user_id
+            LEFT JOIN %%users %uMj ON %g.%game_mj = %u.%user_id
+            WHERE %c.%char_id = :char_id
+              AND %c.%char_status = :status
+              AND %g.%game_id = :game_id
+            ', array('char_id' => $char_id, 'status' => 0, 'game_id' => $game_id));
+
+    if (!$result) {
+        Session::setFlash('Erreur : personnage non trouvé, ou le personnage est déjà inscrit à une campagne.');
+        redirect(array('params' => array(0=>$game_id)));
+    }
+
+    $msg_invite = $db->row('SELECT %mail_id, %mail_contents, %mail_subject FROM %%mails WHERE %mail_code = ?', array('campaign_invite'));
+    $subj = tr($msg_invite['mail_subject'], true, null, 'mails');
+    $txt = tr($msg_invite['mail_contents'], true, array(
+        '{user_name}' => $result['user_name'],
+        '{cp_name}' => $result['game_name'],
+        '{char_name}' => $result['char_name'],
+        '{cp_mj}' => $result['gm_name'],
+        '{link}' => mkurl(array('val'=>64,'type'=>'tag','anchor'=>'Confirmer l\'invitation','trans'=>true,'params'=>array('confirm_campaign_invite', $result['char_confirm_invite']))),
+    ), 'mails');
+
+    $dest = array(
+        'mail' => $result['user_email'],
+        'name' => $result['user_name'],
+    );
+
+    try {
+        send_mail($dest, $subj, $txt, $msg_invite['mail_id']);
+        Session::setFlash('Le mail a bien été renvoyé à l\'utilisateur.');
+    } catch (Exception $e) {
+        Session::setFlash('Une erreur est survenue dans l\'envoi de l\'email de confirmation au joueur...', 'warning');
+    }
+    redirect(array('params' => array('gm', $game_id)));
 }
 
 $sql = 'SELECT
@@ -62,7 +116,7 @@ $chars = $db->req($sql, $game['game_id']);
 		'type'=>'tag',
 		'attr'=>array('class'=>'btn btn-inverse'),
 		'anchor'=>'Inviter des joueurs',
-		'params'=>array($game_id, 'invite_char'),
+		'params'=>array('gm', $game_id, 'invite_char'),
 	));?>
 
 	<table class="table table-condensed table-striped table-hover">
@@ -112,24 +166,24 @@ $chars = $db->req($sql, $game['game_id']);
                                 'class' => 'btn btn-mini btn-block give_exp btn-info',
                                 'style' => 'color: white;',
                             ),
-                            'params' => array(0=>$game_id,1=>$char['char_id'],'sendmail'))
+                            'params' => array('gm', $game_id, 'sendmail', $char['char_id']))
                         );
                     } elseif ($char['char_status'] == 1 || $char['char_status'] == 2) {
                         echo mkurl(array(
                             'type' => 'tag',
                             'anchor' => 'Récompenses',
-                                'trans' => true,
+                            'trans' => true,
                             'attr' => array(
                                 'title' => tr('Ajouter une récompense', true),
                                 'class' => 'btn btn-mini btn-block give_exp',
                             ),
-                            'params' => array(0=>$game_id,1=>$char['char_id']))
+                            'params' => array('rewards', $game_id, $char['char_id']))
                         );
                         echo mkurl(array(
                             'val' => 47,
                             'type' => 'tag',
                             'anchor' => 'Voir le personnage',
-                                'trans' => true,
+                            'trans' => true,
                             'attr' => array(
                                 'title' => tr('Voir le personnage', true),
                                 'class' => 'btn btn-mini btn-block',
@@ -146,7 +200,7 @@ $chars = $db->req($sql, $game['game_id']);
                                 'style' => 'color: white;',
                                 'onclick' => 'return confirm(\''.tr('Retirer le personnage de la campagne ?', true).'\');',
                             ),
-                            'params' => array(0=>$game_id,1=>$char['char_id'],'delete'))
+                            'params' => array('gm', $game_id, 'delete_char', $char['char_id']))
                         );
                     }
 				?></td>

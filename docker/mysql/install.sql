@@ -658,6 +658,13 @@ CREATE TABLE `est_games` (
   PRIMARY KEY (`game_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
 
+--
+-- Contenu de la table `est_games`
+--
+
+INSERT INTO `est_games` (`game_id`, `game_name`, `game_summary`, `game_notes`, `game_mj`) VALUES
+(1, "Test", "Lorem ipsum dolor sit amet", "Note 1\nNote 2", 1);
+
 -- --------------------------------------------------------
 
 --

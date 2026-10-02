@@ -3,6 +3,9 @@
 ## Récupération de $_POST à partir des réelles données POST, pour obtenir les bons noms de variable entrées en paramètre,
 use App\Session;
 
+/** @var \App\EsterenChar $char */
+/** @var \App\bdd $db */
+
 $post = get_post_data();
 
 foreach ($post['arme'] as $k => $v) {
@@ -70,15 +73,10 @@ if ($traumaCurables + $traumaPerma <= 20) {
 }
 
 $endurcissement = abs((int) $post['endur_perma']);
-$char->set('endurcissement', $endurcissement < 20 ? $endurcissement : 20);
+$char->set('endurcissement', min($endurcissement, 20));
 
 if ($char->update_to_db()) {
-	Session::setFlash('Le personnage a été correctement modifié !', 'success');
-	header('Location:'.mkurl(array('val'=>60,'params'=>array($game_id))));
-	exit;
+    redirect(['val'=>60,'params'=> [$game_id]], 'Le personnage a été correctement modifié !');
 } else {
-	Session::setFlash('Vous n\'avez spécifié aucune modification pour le personnage.', 'notif');
-	header('Location:'.mkurl(array('params'=>array($game_id, $char_id))));
-	exit;
+    redirect(['val'=>60,'params'=> [$game_id, $char_id]], 'Vous n\'avez spécifié aucune modification pour le personnage.', 'notif');
 }
-

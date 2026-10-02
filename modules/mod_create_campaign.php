@@ -1,7 +1,10 @@
 <?php
 
+use App\bdd;
 use App\Session;
 use App\Users;
+
+/** @var bdd $db */
 
 $characters = $db->req('
 	SELECT %%characters.%char_id, %%characters.%char_name, %%characters.%user_id, %%characters.%char_status,
@@ -15,14 +18,9 @@ $characters = $db->req('
             %%characters.%char_status = 0
             OR %%characters.%char_status IS NULL
 	    )
-	ORDER BY %%users.%user_name ASC');
+	ORDER BY %%users.%user_name ASC') ?: [];
 
 $users = [];
-
-if (!is_array($characters)) {
-    Session::setFlash('Erreur dans la liste des personnages...', 'error');
-    redirect(['val'=>1]);
-}
 
 foreach ($characters as $k => $v) {
 	if ($v['user_name'] && $v['char_status'] == 0) {
@@ -144,27 +142,35 @@ if ($send === true) {
 			</div>
 			<div class="span7 offset1">
 				<h4><?php tr('Invitez les joueurs à participer à votre campagne !'); ?></h4>
-				<p class="info"><?php tr('Sélectionnez les personnages des joueurs que vous voulez intégrer à votre campagne.')?></p>
-				<div class="row-fluid">
-				<?php
-				foreach ($users as $user_id => $user) {
-					$i = 0; ?>
-					<h5><?php echo $user['name'], ' <small>', count($user['characters']), ' ', tr('personnage(s) disponible(s)', true), '</small>'; ?></h5>
-					<div class="row-fluid char_list">
-							<?php foreach ($user['characters'] as $k => $v) {
-								if ($v['user_id'] == $user_id) {
-									$btnchecked = isset($_POST['char_select']) ? (in_array($v['char_id'], $_POST['char_select']) ? ' btn-inverse' : '') : '';
-									$inputval = isset($_POST['char_select']) ? (in_array($v['char_id'], $_POST['char_select']) ? '1' : '0') : '0';
-									?>
-								<a class="select_char span3 btn<?php echo $btnchecked; ?>" data-valid="char_select[<?php echo $v['char_id']; ?>]"><?php echo $v['char_name']; ?></a>
-								<input type="hidden" name="char_select[<?php echo $v['char_id']; ?>]" value="<?php echo $inputval; ?>" />
-							<?php
-								$i++;
-								if ($i % 3 === 0) { ?></div><div class="row-fluid"><?php }
-							} }?>
-					</div>
-				<?php } ?>
-				</div>
+                <?php
+                if ($characters) {
+                    ?>
+                    <p class="info"><?php tr('Sélectionnez les personnages des joueurs que vous voulez intégrer à votre campagne.')?></p>
+                    <div class="row-fluid">
+                        <?php
+                        foreach ($users as $user_id => $user) {
+                            $i = 0; ?>
+                            <h5><?php echo $user['name'], ' <small>', count($user['characters']), ' ', tr('personnage(s) disponible(s)', true), '</small>'; ?></h5>
+                            <div class="row-fluid char_list">
+                            <?php foreach ($user['characters'] as $k => $v) {
+                                if ($v['user_id'] == $user_id) {
+                                    $btnchecked = isset($_POST['char_select']) ? (in_array($v['char_id'], $_POST['char_select']) ? ' btn-inverse' : '') : '';
+                                    $inputval = isset($_POST['char_select']) ? (in_array($v['char_id'], $_POST['char_select']) ? '1' : '0') : '0';
+                                    ?>
+                                    <a class="select_char span3 btn<?php echo $btnchecked; ?>" data-valid="char_select[<?php echo $v['char_id']; ?>]"><?php echo $v['char_name']; ?></a>
+                                    <input type="hidden" name="char_select[<?php echo $v['char_id']; ?>]" value="<?php echo $inputval; ?>" />
+                                    <?php
+                                    $i++;
+                                    if ($i % 3 === 0) { ?></div><div class="row-fluid"><?php }
+                                } }?>
+                            </div>
+                        <?php } ?>
+                    </div>
+                    <?php
+                } else {
+                    ?><p class="warning"><?php tr('Aucun personnage')?></p> <?php
+                }
+                ?>
 			</div>
 		</div>
 	</div><!-- /container -->
