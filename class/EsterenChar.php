@@ -1658,18 +1658,14 @@ class EsterenChar {
 
 		$char_name_dest = clean_word($this->get('details_personnage.name'));
 
+		$dest_folder = CHAR_EXPORT.DS.$this->id.DS;
+		FileAndDir::createPath($dest_folder);
+
 		$ret_names = array(
-			CHAR_EXPORT.DS.$this->id.DS.$char_name_dest.'_original1'.($printer_friendly === true ? '-print' : '').'_'.P_LANG.'.jpg',
-			CHAR_EXPORT.DS.$this->id.DS.$char_name_dest.'_original2'.($printer_friendly === true ? '-print' : '').'_'.P_LANG.'.jpg',
-			CHAR_EXPORT.DS.$this->id.DS.$char_name_dest.'_original3'.($printer_friendly === true ? '-print' : '').'_'.P_LANG.'.jpg',
+			$dest_folder.$char_name_dest.'_original1'.($printer_friendly === true ? '-print' : '').'_'.P_LANG.'.jpg',
+			$dest_folder.$char_name_dest.'_original2'.($printer_friendly === true ? '-print' : '').'_'.P_LANG.'.jpg',
+			$dest_folder.$char_name_dest.'_original3'.($printer_friendly === true ? '-print' : '').'_'.P_LANG.'.jpg',
 		);
-
-		$name = $this->id;
-		$dest_folder = ROOT.DS.'webroot'.DS.'files'.DS.'characters_export'.DS.$name;
-
-		if (!FileAndDir::dexists($dest_folder)) {
-			FileAndDir::createPath($dest_folder);
-		}
 
 		$x = 1191;//Largeur
 		$y = 1685;//Hauteur
