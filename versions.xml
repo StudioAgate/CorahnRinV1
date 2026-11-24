@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <versions>
+    <version date="20261124" code="1.58">
+        <tasks>
+            <task type="page">
+                <element name="pages/mod_admin_my_chars.php" id="58"/>
+                <comment>Corrigé une erreur liée à des personnages supprimés étant invités dans une partie.</comment>
+            </task>
+        </tasks>
+    </version>
     <version date="20261002" code="1.57">
         <tasks>
             <task type="function">
