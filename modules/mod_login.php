@@ -17,6 +17,13 @@ if (isset($_PAGE['request'][0]) && $_PAGE['request'][0] === 'logout') {
 	exit;
 }
 
+## Retour à l'utilisateur d'origine
+if (isset($_PAGE['request'][0]) && $_PAGE['request'][0] === 'stop_impersonating' && Session::check('IMPERSONATING_USER_ORIGIN_ID')) {
+	Session::write('user', Session::read('IMPERSONATING_USER_ORIGIN_ID'));
+	Session::delete('IMPERSONATING_USER_ORIGIN_ID');
+	redirect(array('val' => 57));
+}
+
 if (P_LOGGED === true) {
 	header('Location:'.mkurl(array('val'=>34)));
 	exit;

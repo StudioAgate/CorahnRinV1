@@ -58,6 +58,9 @@ if (isset($_SESSION['etape'])) {
 										<li<?php echo P_LANG === 'en' ? ' class="active"' : ''; ?>><?php echo mkurl(array('val'=>$_PAGE['id'], 'type' => 'tag', 'anchor' => 'Anglais','lang'=>'en', 'params' => $_PAGE['request'])); ?></li>
 									</ul>
 								</li>
+								<?php if (Session::check('IMPERSONATING_USER_ORIGIN_ID')) {
+									?><li><?php echo mkurl(array('val'=>48, 'type' => 'tag', 'anchor' => 'Stop impersonating', 'params' => array('stop_impersonating'))); ?></li><?php
+								} ?>
 								<?php if (P_LOGGED === false) {
 									?><li><?php echo mkurl(array('val'=>48, 'type' => 'tag')); ?></li><?php
 									?><li><?php echo mkurl(array('val'=>56, 'type' => 'tag')); ?></li><?php
