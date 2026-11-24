@@ -59,7 +59,7 @@ if ($submodule === 'sendmail') {
             LEFT JOIN %%users %uMj ON %g.%game_mj = %u.%user_id
             WHERE %c.%char_id = :char_id
               AND %c.%char_status = :status
-              AND %c.%deleted_at = null
+              AND %c.%deleted_at IS NULL
               AND %g.%game_id = :game_id
             ', array('char_id' => $char_id, 'status' => 0, 'game_id' => $game_id));
 
@@ -102,7 +102,7 @@ LEFT JOIN %%jobs
 LEFT JOIN %%users
 	ON %%users.%user_id = %%characters.%user_id
 WHERE %%characters.%game_id = ?
-    AND %%characters.%deleted_at = null
+    AND %%characters.%deleted_at IS NULL
 SQL;
 $chars = $db->req($sql, $game['game_id']);
 

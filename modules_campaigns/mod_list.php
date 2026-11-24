@@ -1,6 +1,9 @@
 <?php
 
+use App\bdd;
 use App\Users;
+
+/** @var bdd $db */
 
 $games_mj = $db->req('
 	SELECT %%games.%game_name, %%games.%game_id, %%characters.%char_id, %%characters.%char_name
@@ -15,7 +18,7 @@ if (!$games_mj) {
 $games = [];
 foreach($games_mj as $v) {
 	$games[$v['game_id']]['name'] = $v['game_name'];
-	if ($v['char_id'] && $v['char_id'] !== null) {
+	if ($v['char_id']) {
 		$games[$v['game_id']]['characters'][$v['char_id']] = $v['char_name'];
 	}
 }
