@@ -30,10 +30,13 @@ if ($game['game_mj'] != Users::$id) {
 	exit;
 }
 
+
 if ($submodule === 'invite_char') {
 	load_module('gm_invite_char','module',array('game'=>$game));
 	return;
-} elseif ($submodule === 'delete_char') {
+}
+
+if ($submodule === 'delete_char') {
     // Retrait du personnage de la campagne en cours
     $sql = 'UPDATE %%characters SET %game_id = :game_id, %char_status = :char_status WHERE %char_id = :char_id ';
     $datas['game_id'] = null;
@@ -42,7 +45,9 @@ if ($submodule === 'invite_char') {
     $db->noRes($sql, $datas);
     Session::setFlash('Le personnage a été correctement retiré de la campagne.');
     redirect(array('params' => array('gm', $game_id)));
-} elseif ($submodule === 'sendmail') {
+}
+
+if ($submodule === 'sendmail') {
     $result = $db->row('
             SELECT %c.%char_name, %c.%char_confirm_invite,
                 %g.%game_id, %g.%game_name,
@@ -54,6 +59,7 @@ if ($submodule === 'invite_char') {
             LEFT JOIN %%users %uMj ON %g.%game_mj = %u.%user_id
             WHERE %c.%char_id = :char_id
               AND %c.%char_status = :status
+              AND %c.%deleted_at = null
               AND %g.%game_id = :game_id
             ', array('char_id' => $char_id, 'status' => 0, 'game_id' => $game_id));
 
@@ -86,15 +92,18 @@ if ($submodule === 'invite_char') {
     redirect(array('params' => array('gm', $game_id)));
 }
 
-$sql = 'SELECT
-		%%characters.%char_name, %%characters.%char_job, %%characters.%char_status, %%characters.%char_id,
-		%%jobs.%job_name, %%users.%user_name
-	FROM %%characters
-	LEFT JOIN %%jobs
-		ON %%jobs.%job_id = %%characters.%char_job
-	LEFT JOIN %%users
-		ON %%users.%user_id = %%characters.%user_id
-	WHERE %%characters.%game_id = ?';
+$sql = <<<'SQL'
+SELECT
+	%%characters.%char_name, %%characters.%char_job, %%characters.%char_status, %%characters.%char_id,
+	%%jobs.%job_name, %%users.%user_name
+FROM %%characters
+LEFT JOIN %%jobs
+	ON %%jobs.%job_id = %%characters.%char_job
+LEFT JOIN %%users
+	ON %%users.%user_id = %%characters.%user_id
+WHERE %%characters.%game_id = ?
+    AND %%characters.%deleted_at = null
+SQL;
 $chars = $db->req($sql, $game['game_id']);
 
 ?>
